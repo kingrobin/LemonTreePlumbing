@@ -1,0 +1,191 @@
+/* ============================================================
+   core.css — 全站共用
+   Reset / CSS variables / 共用元件（buttons, container）
+   ============================================================ */
+
+:root {
+  /* Brand colors (Figma) */
+  --color-navy:        #262A71;
+  --color-navy-dark:   #1B1F55;
+  --color-yellow:      #F0BC29;
+  --color-yellow-dark: #D4A017;
+
+  /* Neutrals */
+  --color-bg-light:    #F5F5F5;
+  --color-text-body:   #333333;
+  --color-text-muted:  #666666;
+  --color-white:       #FFFFFF;
+
+  /* Typography (Figma) */
+  --font-display: 'Big Shoulders Display', 'Big Shoulders', sans-serif;
+  --font-cta:     'Big Shoulders', 'Big Shoulders Display', sans-serif;
+  --font-body:    'Roboto', system-ui, sans-serif;
+  --font-small:   'Montserrat', system-ui, sans-serif;
+
+  /* Sizing */
+  --container-max: 85.375rem;     /* 1366px */
+  --gutter-mobile: 1.5rem;        /* 24px */
+  --gutter-desktop: 3rem;         /* 48px */
+
+  /* Radii */
+  --radius-card: 0.75rem;         /* 12px */
+  --radius-btn:  0.625rem;        /* 10px */
+
+  /* Section spacing */
+  --section-py-mobile: 3rem;
+  --section-py-desktop: 5rem;
+}
+
+/* ---------- Reset ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  overflow-x: clip;                    /* 擋掉全頁水平捲動（slider full-bleed 必須） */
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body, system-ui, sans-serif);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--color-text-body, #333);
+  background: var(--color-white, #fff);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;                    /* 雙保險 */
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+ul, ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body.is-menu-open { overflow: hidden; }
+
+/* ---------- Container ---------- */
+.container {
+  width: 100%;
+  max-width: var(--container-max, 85.375rem);
+  margin: 0 auto;
+  padding-left: var(--gutter-mobile, 1.5rem);
+  padding-right: var(--gutter-mobile, 1.5rem);
+}
+@media (min-width: 1024px) {
+  .container {
+    padding-left: var(--gutter-desktop, 3rem);
+    padding-right: var(--gutter-desktop, 3rem);
+  }
+}
+
+/* ============================================================
+   Typography presets (Figma design system tokens)
+   ============================================================ */
+
+/* Section title — shared h2 base */
+.section-title {
+  margin: 0;
+  font-family: var(--font-display, sans-serif);
+  font-weight: 800;
+  font-size: clamp(2rem, 5vw, 3.75rem);               /* 32 → 60px */
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--color-navy, #262A71);
+}
+
+/* Body text — Figma "text-regular" (18px Montserrat) */
+.text-regular {
+  margin: 0;
+  font-family: var(--font-small, sans-serif);
+  font-weight: 500;
+  font-size: 1.125rem;                                /* 18px */
+  line-height: 1.4;
+  letter-spacing: 0.05625rem;                         /* 0.9px */
+}
+
+/* Larger body — text-large (23px Montserrat) */
+.text-large {
+  margin: 0;
+  font-family: var(--font-small, sans-serif);
+  font-weight: 500;
+  font-size: 1.4375rem;                               /* 23px */
+  line-height: 1.3;
+  letter-spacing: 0;
+}
+
+/* H3 — Figma h3 token (Big Shoulders ExtraBold 35px) */
+.h3 {
+  margin: 0;
+  font-family: var(--font-cta, sans-serif);
+  font-weight: 800;
+  font-size: clamp(1.5rem, 3vw, 2.1875rem);           /* 24 → 35px */
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+/* ============================================================
+   Buttons (shared) — 防呆原則：
+   text-decoration:none; cursor:pointer; color:<value>; display:inline-flex;
+   ============================================================ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  font-family: var(--font-cta, sans-serif);
+  font-weight: 800;
+  border-radius: var(--radius-btn, 0.625rem);
+  border: none;
+  transition: background-color .2s ease, color .2s ease, transform .15s ease;
+}
+.btn:active { transform: translateY(1px); }
+
+/* Primary — yellow chip with navy text */
+.btn--primary {
+  background: var(--color-yellow, #F0BC29);
+  color: var(--color-navy, #262A71);
+}
+.btn--primary:hover {
+  background: var(--color-yellow-dark, #D4A017);
+  color: var(--color-navy, #262A71);
+}
+
+/* Sizes */
+.btn--sm  { padding: 0.5rem 1.25rem; font-size: 1.25rem; height: 2.5rem; }
+.btn--md  { padding: 0.625rem 1.5rem; font-size: 1.25rem; height: 3rem; }
+.btn--lg  { padding: 1.125rem 1.875rem; font-size: 1.6875rem; height: 4.0625rem; }
+
+/* Phone link variant (un-styled <a> with hover) */
+.link-phone {
+  display: inline-flex;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: var(--font-display, sans-serif);
+  font-weight: 800;
+  color: var(--color-yellow, #F0BC29);
+  white-space: nowrap;
+  transition: color .2s ease;
+}
+.link-phone:hover { color: var(--color-yellow-dark, #D4A017); }

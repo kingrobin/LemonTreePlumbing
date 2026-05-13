@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LemonTree Plumbing — Reliable East Bay Plumbers | Berkeley · Albany · Oakland</title>
+  <meta name="description" content="Licensed & insured plumbers serving Berkeley, Albany, El Cerrito, Oakland and the East Bay. 24/7 live answer, upfront pricing, 60+ five-star reviews.">
+
+  <!-- Fonts (from Figma): Big Shoulders Display, Big Shoulders, Roboto, Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Big+Shoulders:wght@700;800&family=Roboto:wght@400;500;700&family=Montserrat:wght@400;500;700&display=swap">
+
+  <!-- Styles (load order: core → header/footer → page) -->
+  <link rel="stylesheet" href="assets/css/core.css">
+  <link rel="stylesheet" href="assets/css/header.css">
+  <link rel="stylesheet" href="assets/css/footer.css">
+  <link rel="stylesheet" href="assets/css/home.css">
+</head>
+<body>
+
+  <!-- Shared header injected here -->
+  <div id="inject-header"></div>
+
+  <main>
+
+    <!-- ====================================================
+         HERO
+         ==================================================== -->
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="hero__overlay" aria-hidden="true"></div>
+
+      <div class="hero__inner">
+        <div class="hero__title">
+          <p class="hero__eyebrow">
+            <span class="hero__eyebrow-word hero__eyebrow-word--key">Local</span><span>,</span>
+            <span class="hero__eyebrow-word hero__eyebrow-word--key">Licensed</span>
+            <span class="hero__eyebrow-word">&amp;</span>
+            <span class="hero__eyebrow-word hero__eyebrow-word--key">Insured</span>
+            <span class="hero__eyebrow-word hero__eyebrow-word--tail">East Bay Plumbers</span>
+          </p>
+
+          <h1 class="hero__h1" id="heroTitle">
+            Reliable Plumbing Services for East Bay Homes &amp; Businesses
+          </h1>
+
+          <a class="hero__cta" href="tel:+15105027843" aria-label="Call (510) 502-7843">
+            <svg viewBox="0 0 27 27" aria-hidden="true">
+              <path d="M4.9 1.7a2.3 2.3 0 0 1 2.7-1.2l4 1a2.3 2.3 0 0 1 1.7 2.6l-.6 3.2a2.3 2.3 0 0 1-1.4 1.7l-2.3.9a16 16 0 0 0 8 8l1-2.3a2.3 2.3 0 0 1 1.7-1.4l3.2-.6a2.3 2.3 0 0 1 2.6 1.7l1 4a2.3 2.3 0 0 1-1.2 2.7l-1.9.8a4.5 4.5 0 0 1-2.1.3A23.4 23.4 0 0 1 1.2 6.8a4.5 4.5 0 0 1 .3-2.1l.8-1.9z"/>
+            </svg>
+            <span>(510) 502-7843</span>
+          </a>
+        </div>
+
+        <!-- Trust bar -->
+        <div class="hero__trust">
+
+          <!-- 1. 24/7 Live Answer -->
+          <div class="hero__trust-item">
+            <img class="hero__trust-icon" src="assets/img/icon/24-7.svg" alt="">
+            <p class="hero__trust-title">24/7 Live Answer</p>
+            <p class="hero__trust-text">Real humans, no phone trees</p>
+          </div>
+
+          <!-- 2. Upfront Pricing -->
+          <div class="hero__trust-item">
+            <img class="hero__trust-icon" src="assets/img/icon/price.svg" alt="">
+            <p class="hero__trust-title">$0 Hidden Fees</p>
+            <p class="hero__trust-text">Upfront pricing, always</p>
+          </div>
+
+          <!-- 3. 5-Star Reviews -->
+          <div class="hero__trust-item">
+            <span class="hero__trust-icon hero__trust-icon--stars" aria-hidden="true">
+              <img src="assets/img/star.svg" alt="">
+              <img src="assets/img/star.svg" alt="">
+              <img src="assets/img/star.svg" alt="">
+              <img src="assets/img/star.svg" alt="">
+              <img src="assets/img/star.svg" alt="">
+            </span>
+            <p class="hero__trust-title">60+ 5-Star Reviews</p>
+            <p class="hero__trust-text">Google &amp; Yelp verified</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================
+         TAGLINE + SERVICES (yellow background)
+         section 內含兩個 h2（品牌標 + Services 標）— 不設 aria-labelledby 避免歧義
+         ==================================================== -->
+    <section class="services-block">
+
+      <!-- Bear mascot — working (with wrench) — 直接放在 section 下，靠 viewport 右邊 -->
+      <img class="services-block__mascot" src="assets/img/mascot/working.svg" alt="" aria-hidden="true">
+
+      <!-- Tagline area -->
+      <div class="services-block__tagline">
+        <div class="services-block__portrait">
+          <img src="assets/img/services-lin.jpg" alt="Lin — LemonTree Plumbing technician">
+        </div>
+
+        <div class="services-block__tagline-body">
+          <h2 class="services-block__headline">
+            From <span class="services-block__headline-em">SMALL LEAKS</span> to
+            <span class="services-block__headline-em">URGENT EMERGENCIES</span>
+          </h2>
+          <h3 class="services-block__sub">Honest, high-quality plumbing<br>you can count on.</h3>
+          <p class="text-regular services-block__cities">across Berkeley, Albany, El Cerrito, Kensington, North Oakland, Alameda, Emeryville, El Sobrante, Pinole, Orinda.</p>
+        </div>
+      </div>
+
+      <!-- Section title -->
+      <header class="services-block__header">
+        <h2 class="section-title services-block__title" id="servicesTitle">Our Services</h2>
+        <p class="text-regular services-block__intro">Whether you're dealing with a stubborn clog, planning a fixture upgrade, or protecting your home from costly water damage.</p>
+      </header>
+
+      <!-- Service cards grid -->
+      <div class="services-block__grid">
+
+        <a class="service-card" href="services/drain-sewer.html">
+          <div class="service-card__media">
+            <div class="service-card__bg" data-bg="drain" aria-hidden="true"></div>
+          </div>
+          <div class="service-card__caption">
+            <h3 class="service-card__title">Drain &amp; Sewer</h3>
+            <p class="service-card__desc">Fast, effective clearing of stubborn clogs and full drain line repairs for East Bay homes.</p>
+            <span class="service-card__more" aria-hidden="true">Learn More <span>→</span></span>
+            <span class="service-card__arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M5 12h13M13 7l5 5-5 5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <a class="service-card" href="services/water-fixture-repair.html">
+          <div class="service-card__media">
+            <div class="service-card__bg" data-bg="fixture" aria-hidden="true"></div>
+          </div>
+          <div class="service-card__caption">
+            <h3 class="service-card__title">Water Fixture Repair</h3>
+            <p class="service-card__desc">Faucet, toilet, and fixture repair or replacement.</p>
+            <span class="service-card__more" aria-hidden="true">Learn More <span>→</span></span>
+            <span class="service-card__arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M5 12h13M13 7l5 5-5 5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <a class="service-card" href="services/gas-line.html">
+          <div class="service-card__media">
+            <div class="service-card__bg" data-bg="gas" aria-hidden="true"></div>
+          </div>
+          <div class="service-card__caption">
+            <h3 class="service-card__title">Gas Line Services</h3>
+            <p class="service-card__desc">Safe gas line installation, repair, and leak detection.</p>
+            <span class="service-card__more" aria-hidden="true">Learn More <span>→</span></span>
+            <span class="service-card__arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M5 12h13M13 7l5 5-5 5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <a class="service-card" href="services/water-repipe.html">
+          <div class="service-card__media">
+            <div class="service-card__bg" data-bg="repipe" aria-hidden="true"></div>
+          </div>
+          <div class="service-card__caption">
+            <h3 class="service-card__title">Water Repipe</h3>
+            <p class="service-card__desc">Full pipe repair, replacement, and whole-home repiping.</p>
+            <span class="service-card__more" aria-hidden="true">Learn More <span>→</span></span>
+            <span class="service-card__arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M5 12h13M13 7l5 5-5 5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <a class="service-card" href="services/hydronic-radiant-heating.html">
+          <div class="service-card__media">
+            <div class="service-card__bg" data-bg="radiant" aria-hidden="true"></div>
+          </div>
+          <div class="service-card__caption">
+            <h3 class="service-card__title">Hydronic Radiant Heating</h3>
+            <p class="service-card__desc">Energy-efficient radiant floor heating installation.</p>
+            <span class="service-card__more" aria-hidden="true">Learn More <span>→</span></span>
+            <span class="service-card__arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M5 12h13M13 7l5 5-5 5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+            </span>
+          </div>
+        </a>
+
+        <a class="service-card" href="services/water-heater.html">
+          <div class="service-card__media">
+            <div class="service-card__bg" data-bg="heater" aria-hidden="true"></div>
+          </div>
+          <div class="service-card__caption">
+            <h3 class="service-card__title">Water Heater Services</h3>
+            <p class="service-card__desc">Tank and tankless water heater repair and replacement.</p>
+            <span class="service-card__more" aria-hidden="true">Learn More <span>→</span></span>
+            <span class="service-card__arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M5 12h13M13 7l5 5-5 5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+            </span>
+          </div>
+        </a>
+
+      </div>
+
+      <!-- Section footer CTA -->
+      <div class="services-block__footer">
+        <p class="text-large services-block__footer-text">Need help with your plumbing issues?</p>
+        <a class="btn-call btn-call--navy" href="tel:+15105027843" aria-label="Call (510) 502-7843">
+          <span class="btn-call__icon">
+            <svg viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M3.6 1.3a1.7 1.7 0 0 1 2-.9l3 .7a1.7 1.7 0 0 1 1.3 1.9l-.5 2.4a1.7 1.7 0 0 1-1 1.2l-1.7.7a12 12 0 0 0 5.9 5.9l.7-1.7a1.7 1.7 0 0 1 1.2-1l2.4-.5a1.7 1.7 0 0 1 1.9 1.3l.7 3a1.7 1.7 0 0 1-.9 2l-1.4.6a3.3 3.3 0 0 1-1.6.2A17.4 17.4 0 0 1 .9 5.1a3.3 3.3 0 0 1 .2-1.6l.6-1.4z"/>
+            </svg>
+          </span>
+          <span>Call (510) 502-7843</span>
+        </a>
+      </div>
+
+    </section>
+
+    <!-- ====================================================
+         SERVICE AREAS (white background, map + city list)
+         ==================================================== -->
+    <section class="service-areas" aria-labelledby="areasTitle">
+
+      <!-- Map (circular) — 底圖 + 中央 location mark -->
+      <div class="service-areas__map" aria-hidden="true">
+        <img class="service-areas__map-bg" src="assets/img/map.jpg" alt="">
+        <img class="service-areas__map-pin" src="assets/img/icon/location.svg" alt="">
+      </div>
+
+      <!-- Content -->
+      <div class="service-areas__content">
+        <span class="service-areas__label">SERVICE AREAS</span>
+        <h2 class="section-title service-areas__title" id="areasTitle">Proudly Serving<br>the East Bay</h2>
+        <p class="text-regular service-areas__desc">We provide plumbing services across a wide portion of the East Bay, focusing on residential and small commercial properties. Our team knows the local building styles, older plumbing systems, and common issues specific to this area—so we can diagnose and solve problems efficiently.</p>
+
+        <ul class="service-areas__list">
+          <li><a class="area-link" href="areas/berkeley.html">Berkeley
+            <svg class="area-link__arrow" viewBox="0 0 30 24" aria-hidden="true"><path d="M0 12h25M20 4l8 8-8 8" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+          </a></li>
+          <li><a class="area-link" href="areas/albany.html">Albany
+            <svg class="area-link__arrow" viewBox="0 0 30 24" aria-hidden="true"><path d="M0 12h25M20 4l8 8-8 8" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+          </a></li>
+          <li><a class="area-link" href="areas/el-cerrito.html">El Cerrito
+            <svg class="area-link__arrow" viewBox="0 0 30 24" aria-hidden="true"><path d="M0 12h25M20 4l8 8-8 8" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+          </a></li>
+          <li><a class="area-link" href="areas/kensington.html">Kensington
+            <svg class="area-link__arrow" viewBox="0 0 30 24" aria-hidden="true"><path d="M0 12h25M20 4l8 8-8 8" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+          </a></li>
+          <li><a class="area-link" href="areas/north-oakland.html">North Oakland
+            <svg class="area-link__arrow" viewBox="0 0 30 24" aria-hidden="true"><path d="M0 12h25M20 4l8 8-8 8" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+          </a></li>
+          <li><a class="area-link" href="areas/alameda.html">Alameda
+            <svg class="area-link__arrow" viewBox="0 0 30 24" aria-hidden="true"><path d="M0 12h25M20 4l8 8-8 8" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+          </a></li>
+          <li><a class="area-link" href="areas/emeryville.html">Emeryville
+            <svg class="area-link__arrow" viewBox="0 0 30 24" aria-hidden="true"><path d="M0 12h25M20 4l8 8-8 8" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+          </a></li>
+          <li><a class="area-link" href="areas/el-sobrante.html">El Sobrante
+            <svg class="area-link__arrow" viewBox="0 0 30 24" aria-hidden="true"><path d="M0 12h25M20 4l8 8-8 8" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+          </a></li>
+          <li><a class="area-link" href="areas/pinole.html">Pinole
+            <svg class="area-link__arrow" viewBox="0 0 30 24" aria-hidden="true"><path d="M0 12h25M20 4l8 8-8 8" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+          </a></li>
+          <li><a class="area-link" href="areas/orinda.html">Orinda
+            <svg class="area-link__arrow" viewBox="0 0 30 24" aria-hidden="true"><path d="M0 12h25M20 4l8 8-8 8" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+          </a></li>
+        </ul>
+
+        <a class="service-areas__cta" href="tel:+15105027843" aria-label="Call (510) 502-7843">
+          <svg viewBox="0 0 27 27" aria-hidden="true">
+            <path d="M4.9 1.7a2.3 2.3 0 0 1 2.7-1.2l4 1a2.3 2.3 0 0 1 1.7 2.6l-.6 3.2a2.3 2.3 0 0 1-1.4 1.7l-2.3.9a16 16 0 0 0 8 8l1-2.3a2.3 2.3 0 0 1 1.7-1.4l3.2-.6a2.3 2.3 0 0 1 2.6 1.7l1 4a2.3 2.3 0 0 1-1.2 2.7l-1.9.8a4.5 4.5 0 0 1-2.1.3A23.4 23.4 0 0 1 1.2 6.8a4.5 4.5 0 0 1 .3-2.1l.8-1.9z"/>
+          </svg>
+          <span>Call (510) 502-7843</span>
+        </a>
+      </div>
+
+    </section>
+
+    <!-- ====================================================
+         WHY East Bay Homeowners Choose Lemon Tree (navy bg)
+         ==================================================== -->
+    <section class="why" aria-labelledby="whyTitle">
+      <div class="why__inner">
+
+      <h2 class="why__title" id="whyTitle">
+        <span class="why__title-line">Why East Bay</span>
+        <span class="why__title-line">Homeowners</span>
+        <span class="why__title-line">Choose</span>
+        <span class="why__title-line">
+          Lemon
+          <img class="why__title-lemon" src="assets/img/icon/lemon.svg" alt="" aria-hidden="true">
+          Tree
+        </span>
+      </h2>
+
+      <ul class="why__features">
+
+        <li class="why-feature">
+          <img class="why-feature__icon" src="assets/img/icon/location.svg" alt="">
+          <h3 class="h3 why-feature__title">Local &amp; Service-Oriented</h3>
+          <p class="text-regular why-feature__desc">We live and work in your neighborhood — every job is personal.</p>
+        </li>
+
+        <li class="why-feature">
+          <img class="why-feature__icon" src="assets/img/icon/price.svg" alt="">
+          <h3 class="h3 why-feature__title">Honest, Upfront Pricing</h3>
+          <p class="text-regular why-feature__desc">No surprises. We explain all costs before work begins.</p>
+        </li>
+
+        <li class="why-feature">
+          <img class="why-feature__icon" src="assets/img/icon/communication.svg" alt="">
+          <h3 class="h3 why-feature__title">Clear Communication</h3>
+          <p class="text-regular why-feature__desc">We explain what's happening and why — no technical jargon.</p>
+        </li>
+
+        <li class="why-feature">
+          <img class="why-feature__icon" src="assets/img/icon/24-7.svg" alt="">
+          <h3 class="h3 why-feature__title">24/7 Availability</h3>
+          <p class="text-regular why-feature__desc">Plumbing won't wait, and neither do we.</p>
+        </li>
+
+      </ul>
+
+      <!-- Bear mascot — thumbs up -->
+      <img class="why__mascot" src="assets/img/mascot/thumbsup.svg" alt="" aria-hidden="true">
+
+      </div><!-- /.why__inner -->
+    </section>
+
+    <!-- ====================================================
+         TESTIMONIALS (light grey background)
+         ==================================================== -->
+    <section class="testimonials" aria-labelledby="testimonialsTitle">
+      <div class="testimonials__inner">
+
+      <h2 class="testimonials__title" id="testimonialsTitle">What Our Customers Say</h2>
+
+      <div class="testimonials__intro">
+        <p class="testimonials__rating">
+          <img class="testimonials__rating-star" src="assets/img/star.svg" alt="5 stars">
+          <span class="testimonials__rating-text">5/5 based on 60+ reviews</span>
+        </p>
+        <p class="text-regular testimonials__desc">Here's what East Bay homeowners have shared about their experience with LemonTree Plumbing:</p>
+      </div>
+
+      <!-- Testimonial cards (horizontal scroll on mobile, multi-visible on desktop) -->
+      <div class="testimonials__slider">
+        <ul class="testimonials__list" id="testimonialList">
+
+          <li class="testimonial-card">
+            <div class="testimonial-card__quote-mark testimonial-card__quote-mark--open" aria-hidden="true">&ldquo;</div>
+            <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+            </div>
+            <p class="testimonial-card__text">Responsive, punctual, reasonably priced. He documented everything with photos and sent all paperwork promptly. Wholeheartedly recommend.</p>
+            <p class="testimonial-card__author"><span class="testimonial-card__author-line" aria-hidden="true"></span>Antonina S. from Google</p>
+            <div class="testimonial-card__quote-mark testimonial-card__quote-mark--close" aria-hidden="true">&rdquo;</div>
+          </li>
+
+          <li class="testimonial-card">
+            <div class="testimonial-card__quote-mark testimonial-card__quote-mark--open" aria-hidden="true">&ldquo;</div>
+            <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+            </div>
+            <p class="testimonial-card__text">Extremely knowledgeable, not pushy at all. Helped us make the right decision and did great work under a tight timeline.</p>
+            <p class="testimonial-card__author"><span class="testimonial-card__author-line" aria-hidden="true"></span>Ash B. from Yelp</p>
+            <div class="testimonial-card__quote-mark testimonial-card__quote-mark--close" aria-hidden="true">&rdquo;</div>
+          </li>
+
+          <li class="testimonial-card">
+            <div class="testimonial-card__quote-mark testimonial-card__quote-mark--open" aria-hidden="true">&ldquo;</div>
+            <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+            </div>
+            <p class="testimonial-card__text">Ramon came out same day, fixed our shower and found another issue we didn't even know about. Fair pricing, truly awesome service.</p>
+            <p class="testimonial-card__author"><span class="testimonial-card__author-line" aria-hidden="true"></span>Krissie B. from Yelp</p>
+            <div class="testimonial-card__quote-mark testimonial-card__quote-mark--close" aria-hidden="true">&rdquo;</div>
+          </li>
+
+          <li class="testimonial-card">
+            <div class="testimonial-card__quote-mark testimonial-card__quote-mark--open" aria-hidden="true">&ldquo;</div>
+            <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+            </div>
+            <p class="testimonial-card__text">Never pushed the most expensive option. New water heater installed same day — couldn't be happier.</p>
+            <p class="testimonial-card__author"><span class="testimonial-card__author-line" aria-hidden="true"></span>Antonina S. from Google</p>
+            <div class="testimonial-card__quote-mark testimonial-card__quote-mark--close" aria-hidden="true">&rdquo;</div>
+          </li>
+
+          <!-- 重複 #5-8 (placeholder 直到收集到更多評論) -->
+          <li class="testimonial-card">
+            <div class="testimonial-card__quote-mark testimonial-card__quote-mark--open" aria-hidden="true">&ldquo;</div>
+            <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+            </div>
+            <p class="testimonial-card__text">Responsive, punctual, reasonably priced. He documented everything with photos and sent all paperwork promptly. Wholeheartedly recommend.</p>
+            <p class="testimonial-card__author"><span class="testimonial-card__author-line" aria-hidden="true"></span>Antonina S. from Google</p>
+            <div class="testimonial-card__quote-mark testimonial-card__quote-mark--close" aria-hidden="true">&rdquo;</div>
+          </li>
+
+          <li class="testimonial-card">
+            <div class="testimonial-card__quote-mark testimonial-card__quote-mark--open" aria-hidden="true">&ldquo;</div>
+            <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+            </div>
+            <p class="testimonial-card__text">Extremely knowledgeable, not pushy at all. Helped us make the right decision and did great work under a tight timeline.</p>
+            <p class="testimonial-card__author"><span class="testimonial-card__author-line" aria-hidden="true"></span>Ash B. from Yelp</p>
+            <div class="testimonial-card__quote-mark testimonial-card__quote-mark--close" aria-hidden="true">&rdquo;</div>
+          </li>
+
+          <li class="testimonial-card">
+            <div class="testimonial-card__quote-mark testimonial-card__quote-mark--open" aria-hidden="true">&ldquo;</div>
+            <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+            </div>
+            <p class="testimonial-card__text">Ramon came out same day, fixed our shower and found another issue we didn't even know about. Fair pricing, truly awesome service.</p>
+            <p class="testimonial-card__author"><span class="testimonial-card__author-line" aria-hidden="true"></span>Krissie B. from Yelp</p>
+            <div class="testimonial-card__quote-mark testimonial-card__quote-mark--close" aria-hidden="true">&rdquo;</div>
+          </li>
+
+          <li class="testimonial-card">
+            <div class="testimonial-card__quote-mark testimonial-card__quote-mark--open" aria-hidden="true">&ldquo;</div>
+            <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+            </div>
+            <p class="testimonial-card__text">Never pushed the most expensive option. New water heater installed same day — couldn't be happier.</p>
+            <p class="testimonial-card__author"><span class="testimonial-card__author-line" aria-hidden="true"></span>Antonina S. from Google</p>
+            <div class="testimonial-card__quote-mark testimonial-card__quote-mark--close" aria-hidden="true">&rdquo;</div>
+          </li>
+
+          <li class="testimonial-card">
+            <div class="testimonial-card__quote-mark testimonial-card__quote-mark--open" aria-hidden="true">&ldquo;</div>
+            <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+            </div>
+            <p class="testimonial-card__text">Responsive, punctual, reasonably priced. He documented everything with photos and sent all paperwork promptly. Wholeheartedly recommend.</p>
+            <p class="testimonial-card__author"><span class="testimonial-card__author-line" aria-hidden="true"></span>Antonina S. from Google</p>
+            <div class="testimonial-card__quote-mark testimonial-card__quote-mark--close" aria-hidden="true">&rdquo;</div>
+          </li>
+
+        </ul>
+
+        <!-- Pagination dots -->
+        <ol class="testimonials__dots" id="testimonialDots" role="tablist" aria-label="Testimonial pagination"></ol>
+      </div>
+
+      <!-- Trust badges (external review pages) -->
+      <ul class="testimonials__badges">
+        <li>
+          <a class="testimonials__badge-link" href="https://www.google.com/maps/place/LemonTree+Plumbing/@37.829444,-122.2781361,11z/data=!4m6!3m5!1s0x655022a3086334b7:0x690fb8fb0ccb1c53!8m2!3d37.829444!4d-122.2781361!16s%2Fg%2F11v_29n6h7?entry=ttu" target="_blank" rel="noopener noreferrer" aria-label="Read our reviews on Google">
+            <img class="testimonials__badge" src="assets/img/badges/google-review.png" alt="Google Reviews 5 stars">
+          </a>
+        </li>
+        <li>
+          <a class="testimonials__badge-link" href="https://nextdoor.com/pages/lemontree-plumbing-berkeley-ca/" target="_blank" rel="noopener noreferrer" aria-label="Read our reviews on Nextdoor">
+            <img class="testimonials__badge" src="assets/img/badges/nextdoor.png" alt="Nextdoor">
+          </a>
+        </li>
+        <li>
+          <a class="testimonials__badge-link" href="https://www.yelp.com/biz/lemontree-plumbing-berkeley-2" target="_blank" rel="noopener noreferrer" aria-label="Read our reviews on Yelp">
+            <img class="testimonials__badge" src="assets/img/badges/yelp.png" alt="Yelp">
+          </a>
+        </li>
+        <li>
+          <img class="testimonials__badge" src="assets/img/badges/bbb-rating.png" alt="Better Business Bureau A+ rating">
+        </li>
+      </ul>
+
+      </div><!-- /.testimonials__inner -->
+    </section>
+
+    <!-- ====================================================
+         GALLERY (white background)
+         Mobile : 內容 → slider → 按鈕（垂直）
+         Desktop: 左 slider, 右 內容 + 按鈕 (grid)
+         ==================================================== -->
+    <section class="gallery" aria-labelledby="galleryTitle">
+      <div class="gallery__inner">
+
+        <!-- 1. Content (label + title + desc) -->
+        <!-- 1. Content (label + title + desc + desktop CTA) -->
+        <div class="gallery__content">
+          <span class="gallery__label">GALLERY TEASER</span>
+          <h2 class="section-title gallery__title" id="galleryTitle">See Our Work<br>in East Bay Homes</h2>
+          <p class="text-regular gallery__desc">A picture says more than a quote ever could. Explore our gallery to see examples of completed repairs, fixture upgrades, clean installations, and neat work areas—from bathrooms and kitchens to water heater and gas line projects.</p>
+          <a class="gallery__cta gallery__cta--desktop" href="gallery.html">View Gallery</a>
+        </div>
+
+        <!-- 2. 6 images (desktop grid / mobile slider) -->
+        <div class="gallery__slider">
+          <ul class="gallery__grid">
+            <li class="gallery__item gallery__item--lg"><img src="assets/img/gallery/g1.jpeg" alt="Plumbing project 1"></li>
+            <li class="gallery__item gallery__item--sm"><img src="assets/img/gallery/g2.jpeg" alt="Plumbing project 2"></li>
+            <li class="gallery__item gallery__item--md"><img src="assets/img/gallery/g3.jpeg" alt="Plumbing project 3"></li>
+            <li class="gallery__item gallery__item--md"><img src="assets/img/gallery/g4.jpeg" alt="Plumbing project 4"></li>
+            <li class="gallery__item gallery__item--sm"><img src="assets/img/gallery/g5.jpeg" alt="Plumbing project 5"></li>
+            <li class="gallery__item gallery__item--lg"><img src="assets/img/gallery/g6.jpeg" alt="Plumbing project 6"></li>
+          </ul>
+        </div>
+
+        <!-- 3. Mobile CTA (after slider) -->
+        <a class="gallery__cta gallery__cta--mobile" href="gallery.html">View Gallery</a>
+
+      </div>
+    </section>
+
+    <!-- ====================================================
+         FAQ (white background, accordion)
+         ==================================================== -->
+    <section class="faq" aria-labelledby="faqTitle">
+      <div class="faq__inner">
+        <h2 class="section-title faq__title" id="faqTitle">Frequently Asked Questions</h2>
+
+        <ul class="faq__list">
+
+          <li class="faq-item">
+            <button class="faq-item__header" type="button" aria-expanded="false">
+              <span class="faq-item__question">What cities does LemonTree Plumbing serve?</span>
+              <span class="faq-item__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <line class="faq-item__icon-h" x1="6"  y1="12" x2="18" y2="12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                  <line class="faq-item__icon-v" x1="12" y1="6"  x2="12" y2="18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                </svg>
+              </span>
+            </button>
+            <div class="faq-item__body">
+              <p class="text-regular faq-item__answer">LemonTree Plumbing serves 9 East Bay cities: North Oakland, Alameda, Emeryville, Berkeley, Albany, El Cerrito, Kensington, El Sobrante, and Pinole.</p>
+            </div>
+          </li>
+
+          <li class="faq-item">
+            <button class="faq-item__header" type="button" aria-expanded="false">
+              <span class="faq-item__question">Do you offer 24/7 emergency plumbing?</span>
+              <span class="faq-item__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <line class="faq-item__icon-h" x1="6"  y1="12" x2="18" y2="12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                  <line class="faq-item__icon-v" x1="12" y1="6"  x2="12" y2="18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                </svg>
+              </span>
+            </button>
+            <div class="faq-item__body">
+              <p class="text-regular faq-item__answer">Yes—we offer round-the-clock emergency response for active leaks, burst pipes, sewer backups, and gas line issues across the East Bay.</p>
+            </div>
+          </li>
+
+          <li class="faq-item">
+            <button class="faq-item__header" type="button" aria-expanded="false">
+              <span class="faq-item__question">Are you licensed and insured?</span>
+              <span class="faq-item__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <line class="faq-item__icon-h" x1="6"  y1="12" x2="18" y2="12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                  <line class="faq-item__icon-v" x1="12" y1="6"  x2="12" y2="18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                </svg>
+              </span>
+            </button>
+            <div class="faq-item__body">
+              <p class="text-regular faq-item__answer">Yes. LemonTree Plumbing is fully licensed (CA LIC: 1116849), bonded, and insured—so every job is protected end-to-end.</p>
+            </div>
+          </li>
+
+          <li class="faq-item">
+            <button class="faq-item__header" type="button" aria-expanded="false">
+              <span class="faq-item__question">How much does drain cleaning cost in the East Bay?</span>
+              <span class="faq-item__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <line class="faq-item__icon-h" x1="6"  y1="12" x2="18" y2="12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                  <line class="faq-item__icon-v" x1="12" y1="6"  x2="12" y2="18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                </svg>
+              </span>
+            </button>
+            <div class="faq-item__body">
+              <p class="text-regular faq-item__answer">Most drain cleaning jobs fall between $150–$450 depending on access, line condition, and equipment needed. We give an upfront quote before any work begins—no surprises.</p>
+            </div>
+          </li>
+
+          <li class="faq-item">
+            <button class="faq-item__header" type="button" aria-expanded="false">
+              <span class="faq-item__question">What payment methods do you accept?</span>
+              <span class="faq-item__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <line class="faq-item__icon-h" x1="6"  y1="12" x2="18" y2="12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                  <line class="faq-item__icon-v" x1="12" y1="6"  x2="12" y2="18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                </svg>
+              </span>
+            </button>
+            <div class="faq-item__body">
+              <p class="text-regular faq-item__answer">We accept all major credit cards (Visa, MasterCard, American Express, Discover), checks, and cash.</p>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Shared footer injected here -->
+  <div id="inject-footer"></div>
+
+  <!-- GSAP — scroll & interaction animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Scripts (global → page) -->
+  <script src="assets/js/global.js"></script>
+  <script src="assets/js/home.js"></script>
+</body>
+</html>
