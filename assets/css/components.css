@@ -1,0 +1,315 @@
+/* ============================================================
+   components.css — 全站共用元件
+   Blocks: .trust-bar / .faq / .slider / .floating-cta
+   依賴 core.css 的變數與 typography 預設
+   ============================================================ */
+
+
+/* ============================================================
+   Floating CTA — 手機右下角浮動電話按鈕
+   桌機（≥1024px）隱藏 — header 已有電話
+   ============================================================ */
+.floating-cta {
+  --ring: 240, 188, 41;                                 /* 預設 ring 色 = 黃 (RGB) */
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 50;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;                                        /* 56px */
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--color-yellow, #F0BC29);
+  color: var(--color-navy, #262A71);
+  box-shadow: 0 0.375rem 1.25rem rgba(0, 0, 0, .18);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color .2s ease, transform .15s ease;
+  animation: floating-cta-pulse 1.8s ease-out infinite;
+}
+.floating-cta:hover  { background: var(--color-yellow-dark, #D4A017); transform: scale(1.05); }
+.floating-cta:active { transform: scale(0.95); }
+.floating-cta img    { width: 50%; aspect-ratio: 1; }
+
+@keyframes floating-cta-pulse {
+  0%   { box-shadow: 0 0.375rem 1.25rem rgba(0, 0, 0, .18), 0 0 0 0      rgba(var(--ring), .35); }
+  100% { box-shadow: 0 0.375rem 1.25rem rgba(0, 0, 0, .18), 0 0 0 1.25rem rgba(var(--ring), 0);   }
+}
+@media (prefers-reduced-motion: reduce) {
+  .floating-cta { animation: none; }
+}
+
+/* 動態底色 — JS 偵測背後 section 的 data-bg 自動套用 */
+/* on-yellow：navy 底 + 白 icon（對黃底高對比） */
+.floating-cta--on-yellow {
+  --ring: 38, 42, 113;                                  /* navy ring */
+  background: var(--color-navy, #262A71);
+}
+.floating-cta--on-yellow:hover { background: var(--color-navy-dark, #1B1F55); }
+.floating-cta--on-yellow img   { filter: brightness(0) invert(1); }
+
+/* on-dark：白底 + navy icon（對 navy 底高對比） */
+.floating-cta--on-dark {
+  --ring: 255, 255, 255;                                /* white ring */
+  background: var(--color-white, #fff);
+}
+.floating-cta--on-dark:hover { background: #eee; }
+
+/* on-light：保留預設黃底 navy icon（白/淺底已夠對比） */
+
+/* Desktop 隱藏 — header 已內建 phone CTA */
+@media (min-width: 1024px) {
+  .floating-cta { display: none; }
+}
+
+
+/* ============================================================
+   Slider — 橫向 scroll-snap + drag + dots
+   配合 initSlider() 使用（components.js）
+   ============================================================ */
+.slider__track {
+  display: flex;
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  cursor: grab;
+  user-select: none;
+}
+.slider__track::-webkit-scrollbar { display: none; }
+.slider__track.is-dragging {
+  cursor: grabbing;
+  scroll-snap-type: none;                               /* 拖曳時暫停 snap 卡頓 */
+  scroll-behavior: auto;
+}
+.slider__track.is-dragging > * { pointer-events: none; }
+.slider__track img { -webkit-user-drag: none; user-select: none; }
+
+/* Pagination dots */
+.slider__dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.slider__dot {
+  width: 0.625rem;
+  height: 0.625rem;
+  border-radius: 50%;
+  background: rgba(38, 42, 113, .25);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background-color .2s ease, transform .2s ease;
+}
+.slider__dot.is-active {
+  background: var(--color-navy, #262A71);
+  transform: scale(1.2);
+}
+
+
+/* ============================================================
+   Trust bar — icon + title + text 三欄
+   原為 .hero__trust，抽出為跨頁元件
+   ============================================================ */
+.trust-bar {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  align-items: start;
+}
+.trust-bar__item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+/* Icon slot：高度固定，寬度依內容自動 */
+.trust-bar__icon {
+  display: inline-flex;
+  align-items: center;
+  height: 5.75rem;
+  color: var(--color-yellow, #F0BC29);
+}
+.trust-bar__icon > img {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Stars variant：5 顆星橫排，在 slot 內垂直置中 */
+.trust-bar__icon--stars { gap: 0.125rem; }
+.trust-bar__icon--stars > img {
+  height: auto;
+  width: 1.125rem;
+  aspect-ratio: 1;
+}
+
+.trust-bar__title,
+.trust-bar__text {
+  margin: 0;
+  font-family: var(--font-body, sans-serif);
+  font-weight: 400;
+  font-size: 1.375rem;
+  line-height: 1.2;
+}
+.trust-bar__title { color: var(--color-white, #fff); }
+.trust-bar__text  { color: var(--color-yellow, #F0BC29); }
+
+@media (min-width: 768px) {
+  .trust-bar { gap: 3.75rem; }
+  .trust-bar__icon--stars > img { width: 1.4rem; }
+  .trust-bar__title,
+  .trust-bar__text { font-size: 1.625rem; }
+}
+
+@media (min-width: 1024px) {
+  .trust-bar { grid-template-columns: repeat(3, max-content); }
+  .trust-bar__icon--stars > img { width: 1.75rem; }
+  .trust-bar__title,
+  .trust-bar__text { font-size: 1.5rem; }
+}
+
+
+/* ============================================================
+   FAQ — accordion
+   Title centered top, items 左邊有 11px 黃色 border
+   Open: icon 黃→navy / 旋轉成減號 / body 展開
+   ============================================================ */
+.faq {
+  position: relative;
+  width: 100%;
+  padding: 3rem 1.5rem;
+  background: var(--color-white, #fff);
+}
+.faq__inner {
+  width: 100%;
+  max-width: 56.1875rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.faq__title {
+  margin: 0 0 0.5rem;
+  text-align: center;
+}
+
+.faq__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.faq-item {
+  position: relative;
+  border-left: 0.6875rem solid var(--color-yellow, #F0BC29);
+  border-bottom: 1px solid #ddd;
+  background: var(--color-white, #fff);
+}
+
+.faq-item__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  min-height: 4.5625rem;
+  padding: 1rem 1rem 1rem 1.5rem;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+}
+.faq-item__question {
+  flex: 1;
+  font-family: var(--font-small, sans-serif);
+  font-weight: 500;
+  font-size: 1.4375rem;
+  line-height: 1.3;
+  color: #333;
+}
+
+.faq-item__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2.625rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--color-yellow, #F0BC29);
+  color: var(--color-navy, #262A71);
+  transition: background-color .25s ease, color .25s ease;
+}
+.faq-item__icon svg {
+  width: 1.125rem;
+  aspect-ratio: 1;
+}
+.faq-item__icon-h,
+.faq-item__icon-v {
+  transition: transform .3s ease;
+  transform-origin: center;
+}
+
+.faq-item__body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .3s ease;
+}
+.faq-item__answer {
+  padding: 0 1.5rem 1.5rem;
+  color: #333;
+}
+
+.faq-item.is-open .faq-item__icon {
+  background: var(--color-navy, #262A71);
+  color: var(--color-yellow, #F0BC29);
+}
+.faq-item.is-open .faq-item__icon-v { transform: scaleY(0); }
+.faq-item.is-open .faq-item__body   { max-height: 20rem; }
+
+@media (min-width: 768px) {
+  .faq { padding: 5rem 2.5rem; }
+  .faq__inner { gap: 2rem; }
+  .faq-item__header { padding: 1rem 1rem 1rem 2rem; }
+  .faq-item__answer { padding: 0 2rem 1.5rem; }
+}
+
+@media (min-width: 1024px) {
+  .faq { padding: 4rem 3rem 6rem; }
+  .faq__inner { gap: 3rem; }
+}
+
+/* ≥1280px — 兩欄：左標題、右 list（list 仍保持窄閱讀寬度） */
+@media (min-width: 1280px) {
+  .faq__inner {
+    max-width: var(--container-max, 85.3125rem);
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    column-gap: 4rem;
+    align-items: start;
+  }
+  .faq__title {
+    text-align: left;
+    margin: 0;
+    grid-column: 1;
+    position: sticky;
+    top: 8rem;                                          /* 跟著捲動時不會離開視線 */
+  }
+  .faq__list { grid-column: 2; }
+}

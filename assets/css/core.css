@@ -19,11 +19,11 @@
   /* Typography (Figma) */
   --font-display: 'Big Shoulders Display', 'Big Shoulders', sans-serif;
   --font-cta:     'Big Shoulders', 'Big Shoulders Display', sans-serif;
-  --font-body:    'Roboto', system-ui, sans-serif;
+  --font-body:    'Montserrat', system-ui, sans-serif;
   --font-small:   'Montserrat', system-ui, sans-serif;
 
   /* Sizing */
-  --container-max: 85.375rem;     /* 1366px */
+  --container-max: 85.3125rem;    /* 1365px (Figma base) */
   --gutter-mobile: 1.5rem;        /* 24px */
   --gutter-desktop: 3rem;         /* 48px */
 
@@ -34,6 +34,11 @@
   /* Section spacing */
   --section-py-mobile: 3rem;
   --section-py-desktop: 5rem;
+}
+
+/* ---------- Container width on big screens (2K+) ---------- */
+@media (min-width: 1920px) {
+  :root { --container-max: 112.5rem; }  /* 1800px */
 }
 
 /* ---------- Reset ---------- */
@@ -49,6 +54,7 @@ body {
   margin: 0;
   font-family: var(--font-body, system-ui, sans-serif);
   font-size: 1rem;
+  font-weight: 500;
   line-height: 1.5;
   color: var(--color-text-body, #333);
   background: var(--color-white, #fff);
@@ -84,7 +90,7 @@ body.is-menu-open { overflow: hidden; }
 /* ---------- Container ---------- */
 .container {
   width: 100%;
-  max-width: var(--container-max, 85.375rem);
+  max-width: var(--container-max, 85.3125rem);
   margin: 0 auto;
   padding-left: var(--gutter-mobile, 1.5rem);
   padding-right: var(--gutter-mobile, 1.5rem);
@@ -109,6 +115,9 @@ body.is-menu-open { overflow: hidden; }
   line-height: 1.1;
   letter-spacing: -0.01em;
   color: var(--color-navy, #262A71);
+}
+@media (min-width: 1920px) {
+  .section-title { font-size: 5rem; }                 /* 80px — 2K 上拉大 */
 }
 
 /* Body text — Figma "text-regular" (18px Montserrat) */
@@ -172,10 +181,26 @@ body.is-menu-open { overflow: hidden; }
   color: var(--color-navy, #262A71);
 }
 
+/* Navy — navy bg with white text（給黃底用） */
+.btn--navy {
+  background: var(--color-navy, #262A71);
+  color: var(--color-white, #fff);
+}
+.btn--navy:hover {
+  background: var(--color-navy-dark, #1B1F55);
+  color: var(--color-white, #fff);
+}
+.btn--navy img { filter: brightness(0) invert(1); }     /* phone icon 轉白 */
+
 /* Sizes */
 .btn--sm  { padding: 0.5rem 1.25rem; font-size: 1.25rem; height: 2.5rem; }
 .btn--md  { padding: 0.625rem 1.5rem; font-size: 1.25rem; height: 3rem; }
 .btn--lg  { padding: 1.125rem 1.875rem; font-size: 1.6875rem; height: 4.0625rem; }
+
+/* Icon inside button (img or svg) — 自動跟著 size 等比 */
+.btn--lg img, .btn--lg svg { width: 1.6875rem; height: 1.6875rem; flex-shrink: 0; }
+.btn--md img, .btn--md svg { width: 1.25rem;   height: 1.25rem;   flex-shrink: 0; }
+.btn--sm img, .btn--sm svg { width: 1rem;      height: 1rem;      flex-shrink: 0; }
 
 /* Phone link variant (un-styled <a> with hover) */
 .link-phone {

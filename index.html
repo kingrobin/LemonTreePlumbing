@@ -13,6 +13,7 @@
 
   <!-- Styles (load order: core → header/footer → page) -->
   <link rel="stylesheet" href="assets/css/core.css">
+  <link rel="stylesheet" href="assets/css/components.css">
   <link rel="stylesheet" href="assets/css/header.css">
   <link rel="stylesheet" href="assets/css/footer.css">
   <link rel="stylesheet" href="assets/css/home.css">
@@ -27,7 +28,7 @@
     <!-- ====================================================
          HERO
          ==================================================== -->
-    <section class="hero" aria-labelledby="heroTitle">
+    <section class="hero" aria-labelledby="heroTitle" data-bg="dark">
       <div class="hero__bg" aria-hidden="true"></div>
       <div class="hero__overlay" aria-hidden="true"></div>
 
@@ -45,42 +46,44 @@
             Reliable Plumbing Services for East Bay Homes &amp; Businesses
           </h1>
 
-          <a class="hero__cta" href="tel:+15105027843" aria-label="Call (510) 502-7843">
-            <svg viewBox="0 0 27 27" aria-hidden="true">
-              <path d="M4.9 1.7a2.3 2.3 0 0 1 2.7-1.2l4 1a2.3 2.3 0 0 1 1.7 2.6l-.6 3.2a2.3 2.3 0 0 1-1.4 1.7l-2.3.9a16 16 0 0 0 8 8l1-2.3a2.3 2.3 0 0 1 1.7-1.4l3.2-.6a2.3 2.3 0 0 1 2.6 1.7l1 4a2.3 2.3 0 0 1-1.2 2.7l-1.9.8a4.5 4.5 0 0 1-2.1.3A23.4 23.4 0 0 1 1.2 6.8a4.5 4.5 0 0 1 .3-2.1l.8-1.9z"/>
-            </svg>
+          <a class="btn btn--primary btn--lg hero__cta" href="tel:+15105027843" aria-label="Call (510) 502-7843">
+            <img src="assets/img/icon/phone-solid.svg" alt="" aria-hidden="true">
             <span>(510) 502-7843</span>
           </a>
         </div>
 
         <!-- Trust bar -->
-        <div class="hero__trust">
+        <div class="trust-bar">
 
           <!-- 1. 24/7 Live Answer -->
-          <div class="hero__trust-item">
-            <img class="hero__trust-icon" src="assets/img/icon/24-7.svg" alt="">
-            <p class="hero__trust-title">24/7 Live Answer</p>
-            <p class="hero__trust-text">Real humans, no phone trees</p>
+          <div class="trust-bar__item">
+            <div class="trust-bar__icon">
+              <img src="assets/img/icon/24-7.svg" alt="">
+            </div>
+            <p class="trust-bar__title">Live answer</p>
+            <p class="trust-bar__text">no phone trees</p>
           </div>
 
           <!-- 2. Upfront Pricing -->
-          <div class="hero__trust-item">
-            <img class="hero__trust-icon" src="assets/img/icon/price.svg" alt="">
-            <p class="hero__trust-title">$0 Hidden Fees</p>
-            <p class="hero__trust-text">Upfront pricing, always</p>
+          <div class="trust-bar__item">
+            <div class="trust-bar__icon">
+              <img src="assets/img/icon/no-hidden-fees.svg" alt="">
+            </div>
+            <p class="trust-bar__title">Upfront pricing,</p>
+            <p class="trust-bar__text">always</p>
           </div>
 
           <!-- 3. 5-Star Reviews -->
-          <div class="hero__trust-item">
-            <span class="hero__trust-icon hero__trust-icon--stars" aria-hidden="true">
+          <div class="trust-bar__item">
+            <div class="trust-bar__icon trust-bar__icon--stars" aria-hidden="true">
               <img src="assets/img/star.svg" alt="">
               <img src="assets/img/star.svg" alt="">
               <img src="assets/img/star.svg" alt="">
               <img src="assets/img/star.svg" alt="">
               <img src="assets/img/star.svg" alt="">
-            </span>
-            <p class="hero__trust-title">60+ 5-Star Reviews</p>
-            <p class="hero__trust-text">Google &amp; Yelp verified</p>
+            </div>
+            <p class="trust-bar__title">Google &amp; Yelp</p>
+            <p class="trust-bar__text">60+ reviews</p>
           </div>
 
         </div>
@@ -91,7 +94,7 @@
          TAGLINE + SERVICES (yellow background)
          section 內含兩個 h2（品牌標 + Services 標）— 不設 aria-labelledby 避免歧義
          ==================================================== -->
-    <section class="services-block">
+    <section class="services-block" data-bg="yellow">
 
       <!-- Bear mascot — working (with wrench) — 直接放在 section 下，靠 viewport 右邊 -->
       <img class="services-block__mascot" src="assets/img/mascot/working.svg" alt="" aria-hidden="true">
@@ -103,7 +106,7 @@
         </div>
 
         <div class="services-block__tagline-body">
-          <h2 class="services-block__headline">
+          <h2 class="section-title services-block__headline">
             From <span class="services-block__headline-em">SMALL LEAKS</span> to
             <span class="services-block__headline-em">URGENT EMERGENCIES</span>
           </h2>
@@ -210,12 +213,8 @@
       <!-- Section footer CTA -->
       <div class="services-block__footer">
         <p class="text-large services-block__footer-text">Need help with your plumbing issues?</p>
-        <a class="btn-call btn-call--navy" href="tel:+15105027843" aria-label="Call (510) 502-7843">
-          <span class="btn-call__icon">
-            <svg viewBox="0 0 20 20" aria-hidden="true">
-              <path d="M3.6 1.3a1.7 1.7 0 0 1 2-.9l3 .7a1.7 1.7 0 0 1 1.3 1.9l-.5 2.4a1.7 1.7 0 0 1-1 1.2l-1.7.7a12 12 0 0 0 5.9 5.9l.7-1.7a1.7 1.7 0 0 1 1.2-1l2.4-.5a1.7 1.7 0 0 1 1.9 1.3l.7 3a1.7 1.7 0 0 1-.9 2l-1.4.6a3.3 3.3 0 0 1-1.6.2A17.4 17.4 0 0 1 .9 5.1a3.3 3.3 0 0 1 .2-1.6l.6-1.4z"/>
-            </svg>
-          </span>
+        <a class="btn btn--navy btn--lg" href="tel:+15105027843" aria-label="Call (510) 502-7843">
+          <img src="assets/img/icon/phone-solid.svg" alt="" aria-hidden="true">
           <span>Call (510) 502-7843</span>
         </a>
       </div>
@@ -225,7 +224,7 @@
     <!-- ====================================================
          SERVICE AREAS (white background, map + city list)
          ==================================================== -->
-    <section class="service-areas" aria-labelledby="areasTitle">
+    <section class="service-areas" aria-labelledby="areasTitle" data-bg="light">
 
       <!-- Map (circular) — 底圖 + 中央 location mark -->
       <div class="service-areas__map" aria-hidden="true">
@@ -272,10 +271,8 @@
           </a></li>
         </ul>
 
-        <a class="service-areas__cta" href="tel:+15105027843" aria-label="Call (510) 502-7843">
-          <svg viewBox="0 0 27 27" aria-hidden="true">
-            <path d="M4.9 1.7a2.3 2.3 0 0 1 2.7-1.2l4 1a2.3 2.3 0 0 1 1.7 2.6l-.6 3.2a2.3 2.3 0 0 1-1.4 1.7l-2.3.9a16 16 0 0 0 8 8l1-2.3a2.3 2.3 0 0 1 1.7-1.4l3.2-.6a2.3 2.3 0 0 1 2.6 1.7l1 4a2.3 2.3 0 0 1-1.2 2.7l-1.9.8a4.5 4.5 0 0 1-2.1.3A23.4 23.4 0 0 1 1.2 6.8a4.5 4.5 0 0 1 .3-2.1l.8-1.9z"/>
-          </svg>
+        <a class="btn btn--primary btn--lg service-areas__cta" href="tel:+15105027843" aria-label="Call (510) 502-7843">
+          <img src="assets/img/icon/phone-solid.svg" alt="" aria-hidden="true">
           <span>Call (510) 502-7843</span>
         </a>
       </div>
@@ -285,7 +282,7 @@
     <!-- ====================================================
          WHY East Bay Homeowners Choose Lemon Tree (navy bg)
          ==================================================== -->
-    <section class="why" aria-labelledby="whyTitle">
+    <section class="why" aria-labelledby="whyTitle" data-bg="dark">
       <div class="why__inner">
 
       <h2 class="why__title" id="whyTitle">
@@ -336,7 +333,7 @@
     <!-- ====================================================
          TESTIMONIALS (light grey background)
          ==================================================== -->
-    <section class="testimonials" aria-labelledby="testimonialsTitle">
+    <section class="testimonials" aria-labelledby="testimonialsTitle" data-bg="light">
       <div class="testimonials__inner">
 
       <h2 class="testimonials__title" id="testimonialsTitle">What Our Customers Say</h2>
@@ -351,7 +348,7 @@
 
       <!-- Testimonial cards (horizontal scroll on mobile, multi-visible on desktop) -->
       <div class="testimonials__slider">
-        <ul class="testimonials__list" id="testimonialList">
+        <ul class="slider__track">
 
           <li class="testimonial-card">
             <div class="testimonial-card__quote-mark testimonial-card__quote-mark--open" aria-hidden="true">&ldquo;</div>
@@ -409,7 +406,7 @@
             <div class="testimonial-card__quote-mark testimonial-card__quote-mark--close" aria-hidden="true">&rdquo;</div>
           </li>
 
-          <!-- 重複 #5-8 (placeholder 直到收集到更多評論) -->
+          <!-- 補滿到 12 則（剩 8 張待挑選） -->
           <li class="testimonial-card">
             <div class="testimonial-card__quote-mark testimonial-card__quote-mark--open" aria-hidden="true">&ldquo;</div>
             <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
@@ -419,8 +416,8 @@
               <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
               <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
             </div>
-            <p class="testimonial-card__text">Responsive, punctual, reasonably priced. He documented everything with photos and sent all paperwork promptly. Wholeheartedly recommend.</p>
-            <p class="testimonial-card__author"><span class="testimonial-card__author-line" aria-hidden="true"></span>Antonina S. from Google</p>
+            <p class="testimonial-card__text">(TBD)</p>
+            <p class="testimonial-card__author"><span class="testimonial-card__author-line" aria-hidden="true"></span>(TBD)</p>
             <div class="testimonial-card__quote-mark testimonial-card__quote-mark--close" aria-hidden="true">&rdquo;</div>
           </li>
 
@@ -433,8 +430,8 @@
               <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
               <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
             </div>
-            <p class="testimonial-card__text">Extremely knowledgeable, not pushy at all. Helped us make the right decision and did great work under a tight timeline.</p>
-            <p class="testimonial-card__author"><span class="testimonial-card__author-line" aria-hidden="true"></span>Ash B. from Yelp</p>
+            <p class="testimonial-card__text">(TBD)</p>
+            <p class="testimonial-card__author"><span class="testimonial-card__author-line" aria-hidden="true"></span>(TBD)</p>
             <div class="testimonial-card__quote-mark testimonial-card__quote-mark--close" aria-hidden="true">&rdquo;</div>
           </li>
 
@@ -447,8 +444,8 @@
               <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
               <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
             </div>
-            <p class="testimonial-card__text">Ramon came out same day, fixed our shower and found another issue we didn't even know about. Fair pricing, truly awesome service.</p>
-            <p class="testimonial-card__author"><span class="testimonial-card__author-line" aria-hidden="true"></span>Krissie B. from Yelp</p>
+            <p class="testimonial-card__text">(TBD)</p>
+            <p class="testimonial-card__author"><span class="testimonial-card__author-line" aria-hidden="true"></span>(TBD)</p>
             <div class="testimonial-card__quote-mark testimonial-card__quote-mark--close" aria-hidden="true">&rdquo;</div>
           </li>
 
@@ -461,8 +458,8 @@
               <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
               <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
             </div>
-            <p class="testimonial-card__text">Never pushed the most expensive option. New water heater installed same day — couldn't be happier.</p>
-            <p class="testimonial-card__author"><span class="testimonial-card__author-line" aria-hidden="true"></span>Antonina S. from Google</p>
+            <p class="testimonial-card__text">(TBD)</p>
+            <p class="testimonial-card__author"><span class="testimonial-card__author-line" aria-hidden="true"></span>(TBD)</p>
             <div class="testimonial-card__quote-mark testimonial-card__quote-mark--close" aria-hidden="true">&rdquo;</div>
           </li>
 
@@ -475,15 +472,57 @@
               <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
               <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
             </div>
-            <p class="testimonial-card__text">Responsive, punctual, reasonably priced. He documented everything with photos and sent all paperwork promptly. Wholeheartedly recommend.</p>
-            <p class="testimonial-card__author"><span class="testimonial-card__author-line" aria-hidden="true"></span>Antonina S. from Google</p>
+            <p class="testimonial-card__text">(TBD)</p>
+            <p class="testimonial-card__author"><span class="testimonial-card__author-line" aria-hidden="true"></span>(TBD)</p>
+            <div class="testimonial-card__quote-mark testimonial-card__quote-mark--close" aria-hidden="true">&rdquo;</div>
+          </li>
+
+          <li class="testimonial-card">
+            <div class="testimonial-card__quote-mark testimonial-card__quote-mark--open" aria-hidden="true">&ldquo;</div>
+            <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+            </div>
+            <p class="testimonial-card__text">(TBD)</p>
+            <p class="testimonial-card__author"><span class="testimonial-card__author-line" aria-hidden="true"></span>(TBD)</p>
+            <div class="testimonial-card__quote-mark testimonial-card__quote-mark--close" aria-hidden="true">&rdquo;</div>
+          </li>
+
+          <li class="testimonial-card">
+            <div class="testimonial-card__quote-mark testimonial-card__quote-mark--open" aria-hidden="true">&ldquo;</div>
+            <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+            </div>
+            <p class="testimonial-card__text">(TBD)</p>
+            <p class="testimonial-card__author"><span class="testimonial-card__author-line" aria-hidden="true"></span>(TBD)</p>
+            <div class="testimonial-card__quote-mark testimonial-card__quote-mark--close" aria-hidden="true">&rdquo;</div>
+          </li>
+
+          <li class="testimonial-card">
+            <div class="testimonial-card__quote-mark testimonial-card__quote-mark--open" aria-hidden="true">&ldquo;</div>
+            <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/star.svg" alt="">
+            </div>
+            <p class="testimonial-card__text">(TBD)</p>
+            <p class="testimonial-card__author"><span class="testimonial-card__author-line" aria-hidden="true"></span>(TBD)</p>
             <div class="testimonial-card__quote-mark testimonial-card__quote-mark--close" aria-hidden="true">&rdquo;</div>
           </li>
 
         </ul>
 
         <!-- Pagination dots -->
-        <ol class="testimonials__dots" id="testimonialDots" role="tablist" aria-label="Testimonial pagination"></ol>
+        <ol class="slider__dots" role="tablist" aria-label="Testimonial pagination"></ol>
       </div>
 
       <!-- Trust badges (external review pages) -->
@@ -516,7 +555,7 @@
          Mobile : 內容 → slider → 按鈕（垂直）
          Desktop: 左 slider, 右 內容 + 按鈕 (grid)
          ==================================================== -->
-    <section class="gallery" aria-labelledby="galleryTitle">
+    <section class="gallery" aria-labelledby="galleryTitle" data-bg="light">
       <div class="gallery__inner">
 
         <!-- 1. Content (label + title + desc) -->
@@ -549,7 +588,7 @@
     <!-- ====================================================
          FAQ (white background, accordion)
          ==================================================== -->
-    <section class="faq" aria-labelledby="faqTitle">
+    <section class="faq" aria-labelledby="faqTitle" data-bg="light">
       <div class="faq__inner">
         <h2 class="section-title faq__title" id="faqTitle">Frequently Asked Questions</h2>
 
@@ -639,12 +678,18 @@
   <!-- Shared footer injected here -->
   <div id="inject-footer"></div>
 
+  <!-- Floating CTA (mobile only) -->
+  <a class="floating-cta" href="tel:+15105027843" aria-label="Call (510) 502-7843">
+    <img src="assets/img/icon/phone-solid.svg" alt="" aria-hidden="true">
+  </a>
+
   <!-- GSAP — scroll & interaction animations -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
   <!-- Scripts (global → page) -->
   <script src="assets/js/global.js"></script>
+  <script src="assets/js/components.js"></script>
   <script src="assets/js/home.js"></script>
 </body>
 </html>
