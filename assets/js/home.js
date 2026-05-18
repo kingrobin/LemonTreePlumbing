@@ -6,11 +6,11 @@
 document.addEventListener('DOMContentLoaded', () => {
   // Hero entrance animation (GSAP)
   if (window.gsap) {
-    const tl = gsap.timeline({ defaults: { ease: 'power3.out', duration: 0.9 } });
-    tl.from('.hero__eyebrow', { y: 20, opacity: 0 })
-      .from('.hero__h1',      { y: 30, opacity: 0 }, '-=0.6')
-      .from('.hero__cta',     { y: 20, opacity: 0 }, '-=0.5')
-      .from('.trust-bar__item', { y: 20, opacity: 0, stagger: 0.12 }, '-=0.4');
+    const tl = gsap.timeline({ defaults: { ease: 'power2.out', duration: 0.5 } });
+    tl.from('.hero__eyebrow', { y: 16, opacity: 0 })
+      .from('.hero__h1',      { y: 20, opacity: 0 }, '-=0.35')
+      .from('.hero__cta',     { y: 16, opacity: 0 }, '-=0.3')
+      .from('.trust-bar__item', { y: 16, opacity: 0, stagger: 0.07 }, '-=0.25');
   }
 
   // Scroll-triggered entrance animations for other sections
@@ -72,6 +72,25 @@ function initScrollAnimations() {
       scrollTrigger: { trigger: root, start: 'top 85%', once: true },
     });
   });
+
+  /* Services headline em — underline 隨 scroll 進度左右展開（往上捲會倒退） */
+  const ems = document.querySelectorAll('.services-block__headline-em');
+  if (ems.length) {
+    gsap.fromTo(ems,
+      { backgroundSize: '0% 0.375rem' },
+      {
+        backgroundSize: '100% 0.375rem',
+        ease: 'none',                    /* scrub 需要 linear */
+        stagger: 0.2,
+        scrollTrigger: {
+          trigger: '.services-block__headline',
+          start: 'top 80%',
+          end:   'top 30%',
+          scrub: 0.5,                    /* 0.5s smoothing；true = 直接綁 */
+        },
+      }
+    );
+  }
 
   /* Service-areas map — 額外加輕微 scale */
   const map = document.querySelector('.service-areas__map');
