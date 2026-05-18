@@ -59,7 +59,7 @@
 .site-header__lic {
   display: none;                                      /* hidden on mobile */
   margin: 0;
-  font-family: var(--font-small, sans-serif);
+  font-family: var(--font-body, sans-serif);
   font-size: 0.8125rem;
   font-weight: 400;
   letter-spacing: 0.05em;
@@ -102,7 +102,7 @@
   gap: 0.375rem;
   position: relative;
   padding-bottom: 0.375rem;
-  font-family: var(--font-small, sans-serif);          /* Montserrat */
+  font-family: var(--font-body, sans-serif);          /* Montserrat */
   font-weight: 500;                                    /* Medium */
   font-size: 1rem;                                     /* 16px */
   color: var(--color-white, #fff);

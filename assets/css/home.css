@@ -57,7 +57,7 @@
 
 .hero__eyebrow {
   margin: 0;
-  font-family: var(--font-small, sans-serif);
+  font-family: var(--font-body, sans-serif);
   font-size: 1.2rem;
   line-height: 1.3;
   color: var(--color-yellow, #F0BC29);
@@ -411,7 +411,7 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    font-family: var(--font-small, sans-serif);
+    font-family: var(--font-body, sans-serif);
     font-weight: 400;
     font-size: 1.125rem;
     letter-spacing: 0.05625rem;
@@ -530,7 +530,7 @@
   align-self: flex-start;
   padding: 0.3125rem 0.625rem;                        /* 5/10 (Figma) */
   background: #eee;
-  font-family: var(--font-small, sans-serif);
+  font-family: var(--font-body, sans-serif);
   font-weight: 700;
   font-size: 0.875rem;                                /* 14px */
   line-height: 1;
@@ -949,7 +949,7 @@
   flex-shrink: 0;
 }
 .testimonials__rating-text {
-  font-family: var(--font-small, sans-serif);
+  font-family: var(--font-body, sans-serif);
   font-weight: 700;
   font-size: 1.4375rem;                               /* 23px (text-large) */
   line-height: 1.3;
@@ -1034,7 +1034,7 @@
   position: relative;
   z-index: 1;
   margin: 0;
-  font-family: var(--font-small, sans-serif);
+  font-family: var(--font-body, sans-serif);
   font-weight: 400;
   font-size: 1.125rem;                                /* 18px */
   line-height: 1.4;
@@ -1048,7 +1048,7 @@
   display: flex;
   align-items: center;
   gap: 0.375rem;
-  font-family: var(--font-small, sans-serif);
+  font-family: var(--font-body, sans-serif);
   font-weight: 400;
   font-size: 0.9375rem;                               /* 15px */
   color: #666;
@@ -1194,7 +1194,7 @@
   align-self: flex-start;
   padding: 0.3125rem 0.625rem;
   background: #eee;
-  font-family: var(--font-small, sans-serif);
+  font-family: var(--font-body, sans-serif);
   font-weight: 700;
   font-size: 0.875rem;
   line-height: 1;
@@ -1224,7 +1224,7 @@
   border-radius: 6.25rem;                             /* 100px pill */
   background: transparent;
   color: var(--color-navy, #262A71);
-  font-family: var(--font-small, sans-serif);
+  font-family: var(--font-body, sans-serif);
   font-weight: 500;
   font-size: 1.125rem;                                /* 18px (text-regular) */
   line-height: 1.4;
