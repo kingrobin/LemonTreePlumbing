@@ -175,7 +175,7 @@
 @media (min-width: 1024px) {
 
   .site-footer {
-    padding: 2.5625rem 0 1.5rem;                      /* top 41px (Figma) */
+    padding: 2.5625rem 2rem 1.5rem;                   /* top 41px / sides 32px（對齊 header） */
   }
 
   /* Container = grid：brand 左、nav 右，互不重疊 */
@@ -186,7 +186,7 @@
     column-gap: 4rem;
     align-items: start;
     width: 100%;
-    max-width: var(--container-max, 85.3125rem);                            /* 1365px */
+    max-width: 100%;                                  /* 改用 .site-footer 的 padding 對齊 header */
     margin: 0 auto;
     padding-bottom: 4rem;                             /* copyright 留位 */
     min-height: 19.625rem;
@@ -218,7 +218,7 @@
     grid-area: contact;
     align-items: flex-start;
     gap: 0.75rem;
-    padding-top: 1.5rem;                              /* phone 對齊 logo 中下 */
+    padding-top: 4.5rem;                              /* phone 對齊 logo 中下 */
   }
   .site-footer__phone {
     font-size: 2.5rem;                                /* 40px (Figma) */
@@ -252,4 +252,14 @@
     max-width: none;
     text-align: left;
   }
+}
+
+/* ≥1440px — 對齊 header padding */
+@media (min-width: 1440px) {
+  .site-footer { padding-left: 4rem; padding-right: 4rem; }
+}
+
+/* ≥1600px — 對齊 header padding (181 / 188) */
+@media (min-width: 1600px) {
+  .site-footer { padding-left: 11.3125rem; padding-right: 11.75rem; }
 }

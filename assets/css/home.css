@@ -12,7 +12,7 @@
   position: relative;
   display: flex;                                      /* 讓 inner 能 flex:1 撐滿到 min-height */
   width: 100%;
-  min-height: 42.5rem;                                /* 680px mobile */
+  min-height: 80vh;                                /* 680px mobile */
   padding-top: 4.625rem;                              /* offset fixed mobile header (74px) */
   color: var(--color-white, #fff);
   overflow: hidden;
@@ -51,14 +51,14 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 1.25rem;
+  gap: 0.5rem;
   max-width: 43.625rem;                               /* 698px */
 }
 
 .hero__eyebrow {
   margin: 0;
   font-family: var(--font-small, sans-serif);
-  font-size: 1rem;
+  font-size: 1.2rem;
   line-height: 1.3;
   color: var(--color-yellow, #F0BC29);
 }
@@ -66,11 +66,18 @@
 .hero__eyebrow-word--key    { font-weight: 700; }
 .hero__eyebrow-word--tail   { font-weight: 400; font-size: .9em; }
 
+/* Mobile：East Bay Plumbers 另起一行 + 整段置中 */
+@media (max-width: 767.98px) {
+  .hero__eyebrow { align-self: center; text-align: center; }
+  .hero__eyebrow-word--tail { display: block; }
+}
+
 .hero__h1 {
   margin: 0;
   font-family: var(--font-display, sans-serif);
   font-weight: 800;
-  font-size: clamp(2.5rem, 7vw, 5.3125rem);           /* 40 → 85px */
+  font-size: clamp(2.5rem, 11.5vw, 5.3125rem);           /* 40 → 85px */
+  text-align: center;
   line-height: 1.05;
   letter-spacing: -0.01em;
   color: var(--color-white, #fff);
@@ -80,6 +87,18 @@
 /* Hero CTA — 視覺由 .btn.btn--primary.btn--lg 提供；這裡只放 layout */
 .hero__cta {
   align-self: stretch;                                /* full width on mobile */
+}
+
+/* Mobile/Tablet（<1280）：重排成 title 上 / trust-bar 中下 / CTA 最底 */
+@media (max-width: 1279.98px) {
+  .hero__title { margin-bottom: 14rem; }               /* 推走中間空間 */
+  .trust-bar   { order: 1; }
+  .hero__cta   { order: 2; }
+}
+
+/* Mobile：CTA 緊貼 trust-bar 下方 */
+@media (max-width: 767.98px) {
+  .hero__inner { gap: 0; }                            /* 取消整體 gap */
 }
 
 /* Trust bar 視覺由 components.css 的 .trust-bar 提供
@@ -114,6 +133,10 @@
   max-width: 75rem;
   margin: 0 auto 3rem;
 }
+/* Mobile：文字在上、portrait 在下 */
+@media (max-width: 767.98px) {
+  .services-block__tagline { flex-direction: column-reverse; }
+}
 .services-block__portrait {
   flex-shrink: 0;
   width: 12rem;
@@ -138,6 +161,18 @@
 .services-block__headline {
   line-height: 1.05;
 }
+/* Mobile：headline 跟著視窗縮放 */
+@media (max-width: 767.98px) {
+  .services-block__headline { font-size: clamp(2rem, 11vw, 3.25rem); margin-bottom: 2rem; }
+  .services-block__sub,
+  .services-block__cities { width: 18rem; }
+  .services-block__portrait {
+    position: absolute;
+    right: 10px;
+    bottom: -20px;
+    width: 110px;
+  }
+}
 .services-block__headline-em {
   display: inline-block;
   position: relative;
@@ -160,7 +195,7 @@
 }
 .services-block__cities {
   /* typography from .text-regular */
-  color: #333;
+  color: #666;
 }
 
 /* Bear mascot — working (with wrench) — Figma 185×240, right:0
@@ -171,6 +206,10 @@
   bottom: 1rem;
   height: 7rem;
   pointer-events: none;
+}
+/* Mobile：隱藏 mascot */
+@media (max-width: 767.98px) {
+  .services-block__mascot { display: none; }
 }
 
 /* ----- Section title ----- */
@@ -186,7 +225,7 @@
 }
 .services-block__intro {
   /* typography from .text-regular */
-  color: #333;
+  color: #666;
 }
 
 /* ----- Service card grid ----- */
@@ -221,7 +260,6 @@
   aspect-ratio: 4 / 3;
   border-radius: 1.5625rem;                           /* 25px — Figma */
   overflow: hidden;
-  background: #2a2a2a;
 }
 .service-card__bg {
   position: absolute;
@@ -294,7 +332,7 @@
 }
 .services-block__footer-text {
   /* base size from .text-large (25px Montserrat) */
-  color: var(--color-navy, #262A71);
+  color: #666;
 }
 
 /* btn-call--navy 已改用 core.css 的 .btn.btn--navy.btn--lg */
@@ -454,7 +492,7 @@
   position: relative;
   flex-shrink: 0;
   width: 100%;
-  max-width: 22rem;
+  max-width: 20rem;
   aspect-ratio: 1 / 1;
   border-radius: 50%;
   overflow: hidden;
@@ -507,9 +545,18 @@
   /* font-size / weight / family inherited from .section-title */
 }
 
+/* Mobile：label / title 置中 + title 加大；desc / list 靠左 */
+@media (max-width: 767.98px) {
+  .service-areas__content { align-items: center; text-align: center; }
+  .service-areas__label   { align-self: center; margin-bottom: -0.5rem; }
+  .service-areas__title   { font-size: 2.5rem; }       /* 40px (vs 32) */
+  .service-areas__desc,
+  .service-areas__list    { align-self: stretch; text-align: left; }
+}
+
 /* Description — typography from .text-regular */
 .service-areas__desc {
-  color: #333;
+  color: #666;
 }
 
 /* ----- City list (2-col grid) ----- */
@@ -608,15 +655,15 @@
   .hero__title { gap: 1.25rem; }
   .hero__eyebrow { font-size: 1.75rem; }              /* 28px */
   .hero__eyebrow-word--tail { font-size: 1.4375rem; font-weight: 400; } /* 23px (text-large) */
-  .hero__h1 { font-size: 5.3125rem; }                 /* 85px */
+  .hero__h1 { font-size: 5.3125rem; text-align: left; } /* 85px，桌機靠左 */
   .hero__cta {
     align-self: flex-start;
     min-width: 15.6875rem;                            /* 251px */
   }
-  /* Trust bar 固定貼齊 hero 底部（distance 6rem），水平跟著 inner padding 對齊 */
+  /* Trust bar 固定貼齊 hero 底部（distance 2.5rem），水平跟著 inner padding 對齊 */
   .hero .trust-bar {
     position: absolute;
-    bottom: 6rem;
+    bottom: 2.5rem;
     left: 0;
     right: 0;
     padding-left:  2rem;
@@ -637,11 +684,18 @@
   .hero .trust-bar { padding-left: 11.3125rem; padding-right: 11.75rem; }
 }
 
-/* ---------- Hero — Wide desktop (≥1920px) ---------- */
+/* ---------- Hero — FHD (≥1920px) ---------- */
 @media (min-width: 1920px) {
-  .hero__title { max-width: 75rem; }                    /* 1200px — 撐到 3 行內 */
-  .hero__h1    { font-size: 7.5rem; }                   /* 120px */
+  .hero__title { max-width: 50rem; }                    /* 800px — 控制 h1 在 3 行內 */
+  .hero__h1    { font-size: 5.3125rem; }                /* 85px */
   .hero__inner { padding-bottom: 0; }                   /* trust bar 貼到 hero 底部 */
+  .hero .trust-bar { bottom: 2.5rem; }                  /* 與 1280+ 相同 */
+}
+
+/* ---------- Hero — 2K (≥2560px) ---------- */
+@media (min-width: 2560px) {
+  .hero__title { max-width: 75rem; }                    /* 1200px */
+  .hero__h1    { font-size: 7.5rem; }                   /* 120px */
 }
 
 /* ============================================================
@@ -675,6 +729,16 @@
   line-height: 1.1;
   letter-spacing: -0.01em;
   color: var(--color-white, #fff);
+}
+/* Mobile：title 跟著視窗縮放；各行靠左對齊、整塊置中 */
+@media (max-width: 767.98px) {
+  .why__title {
+    font-size: clamp(3.5rem, 16vw, 7rem);
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: flex-start;
+  }
 }
 .why__title-line {
   display: inline-flex;
@@ -735,6 +799,17 @@
   width: 9rem;                                        /* mobile fallback */
   height: auto;
   margin-left: auto;                                  /* push to right on mobile */
+}
+/* Mobile：mascot 絕對定位於 section 右下；加大 section 下方 padding 讓文字不被遮 */
+@media (max-width: 767.98px) {
+  .why { padding-bottom: 10rem; }                     /* mascot 12rem + 1rem 緩衝 */
+  .why__mascot {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 12rem;                                     /* 192px */
+    margin: 0;
+  }
 }
 
 @media (min-width: 768px) {
@@ -799,7 +874,7 @@
 .testimonials {
   position: relative;
   width: 100%;
-  padding: 3rem 1.5rem 4rem;
+  padding: 3rem 1.5rem 2rem;
   background: var(--color-bg-light, #F5F5F5);
   color: var(--color-navy, #262A71);
   overflow: hidden;
@@ -841,6 +916,18 @@
   letter-spacing: -0.015em;
   color: var(--color-navy, #262A71);
 }
+/* Mobile：強制斷行；桌機隱藏 <br> */
+.testimonials__title-br { display: none; }
+@media (max-width: 767.98px) {
+  .testimonials__title-br { display: inline; }
+  .testimonials__title {
+    font-size: clamp(3rem, 15vw, 4rem);
+    text-align: left;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
 
 /* Rating + description */
 .testimonials__intro {
@@ -869,7 +956,7 @@
   color: var(--color-navy, #262A71);
 }
 .testimonials__desc {
-  color: #333;
+  color: #666;
   padding-left: 2.5rem;                               /* 對齊「5/5...」(star 30px + gap 10px) */
 }
 
@@ -908,7 +995,11 @@
 }
 /* Testimonials track — 共用樣式由 .slider__track 提供（components.css），這裡只覆寫 padding */
 .testimonials__slider .slider__track {
-  padding: 0.5rem 0 0.5rem 2rem;                      /* 左邊 32px 留白，右邊延伸到視窗 */
+  padding: 1.5rem 0 1rem 2rem;                        /* 上 24 / 右 0 / 下 48 / 左 32（讓裝飾引號不被裁切） */
+}
+/* Mobile：第一則證言再推開一點 */
+@media (max-width: 767.98px) {
+  .testimonials__slider .slider__track { padding-left: 2rem; scroll-padding-left: 2rem; }
 }
 
 /* ----- Testimonial card (435×279) ----- */
@@ -948,7 +1039,7 @@
   font-size: 1.125rem;                                /* 18px */
   line-height: 1.4;
   letter-spacing: 0.05625rem;
-  color: #333;
+  color: #666;
 }
 .testimonial-card__author {
   position: relative;
@@ -960,13 +1051,13 @@
   font-family: var(--font-small, sans-serif);
   font-weight: 400;
   font-size: 0.9375rem;                               /* 15px */
-  color: #555;
+  color: #666;
 }
 .testimonial-card__author-line {
   display: inline-block;
   width: 1.875rem;                                    /* 30px */
   height: 1px;
-  background: #555;
+  background: #666;
   flex-shrink: 0;
 }
 
@@ -974,23 +1065,21 @@
 .testimonial-card__quote-mark {
   position: absolute;
   z-index: 0;
-  font-family: var(--font-small, sans-serif);
-  font-weight: 400;
-  font-size: 9.125rem;                                /* 146px */
-  line-height: 1;
-  color: #eee;
   pointer-events: none;
   user-select: none;
 }
-/* 左上開始：上緣略高出卡片，視覺像「" 從卡片冒出」 */
+/* 依 Figma 尺寸與位置 */
 .testimonial-card__quote-mark--open  {
-  top: -0.75rem;
-  left: 0.75rem;
+  width: 42.49px;
+  height: 29.2px;
+  left: 22.11px;
+  top:  58.07px;
 }
-/* 右下結束：下緣略延伸出卡片，視覺對稱 */
 .testimonial-card__quote-mark--close {
-  bottom: -2.5rem;
-  right: 1.25rem;
+  width: 42.34px;
+  height: 29.2px;
+  right: 23.55px;
+  top:   216.8px;
 }
 
 /* Pagination dots — 共用 .slider__dots / .slider__dot (components.css) */
@@ -1005,6 +1094,11 @@
   list-style: none;
   align-items: center;
   justify-items: center;
+}
+/* Mobile：縮小 gap、放大 badge */
+@media (max-width: 767.98px) {
+  .testimonials__badges { gap: 0.5rem 0.25rem; }
+  .testimonials__badge  { max-width: 100%; }
 }
 .testimonials__badges li {
   width: 100%;
@@ -1109,7 +1203,15 @@
   text-transform: uppercase;
 }
 .gallery__title { margin: 0; }
-.gallery__desc { color: #333; }
+.gallery__desc { color: #666; }
+
+/* Mobile：label / title 置中 + title 加大；desc 靠左 */
+@media (max-width: 767.98px) {
+  .gallery__content { align-items: center; text-align: center; }
+  .gallery__label   { align-self: center; margin-bottom: -0.5rem; }
+  .gallery__title   { font-size: 2.5rem; }              /* 40px (vs 32) */
+  .gallery__desc    { align-self: stretch; text-align: left; }
+}
 
 /* View Gallery button — outline navy (text-regular 18px)
    兩個變體：--desktop / --mobile，靠 media query toggle 顯示 */
@@ -1137,7 +1239,7 @@
   color: var(--color-white, #fff);
 }
 /* Mobile: 顯示 mobile 版、隱藏 desktop 版 */
-.gallery__cta--mobile  { display: inline-flex; align-self: flex-start; }
+.gallery__cta--mobile  { display: inline-flex; align-self: center; }
 .gallery__cta--desktop { display: none; }
 
 /* ----- Mobile slider — 左右滿版（突破 section padding 到 viewport 邊） ----- */
@@ -1151,6 +1253,7 @@
   gap: 0.625rem;
   margin: 0;
   padding: 0.25rem 0 0.25rem 2rem;                    /* 左邊 32px 留白，右邊延伸到視窗 */
+  scroll-padding-left: 2rem;                          /* snap point 跟著 padding 走 */
   list-style: none;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
