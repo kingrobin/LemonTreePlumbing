@@ -28,7 +28,7 @@
       <nav class="site-nav" aria-label="Primary">
         <ul class="site-nav__list">
           <li class="site-nav__item">
-            <a class="site-nav__link is-active" href="index.html">Home</a>
+            <a class="site-nav__link" href="index.html">Home</a>
           </li>
           <li class="site-nav__item">
             <a class="site-nav__link" href="about.html">About Us</a>

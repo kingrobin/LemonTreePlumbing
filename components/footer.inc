@@ -69,7 +69,7 @@
 
     </nav>
 
-    <p class="site-footer__copyright">&copy; 2026 LemonTree Plumbing. All rights reserved.</p>
+    <p class="site-footer__copyright">&copy; <span data-year>2026</span> LemonTree Plumbing. All rights reserved.</p>
 
   </div>
 </footer>

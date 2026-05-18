@@ -68,6 +68,35 @@
     });
   }
 
+  /* ---------- Active nav (依當前路徑標記 nav link) ---------- */
+  function initActiveNav() {
+    // 取當前頁的 "key"：路徑 segment（services/ areas/）或檔名（index.html / about.html）
+    let path = window.location.pathname.replace(/\/+$/, '/');  /* 確保 / 結尾保留 */
+    let key;
+    const segments = path.split('/').filter(Boolean);
+    const last = segments[segments.length - 1] || '';
+    if (path === '/' || last === '' || last === 'index.html') {
+      key = 'index.html';
+    } else if (last.endsWith('.html')) {
+      key = last;                                              /* about.html / gallery.html ... */
+    } else {
+      key = last + '/';                                        /* services / areas → services/ */
+    }
+
+    document.querySelectorAll('.site-nav__link, .mobile-menu__link').forEach(a => {
+      const href = a.getAttribute('href') || '';
+      const hrefKey = href.endsWith('/') ? href.split('/').filter(Boolean).pop() + '/' : href;
+      if (hrefKey === key) a.classList.add('is-active');
+    });
+  }
+
+  /* ---------- Dynamic copyright year ---------- */
+  function initCopyrightYear() {
+    document.querySelectorAll('[data-year]').forEach(el => {
+      el.textContent = String(new Date().getFullYear());
+    });
+  }
+
   /* ---------- Bootstrap ---------- */
   document.addEventListener('DOMContentLoaded', async () => {
     await Promise.all([
@@ -77,6 +106,8 @@
     // Component-dependent handlers must run AFTER injection
     initHeaderScroll();
     initMobileMenu();
+    initActiveNav();
+    initCopyrightYear();
 
     // Notify page scripts that shared components are ready
     document.dispatchEvent(new CustomEvent('components:ready'));

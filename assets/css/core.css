@@ -17,8 +17,8 @@
   --color-white:       #FFFFFF;
 
   /* Typography (Figma) */
-  --font-display: 'Big Shoulders Display', 'Big Shoulders', sans-serif;
-  --font-cta:     'Big Shoulders', 'Big Shoulders Display', sans-serif;
+  --font-display: 'Big Shoulders Display', sans-serif;
+  --font-cta:     'Big Shoulders Display', sans-serif;
   --font-body:    'Montserrat', system-ui, sans-serif;
 
   /* Sizing */
