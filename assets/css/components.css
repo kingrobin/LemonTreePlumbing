@@ -75,6 +75,96 @@
 
 
 /* ============================================================
+   Lightbox — 點縮圖 → 全螢幕 overlay 看大圖
+   由 initLightbox() 動態建立 DOM 並插入 body
+   ============================================================ */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, .9);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .25s ease;
+}
+.lightbox.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.lightbox__stage {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1rem;
+  box-sizing: border-box;
+}
+.lightbox__img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  box-shadow: 0 1.25rem 3rem rgba(0, 0, 0, .5);
+  animation: lightbox-zoom-in .25s ease-out;
+}
+@keyframes lightbox-zoom-in {
+  from { opacity: 0; transform: scale(0.96); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.lightbox__close,
+.lightbox__nav {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, .12);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-family: var(--font-body, sans-serif);
+  line-height: 1;
+  transition: background-color .2s ease, transform .15s ease;
+}
+.lightbox__close:hover,
+.lightbox__nav:hover { background: rgba(255, 255, 255, .25); }
+.lightbox__close:active,
+.lightbox__nav:active { transform: scale(0.95); }
+
+.lightbox__close {
+  top: 1rem;
+  right: 1rem;
+  width: 2.75rem;
+  aspect-ratio: 1;
+  font-size: 1.75rem;
+}
+.lightbox__nav {
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3rem;
+  aspect-ratio: 1;
+  font-size: 2.5rem;
+  font-weight: 300;
+}
+.lightbox__nav:active { transform: translateY(-50%) scale(0.95); }
+.lightbox__nav--prev { left: 1rem; }
+.lightbox__nav--next { right: 1rem; }
+
+@media (min-width: 768px) {
+  .lightbox__close { top: 1.5rem; right: 1.5rem; width: 3rem; font-size: 2rem; }
+  .lightbox__nav   { width: 3.5rem; }
+  .lightbox__nav--prev { left: 1.5rem; }
+  .lightbox__nav--next { right: 1.5rem; }
+}
+
+
+/* ============================================================
    Slider — 橫向 scroll-snap + drag + dots
    配合 initSlider() 使用（components.js）
    ============================================================ */

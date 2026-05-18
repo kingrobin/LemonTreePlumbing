@@ -19,6 +19,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Testimonials slider — dots 隨可見卡數自動計算
   initSlider('.testimonials__inner', { auto: true });
 
+  // Gallery lightbox — 點圖開大圖
+  initLightbox('.gallery__grid');
+
   // FAQ accordion
   initFAQ();
 });

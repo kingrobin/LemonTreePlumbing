@@ -204,7 +204,82 @@ function initFloatingCtaBg() {
   update();
 }
 
+/* ---------- Lightbox (click image → fullscreen overlay) ----------
+   用法: initLightbox('.gallery__grid')  — 掃描內部所有 <img> 當作 slides
+   - 點縮圖開大圖；同一張 src 直接放大顯示
+   - ESC / 點 backdrop / × 關閉
+   - 左右鍵 / ‹ › 切換；切換時預載相鄰圖
+============================================================ */
+function initLightbox(scopeSel) {
+  const scope = document.querySelector(scopeSel);
+  if (!scope) return;
+  const triggers = Array.from(scope.querySelectorAll('img'));
+  if (triggers.length === 0) return;
+
+  const sources = triggers.map(img => ({ src: img.src, alt: img.alt || '' }));
+  let current = 0;
+
+  const lb = document.createElement('div');
+  lb.className = 'lightbox';
+  lb.setAttribute('aria-hidden', 'true');
+  lb.innerHTML = `
+    <button class="lightbox__close" aria-label="Close">&times;</button>
+    <button class="lightbox__nav lightbox__nav--prev" aria-label="Previous">&lsaquo;</button>
+    <button class="lightbox__nav lightbox__nav--next" aria-label="Next">&rsaquo;</button>
+    <div class="lightbox__stage"><img class="lightbox__img" alt=""></div>
+  `;
+  document.body.appendChild(lb);
+
+  const imgEl = lb.querySelector('.lightbox__img');
+  const stage = lb.querySelector('.lightbox__stage');
+
+  function render() {
+    const s = sources[current];
+    imgEl.src = s.src;
+    imgEl.alt = s.alt;
+  }
+  function preload() {
+    [(current + 1) % sources.length, (current - 1 + sources.length) % sources.length]
+      .forEach(i => { const p = new Image(); p.src = sources[i].src; });
+  }
+  function open(i) {
+    current = i;
+    render();
+    lb.classList.add('is-open');
+    lb.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    preload();
+  }
+  function close() {
+    lb.classList.remove('is-open');
+    lb.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+  function next() { current = (current + 1) % sources.length; render(); preload(); }
+  function prev() { current = (current - 1 + sources.length) % sources.length; render(); preload(); }
+
+  triggers.forEach((img, i) => {
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', () => open(i));
+  });
+
+  lb.addEventListener('click', (e) => {
+    if (e.target === lb || e.target === stage) close();
+  });
+  lb.querySelector('.lightbox__close').addEventListener('click', close);
+  lb.querySelector('.lightbox__nav--next').addEventListener('click', next);
+  lb.querySelector('.lightbox__nav--prev').addEventListener('click', prev);
+
+  document.addEventListener('keydown', (e) => {
+    if (!lb.classList.contains('is-open')) return;
+    if (e.key === 'Escape')     close();
+    if (e.key === 'ArrowRight') next();
+    if (e.key === 'ArrowLeft')  prev();
+  });
+}
+
 // Expose for other scripts
 window.initSlider         = initSlider;
 window.initFAQ            = initFAQ;
 window.initFloatingCtaBg  = initFloatingCtaBg;
+window.initLightbox       = initLightbox;
