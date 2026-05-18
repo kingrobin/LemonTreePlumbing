@@ -171,9 +171,9 @@
   .services-block__cities { width: 18rem; }
   .services-block__portrait {
     position: absolute;
-    right: 10px;
-    bottom: -20px;
-    width: 110px;
+    right: -5px;
+    bottom: -40px;
+    width: 100px;
   }
 }
 .services-block__headline-em {

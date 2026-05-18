@@ -31,7 +31,16 @@
 }
 .floating-cta:hover  { background: var(--color-yellow-dark, #D4A017); transform: scale(1.05); }
 .floating-cta:active { transform: scale(0.95); }
-.floating-cta img    { width: 50%; aspect-ratio: 1; }
+.floating-cta img    {
+  width: 50%;
+  aspect-ratio: 1;
+  transform-origin: center;
+  animation: phone-ringing 3s ease-in-out infinite;
+}
+.floating-cta:hover img { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) {
+  .floating-cta img { animation: none; }
+}
 
 @keyframes floating-cta-pulse {
   0%   { box-shadow: 0 0.375rem 1.25rem rgba(0, 0, 0, .18), 0 0 0 0      rgba(var(--ring), .35); }

@@ -230,6 +230,22 @@
 }
 .btn-call:hover { background: var(--color-yellow-dark, #D4A017); }
 .btn-call:active { transform: translateY(1px); }
+
+/* Phone icon ringing wiggle — 每 3s 抖一輪，提醒可撥打 */
+.btn-call__icon { transform-origin: center; }
+.btn-call__icon { animation: phone-ringing 3s ease-in-out infinite; }
+.btn-call:hover .btn-call__icon { animation-play-state: paused; }
+@keyframes phone-ringing {
+  0%, 60%, 100% { transform: rotate(0); }
+  5%, 15%, 25%  { transform: rotate(-8deg); }
+  10%, 20%      { transform: rotate(8deg); }
+  30%           { transform: rotate(-4deg); }
+  35%           { transform: rotate(4deg); }
+  40%           { transform: rotate(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn-call__icon { animation: none; }
+}
 .btn-call__icon {
   display: inline-flex;
   align-items: center;
