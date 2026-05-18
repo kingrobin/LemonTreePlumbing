@@ -12,7 +12,7 @@
   position: relative;
   display: flex;                                      /* 讓 inner 能 flex:1 撐滿到 min-height */
   width: 100%;
-  min-height: 80vh;                                /* 680px mobile */
+  min-height: 90svh;                              /* small viewport height（排除手機網址列伸縮）*/
   padding-top: 4.625rem;                              /* offset fixed mobile header (74px) */
   color: var(--color-white, #fff);
   overflow: hidden;
@@ -24,6 +24,10 @@
   inset: 0;
   z-index: -2;
   background: url('../img/hero-bg.jpg') center / cover no-repeat #000;
+}
+/* Mobile：用另一張背景 */
+@media (max-width: 767.98px) {
+  .hero__bg { background-image: url('../img/m-hero-bg.jpg'); }
 }
 
 .hero__overlay {
@@ -77,11 +81,14 @@
   font-family: var(--font-display, sans-serif);
   font-weight: 800;
   font-size: clamp(2.5rem, 11.5vw, 5.3125rem);           /* 40 → 85px */
-  text-align: center;
   line-height: 1.05;
   letter-spacing: -0.01em;
   color: var(--color-white, #fff);
   text-shadow: 0 0.125rem 0.625rem rgba(0, 0, 0, .55);
+}
+/* Mobile：title 置中 */
+@media (max-width: 767.98px) {
+  .hero__h1 { text-align: center; }
 }
 
 /* Hero CTA — 視覺由 .btn.btn--primary.btn--lg 提供；這裡只放 layout */
@@ -89,16 +96,12 @@
   align-self: stretch;                                /* full width on mobile */
 }
 
-/* Mobile/Tablet（<1280）：重排成 title 上 / trust-bar 中下 / CTA 最底 */
-@media (max-width: 1279.98px) {
-  .hero__title { margin-bottom: 14rem; }               /* 推走中間空間 */
+/* Mobile：重排成 title 上 / trust-bar 中下 / CTA 最底 + CTA 離底 48px */
+@media (max-width: 767.98px) {
+  .hero__title { margin-bottom: auto; }               /* 自動撐開，trust + CTA 沉到底 */
   .trust-bar   { order: 1; }
   .hero__cta   { order: 2; }
-}
-
-/* Mobile：CTA 緊貼 trust-bar 下方 */
-@media (max-width: 767.98px) {
-  .hero__inner { gap: 0; }                            /* 取消整體 gap */
+  .hero__inner { gap: 0; padding-bottom: 3rem; }
 }
 
 /* Trust bar 視覺由 components.css 的 .trust-bar 提供
@@ -663,7 +666,7 @@
   /* Trust bar 固定貼齊 hero 底部（distance 2.5rem），水平跟著 inner padding 對齊 */
   .hero .trust-bar {
     position: absolute;
-    bottom: 2.5rem;
+    bottom: 4.5rem;
     left: 0;
     right: 0;
     padding-left:  2rem;
@@ -689,12 +692,12 @@
   .hero__title { max-width: 50rem; }                    /* 800px — 控制 h1 在 3 行內 */
   .hero__h1    { font-size: 5.3125rem; }                /* 85px */
   .hero__inner { padding-bottom: 0; }                   /* trust bar 貼到 hero 底部 */
-  .hero .trust-bar { bottom: 2.5rem; }                  /* 與 1280+ 相同 */
+  .hero .trust-bar { bottom: 4.5rem; }                  /* 與 1280+ 相同 */
 }
 
 /* ---------- Hero — 2K (≥2560px) ---------- */
 @media (min-width: 2560px) {
-  .hero__title { max-width: 75rem; }                    /* 1200px */
+  .hero__title { max-width: 60rem; }                    /* 1200px */
   .hero__h1    { font-size: 7.5rem; }                   /* 120px */
 }
 
@@ -855,6 +858,11 @@
   }
 }
 
+/* 1024-1366：mascot 縮小避免擠到內容 */
+@media (min-width: 1024px) and (max-width: 1366.98px) {
+  .why__mascot { width: 12rem; }
+}
+
 /* 2K+ — why 標題放大、container 跟著拓寬 */
 @media (min-width: 1920px) {
   .why__inner { max-width: var(--container-max, 85.3125rem); }
@@ -911,7 +919,7 @@
   margin: 0 0 2rem;
   font-family: var(--font-display, sans-serif);
   font-weight: 800;
-  font-size: clamp(2.5rem, 12vw, 9.375rem);           /* 40 → 150px (Figma) */
+  font-size: clamp(2.5rem, 12vw, 9rem);           /* 40 → 150px (Figma) */
   line-height: 1.05;
   letter-spacing: -0.015em;
   color: var(--color-navy, #262A71);
