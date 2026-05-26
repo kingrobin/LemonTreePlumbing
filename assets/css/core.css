@@ -194,6 +194,16 @@ body.is-menu-open { overflow: hidden; }
 }
 .btn--navy img { filter: brightness(0) invert(1); }     /* phone icon 轉白 */
 
+/* White — 白底 navy 字（給黃/深底用，視覺輕量） */
+.btn--white {
+  background: var(--color-white, #fff);
+  color: var(--color-navy, #262A71);
+}
+.btn--white:hover {
+  background: #f1f1f3;
+  color: var(--color-navy, #262A71);
+}
+
 /* Sizes */
 .btn--sm  { padding: 0.5rem 1.25rem; font-size: 1.25rem; height: 2.5rem; }
 .btn--md  { padding: 0.625rem 1.5rem; font-size: 1.25rem; height: 3rem; }

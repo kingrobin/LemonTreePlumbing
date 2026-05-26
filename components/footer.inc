@@ -8,7 +8,7 @@
     <!-- LEFT: brand block (logo + phone + cta + lic) -->
     <div class="site-footer__brand">
 
-      <a class="site-footer__logo-link" href="index.html" aria-label="LemonTree Plumbing — Home">
+      <a class="site-footer__logo-link" href="./" aria-label="LemonTree Plumbing — Home">
         <img class="site-footer__logo" src="assets/img/lemontree-plumbing-logo.svg" alt="LemonTree Plumbing">
       </a>
 
@@ -32,38 +32,38 @@
       <div class="site-footer__col">
         <h3 class="site-footer__col-title">Plumbing Service</h3>
         <ul class="site-footer__list">
-          <li><a class="site-footer__link" href="services/drain-sewer.html">Drain Cleaning</a></li>
-          <li><a class="site-footer__link" href="services/gas-line.html">Gas Line Services</a></li>
-          <li><a class="site-footer__link" href="services/smart-shut-off-valve.html">Smart Shut-Off Valve</a></li>
-          <li><a class="site-footer__link" href="services/water-fixture-repair.html">Water Fixtures</a></li>
-          <li><a class="site-footer__link" href="services/hydronic-radiant-heating.html">Radiant Heating</a></li>
-          <li><a class="site-footer__link" href="services/water-heater.html">Water Heaters</a></li>
+          <li><a class="site-footer__link" href="plumbing-service/drain-cleaning-repairs/">Drain Cleaning</a></li>
+          <li><a class="site-footer__link" href="plumbing-service/gas-line-services/">Gas Line Services</a></li>
+          <li><a class="site-footer__link" href="plumbing-service/flo-by-moen-smart-water-shut-off-valve-installation/">Smart Shut-Off Valve</a></li>
+          <li><a class="site-footer__link" href="plumbing-service/water-fixture-repair-installation/">Water Fixtures</a></li>
+          <li><a class="site-footer__link" href="plumbing-service/hydronic-radiant-heating/">Radiant Heating</a></li>
+          <li><a class="site-footer__link" href="water-heater-services/">Water Heaters</a></li>
         </ul>
       </div>
 
       <div class="site-footer__col">
         <h3 class="site-footer__col-title">Service Areas</h3>
         <ul class="site-footer__list">
-          <li><a class="site-footer__link" href="areas/north-oakland.html">North Oakland</a></li>
-          <li><a class="site-footer__link" href="areas/berkeley.html">Berkeley</a></li>
-          <li><a class="site-footer__link" href="areas/alameda.html">Alameda</a></li>
-          <li><a class="site-footer__link" href="areas/albany.html">Albany</a></li>
-          <li><a class="site-footer__link" href="areas/el-cerrito.html">El Cerrito</a></li>
-          <li><a class="site-footer__link" href="areas/emeryville.html">Emeryville</a></li>
-          <li><a class="site-footer__link" href="areas/kensington.html">Kensington</a></li>
-          <li><a class="site-footer__link" href="areas/el-sobrante.html">El Sobrante</a></li>
-          <li><a class="site-footer__link" href="areas/pinole.html">Pinole</a></li>
-          <li><a class="site-footer__link" href="areas/orinda.html">Orinda</a></li>
+          <li><a class="site-footer__link" href="service-areas/north-oakland/">North Oakland</a></li>
+          <li><a class="site-footer__link" href="service-areas/berkeley/">Berkeley</a></li>
+          <li><a class="site-footer__link" href="service-areas/alameda/">Alameda</a></li>
+          <li><a class="site-footer__link" href="service-areas/albany/">Albany</a></li>
+          <li><a class="site-footer__link" href="service-areas/el-cerrito/">El Cerrito</a></li>
+          <li><a class="site-footer__link" href="service-areas/emeryville/">Emeryville</a></li>
+          <li><a class="site-footer__link" href="service-areas/kensington/">Kensington</a></li>
+          <li><a class="site-footer__link" href="service-areas/el-sobrante/">El Sobrante</a></li>
+          <li><a class="site-footer__link" href="service-areas/pinole/">Pinole</a></li>
+          <li><a class="site-footer__link" href="service-areas/orinda/">Orinda</a></li>
         </ul>
       </div>
 
       <div class="site-footer__col">
         <h3 class="site-footer__col-title">Company</h3>
         <ul class="site-footer__list">
-          <li><a class="site-footer__link" href="about.html">About Us</a></li>
-          <li><a class="site-footer__link" href="reviews.html">Reviews</a></li>
-          <li><a class="site-footer__link" href="gallery.html">Gallery</a></li>
-          <li><a class="site-footer__link" href="contact.html">Contact Us</a></li>
+          <li><a class="site-footer__link" href="about-us/">About Us</a></li>
+          <li><a class="site-footer__link" href="reviews/">Reviews</a></li>
+          <li><a class="site-footer__link" href="gallery/">Gallery</a></li>
+          <li><a class="site-footer__link" href="contact-us/">Contact Us</a></li>
         </ul>
       </div>
 

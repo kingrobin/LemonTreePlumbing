@@ -15,7 +15,7 @@
     </button>
 
     <!-- Logo + CA LIC -->
-    <a class="site-header__logo" href="index.html" aria-label="LemonTree Plumbing — Home">
+    <a class="site-header__logo" href="./" aria-label="LemonTree Plumbing — Home">
       <img class="site-header__logo-img site-header__logo-img--default" src="assets/img/lemontree-plumbing-logo.svg" alt="LemonTree Plumbing">
       <img class="site-header__logo-img site-header__logo-img--scrolled" src="assets/img/lemontree-plumbing-logo-h.svg" alt="LemonTree Plumbing">
       <p class="site-header__lic">CA LIC: 1116849</p>
@@ -28,15 +28,15 @@
       <nav class="site-nav" aria-label="Primary">
         <ul class="site-nav__list">
           <li class="site-nav__item">
-            <a class="site-nav__link" href="index.html">Home</a>
+            <a class="site-nav__link" href="./">Home</a>
           </li>
           <li class="site-nav__item">
-            <a class="site-nav__link" href="about.html">About Us</a>
+            <a class="site-nav__link" href="about-us/">About Us</a>
           </li>
 
           <!-- Plumbing Service ▾ -->
           <li class="site-nav__item site-nav__item--has-dropdown">
-            <a class="site-nav__link" href="services/">
+            <a class="site-nav__link" href="plumbing-service/">
               Plumbing Service
               <svg class="site-nav__caret" viewBox="0 0 12 6" aria-hidden="true">
                 <path d="M0 0l6 6 6-6z" fill="currentColor"/>
@@ -44,19 +44,19 @@
             </a>
             <div class="site-dropdown">
               <ul class="site-dropdown__list site-dropdown__list--two-col">
-                <li><a class="site-dropdown__link" href="services/drain-sewer.html">Drain &amp; Sewer<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
-                <li><a class="site-dropdown__link" href="services/water-fixture-repair.html">Water Fixture Repair<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
-                <li><a class="site-dropdown__link" href="services/gas-line.html">Gas Line Services<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
-                <li><a class="site-dropdown__link" href="services/water-repipe.html">Water Repipe<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
-                <li><a class="site-dropdown__link" href="services/hydronic-radiant-heating.html">Hydronic Radiant Heating<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
-                <li><a class="site-dropdown__link" href="services/water-heater.html">Water Heater Services<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
+                <li><a class="site-dropdown__link" href="plumbing-service/drain-cleaning-repairs/">Drain &amp; Sewer<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
+                <li><a class="site-dropdown__link" href="plumbing-service/water-fixture-repair-installation/">Water Fixture Repair<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
+                <li><a class="site-dropdown__link" href="plumbing-service/gas-line-services/">Gas Line Services<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
+                <li><a class="site-dropdown__link" href="plumbing-service/water-pipe-repair-replacement/">Water Repipe<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
+                <li><a class="site-dropdown__link" href="plumbing-service/hydronic-radiant-heating/">Hydronic Radiant Heating<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
+                <li><a class="site-dropdown__link" href="water-heater-services/">Water Heater Services<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
               </ul>
             </div>
           </li>
 
           <!-- Service Areas ▾ -->
           <li class="site-nav__item site-nav__item--has-dropdown">
-            <a class="site-nav__link" href="areas/">
+            <a class="site-nav__link" href="service-areas/">
               Service Areas
               <svg class="site-nav__caret" viewBox="0 0 12 6" aria-hidden="true">
                 <path d="M0 0l6 6 6-6z" fill="currentColor"/>
@@ -64,22 +64,22 @@
             </a>
             <div class="site-dropdown">
               <ul class="site-dropdown__list site-dropdown__list--two-col">
-                <li><a class="site-dropdown__link" href="areas/berkeley.html">Berkeley<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
-                <li><a class="site-dropdown__link" href="areas/albany.html">Albany<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
-                <li><a class="site-dropdown__link" href="areas/el-cerrito.html">El Cerrito<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
-                <li><a class="site-dropdown__link" href="areas/kensington.html">Kensington<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
-                <li><a class="site-dropdown__link" href="areas/north-oakland.html">North Oakland<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
-                <li><a class="site-dropdown__link" href="areas/alameda.html">Alameda<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
-                <li><a class="site-dropdown__link" href="areas/emeryville.html">Emeryville<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
-                <li><a class="site-dropdown__link" href="areas/el-sobrante.html">El Sobrante<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
-                <li><a class="site-dropdown__link" href="areas/pinole.html">Pinole<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
-                <li><a class="site-dropdown__link" href="areas/orinda.html">Orinda<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
+                <li><a class="site-dropdown__link" href="service-areas/berkeley/">Berkeley<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
+                <li><a class="site-dropdown__link" href="service-areas/albany/">Albany<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
+                <li><a class="site-dropdown__link" href="service-areas/el-cerrito/">El Cerrito<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
+                <li><a class="site-dropdown__link" href="service-areas/kensington/">Kensington<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
+                <li><a class="site-dropdown__link" href="service-areas/north-oakland/">North Oakland<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
+                <li><a class="site-dropdown__link" href="service-areas/alameda/">Alameda<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
+                <li><a class="site-dropdown__link" href="service-areas/emeryville/">Emeryville<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
+                <li><a class="site-dropdown__link" href="service-areas/el-sobrante/">El Sobrante<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
+                <li><a class="site-dropdown__link" href="service-areas/pinole/">Pinole<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
+                <li><a class="site-dropdown__link" href="service-areas/orinda/">Orinda<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
               </ul>
             </div>
           </li>
 
-          <li class="site-nav__item"><a class="site-nav__link" href="gallery.html">Gallery</a></li>
-          <li class="site-nav__item"><a class="site-nav__link" href="contact.html">Contact Us</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="gallery/">Gallery</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="contact-us/">Contact Us</a></li>
         </ul>
       </nav>
 
@@ -104,8 +104,8 @@
 <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
   <button class="mobile-menu__close" type="button" aria-label="Close menu" id="menuCloseBtn">&times;</button>
 
-  <a class="mobile-menu__link" href="index.html">Home</a>
-  <a class="mobile-menu__link" href="about.html">About Us</a>
+  <a class="mobile-menu__link" href="./">Home</a>
+  <a class="mobile-menu__link" href="about-us/">About Us</a>
 
   <!-- Plumbing Service (accordion) -->
   <div class="mobile-menu__group">
@@ -116,12 +116,12 @@
       </svg>
     </button>
     <ul class="mobile-menu__sublist">
-      <li><a class="mobile-menu__sublink" href="services/drain-sewer.html">Drain &amp; Sewer</a></li>
-      <li><a class="mobile-menu__sublink" href="services/water-fixture-repair.html">Water Fixture Repair</a></li>
-      <li><a class="mobile-menu__sublink" href="services/gas-line.html">Gas Line Services</a></li>
-      <li><a class="mobile-menu__sublink" href="services/water-repipe.html">Water Repipe</a></li>
-      <li><a class="mobile-menu__sublink" href="services/hydronic-radiant-heating.html">Hydronic Radiant Heating</a></li>
-      <li><a class="mobile-menu__sublink" href="services/water-heater.html">Water Heater Services</a></li>
+      <li><a class="mobile-menu__sublink" href="plumbing-service/drain-cleaning-repairs/">Drain &amp; Sewer</a></li>
+      <li><a class="mobile-menu__sublink" href="plumbing-service/water-fixture-repair-installation/">Water Fixture Repair</a></li>
+      <li><a class="mobile-menu__sublink" href="plumbing-service/gas-line-services/">Gas Line Services</a></li>
+      <li><a class="mobile-menu__sublink" href="plumbing-service/water-pipe-repair-replacement/">Water Repipe</a></li>
+      <li><a class="mobile-menu__sublink" href="plumbing-service/hydronic-radiant-heating/">Hydronic Radiant Heating</a></li>
+      <li><a class="mobile-menu__sublink" href="water-heater-services/">Water Heater Services</a></li>
     </ul>
   </div>
 
@@ -134,19 +134,19 @@
       </svg>
     </button>
     <ul class="mobile-menu__sublist">
-      <li><a class="mobile-menu__sublink" href="areas/berkeley.html">Berkeley</a></li>
-      <li><a class="mobile-menu__sublink" href="areas/albany.html">Albany</a></li>
-      <li><a class="mobile-menu__sublink" href="areas/el-cerrito.html">El Cerrito</a></li>
-      <li><a class="mobile-menu__sublink" href="areas/kensington.html">Kensington</a></li>
-      <li><a class="mobile-menu__sublink" href="areas/north-oakland.html">North Oakland</a></li>
-      <li><a class="mobile-menu__sublink" href="areas/alameda.html">Alameda</a></li>
-      <li><a class="mobile-menu__sublink" href="areas/emeryville.html">Emeryville</a></li>
-      <li><a class="mobile-menu__sublink" href="areas/el-sobrante.html">El Sobrante</a></li>
-      <li><a class="mobile-menu__sublink" href="areas/pinole.html">Pinole</a></li>
-      <li><a class="mobile-menu__sublink" href="areas/orinda.html">Orinda</a></li>
+      <li><a class="mobile-menu__sublink" href="service-areas/berkeley/">Berkeley</a></li>
+      <li><a class="mobile-menu__sublink" href="service-areas/albany/">Albany</a></li>
+      <li><a class="mobile-menu__sublink" href="service-areas/el-cerrito/">El Cerrito</a></li>
+      <li><a class="mobile-menu__sublink" href="service-areas/kensington/">Kensington</a></li>
+      <li><a class="mobile-menu__sublink" href="service-areas/north-oakland/">North Oakland</a></li>
+      <li><a class="mobile-menu__sublink" href="service-areas/alameda/">Alameda</a></li>
+      <li><a class="mobile-menu__sublink" href="service-areas/emeryville/">Emeryville</a></li>
+      <li><a class="mobile-menu__sublink" href="service-areas/el-sobrante/">El Sobrante</a></li>
+      <li><a class="mobile-menu__sublink" href="service-areas/pinole/">Pinole</a></li>
+      <li><a class="mobile-menu__sublink" href="service-areas/orinda/">Orinda</a></li>
     </ul>
   </div>
 
-  <a class="mobile-menu__link" href="gallery.html">Gallery</a>
-  <a class="mobile-menu__link" href="contact.html">Contact Us</a>
+  <a class="mobile-menu__link" href="gallery/">Gallery</a>
+  <a class="mobile-menu__link" href="contact-us/">Contact Us</a>
 </div>
