@@ -711,6 +711,18 @@
   .hero__h1    { font-size: 7.5rem; }                   /* 120px */
 }
 
+/* ---------- Hero — Short-height laptops（如 1712×804、1440×900）----------
+   寬度 ≥1024 但視窗高度 ≤850px：h1 與 absolute trust-bar 容易擠壓。
+   只縮 padding-top + h1，trust-bar 拉近底部；不動其他斷點。
+============================================================ */
+@media (min-width: 1024px) and (max-height: 850px) {
+  .hero__inner    { padding-top: 14rem; }               /* 242px → 176px */
+  .hero__title    { gap: 0.875rem; }
+  .hero__eyebrow  { font-size: 1.5rem; }                /* 28→24px */
+  .hero__h1       { font-size: 4rem; }                  /* 85→64px */
+  .hero .trust-bar { bottom: 3rem; }                    /* 4.5rem → 3rem */
+}
+
 /* ============================================================
    WHY East Bay (.why — navy background)
    依 Figma node 455:3748 (1728×879)
