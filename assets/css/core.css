@@ -59,7 +59,12 @@ body {
   background: var(--color-white, #fff);
   -webkit-font-smoothing: antialiased;
   overflow-x: clip;                    /* 雙保險 */
+  /* Sticky footer：內容短時 footer 推到視窗底，內容長時自然在文件底 */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
+body > main { flex: 1; }
 
 img, svg {
   display: block;
@@ -209,10 +214,10 @@ body.is-menu-open { overflow: hidden; }
 .btn--md  { padding: 0.625rem 1.5rem; font-size: 1.25rem; height: 3rem; }
 .btn--lg  { padding: 1.125rem 1.875rem; font-size: 1.6875rem; height: 4.0625rem; }
 
-/* Icon inside button (img or svg) — 自動跟著 size 等比 */
-.btn--lg img, .btn--lg svg { width: 1.6875rem; height: 1.6875rem; flex-shrink: 0; }
-.btn--md img, .btn--md svg { width: 1.25rem;   height: 1.25rem;   flex-shrink: 0; }
-.btn--sm img, .btn--sm svg { width: 1rem;      height: 1rem;      flex-shrink: 0; }
+/* Icon inside button (img or svg) — 寬度固定、高度依比例 */
+.btn--lg img, .btn--lg svg { width: 1.6875rem; height: auto; flex-shrink: 0; }
+.btn--md img, .btn--md svg { width: 1.25rem;   height: auto; flex-shrink: 0; }
+.btn--sm img, .btn--sm svg { width: 1rem;      height: auto; flex-shrink: 0; }
 
 /* Phone link variant (un-styled <a> with hover) */
 .link-phone {

@@ -1,8 +1,303 @@
 /* ============================================================
    components.css — 全站共用元件
-   Blocks: .trust-bar / .faq / .slider / .floating-cta
+   Blocks: .page-hero / .breadcrumb / .hero-card / .trust-bar / .faq
+           / .slider / .floating-cta / .areas-mini / .final-cta
    依賴 core.css 的變數與 typography 預設
    ============================================================ */
+
+
+/* ============================================================
+   Page Hero — 內頁專用 hero（base，與首頁 .hero 完全分開）
+   壓縮高度、背景照片、左上 title、breadcrumb 浮層
+   各頁用 .page-hero--<page> modifier 換背景圖 / 高度
+   ============================================================ */
+.page-hero {
+  position: relative;
+  display: flex;
+  width: 100%;
+  margin-top: 4.625rem;                                 /* push below fixed mobile header (74px) */
+  min-height: 55svh;
+  color: var(--color-white, #fff);
+  overflow: hidden;
+  isolation: isolate;
+}
+.page-hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background: center / cover no-repeat #000;
+}
+.page-hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg,
+              rgba(0, 0, 0, .30) 0%,
+              rgba(0, 0, 0, 0)   40%,
+              rgba(0, 0, 0, .45) 100%);
+}
+.page-hero__inner {
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 1.25rem;
+  padding: 5rem 1.5rem 0;                               /* 底 0 → hero-card 貼齊 hero 底 */
+}
+.page-hero__title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 50rem;
+  position: relative;
+}
+.page-hero__h1 {
+  margin: 0;
+  font-family: var(--font-display, sans-serif);
+  font-weight: 800;
+  font-size: clamp(3.5rem, 9vw, 8rem);                 /* 40 → 128px（大螢幕封頂）*/
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  text-align: left;
+  color: var(--color-white, #fff);
+  text-shadow: 0 0.125rem 0.625rem rgba(0, 0, 0, .55);
+  position: relative;                                   /* 桌機正常流；手機由 contact.css 改 absolute */
+}
+
+@media (min-width: 768px) {
+  .page-hero { min-height: 32rem; }
+  .page-hero__inner { padding: 6rem 2.5rem 0; }
+}
+@media (min-width: 1024px) {
+  .page-hero { min-height: 36rem; }
+  .page-hero__inner { padding: 6rem 3rem 3.5rem; }     /* 桌機 hero-card absolute，底 padding 只影響 title */
+}
+@media (min-width: 1280px) {
+  .page-hero { margin-top: 6.25rem; }                  /* desktop header 100px */
+  .page-hero__inner { padding-left: 4rem; padding-right: 4rem; }
+}
+@media (min-width: 1600px) {
+  .page-hero__inner { padding-left: 11.3125rem; padding-right: 11.75rem; }
+}
+
+
+/* ============================================================
+   Breadcrumb — 浮在 page-hero 內上方
+   ============================================================ */
+.breadcrumb {
+  position: absolute;
+  top: 1.5rem;
+  left: 0;
+  right: 0;
+  padding: 0 1.5rem;
+  z-index: 2;
+  font-family: var(--font-body, sans-serif);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, .85);
+}
+.breadcrumb__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.breadcrumb__sep {
+  opacity: 0.6;
+  user-select: none;
+}
+.breadcrumb a {
+  color: inherit;
+  text-decoration: none;
+  transition: color .2s ease;
+}
+.breadcrumb a:hover { color: var(--color-yellow, #F0BC29); }
+.breadcrumb__current {  font-weight: 600; }
+
+@media (min-width: 768px) {
+  .breadcrumb { top: 2rem; padding: 0 2.5rem; font-size: 0.875rem; }
+}
+@media (min-width: 1024px) {
+  .breadcrumb { top: 2.5rem; padding: 0 3rem; }
+}
+@media (min-width: 1280px) {
+  .breadcrumb { padding-left: 4rem; padding-right: 4rem; }
+}
+@media (min-width: 1600px) {
+  .breadcrumb { padding-left: 11.3125rem; padding-right: 11.75rem; }
+}
+
+
+/* ============================================================
+   Hero Card — 疊在 page-hero 左下的卡片（contact / service / about 共用）
+   layout-only：手機 full-bleed 落底，桌機 absolute 左下 50% 寬
+   底色用 --light / --navy modifier；內容由各頁自行放
+   ============================================================ */
+.hero-card {
+  z-index: 2;
+  /* 手機：滿版蓋掉 page-hero__inner 左右 + 底 padding，貼齊 hero 底邊 */
+  margin: auto -1.5rem 0;
+  margin-top: 5rem;
+}
+.hero-card__inner {
+  padding: 3rem 1.5rem;
+}
+.hero-card--light { background: var(--color-white, #fff); }
+.hero-card--navy  { background: var(--color-navy, #262A71); color: var(--color-white, #fff); }
+
+/* Lead heading — 左側 6px 黃 bar，display font，封頂 60px */
+.hero-card__lead {
+  margin: 0 0 1.5rem;
+  padding-left: 1.5rem;
+  border-left: 0.375rem solid var(--color-yellow, #F0BC29);
+  font-family: var(--font-display, sans-serif);
+  font-weight: 800;
+  font-size: clamp(2rem, 5vw, 3.75rem);                /* 32 → 60px */
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--color-navy, #262A71);
+}
+.hero-card--navy .hero-card__lead { color: var(--color-white, #fff); }
+
+@media (min-width: 768px) {
+  .hero-card { margin: auto -2.5rem 0; }
+  .hero-card__inner { padding: 2.5rem 2.5rem; }
+}
+@media (min-width: 1024px) {
+  .hero-card {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50%;
+    margin: 0;
+  }
+  .hero-card__inner { padding: 2.5rem 3rem; }
+}
+@media (min-width: 1280px) {
+  .hero-card__inner { padding: 2.5rem 4rem; }
+}
+@media (min-width: 1600px) {
+  .hero-card__inner { padding: 5rem 4rem 5rem 11.3125rem; }   /* 左對齊 site-header padding */
+}
+
+
+/* ============================================================
+   Final CTA — 黃底 conversion strip（跨頁共用）
+   ============================================================ */
+.final-cta {
+  background: var(--color-yellow, #F0BC29);
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+.final-cta__inner {
+  width: 100%;
+  max-width: 50rem;
+  margin: 0 auto;
+}
+.final-cta__title {
+  margin: 0 0 0.75rem;
+  text-align: center;
+  color: var(--color-navy, #262A71);
+}
+.final-cta__sub {
+  margin: 0 auto 1.75rem;
+  color: var(--color-navy, #262A71);
+  max-width: 36rem;
+}
+.final-cta__btn { margin: 0 auto; }
+
+@media (min-width: 768px) {
+  .final-cta { padding: 4.5rem 2.5rem; }
+  .final-cta__sub { margin-bottom: 2.25rem; }
+}
+@media (min-width: 1024px) {
+  .final-cta { padding: 5.5rem 3rem; }
+}
+
+
+/* ============================================================
+   Areas Mini — 壓縮版服務區域帶（Contact / About / Areas 等）
+   左標題 + 右 10 個城市 pill grid（2 行 5 欄）
+   ============================================================ */
+.areas-mini {
+  background: var(--color-bg-light, #F5F5F5);
+  padding: 2.5rem 1.5rem;
+}
+.areas-mini__inner {
+  width: 100%;
+  max-width: var(--container-max, 70rem);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  align-items: center;
+}
+/* 手機標題對齊 final-cta（= section-title 手機 32px，置中）*/
+.areas-mini__title {
+  margin: 0;
+  font-family: var(--font-display, sans-serif);
+  font-weight: 800;
+  font-size: 2rem;                                      /* 32px mobile */
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  text-align: center;
+  color: var(--color-navy, #262A71);
+}
+.areas-mini__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.areas-mini__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.625rem 1.25rem;
+  border-radius: 999px;
+  background: var(--color-white, #fff);
+  color: var(--color-navy, #262A71);
+  font-family: var(--font-body, sans-serif);
+  font-weight:400;
+  font-size: 1.125rem;                                  /* text-regular mobile (18px) */
+  text-decoration: none;
+  transition: background-color .2s ease, color .2s ease, transform .15s ease;
+}
+.areas-mini__link:hover {
+  background: var(--color-navy, #262A71);
+  color: var(--color-yellow, #F0BC29);
+}
+.areas-mini__link:active { transform: translateY(1px); }
+
+@media (min-width: 768px) {
+  .areas-mini { padding: 3rem 2.5rem; }
+  .areas-mini__inner { gap: 2rem; }
+  .areas-mini__link  { padding: 0.75rem 1.5rem; font-size: 1.4375rem; }  /* text-large desktop (23px) */
+}
+@media (min-width: 1024px) {
+  .areas-mini { padding: 3.5rem 3rem; }
+  /* 兩欄：標題左 / pill grid 右 */
+  .areas-mini__inner {
+    grid-template-columns: minmax(0, auto) 1fr;
+    gap: 3rem;
+  }
+  .areas-mini__title { font-size: clamp(1.75rem, 2.5vw, 5.25rem); text-align: left; }
+}
+@media (min-width: 1280px) {
+  .areas-mini { padding: 3.5rem 4rem; }
+  .areas-mini__inner { gap: 4rem; }
+}
+@media (min-width: 1600px) {
+  .areas-mini { padding: 3.5rem 11.3125rem 3.5rem 11.75rem; }  /* 對齊 header padding */
+}
 
 
 /* ============================================================
@@ -264,6 +559,10 @@
 }
 .trust-bar__title { color: var(--color-white, #fff); }
 .trust-bar__text  { color: var(--color-yellow, #F0BC29); }
+
+/* Light variant — 白底/淺底使用（icon 需另外用 *-navy.svg） */
+.trust-bar--light .trust-bar__title,
+.trust-bar--light .trust-bar__text { color: var(--color-navy, #262A71); }
 
 /* Mobile only — 放在所有 base 規則後面以正確覆寫 */
 @media (max-width: 767.98px) {

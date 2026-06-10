@@ -801,7 +801,7 @@
   grid-column: 1;
   grid-row: 1 / span 2;
   width: 4.375rem;                                    /* 70px (Figma) */
-  height: 4.375rem;
+  height: auto;
   object-fit: contain;
   align-self: start;
 }
@@ -892,7 +892,7 @@
   .why-feature__title { font-size: 3rem; }              /* 48px (vs 35) */
   .why-feature__icon {
     width: 6rem;                                        /* 96px (vs 70) */
-    height: 6rem;
+    height: auto;
   }
   .why-feature { grid-template-columns: 6rem 1fr; column-gap: 2rem; } /* 96px icon + 32px gap */
 }
@@ -1058,7 +1058,7 @@
 }
 .testimonial-card__star {
   width: 1.875rem;                                    /* 30px */
-  height: 1.875rem;
+  height: auto;
 }
 .testimonial-card__text {
   position: relative;
@@ -1307,7 +1307,9 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform .4s cubic-bezier(.22,1,.36,1);
 }
+.gallery__item:hover img { transform: scale(1.08); }
 
 /* ============================================================
    Gallery — Tablet (≥768px)

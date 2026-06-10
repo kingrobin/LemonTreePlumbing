@@ -1,0 +1,111 @@
+/* ============================================================
+   contact.css — Contact Us 頁專屬樣式
+   依賴：core.css / components.css（.page-hero / .breadcrumb / .hero-card）
+   只放 contact 專屬：page-hero--contact（換圖/高度）/ contact-cta
+   ============================================================ */
+
+
+/* ============================================================
+   Page Hero — Contact 變體（背景圖 + 高度）
+   ============================================================ */
+.page-hero__bg--contact {
+  background-image: url('../img/contact-bg.jpg');
+}
+/* 手機：照片固定 4:3（寬:高 = 4:3 → 高 = 75vw），白卡落在照片正下方 */
+@media (max-width: 767.98px) {
+  .page-hero--contact { min-height: 0; }
+  /* bg + overlay 固定 4:3、貼頂，不跟著白卡長高 */
+  .page-hero--contact .page-hero__bg,
+  .page-hero--contact .page-hero__overlay {
+    height: 75vw;
+    bottom: auto;
+  }
+  .page-hero__bg--contact {
+    background-image: url('../img/m-contact-bg.jpg');
+    background-position: top center;
+    background-size: cover;
+  }
+  /* title 區撐滿照片高度（4:3 = 75vw，扣掉 inner padding-top 5rem），把白卡推到照片下緣 */
+  .page-hero--contact .page-hero__title {
+    min-height: calc(75vw - 5rem);
+    position: relative;
+  }
+  /* h1 釘在正方形照片底部（桌機不套）*/
+  .page-hero--contact .page-hero__h1 {
+    position: absolute;
+    left: 0;
+    bottom: 2rem;
+  }
+  .page-hero--contact .hero-card { margin-top: 0; }
+}
+@media (min-width: 1024px) {
+  /* 790px floor + 85svh 隨視窗高度等比、75rem 蓋頂避免 4K 過高 */
+  .page-hero--contact { min-height: clamp(49.375rem, 85svh, 75rem); }
+  /* title 往下推到中間偏上 */
+  .page-hero--contact .page-hero__title { margin-top: 5%; }
+}
+
+
+/* ============================================================
+   Contact CTA — Call Now btn + email link
+   桌機浮在 hero 右半部下方，手機跟著 hero 正常流
+   ============================================================ */
+.contact-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+/* 手機/平板：CTA 排到白卡（trust）下方，白底接續白卡 */
+@media (max-width: 1023.98px) {
+  .contact-cta {
+    order: 1;                        /* 移到 hero-card 之後 */
+    background: var(--color-white, #fff);
+    margin: 0 -1.5rem;               /* full-bleed 接續白卡 */
+    padding: 0 1.5rem 3rem;
+    gap: 1rem;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023.98px) {
+  .contact-cta { margin: 0 -2.5rem; padding: 0 2.5rem 3rem; }
+}
+.contact-cta__email {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--color-navy, #262A71);                   /* mobile：白卡上用 navy */
+  font-family: var(--font-body, sans-serif);
+  font-weight: 500;
+  font-size: 1.125rem;                                 /* text-regular mobile (18px) */
+  text-decoration: underline;
+  text-decoration-color: currentColor;                 /* 底線跟文字同色 */
+  text-underline-offset: 0.25rem;
+  transition: color .2s ease;
+}
+.contact-cta__email:hover { color: var(--color-navy-dark, #1B1F55); }
+.contact-cta__email-icon {
+  width: 1.125rem;
+  height: 1.125rem;
+  flex-shrink: 0;
+  background-color: currentColor;                      /* icon 顏色 = email link 顏色 */
+  -webkit-mask: url('../img/icon/icon-mail.svg') center / contain no-repeat;
+          mask: url('../img/icon/icon-mail.svg') center / contain no-repeat;
+}
+
+@media (min-width: 1024px) {
+  /* 桌機浮在深照片上 → 改 yellow */
+  .contact-cta__email { font-size: 1.4375rem; color: var(--color-yellow, #F0BC29); }
+  .contact-cta__email:hover { color: var(--color-yellow-dark, #D4A017); }
+}
+@media (min-width: 1024px) {
+  .contact-cta {
+    position: absolute;
+    left: 50%;       /* 右半部 */
+    right: 0;
+    bottom: 3rem;
+    margin: 0;
+    gap: 0.875rem;
+    z-index: 3;      /* 蓋過 hero-card */
+  }
+}

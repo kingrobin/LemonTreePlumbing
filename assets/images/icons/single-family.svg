@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" stroke="#1B2A6B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Roof -->
+  <polyline points="4,22 24,6 44,22"/>
+  <!-- Walls -->
+  <rect x="9" y="22" width="30" height="20" rx="1"/>
+  <!-- Door -->
+  <path d="M20 42 L20 32 Q20 30 24 30 Q28 30 28 32 L28 42"/>
+  <!-- Window -->
+  <rect x="12" y="26" width="7" height="7" rx="0.5"/>
+  <rect x="29" y="26" width="7" height="7" rx="0.5"/>
+  <!-- Yellow accent dot on roof peak -->
+  <circle cx="24" cy="6" r="2.5" fill="#F2BE22" stroke="none"/>
+</svg>

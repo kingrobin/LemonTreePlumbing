@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" stroke="#1B2A6B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Building body -->
+  <rect x="5" y="18" width="38" height="24" rx="1"/>
+  <!-- Awning -->
+  <path d="M5 18 L5 13 L43 13 L43 18" stroke="#1B2A6B"/>
+  <line x1="3" y1="18" x2="45" y2="18"/>
+  <!-- Awning fill -->
+  <rect x="5" y="13" width="38" height="5" fill="#F2BE22" stroke="none" opacity="0.8"/>
+  <!-- Display window -->
+  <rect x="8" y="22" width="20" height="12" rx="0.5"/>
+  <!-- Door -->
+  <path d="M32 42 L32 30 Q32 28 36 28 Q40 28 40 30 L40 42"/>
+  <!-- Door knob -->
+  <circle cx="38" cy="36" r="1" fill="#1B2A6B" stroke="none"/>
+</svg>
