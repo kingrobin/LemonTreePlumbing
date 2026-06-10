@@ -120,6 +120,20 @@
 .breadcrumb a:hover { color: var(--color-yellow, #F0BC29); }
 .breadcrumb__current {  font-weight: 600; }
 
+/* Dark variant — 無 hero 的頁面（白底）：正常流、深色字、空出 fixed header */
+.breadcrumb--dark {
+  position: static;
+  margin-top: 4.625rem;                                /* clear fixed mobile header (74px) */
+  padding-top: 1.5rem;
+  padding-bottom: 0;
+  color: var(--color-navy, #262A71);
+}
+.breadcrumb--dark a:hover { color: var(--color-yellow-dark, #D4A017); }
+.breadcrumb--dark .breadcrumb__current { color: var(--color-yellow-dark, #D4A017); }
+@media (min-width: 1280px) {
+  .breadcrumb--dark { margin-top: 6.25rem; padding-top: 2rem; }   /* desktop header 100px */
+}
+
 @media (min-width: 768px) {
   .breadcrumb { top: 2rem; padding: 0 2.5rem; font-size: 0.875rem; }
 }
@@ -297,6 +311,172 @@
 }
 @media (min-width: 1600px) {
   .areas-mini { padding: 3.5rem 11.3125rem 3.5rem 11.75rem; }  /* 對齊 header padding */
+}
+
+
+/* ============================================================
+   Service Areas — 完整版（圓形地圖 + 城市清單 + CTA）
+   用於 首頁 + Service Areas hub
+   ============================================================ */
+.service-areas {
+  position: relative;
+  width: 100%;
+  padding: 3rem 1.5rem;
+  background: var(--color-white, #fff);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* ----- Map (circular) — 底圖 + 中央 pin ----- */
+.service-areas__map {
+  position: relative;
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 20rem;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #eaeaea;                                /* fallback 灰底 */
+}
+.service-areas__map-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.service-areas__map-pin {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 3rem;                                        /* 48px mobile */
+  height: auto;
+  z-index: 2;
+  filter: drop-shadow(0 0.25rem 0.5rem rgba(0, 0, 0, .25));
+}
+
+/* ----- Content ----- */
+.service-areas__content {
+  width: 100%;
+  max-width: 33.125rem;                               /* 530px (Figma) */
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* "SERVICE AREAS" tag */
+.service-areas__label {
+  align-self: flex-start;
+  padding: 0.3125rem 0.625rem;                        /* 5/10 (Figma) */
+  background: #eee;
+  font-family: var(--font-body, sans-serif);
+  font-weight: 700;
+  font-size: 0.875rem;                                /* 14px */
+  line-height: 1;
+  letter-spacing: 0.11375rem;                         /* 1.82px */
+  color: var(--color-navy, #262A71);
+  text-transform: uppercase;
+}
+
+/* Title — uses .section-title shared base */
+.service-areas__title {
+  margin: 0;
+  /* font-size / weight / family inherited from .section-title */
+}
+
+/* Mobile：label / title 置中 + title 加大；desc / list 靠左 */
+@media (max-width: 767.98px) {
+  .service-areas__content { align-items: center; text-align: center; }
+  .service-areas__label   { align-self: center; margin-bottom: -0.5rem; }
+  .service-areas__title   { font-size: 2.5rem; }       /* 40px (vs 32) */
+  .service-areas__desc,
+  .service-areas__list    { align-self: stretch; text-align: left; }
+}
+
+/* Description — typography from .text-regular */
+.service-areas__desc {
+  color: #666;
+}
+
+/* ----- City list (2-col grid) ----- */
+.service-areas__list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 0.625rem;                                    /* 10px horizontal */
+  margin: 0.5rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+.area-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;                                       /* 12px */
+  height: 3.125rem;                                   /* 50px */
+  padding: 0 0.1875rem;
+  font-family: var(--font-cta, sans-serif);
+  font-weight: 800;                                   /* Big Shoulders ExtraBold */
+  font-size: 1.5rem;                                  /* 24px */
+  line-height: 1;
+  color: var(--color-navy, #262A71);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color .2s ease, transform .2s ease;
+}
+.area-link:hover { color: var(--color-yellow-dark, #D4A017); }
+.area-link__arrow {
+  width: 1.5rem;                                      /* 24px display */
+  height: 1.25rem;
+  flex-shrink: 0;
+  color: currentColor;
+  transition: transform .2s ease;
+}
+.area-link:hover .area-link__arrow { transform: translateX(0.25rem); }
+
+/* ----- CTA button — 視覺由 .btn.btn--primary.btn--lg 提供；只放 layout ----- */
+.service-areas__cta {
+  margin-top: 0.5rem;
+  align-self: stretch;
+}
+
+@media (min-width: 768px) {
+  .service-areas { padding: 5rem 2.5rem; }
+  .service-areas__map { max-width: 28rem; }
+  .service-areas__cta { align-self: flex-start; }
+}
+
+@media (min-width: 1024px) {
+  .service-areas {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+    padding: 6.75rem 3rem;                            /* 108px / 48px */
+  }
+  .service-areas__map {
+    flex: 0 0 auto;
+    width: clamp(28rem, 38vw, 41.75rem);              /* up to 668px */
+    max-width: none;
+  }
+  .service-areas__map-pin { width: 5rem; }            /* 80px desktop */
+  .service-areas__content {
+    flex: 0 1 33.125rem;                              /* 530px */
+    gap: 0.5rem;
+  }
+}
+
+/* 2K+ — map 等比放大、整段內容靠 container 左邊對齊 */
+@media (min-width: 1920px) {
+  .service-areas {
+    justify-content: flex-start;
+    padding-left:  max(3rem, calc((100vw - var(--container-max)) / 2));
+    padding-right: max(3rem, calc((100vw - var(--container-max)) / 2));
+  }
+  .service-areas__map     { width: 55rem; }             /* 880px (×1.32) */
+  .service-areas__map-pin { width: 6.5rem; }            /* 104px */
 }
 
 
