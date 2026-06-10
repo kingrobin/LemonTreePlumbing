@@ -162,7 +162,7 @@
 .hero-card__inner {
   padding: 3rem 1.5rem;
 }
-.hero-card--light { background: var(--color-white, #fff); }
+.hero-card--light { background: var(--color-white, #fff); color: var(--color-text-body, #333); }
 .hero-card--navy  { background: var(--color-navy, #262A71); color: var(--color-white, #fff); }
 
 /* Lead heading — 左側 6px 黃 bar，display font，封頂 60px */
@@ -197,7 +197,7 @@
   .hero-card__inner { padding: 2.5rem 4rem; }
 }
 @media (min-width: 1600px) {
-  .hero-card__inner { padding: 5rem 4rem 5rem 11.3125rem; }   /* 左對齊 site-header padding */
+  .hero-card__inner { padding: 5rem 4rem 0rem 4rem;}   /* 左對齊 site-header padding */
 }
 
 
@@ -245,7 +245,7 @@
 }
 .areas-mini__inner {
   width: 100%;
-  max-width: var(--container-max, 70rem);
+  max-width: var(--content-max, 85.3125rem);           /* 1366 固定，不跟 FHD 放大 */
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr;
@@ -261,6 +261,7 @@
   line-height: 1.15;
   letter-spacing: -0.01em;
   text-align: center;
+  align-self: start;                                    /* 垂直置上 */
   color: var(--color-navy, #262A71);
 }
 .areas-mini__list {
@@ -303,14 +304,11 @@
     grid-template-columns: minmax(0, auto) 1fr;
     gap: 3rem;
   }
-  .areas-mini__title { font-size: clamp(1.75rem, 2.5vw, 5.25rem); text-align: left; }
+  .areas-mini__title { font-size: clamp(1.75rem, 2.5vw, 2.25rem); text-align: left; }
 }
 @media (min-width: 1280px) {
   .areas-mini { padding: 3.5rem 4rem; }
   .areas-mini__inner { gap: 4rem; }
-}
-@media (min-width: 1600px) {
-  .areas-mini { padding: 3.5rem 11.3125rem 3.5rem 11.75rem; }  /* 對齊 header padding */
 }
 
 
@@ -751,7 +749,7 @@
 }
 
 @media (min-width: 768px) {
-  .trust-bar { gap: 3.75rem; }
+  .trust-bar { gap: 1.75rem; }
   .trust-bar__icon--stars > img { width: 1.4rem; }
   .trust-bar__title,
   .trust-bar__text { font-size: 1.625rem; font-weight: 400; }
@@ -898,4 +896,297 @@
     top: 8rem;                                          /* 跟著捲動時不會離開視線 */
   }
   .faq__list { grid-column: 2; }
+}
+
+
+/* ============================================================
+   TESTIMONIALS (.testimonials — light grey bg)
+   依 Figma node 455:3761
+   ============================================================ */
+.testimonials {
+  position: relative;
+  width: 100%;
+  padding: 3rem 1.5rem 2rem;
+  background: var(--color-bg-light, #F5F5F5);
+  color: var(--color-navy, #262A71);
+  overflow: hidden;
+}
+/* 底部漸層：底白透頂（Figma Rectangle 12，width 1728 / height 575px） */
+.testimonials::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 35.9375rem;                                 /* 575px */
+  background: linear-gradient(0deg,
+              #FFFFFF 4.58%,
+              rgba(255, 255, 255, 0) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+/* 確保內容在漸層之上 */
+.testimonials__inner {
+  position: relative;
+  z-index: 1;
+}
+
+/* Inner — max-width 內容置中 (Figma container 1365px) */
+.testimonials__inner {
+  width: 100%;
+  max-width: var(--container-max, 85.3125rem);
+  margin: 0 auto;
+}
+
+/* Section title — XXL navy */
+.testimonials__title {
+  margin: 0 0 2rem;
+  font-family: var(--font-display, sans-serif);
+  font-weight: 800;
+  font-size: clamp(2.5rem, 12vw, 9rem);           /* 40 → 150px (Figma) */
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+  color: var(--color-navy, #262A71);
+}
+/* Mobile：強制斷行；桌機隱藏 <br> */
+.testimonials__title-br { display: none; }
+@media (max-width: 767.98px) {
+  .testimonials__title-br { display: inline; }
+  .testimonials__title {
+    font-size: clamp(3rem, 15vw, 4rem);
+    text-align: left;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Rating + description */
+.testimonials__intro {
+  max-width: 41.625rem;                               /* 666px (Figma 626+anchor) */
+  margin: 0 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.testimonials__rating {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  margin: 0;
+}
+.testimonials__rating-star {
+  width: 1.875rem;
+  aspect-ratio: 1;
+  flex-shrink: 0;
+}
+.testimonials__rating-text {
+  font-family: var(--font-body, sans-serif);
+  font-weight: 700;
+  font-size: 1.4375rem;                               /* 23px (text-large) */
+  line-height: 1.3;
+  color: var(--color-navy, #262A71);
+}
+.testimonials__desc {
+  color: #666;
+  padding-left: 2.5rem;                               /* 對齊「5/5...」(star 30px + gap 10px) */
+}
+
+/* ----- Slider — 左右滿版（突破 section padding 到 viewport 邊） ----- */
+.testimonials__slider {
+  position: relative;
+  width: auto;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  margin-bottom: 2.5rem;
+  padding: 0;
+  overflow: hidden;
+}
+/* Desktop：slider 左對齊 container、右側延伸到 viewport 邊（Figma 設計）
+   重點：slider 的 overflow:hidden 從 container 左緣裁切，
+   所以前一張卡不會從左邊探出 → 點 dot 2/3 看到的就是「4-6」「7-9」乾淨頁面 */
+@media (min-width: 1024px) {
+  .testimonials__slider {
+    width: auto;
+    position: static;
+    margin-left: 0;
+    margin-right: calc(50% - 50vw);                   /* 只延伸右側 */
+    padding: 0;
+    overflow: hidden;                                 /* 裁掉左邊溢出，cards 從 container 左起 */
+  }
+  .testimonials__slider .slider__track {
+    padding-left: 0;
+    padding-right: 0;
+    scroll-padding-left: 0;
+  }
+  .testimonials .slider__dots {
+    margin-left: 0;
+    margin-right: 0;
+    justify-content: center;
+  }
+}
+/* Testimonials track — 共用樣式由 .slider__track 提供（components.css），這裡只覆寫 padding */
+.testimonials__slider .slider__track {
+  padding: 1.5rem 0 1rem 2rem;                        /* 上 24 / 右 0 / 下 48 / 左 32（讓裝飾引號不被裁切） */
+}
+/* Mobile：第一則證言再推開一點 */
+@media (max-width: 767.98px) {
+  .testimonials__slider .slider__track { padding-left: 2rem; scroll-padding-left: 2rem; }
+}
+
+/* ----- Testimonial card (435×279) ----- */
+.testimonial-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  flex: 0 0 85%;
+  max-width: 27.1875rem;                              /* 435px (Figma) */
+  min-height: 17.4375rem;                             /* 279px */
+  padding: 1.875rem 2.125rem 2.125rem;
+  background: var(--color-white, #fff);
+  border-radius: 1.25rem;                             /* 20px (Figma) */
+  scroll-snap-align: start;                           /* 第一張靠 container 左緣對齊 */
+  /* overflow: hidden 移除 → 讓裝飾引號可延伸到卡片外 */
+}
+
+.testimonial-card__stars {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  gap: 0.125rem;
+  align-self: center;
+}
+.testimonial-card__star {
+  width: 1.875rem;                                    /* 30px */
+  height: auto;
+}
+.testimonial-card__text {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-family: var(--font-body, sans-serif);
+  font-weight: 400;
+  font-size: 1.125rem;                                /* 18px */
+  line-height: 1.4;
+  letter-spacing: 0.05625rem;
+  color: #666;
+}
+.testimonial-card__author {
+  position: relative;
+  z-index: 1;
+  margin: auto 0 0;
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-family: var(--font-body, sans-serif);
+  font-weight: 400;
+  font-size: 0.9375rem;                               /* 15px */
+  color: #666;
+}
+.testimonial-card__author-line {
+  display: inline-block;
+  width: 1.875rem;                                    /* 30px */
+  height: 1px;
+  background: #666;
+  flex-shrink: 0;
+}
+
+/* Decorative quote marks (#eee, 146px) — 裝飾用，部分延伸出卡片邊 */
+.testimonial-card__quote-mark {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+}
+/* 依 Figma 尺寸與位置 */
+.testimonial-card__quote-mark--open  {
+  width: 42.49px;
+  height: 29.2px;
+  left: 22.11px;
+  top:  58.07px;
+}
+.testimonial-card__quote-mark--close {
+  width: 42.34px;
+  height: 29.2px;
+  right: 23.55px;
+  top:   216.8px;
+}
+
+/* Pagination dots — 共用 .slider__dots / .slider__dot (components.css) */
+
+/* ----- Badges (4 logos, 320×110 each, gap 26) ----- */
+.testimonials__badges {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem 1.625rem;                                 /* 26px gap */
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  align-items: center;
+  justify-items: center;
+}
+/* Mobile：縮小 gap、放大 badge */
+@media (max-width: 767.98px) {
+  .testimonials__badges { gap: 0.5rem 0.25rem; }
+  .testimonials__badge  { max-width: 100%; }
+}
+.testimonials__badges li {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* Badge link wrapper */
+.testimonials__badge-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
+  color: inherit;
+  transition: transform .2s ease, opacity .2s ease;
+}
+.testimonials__badge-link:hover {
+  transform: translateY(-0.125rem);
+  opacity: .85;
+}
+.testimonials__badge-link:active { transform: translateY(0); }
+
+/* Badge img (320×110 Figma) */
+.testimonials__badge {
+  width: 100%;
+  max-width: 20rem;                                   /* 320px (Figma) */
+  height: auto;
+}
+
+/* ============================================================
+   Testimonials — Tablet (≥768px)
+   ============================================================ */
+@media (min-width: 768px) {
+  .testimonials { padding: 5rem 2.5rem; }
+  .testimonial-card { flex: 0 0 27.1875rem; }
+  .testimonials__badges {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.625rem;
+  }
+}
+
+/* ============================================================
+   Testimonials — Desktop (≥1024px)
+   ============================================================ */
+@media (min-width: 1024px) {
+  .testimonials { padding: 3rem; }               /* gutter 改 48px，內容靠 __inner 置中 */
+  .testimonials__title { margin-bottom: 3rem; }
+  .testimonials__intro { margin-bottom: 2.5rem; }
+  .testimonials__slider { margin-left: 0; margin-right: 0; padding: 0; }
+}
+
+/* 2K+ — testimonials 標題放大貼齊 container 左右 */
+@media (min-width: 1920px) {
+  .testimonials__title {
+    font-size: 12.5rem;                                 /* 200px */
+    white-space: nowrap;
+  }
 }

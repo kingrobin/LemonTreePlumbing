@@ -22,7 +22,8 @@
   --font-body:    'Montserrat', system-ui, sans-serif;
 
   /* Sizing */
-  --container-max: 85.3125rem;    /* 1365px (Figma base) */
+  --container-max: 85.3125rem;    /* 1365px (Figma base)；首頁 FHD 放大到 1800 */
+  --content-max:   85.3125rem;    /* 1366 固定 — 內頁文字內容上限，永不放大 */
   --gutter-mobile: 1.5rem;        /* 24px */
   --gutter-desktop: 3rem;         /* 48px */
 
