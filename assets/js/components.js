@@ -255,8 +255,16 @@ function initLightbox(scopeSel) {
     lb.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
   }
-  function next() { current = (current + 1) % sources.length; render(); preload(); }
-  function prev() { current = (current - 1 + sources.length) % sources.length; render(); preload(); }
+  /* 前後翻頁時跳過被隱藏的圖（gallery 頁篩選用；全可見時行為不變）*/
+  function step(dir) {
+    for (let n = 0; n < sources.length; n++) {
+      current = (current + dir + sources.length) % sources.length;
+      if (triggers[current].offsetParent !== null) break;
+    }
+    render(); preload();
+  }
+  function next() { step(1); }
+  function prev() { step(-1); }
 
   triggers.forEach((img, i) => {
     img.style.cursor = 'zoom-in';
