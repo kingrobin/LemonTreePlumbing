@@ -138,7 +138,20 @@ body.is-menu-open { overflow: hidden; }
 }
 
 /* Body text — Figma "text-regular" (18px Montserrat) */
-.text-regular {
+/* 三種用法：掛單一元素 / 掛容器（內層 <p> 自動吃）/ 集中清單（block class 直接吃 token，HTML 免掛）*/
+.text-regular,
+.text-regular > p,
+.faq-item__answer,
+.final-cta__sub,
+.testimonials__desc,
+.gallery__desc,
+.service-areas__desc,
+.why-feature__desc,
+.services-block__cities,
+.services-block__intro,
+.about-story__text,
+.area-intro__aside-intro,
+.work-hero__desc {
   margin: 0;
   font-family: var(--font-body, sans-serif);
   font-weight: 500;
@@ -147,11 +160,25 @@ body.is-menu-open { overflow: hidden; }
   letter-spacing: 0.05625rem;                         /* 0.9px */
 }
 @media (max-width: 767.98px) {
-  .text-regular { font-size: 1rem; }                  /* 16px mobile（同 text-large 降級邏輯）*/
+  .text-regular,
+  .text-regular > p,
+  .faq-item__answer,
+  .final-cta__sub,
+  .testimonials__desc,
+  .gallery__desc,
+  .service-areas__desc,
+  .why-feature__desc,
+  .services-block__cities,
+  .services-block__intro,
+  .about-story__text,
+  .area-intro__aside-intro,
+  .work-hero__desc { font-size: 1rem; }                               /* 16px mobile（同 text-large 降級邏輯）*/
 }
 
-/* Larger body — text-large (23px Montserrat) */
-.text-large {
+/* Larger body — text-large (23px Montserrat)；集中清單同 text-regular 邏輯 */
+.text-large,
+.faq-item__question,
+.services-block__footer-text {
   margin: 0;
   font-family: var(--font-body, sans-serif);
   font-weight: 500;
@@ -160,7 +187,9 @@ body.is-menu-open { overflow: hidden; }
   letter-spacing: 0;
 }
 @media (max-width: 767.98px) {
-  .text-large { font-size: 1.25rem; }                 /* 20px mobile */
+  .text-large,
+  .faq-item__question,
+  .services-block__footer-text { font-size: 1.25rem; }   /* 20px mobile */
 }
 
 /* H3 — Figma h3 token (Big Shoulders ExtraBold 35px) */

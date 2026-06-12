@@ -1,0 +1,212 @@
+/* ============================================================
+   service.css — Service Detail 頁共用模板（6 服務共用）
+   依賴：global.css（.breadcrumb / .final-cta / buttons / type tokens）
+   區塊：.svc-hero（navy 照片帶：label + 大標 + 右欄內文 + note）
+         /.svc-cards（sub-service 大卡 ×2）
+   各頁差異：--hero-bg（inline style）、文案、卡片圖
+   ============================================================ */
+
+
+/* ============================================================
+   Service Hero — navy 照片底整頁帶
+   ============================================================ */
+.svc-hero {
+  position: relative;
+  margin-top: 4.625rem;                                /* clear fixed mobile header */
+  padding: 4.5rem 1.5rem 3rem;
+  color: var(--color-white, #fff);
+  isolation: isolate;
+  overflow: hidden;
+}
+.svc-hero::before {                                    /* 照片（各頁 --hero-bg）*/
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background: var(--hero-bg) center top / cover no-repeat var(--color-navy, #262A71);
+}
+.svc-hero::after {                                     /* navy 壓暗 */
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: rgba(38, 42, 113, .82);
+}
+
+.svc-hero__inner {
+  width: 100%;
+  max-width: var(--content-max, 85.3125rem);           /* 內頁固定 1366 */
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+/* ----- 左：label + 大標 ----- */
+.svc-hero__label {
+  display: block;
+  margin: 0 0 0.5rem;
+  font-family: var(--font-cta, sans-serif);
+  font-weight: 800;
+  font-size: 1.5rem;                                   /* 24px */
+  line-height: 1.2;
+}
+.svc-hero__title {
+  margin: 0;
+  font-family: var(--font-display, sans-serif);
+  font-weight: 800;
+  font-size: clamp(3.25rem, 13vw, 9.375rem);           /* 52 → 150px */
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: var(--color-yellow, #F0BC29);
+}
+
+/* ----- 右：h3 + 內文 ----- */
+.svc-hero__sub {
+  margin: 0 0 1.25rem;
+  font-family: var(--font-cta, sans-serif);
+  font-weight: 800;
+  font-size: clamp(1.75rem, 3.5vw, 2.625rem);          /* 28 → 42px */
+  line-height: 1.2;
+  color: var(--color-white, #fff);
+}
+.svc-hero__desc p { margin: 0 0 1.25rem; }
+.svc-hero__desc p:last-child { margin-bottom: 0; }
+
+/* ----- Note：黃 bar 小區塊 + mascot ----- */
+.svc-note {
+  position: relative;
+  margin-top: 1.5rem;
+  padding-left: 1.5rem;
+  border-left: 0.375rem solid var(--color-yellow, #F0BC29);
+}
+.svc-note__title {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-cta, sans-serif);
+  font-weight: 800;
+  font-size: clamp(1.5rem, 3vw, 2.1875rem);            /* 24 → 35px */
+  line-height: 1.2;
+}
+.svc-note__text {
+  margin: 0;
+  font-family: var(--font-body, sans-serif);
+  font-weight: 500;
+  font-size: 0.9375rem;                                /* 15px */
+  line-height: 1.55;
+  color: var(--color-white, #fff);
+  max-width: 33.5rem;                                  /* 536px (Figma) */
+}
+/* mascot：working.svg 以 CSS mask 轉純黃剪影，高度貼齊 note 文字塊 */
+.svc-note__mascot {
+  display: none;                                       /* 手機隱藏 */
+  width: 10rem;                                        /* 160px（接近方形 → 高 ≈160px）*/
+  aspect-ratio: 271 / 272;                             /* working.svg 原始比例（完整版）*/
+  background-color: var(--color-yellow, #F0BC29);
+  -webkit-mask: url('../img/mascot/working.svg') center / contain no-repeat;
+          mask: url('../img/mascot/working.svg') center / contain no-repeat;
+}
+
+/* ----- Sub-service 大卡 ×2 ----- */
+.svc-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+.svc-card {
+  position: relative;
+  display: block;
+  aspect-ratio: 668 / 468;                             /* Figma 卡片比例 */
+  border-radius: 1.25rem;                              /* 20px */
+  overflow: hidden;
+  text-decoration: none;
+  cursor: pointer;
+  isolation: isolate;
+}
+.svc-card__bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: center / cover no-repeat #2a2a2a;
+  transition: transform .5s cubic-bezier(.22,1,.36,1);
+}
+.svc-card:hover .svc-card__bg { transform: scale(1.04); }
+.svc-card::after {                                     /* 底部漸層 */
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,.8) 100%);
+}
+.svc-card__caption {
+  position: absolute;
+  left: 1.5rem;
+  right: 1.5rem;
+  bottom: 1.25rem;
+  z-index: 1;
+}
+.svc-card__title {
+  margin: 0 0 0.375rem;
+  font-family: var(--font-cta, sans-serif);
+  font-weight: 800;
+  font-size: clamp(1.5rem, 4.5vw, 2.5rem);             /* 24 → 40px */
+  line-height: 1.15;
+  color: var(--color-white, #fff);
+}
+.svc-card__more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body, sans-serif);
+  font-weight: 400;
+  font-size: 1.125rem;
+  letter-spacing: 0.05625rem;
+  color: var(--color-yellow, #F0BC29);
+  transition: gap .35s cubic-bezier(.22,1,.36,1);
+}
+.svc-card:hover .svc-card__more { gap: 0.75rem; }
+
+
+/* ============================================================
+   Tablet ≥768
+   ============================================================ */
+@media (min-width: 768px) {
+  .svc-hero { padding: 6rem 2.5rem 3.5rem; }
+  .svc-cards { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+}
+
+/* ============================================================
+   Desktop ≥1024 — 左標題 / 右內文兩欄
+   ============================================================ */
+@media (min-width: 1024px) {
+  .svc-hero { padding: 6.5rem 3rem 4rem; }
+  .svc-hero__inner {
+    /* 上方比例：標題 41% / 內文 59%（Figma 566:800）；
+       下方卡片有自己的 1fr 1fr，不受此比例影響 */
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.42fr);
+    column-gap: 4rem;
+    align-items: start;
+  }
+  .svc-hero__head  { grid-column: 1; }
+  .svc-hero__aside { grid-column: 2; margin-top: 0.5rem; }
+  .svc-cards       { grid-column: 1 / -1; gap: 1.875rem; }   /* 30px (Figma) */
+
+  /* note：文字 + mascot 並排；mascot 靠底 → svg 內建的裁切邊貼齊區塊下緣，視覺像坐在底線上 */
+  .svc-note { display: flex; align-items: flex-start; gap: 2rem; }
+  .svc-note__mascot { display: block; flex-shrink: 0; align-self: flex-end; }
+}
+
+/* ============================================================
+   ≥1280 — 對齊 1366 欄
+   ============================================================ */
+@media (min-width: 1280px) {
+  .svc-hero {
+    margin-top: 6.25rem;
+    padding-left:  var(--edge-pad);
+    padding-right: var(--edge-pad);
+  }
+  .svc-hero .breadcrumb {
+    padding-left:  var(--edge-pad);
+    padding-right: var(--edge-pad);
+  }
+}

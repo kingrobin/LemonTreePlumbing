@@ -208,8 +208,8 @@
   color: var(--color-text-body);
 }
 
-/* Bear mascot — working (with wrench) — Figma 185×240, right:0
-   Base = mobile; 各斷點只微調 height（寬度跟著原比例） */
+/* Bear mascot — working (with wrench) — 完整版 271×272
+   寬螢幕(≥1280)整隻露出；中尺寸用負 right 推出區塊邊，靠 section overflow:hidden 裁切 */
 .services-block__mascot {
   position: absolute;
   right: 0;
@@ -368,6 +368,7 @@
     bottom: auto;
     top: 4rem;
     height: 11rem;
+    right: -4rem;                                     /* 裁掉右側一截 */
   }
 
   .services-block__grid {
@@ -475,7 +476,8 @@
   }
   .services-block__mascot {
     top: 15rem;
-    height: 15rem;                                    /* 240px (Figma) */
+    height: 15rem;
+    right: -5rem;                                     /* 裁掉右側一截 */
   }
   .services-block__headline-em {
     background-size: 100% 0.5rem;
@@ -486,6 +488,11 @@
   }
   .service-card__caption { padding: 1.875rem; }
   .service-card__title { font-size: 1.6875rem; }     /* 27px (Figma) */
+}
+
+/* ≥1280 寬螢幕：mascot 整隻露出 */
+@media (min-width: 1280px) {
+  .services-block__mascot { right: 1rem; }
 }
 
 /* 2K+ — services sub 跟著放大（headline 已由 .section-title 統一） */
