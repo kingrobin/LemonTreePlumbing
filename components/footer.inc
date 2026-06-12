@@ -44,13 +44,13 @@
       <div class="site-footer__col">
         <h3 class="site-footer__col-title">Service Areas</h3>
         <ul class="site-footer__list">
-          <li><a class="site-footer__link" href="service-areas/north-oakland/">North Oakland</a></li>
           <li><a class="site-footer__link" href="service-areas/berkeley/">Berkeley</a></li>
-          <li><a class="site-footer__link" href="service-areas/alameda/">Alameda</a></li>
           <li><a class="site-footer__link" href="service-areas/albany/">Albany</a></li>
           <li><a class="site-footer__link" href="service-areas/el-cerrito/">El Cerrito</a></li>
-          <li><a class="site-footer__link" href="service-areas/emeryville/">Emeryville</a></li>
           <li><a class="site-footer__link" href="service-areas/kensington/">Kensington</a></li>
+          <li><a class="site-footer__link" href="service-areas/north-oakland/">North Oakland</a></li>
+          <li><a class="site-footer__link" href="service-areas/alameda/">Alameda</a></li>
+          <li><a class="site-footer__link" href="service-areas/emeryville/">Emeryville</a></li>
           <li><a class="site-footer__link" href="service-areas/el-sobrante/">El Sobrante</a></li>
           <li><a class="site-footer__link" href="service-areas/pinole/">Pinole</a></li>
           <li><a class="site-footer__link" href="service-areas/orinda/">Orinda</a></li>

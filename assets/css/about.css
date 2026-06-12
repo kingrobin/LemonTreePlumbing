@@ -1,0 +1,134 @@
+/* ============================================================
+   about.css — About Us 頁專屬樣式
+   依賴：global.css（.page-hero / .breadcrumb / .hero-card / .trust-bar
+         / .gallery(--flip) / .testimonials / .areas-mini / .final-cta）
+   只放 about 專屬：page-hero--about（換圖/高度）/ about-story
+   ============================================================ */
+
+
+/* ============================================================
+   Page Hero — About 變體（團隊合照背景）
+   結構同 contact：photo + overlay + h1 + 左下白卡
+   ============================================================ */
+.page-hero__bg--about {
+  background-image: url('../img/about-bg.jpg');
+}
+/* 手機：照片固定為 m- 圖比例（750×594 → 79.2vw），白卡落在照片正下方 */
+@media (max-width: 767.98px) {
+  .page-hero--about { min-height: 0; }
+  .page-hero--about .page-hero__bg,
+  .page-hero--about .page-hero__overlay {
+    height: 79.2vw;
+    bottom: auto;
+  }
+  .page-hero__bg--about {
+    background-image: url('../img/m-about-bg.jpg');
+    background-position: top center;
+    background-size: cover;
+  }
+  /* title 區撐滿照片高度（扣 inner padding-top 5rem），把白卡推到照片下緣 */
+  .page-hero--about .page-hero__title {
+    min-height: calc(79.2vw - 5rem);
+    position: relative;
+  }
+  /* h1 釘在照片底部（桌機不套）*/
+  .page-hero--about .page-hero__h1 {
+    position: absolute;
+    left: 0;
+    bottom: 2rem;
+  }
+  .page-hero--about .hero-card { margin-top: 0; }
+}
+@media (min-width: 1024px) {
+  .page-hero--about { min-height: clamp(49.375rem, 70svh, 75rem); }   /* = contact / berkeley */
+  .page-hero--about .page-hero__title { margin-top: 5%; }
+}
+
+/* ≥1280：hero 內容對齊置中 1366 欄；白卡背景貼左、內容對齊欄左緣 */
+@media (min-width: 1280px) {
+  .page-hero--about .page-hero__inner {
+    padding-left:  var(--edge-pad);
+    padding-right: var(--edge-pad);
+  }
+  .page-hero--about .breadcrumb {
+    left: 0;
+    right: 0;
+    padding-left:  var(--edge-pad);
+    padding-right: var(--edge-pad);
+  }
+  .page-hero--about .hero-card { left: 0; width: 50vw; }
+  .page-hero--about .hero-card__inner {
+    padding-left: var(--edge-pad);
+  }
+}
+/* ≥1600：白卡內距同 contact */
+@media (min-width: 1600px) {
+  .page-hero--about .hero-card__inner { padding-bottom: 5rem; }
+}
+
+
+/* ============================================================
+   內頁限縮 — gallery 與其他區塊一樣固定 1366
+   （global 的 .gallery__inner 用 --container-max，大螢幕會長到 1800；
+     about.css 只載於本頁，蓋掉不影響首頁）
+   ============================================================ */
+.gallery__inner      { max-width: var(--content-max, 85.3125rem); }
+.testimonials__inner { max-width: var(--content-max, 85.3125rem); }
+
+/* 大標單行：隨視窗縮放、封頂 150px（≈ 撐滿 1366 欄），不斷行
+   （蓋掉 global 的 144px 固定值與 ≥1920 的 200px 放大）*/
+@media (min-width: 768px) {
+  .testimonials__title {
+    font-size: clamp(2.5rem, 10vw, 9.375rem);
+    white-space: nowrap;
+  }
+}
+
+
+/* ============================================================
+   About Story — 兩欄：左 人像照 / 右 trust + Our Story
+   ============================================================ */
+.about-story {
+  background: var(--color-white, #fff);
+  padding: 1.5rem 1.5rem;
+}
+.about-story__inner {
+  width: 100%;
+  max-width: var(--content-max, 85.3125rem);           /* 內頁固定 1366 */
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+/* 左：人像照（透明 png，不加底色）*/
+.about-story__media {
+  width: 100%;
+}
+.about-story__media img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 右：trust + story */
+.about-story__trust { margin-bottom: 2rem; }
+.about-story__title {
+  margin: 0 0 1rem;
+  font-family: var(--font-cta, sans-serif);
+  font-weight: 800;
+  font-size: clamp(1.5rem, 3vw, 2.1875rem);            /* = .h3 (24 → 35px) */
+  line-height: 1.2;
+  color: var(--color-navy, #262A71);
+}
+.about-story__text { color: var(--color-text-body, #333); }
+
+@media (min-width: 1024px) {
+  .about-story { padding: 0 3rem 4rem; }               /* top 0：緊接 hero 白卡 */
+  .about-story__inner { grid-template-columns: 1fr 1fr; gap: 4rem; }
+  .about-story__aside { margin-top: 7rem; }            /* 與左圖視覺對齊 */
+}
+@media (min-width: 1280px) {
+  .about-story { padding: 0 4rem 4rem; }
+}
