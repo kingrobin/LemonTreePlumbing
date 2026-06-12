@@ -60,6 +60,12 @@
   letter-spacing: -0.01em;
   color: var(--color-yellow, #F0BC29);
 }
+/* 手機：兩行「Water Heater / Services」——隱藏第一個 <br>、保留第二個；桌機照 <br> 直排三行 */
+@media (max-width: 767.98px) {
+  .svc-hero__title-br { display: none; }
+  .svc-hero__title-br:last-of-type { display: inline; }          /* Heater 與 Services 之間 */
+  .svc-hero__title { font-size: clamp(3rem, 14.5vw, 4.5rem); }   /* ~57px @390 */
+}
 
 /* ----- 右：h3 + 內文 ----- */
 .svc-hero__sub {
@@ -98,12 +104,34 @@
 }
 /* mascot：working.svg 以 CSS mask 轉純黃剪影，高度貼齊 note 文字塊 */
 .svc-note__mascot {
-  display: none;                                       /* 手機隱藏 */
+  display: none;                                       /* 桌機由 ≥1024 開、手機由下方 block 開 */
   width: 10rem;                                        /* 160px（接近方形 → 高 ≈160px）*/
   aspect-ratio: 271 / 272;                             /* working.svg 原始比例（完整版）*/
   background-color: var(--color-yellow, #F0BC29);
   -webkit-mask: url('../img/mascot/working.svg') center / contain no-repeat;
           mask: url('../img/mascot/working.svg') center / contain no-repeat;
+}
+/* 手機專用 mascot：放在 h1 右側（note 那隻為桌機用）*/
+.svc-hero__mascot {
+  display: none;
+  width: 5rem;                                         /* 80px */
+  aspect-ratio: 271 / 272;
+  background-color: var(--color-yellow, #F0BC29);
+  -webkit-mask: url('../img/mascot/working.svg') center / contain no-repeat;
+          mask: url('../img/mascot/working.svg') center / contain no-repeat;
+}
+
+/* 手機：文字牆斷節奏 — h3 與內文間距拉開；mascot 顯示在 h1 右下側 */
+@media (max-width: 767.98px) {
+  .svc-hero__sub { margin-bottom: 1rem; }
+  .svc-note { margin-top: 2rem; }
+  .svc-hero__head { position: relative; }
+  .svc-hero__mascot {
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;                                         /* 對齊 Services 行 */
+  }
 }
 
 /* ----- Sub-service 大卡 ×2 ----- */
@@ -165,6 +193,54 @@
   transition: gap .35s cubic-bezier(.22,1,.36,1);
 }
 .svc-card:hover .svc-card__more { gap: 0.75rem; }
+.svc-card__arrow { display: none; }                    /* 桌機隱藏（手機才用）*/
+
+/* 手機：卡片提到標題正下方（視覺換序）+ 兩欄，
+   樣式參考首頁手機卡：圖上、標題列提出至圖下方 + 圓形箭頭鈕 */
+@media (max-width: 767.98px) {
+  .svc-hero__head  { order: 1; }
+  .svc-cards       { order: 2; grid-template-columns: 1fr 1fr; gap: 1rem 0.75rem; margin-top: 0.5rem; }
+  .svc-hero__aside { order: 3; }
+
+  .svc-card {
+    aspect-ratio: auto;
+    border-radius: 0;
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .svc-card::after { display: none; }                  /* 取消疊圖漸層 */
+  .svc-card__bg {
+    position: static;
+    aspect-ratio: 4 / 3;
+    border-radius: 1.25rem;
+  }
+  .svc-card:hover .svc-card__bg { transform: none; }
+  /* 標題列提出：圖下方一行（title 左 / 箭頭鈕右）*/
+  .svc-card__caption {
+    position: static;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 0 0.125rem;
+  }
+  .svc-card__title { margin: 0; font-size: 1.125rem; } /* 18px */
+  .svc-card__more  { display: none; }
+  .svc-card__arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 2.25rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: var(--color-yellow, #F0BC29);
+    color: var(--color-navy, #262A71);
+  }
+  .svc-card__arrow svg { width: 1rem; height: 1rem; }
+}
 
 
 /* ============================================================
