@@ -49,25 +49,30 @@
    白卡背景貼左、內容靠 padding 對齊 1366 欄左緣（地圖照片仍滿版）*/
 @media (min-width: 1280px) {
   .page-hero--contact .page-hero__inner {
-    padding-left:  max(4rem, calc((100vw - var(--content-max)) / 2));
-    padding-right: max(4rem, calc((100vw - var(--content-max)) / 2));
+    padding-left:  var(--edge-pad);
+    padding-right: var(--edge-pad);
   }
   .page-hero--contact .breadcrumb {
     left: 0;
     right: 0;
-    padding-left:  max(4rem, calc((100vw - var(--content-max)) / 2));
-    padding-right: max(4rem, calc((100vw - var(--content-max)) / 2));
+    padding-left:  var(--edge-pad);
+    padding-right: var(--edge-pad);
   }
   /* 白卡：背景延伸到視窗左緣，內容對齊 1366 欄左緣 */
   .page-hero--contact .hero-card { left: 0; width: 50vw; }
   .page-hero--contact .hero-card__inner {
-    padding-left: max(4rem, calc((100vw - var(--content-max)) / 2));
+    padding-left: var(--edge-pad);
   }
   /* CTA：收在 1366 欄右半 */
   .page-hero--contact .contact-cta {
     left: 50%;
-    right: max(4rem, calc((100vw - var(--content-max)) / 2));
+    right: var(--edge-pad);
   }
+}
+
+/* ≥1600：contact 白卡內距底部保留 5rem（覆蓋共用元件的 0）*/
+@media (min-width: 1600px) {
+  .page-hero--contact .hero-card__inner { padding-bottom: 5rem; }
 }
 
 

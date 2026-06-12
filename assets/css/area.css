@@ -24,7 +24,24 @@
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: #dce6ec center / cover no-repeat;         /* fallback */
+  /* 圖由各頁 inline --hero-bg 提供；#dce6ec 為 fallback */
+  background: var(--hero-bg) center / cover no-repeat #dce6ec;
+}
+/* 手機（contact 做法）：地圖固定為圖片比例（750×594 → 79.2vw）、貼頂 cover，照片完整顯示；
+   標題區撐到照片底，白卡接在照片下緣 */
+@media (max-width: 767.98px) {
+  .area-hero__map,
+  .area-hero__map::after { height: 79.2vw; bottom: auto; }
+  .area-hero__map {
+    background-image: var(--hero-bg-m, var(--hero-bg));
+    background-position: top center;
+    background-size: cover;
+  }
+  .area-hero { min-height: 0; }
+  /* label+title 群組在照片內垂直置中（群組約 5.5rem 高）；
+     title min-height 補滿剩餘高度 → 白卡仍貼照片下緣 */
+  .area-hero__label { margin-top: calc(39.6vw - 7.75rem); }
+  .area-hero__title { font-size: 3.5rem; min-height: calc(39.6vw + 1rem); }   /* 56px */
 }
 .area-hero__map::after {                                /* 讓地圖淡一點、字更清楚 */
   content: '';
@@ -50,6 +67,10 @@
   color: var(--color-navy, #262A71);
   margin-bottom: 0.25rem;
 }
+/* 手機：label 縮小（桌機維持 20px）*/
+@media (max-width: 767.98px) {
+  .area-hero__label { font-size: 0.9375rem; letter-spacing: 0.14em; }   /* 15px */
+}
 .area-hero__title {
   margin: 0;
   font-family: var(--font-display, sans-serif);
@@ -61,11 +82,11 @@
 }
 
 @media (min-width: 768px) {
-  .area-hero { min-height: 30rem; padding: 6rem 2.5rem 0; }
+  .area-hero { min-height: 32rem; padding: 6rem 2.5rem 0; }
   .area-hero .breadcrumb { top: 2rem; left: 2.5rem; right: 2.5rem; }
 }
 @media (min-width: 1024px) {
-  .area-hero { min-height: 55rem; padding: 6rem 3rem 0; }
+  .area-hero { min-height: clamp(49.375rem, 70svh, 75rem); padding: 6rem 3rem 0; }   /* = contact hero 高度 */
   .area-hero .breadcrumb { top: 2.5rem; left: 3rem; right: 3rem; }
   /* title 往下推（參考 contact get-in-touch 定位）*/
   .area-hero__label { margin-top: 5%; }
@@ -74,22 +95,26 @@
 @media (min-width: 1280px) {
   .area-hero {
     margin-top: 6.25rem;
-    padding-left:  max(4rem, calc((100vw - var(--content-max)) / 2));
-    padding-right: max(4rem, calc((100vw - var(--content-max)) / 2));
+    padding-left:  var(--edge-pad);
+    padding-right: var(--edge-pad);
   }
   .area-hero .breadcrumb {
-    left:  max(4rem, calc((100vw - var(--content-max)) / 2));
-    right: max(4rem, calc((100vw - var(--content-max)) / 2));
+    left:  var(--edge-pad);
+    right: var(--edge-pad);
   }
   /* 白卡背景延伸到視窗左緣，內容靠 padding 對齊 1366 欄左緣 */
   .area-hero__card { left: 0; width: 50vw; }
   .area-hero__card .hero-card__inner {
-    padding-left: max(4rem, calc((100vw - var(--content-max)) / 2 + 0rem));
+    padding-left: var(--edge-pad);
   }
 }
 
 /* hero 內白卡（沿用 .hero-card：手機 full-bleed 落底 / 桌機 absolute 左下）*/
-.area-hero__card { color: var(--color-navy, #262A71); }
+.area-hero__card { color: var(--color-text-body, #333); }   /* 內文灰黑；標題 .hero-card__lead 仍 navy */
+/* 手機：白卡接在照片下緣（contact 做法）*/
+@media (max-width: 767.98px) {
+  .area-hero__card { margin-top: 0; }
+}
 
 
 /* ============================================================
@@ -97,7 +122,7 @@
    ============================================================ */
 .area-intro {
   background: var(--color-white, #fff);
-  padding: 3rem 1.5rem;
+  padding: 1.5rem 1.5rem;          /* 手機 top/bottom 1.5rem */
 }
 .area-intro__inner {
   width: 100%;
@@ -108,14 +133,14 @@
   gap: 2.5rem;
   align-items: center;
 }
-.area-intro__aside-intro { margin: 0 0 2rem; color: #333; }
+.area-intro__aside-intro { margin: 0 0 2rem; color: var(--color-text-body); }
 
 @media (min-width: 1024px) {
   .area-intro { padding: 4rem 3rem; }
   .area-intro__inner { grid-template-columns: 1fr 1fr; gap: 4rem; }
 }
 @media (min-width: 1280px) {
-  .area-intro { padding: 4.5rem 4rem; }
+  .area-intro { padding: 4rem; }
 }
 
 
@@ -140,8 +165,8 @@
 .area-feature__text {
   margin: 0;
   font-family: var(--font-body, sans-serif);
-  font-weight: 400;                                    /* Regular (Figma) */
-  font-size: clamp(1.0625rem, 2.4vw, 1.5625rem);       /* → 25px (Figma) */
+  font-weight: 600;                                    /* SemiBold（小字加重）*/
+  font-size: 1.125rem;                                 /* 18px */
   line-height: 1.2;
   color: var(--color-navy, #262A71);
 }
@@ -152,7 +177,7 @@
    ============================================================ */
 .cta-band {
   background: var(--color-white, #fff);
-  padding: 2rem 1.5rem;
+  padding: 0rem 0 5rem 0;
 }
 /* navy 圓角盒，置中於 container 內 */
 .cta-band__inner {
@@ -160,7 +185,7 @@
   max-width: var(--content-max, 85.3125rem);           /* 內頁固定 1366 */
   margin: 0 auto;
   background: var(--color-navy, #262A71);
-  border-radius: 1.25rem;
+  border-radius: 2.5rem;                               /* 40px (Figma) */
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -184,12 +209,22 @@
   gap: 0.625rem;
 }
 .cta-band__badge { width: 3rem; height: auto; }
+.cta-band__badge--navy { display: none; }              /* 手機在深藍盒內 → 用淺色版 */
 .cta-band__num {
   font-family: var(--font-display, sans-serif);
   font-weight: 800;
   font-size: 1.5rem;
   color: var(--color-yellow, #F0BC29);
   text-decoration: none;
+}
+
+/* 手機 cta-band：精簡版 — 去 logo、兩側留白、24/7 與號碼同排 */
+@media (max-width: 1023.98px) {
+  .cta-band { padding: 0 1.5rem 5rem; }               /* 盒子不貼螢幕邊 */
+  .cta-band__logo { display: none; }                  /* header 已有 logo */
+  .cta-band__badge--light { width: 3.25rem; }         /* 52px，與 32px 號碼成比例 */
+  .cta-band__num { font-size: 2rem; }                 /* 32px */
+  .cta-band__phone { gap: 0.875rem; }
 }
 
 @media (min-width: 1024px) {
@@ -200,21 +235,25 @@
     align-items: stretch;
     padding: 0;
   }
-  .cta-band__logo { align-self: center; margin: 0 2rem; width: 9rem; }
+  .cta-band__logo { align-self: center; margin: 0 2rem; width: 16rem; }
   /* slogan：左側黃 bar + 垂直置中 */
   .cta-band__slogan {
     align-self: center;
     flex: 1;
     padding: 2rem 2rem;
     border-left: 0.25rem solid var(--color-yellow, #F0BC29);
-    font-size: 1.875rem;
+    font-size: 2.1875rem;   /* 35px（大一級）*/
   }
-  /* 右側黃色塊（圓角由 __inner overflow:hidden 裁切）*/
+  /* 右側黃色塊：navy icon 上、號碼下（直排）*/
   .cta-band__phone {
+    flex-direction: column;
+    justify-content: center;
     background: var(--color-yellow, #F0BC29);
     padding: 2rem 2.5rem;
-    gap: 1rem;
+    gap: 0.75rem;
   }
+  .cta-band__badge--light { display: none; }
+  .cta-band__badge--navy  { display: block; width: 6.25rem; }   /* 100px */
   .cta-band__num { color: var(--color-navy, #262A71); }
 }
 
@@ -224,7 +263,7 @@
    ============================================================ */
 .fleet-band {
   position: relative;
-  min-height: 16rem;
+  min-height: 23rem;                                    /* 手機加高留文字空間 */
   display: flex;
   align-items: flex-start;                             /* 文字偏上 */
   justify-content: center;
@@ -238,7 +277,7 @@
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: #dce6ec center / cover no-repeat;
+  background: #dce6ec bottom center / cover no-repeat;   /* 置底：卡車貼底 */
 }
 .fleet-band__title {
   margin: 0;
@@ -246,9 +285,11 @@
   font-weight: 800;
   font-size: clamp(2rem, 5vw, 3.75rem);                /* = section-title (32 → 60px) */
   line-height: 1.15;
+  position: relative;
+  top: 2rem;                                                /* 往下推一點，讓字不會太貼照片上緣 */
 }
 @media (min-width: 768px) { .fleet-band { min-height: 22rem; } }
-@media (min-width: 1024px) { .fleet-band { min-height: 750px; } }
+@media (min-width: 1024px) { .fleet-band { min-height: 850px; } }
 
 
 /* ============================================================
@@ -257,5 +298,11 @@
 @media (min-width: 1024px) {
   .testimonials--center .testimonials__slider { margin-right: 0; }
   .testimonials--center .slider__track { justify-content: center; }
+  /* badges 對齊上方 3 張卡的總寬（435×3 + 20×2 = 1345px）置中 */
+  .testimonials--center .testimonials__badges {
+    max-width: 84.0625rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 

@@ -112,6 +112,13 @@
   .hero { min-height: 47.5rem; }                      /* 760px */
   .hero__inner { padding: 6.25rem 3rem 3rem; gap: 3.5rem; }
   .hero__cta { align-self: flex-start; }
+  /* 首頁 hero 信任條維持大字 + 原本的細體（全站標準已改 18px/600）*/
+  .hero .trust-bar__title,
+  .hero .trust-bar__text { font-size: 1.625rem; font-weight: 400; }   /* 26px */
+}
+@media (min-width: 1024px) {
+  .hero .trust-bar__title,
+  .hero .trust-bar__text { font-size: 1.5rem; }     /* 24px */
 }
 
 /* ============================================================
@@ -198,7 +205,7 @@
 }
 .services-block__cities {
   /* typography from .text-regular */
-  color: #333;
+  color: var(--color-text-body);
 }
 
 /* Bear mascot — working (with wrench) — Figma 185×240, right:0
@@ -228,7 +235,7 @@
 }
 .services-block__intro {
   /* typography from .text-regular */
-  color: #333;
+  color: var(--color-text-body);
 }
 
 /* ----- Service card grid ----- */
@@ -335,7 +342,7 @@
 }
 .services-block__footer-text {
   /* base size from .text-large (25px Montserrat) */
-  color: #333;
+  color: var(--color-text-body);
 }
 
 /* btn-call--navy 已改用 core.css 的 .btn.btn--navy.btn--lg */
@@ -680,7 +687,7 @@
   .why__inner {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    column-gap: 6rem;
+    column-gap: 4rem;
   }
   .why__title {
     grid-column: 1;
@@ -715,15 +722,12 @@
   .why__mascot { width: 12rem; }
 }
 
-/* 2K+ — why 標題放大、container 跟著拓寬 */
+/* 2K+ — container 拓寬到 1800，整段內容放大一級（半欄約 744–868px，可容納）。 */
 @media (min-width: 1920px) {
   .why__inner { max-width: var(--container-max, 85.3125rem); }
   .why__title { font-size: 10.625rem; }                 /* 170px */
   .why-feature__title { font-size: 3rem; }              /* 48px (vs 35) */
-  .why-feature__icon {
-    width: 6rem;                                        /* 96px (vs 70) */
-    height: auto;
-  }
+  .why-feature__icon { width: 6rem; height: auto; }     /* 96px (vs 70) */
   .why-feature { grid-template-columns: 6rem 1fr; column-gap: 2rem; } /* 96px icon + 32px gap */
 }
 
@@ -758,25 +762,13 @@
   gap: 1rem;
   align-items: flex-start;
 }
-.gallery__label {
-  align-self: flex-start;
-  padding: 0.3125rem 0.625rem;
-  background: #eee;
-  font-family: var(--font-body, sans-serif);
-  font-weight: 700;
-  font-size: 0.875rem;
-  line-height: 1;
-  letter-spacing: 0.11375rem;
-  color: var(--color-navy, #262A71);
-  text-transform: uppercase;
-}
+/* 灰底 uppercase 標籤視覺由共用 .eyebrow-tag 提供（global.css）*/
 .gallery__title { margin: 0; }
-.gallery__desc { color: #666; }
+.gallery__desc { color: var(--color-text-muted); }
 
 /* Mobile：label / title 置中 + title 加大；desc 靠左 */
 @media (max-width: 767.98px) {
   .gallery__content { align-items: center; text-align: center; }
-  .gallery__label   { align-self: center; margin-bottom: -0.5rem; }
   .gallery__title   { font-size: 2.5rem; }              /* 40px (vs 32) */
   .gallery__desc    { align-self: stretch; text-align: left; }
 }
@@ -924,14 +916,18 @@
   .gallery__inner { gap: 6rem; }
 }
 
-/* 2K+ — gallery 圖片等比放大，撐滿 1800 container（×1.53） */
+/* 2K+（≥1920）：container 長到 1800，gallery 改「彈性填滿」。
+   slider 吃掉文字欄以外的所有空間，圖片改用 % 寬 + 原始 aspect-ratio →
+   不論欄寬多少都填滿，且兩列等高（同比例放大）。取代舊的固定 1364px 寫法。 */
 @media (min-width: 1920px) {
-  .gallery__slider     { flex: 0 0 85.25rem; }          /* 1364px slider 區 */
-  .gallery__grid       { width: 85.25rem; }             /* 1364px */
-  .gallery__item       { height: 26rem; }               /* 416px (×1.53) */
-  .gallery__item--lg   { width: 38rem; }                /* 608px */
-  .gallery__item--md   { width: 28rem; }                /* 448px */
-  .gallery__item--sm   { width: 18rem; }                /* 288px */
+  .gallery__slider  { flex: 1 1 auto; }                 /* 填滿文字欄以外的寬度 */
+  .gallery__content { flex: 0 0 22rem; }                /* 文字欄固定，不擠壓 */
+  .gallery__grid    { width: 100%; }
+  .gallery__item    { height: auto; }                   /* 高度交給 aspect-ratio */
+  /* 每列 3 張：扣掉 2 個 0.625rem gap 後，依 Figma 比例 398:293:188（/879）分配 */
+  .gallery__item--lg { width: calc((100% - 1.25rem) * 0.452); aspect-ratio: 398 / 272; }
+  .gallery__item--md { width: calc((100% - 1.25rem) * 0.333); aspect-ratio: 293 / 272; }
+  .gallery__item--sm { width: calc((100% - 1.25rem) * 0.213); aspect-ratio: 188 / 272; }
 }
 
 /* FAQ 視覺由 components.css 的 .faq* 提供 */
