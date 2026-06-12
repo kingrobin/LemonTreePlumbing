@@ -90,7 +90,7 @@
    ============================================================ */
 .about-story {
   background: var(--color-white, #fff);
-  padding: 1.5rem 1.5rem;
+  padding: 0 1.5rem;
 }
 .about-story__inner {
   width: 100%;

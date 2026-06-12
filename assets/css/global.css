@@ -146,6 +146,9 @@ body.is-menu-open { overflow: hidden; }
   line-height: 1.4;
   letter-spacing: 0.05625rem;                         /* 0.9px */
 }
+@media (max-width: 767.98px) {
+  .text-regular { font-size: 1rem; }                  /* 16px mobile（同 text-large 降級邏輯）*/
+}
 
 /* Larger body — text-large (23px Montserrat) */
 .text-large {
@@ -1534,6 +1537,10 @@ body.is-menu-open { overflow: hidden; }
   line-height: 1.4;
   letter-spacing: 0.05625rem;
   color: var(--color-text-body);
+}
+/* 手機：降為 text-small 規格（15px）*/
+@media (max-width: 767.98px) {
+  .testimonial-card__text { font-size: 0.9375rem; }
 }
 .testimonial-card__author {
   position: relative;
