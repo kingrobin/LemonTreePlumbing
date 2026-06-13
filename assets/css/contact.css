@@ -9,7 +9,7 @@
    Page Hero — Contact 變體（背景圖 + 高度）
    ============================================================ */
 .page-hero__bg--contact {
-  background-image: url('../img/contact-bg.jpg');
+  background-image: url('../img/bg/bg-contact.jpg');
 }
 /* 手機：照片固定 4:3（寬:高 = 4:3 → 高 = 75vw），白卡落在照片正下方 */
 @media (max-width: 767.98px) {
@@ -21,7 +21,7 @@
     bottom: auto;
   }
   .page-hero__bg--contact {
-    background-image: url('../img/m-contact-bg.jpg');
+    background-image: url('../img/bg/m-bg-contact.jpg');
     background-position: top center;
     background-size: cover;
   }

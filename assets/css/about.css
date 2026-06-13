@@ -11,7 +11,7 @@
    結構同 contact：photo + overlay + h1 + 左下白卡
    ============================================================ */
 .page-hero__bg--about {
-  background-image: url('../img/about-bg.jpg');
+  background-image: url('../img/bg/bg-about.jpg');
 }
 /* 手機：照片固定為 m- 圖比例（750×594 → 79.2vw），白卡落在照片正下方 */
 @media (max-width: 767.98px) {
@@ -22,7 +22,7 @@
     bottom: auto;
   }
   .page-hero__bg--about {
-    background-image: url('../img/m-about-bg.jpg');
+    background-image: url('../img/bg/m-bg-about.jpg');
     background-position: top center;
     background-size: cover;
   }

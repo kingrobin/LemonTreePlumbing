@@ -23,11 +23,11 @@
   position: absolute;
   inset: 0;
   z-index: -2;
-  background: url('../img/hero-bg.jpg') center / cover no-repeat #000;
+  background: url('../img/bg/bg-home.jpg') center / cover no-repeat #000;
 }
 /* Mobile：用另一張背景 */
 @media (max-width: 767.98px) {
-  .hero__bg { background-image: url('../img/m-hero-bg.jpg'); }
+  .hero__bg { background-image: url('../img/bg/m-bg-home.jpg'); }
 }
 
 .hero__overlay {

@@ -151,7 +151,8 @@ body.is-menu-open { overflow: hidden; }
 .services-block__intro,
 .about-story__text,
 .area-intro__aside-intro,
-.work-hero__desc {
+.work-hero__desc,
+.sd-precision__text {
   margin: 0;
   font-family: var(--font-body, sans-serif);
   font-weight: 500;
@@ -172,7 +173,8 @@ body.is-menu-open { overflow: hidden; }
   .services-block__intro,
   .about-story__text,
   .area-intro__aside-intro,
-  .work-hero__desc { font-size: 1rem; }                               /* 16px mobile（同 text-large 降級邏輯）*/
+  .work-hero__desc,
+  .sd-precision__text { font-size: 1rem; }                               /* 16px mobile（同 text-large 降級邏輯）*/
 }
 
 /* Larger body — text-large (23px Montserrat)；集中清單同 text-regular 邏輯 */

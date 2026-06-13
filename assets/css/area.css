@@ -24,8 +24,12 @@
   position: absolute;
   inset: 0;
   z-index: -1;
-  /* 圖由各頁 inline --hero-bg 提供；#dce6ec 為 fallback */
-  background: var(--hero-bg) center / cover no-repeat #dce6ec;
+  /* 圖由各頁 inline --hero-bg 提供；#dce6ec 為 fallback — longhand 寫法 */
+  background-color: #dce6ec;
+  background-image: var(--hero-bg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 /* 手機（contact 做法）：地圖固定為圖片比例（750×594 → 79.2vw）、貼頂 cover，照片完整顯示；
    標題區撐到照片底，白卡接在照片下緣 */

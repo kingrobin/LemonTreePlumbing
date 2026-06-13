@@ -13,26 +13,13 @@
   margin-top: 4.625rem;                                /* clear fixed mobile header */
   padding: 4.5rem 1.5rem 1rem;                         /* 上方留 breadcrumb 空間 */
   color: var(--color-white, #fff);
-  isolation: isolate;
   overflow: hidden;
-}
-/* 底圖照片（bg-gallery.jpg）+ navy 漸層壓暗，底部收成實色接 masonry 區 */
-.work-hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: -2;
-  background: url('../img/bg-gallery.jpg') center top / cover no-repeat var(--color-navy, #262A71);
-}
-.work-hero::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background: linear-gradient(180deg,
-              rgba(38, 42, 113, .80) 0%,
-              rgba(38, 42, 113, .88) 60%,
-              var(--color-navy, #262A71) 100%);
+  /* 背景：照片直接鋪（色調做在底圖上，不另加 CSS 藍色壓層）*/
+  background-color: var(--color-navy, #262A71);   /* fallback */
+  background-image: url('../img/bg/bg-gallery.jpg');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
 }
 
 .work-hero__inner {
