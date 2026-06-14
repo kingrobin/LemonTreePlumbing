@@ -6,7 +6,19 @@
 
 
 /* ============================================================
-   Work Hero — navy 照片底 + Our Work + 介紹 + 篩選列
+   整頁背景 — 照片固定 backdrop（gallery.css 只載本頁，main 安全）
+   ============================================================ */
+main {
+  background-color: var(--color-navy, #262A71);        /* fallback */
+  background-image: url('../img/bg/bg-gallery.jpg');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;                         /* 固定 → 當整頁的底 */
+}
+
+/* ============================================================
+   Work Hero — Our Work + 介紹（背景由 main 提供，本身透明）
    ============================================================ */
 .work-hero {
   position: relative;
@@ -14,12 +26,6 @@
   padding: 4.5rem 1.5rem 1rem;                         /* 上方留 breadcrumb 空間 */
   color: var(--color-white, #fff);
   overflow: hidden;
-  /* 背景：照片直接鋪（色調做在底圖上，不另加 CSS 藍色壓層）*/
-  background-color: var(--color-navy, #262A71);   /* fallback */
-  background-image: url('../img/bg/bg-gallery.jpg');
-  background-size: cover;
-  background-position: center top;
-  background-repeat: no-repeat;
 }
 
 .work-hero__inner {
@@ -75,8 +81,15 @@
   position: sticky;
   top: 4.625rem;                                       /* mobile header 74px */
   z-index: 20;
-  background: var(--color-navy, #262A71);
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 1.5rem 1.5rem;
+  transition: background .25s ease;
+}
+/* 只有黏在頂端（is-stuck，JS 偵測）才加 navy 漸層底，保證篩選文字對比 */
+.work-filterbar.is-stuck {
+  background: linear-gradient(180deg,
+              rgba(38, 42, 113, .96) 0%,
+              rgba(38, 42, 113, .96) 55%,
+              rgba(38, 42, 113, 0)  100%);
 }
 .work-filterbar__inner {
   width: 100%;
@@ -157,7 +170,6 @@
    Work Grid — masonry（CSS columns，零依賴）
    ============================================================ */
 .work-grid {
-  background: var(--color-navy, #262A71);
   padding: 1.5rem 1.5rem 3rem;
 }
 .work-grid__inner {

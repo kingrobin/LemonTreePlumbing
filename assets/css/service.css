@@ -12,18 +12,23 @@
 /* ============================================================
    Service Hero — navy 照片底整頁帶
    ============================================================ */
+/* 整頁背景 — 照片固定 backdrop（掛在 <main class="svc-bg">，scope 給 water-heater；
+   drain 用 sd-hero 不受影響）*/
+.svc-bg {
+  background-color: var(--color-navy, #262A71);        /* fallback */
+  background-image: url('../img/bg/bg-water-heater.jpg');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
 .svc-hero {
   position: relative;
   margin-top: 4.625rem;                                /* clear fixed mobile header */
   padding: 4.5rem 1.5rem 3rem;
   color: var(--color-white, #fff);
   overflow: hidden;
-  /* 照片背景（各頁 --hero-bg；圖已預壓 navy 色調，不另加壓暗層）— longhand 寫法 */
-  background-color: var(--color-navy, #262A71);
-  background-image: var(--hero-bg);
-  background-size: cover;
-  background-position: center top;
-  background-repeat: no-repeat;
+  /* 背景由 main(.svc-bg) 整頁 backdrop 提供，本身透明 */
 }
 
 .svc-hero__inner {

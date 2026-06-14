@@ -173,6 +173,17 @@
         const cat = btn.dataset.filter;
         items.forEach(it => { it.hidden = (cat !== 'all' && it.dataset.cat !== cat); });
       }));
+
+      /* Sticky filter — 黏在頂端時才加漸層底（哨兵偵測）*/
+      const bar = document.querySelector('.work-filterbar');
+      if (bar && 'IntersectionObserver' in window) {
+        const sentinel = document.createElement('div');
+        sentinel.setAttribute('aria-hidden', 'true');
+        bar.before(sentinel);
+        new IntersectionObserver(([e]) => {
+          bar.classList.toggle('is-stuck', e.boundingClientRect.top < 0);
+        }, { threshold: 0 }).observe(sentinel);
+      }
     });
   </script>
 </body>
