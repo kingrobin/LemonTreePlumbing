@@ -1,15 +1,5 @@
-/* ============================================================
-   about.css — About Us 頁專屬樣式
-   依賴：global.css（.page-hero / .breadcrumb / .hero-card / .trust-bar
-         / .gallery(--flip) / .testimonials / .areas-mini / .final-cta）
-   只放 about 專屬：page-hero--about（換圖/高度）/ about-story
-   ============================================================ */
 
 
-/* ============================================================
-   Page Hero — About 變體（團隊合照背景）
-   結構同 contact：photo + overlay + h1 + 左下白卡
-   ============================================================ */
 .page-hero__bg--about {
   background-image: url('../img/bg/bg-about.jpg');
 }
@@ -31,7 +21,6 @@
     min-height: calc(79.2vw - 5rem);
     position: relative;
   }
-  /* h1 釘在照片底部（桌機不套）*/
   .page-hero--about .page-hero__h1 {
     position: absolute;
     left: 0;
@@ -61,11 +50,9 @@
     padding-left: var(--edge-pad);
   }
 }
-/* ≥1600：白卡內距同 contact */
 @media (min-width: 1600px) {
   .page-hero--about .hero-card__inner { padding-bottom: 5rem; }
 }
-
 
 /* ============================================================
    內頁限縮 — gallery 與其他區塊一樣固定 1366
@@ -84,10 +71,6 @@
   }
 }
 
-
-/* ============================================================
-   About Story — 兩欄：左 人像照 / 右 trust + Our Story
-   ============================================================ */
 .about-story {
   background: var(--color-white, #fff);
   padding: 0 1.5rem;
@@ -102,7 +85,6 @@
   align-items: center;
 }
 
-/* 左：人像照（透明 png，不加底色）*/
 .about-story__media {
   width: 100%;
 }
@@ -112,7 +94,6 @@
   display: block;
 }
 
-/* 右：trust + story */
 .about-story__trust { margin-bottom: 2rem; }
 .about-story__title {
   margin: 0 0 1rem;
@@ -125,7 +106,7 @@
 .about-story__text { color: var(--color-text-body, #333); }
 
 @media (min-width: 1024px) {
-  .about-story { padding: 0 3rem 4rem; }               /* top 0：緊接 hero 白卡 */
+  .about-story { padding: 0 3rem 4rem; }
   .about-story__inner { grid-template-columns: 1fr 1fr; gap: 4rem; }
   .about-story__aside { margin-top: 7rem; }            /* 與左圖視覺對齊 */
 }

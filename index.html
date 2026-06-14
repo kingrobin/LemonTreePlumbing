@@ -8,7 +8,6 @@
 
   <link rel="icon" type="image/svg+xml" href="assets/img/icon/favicon.svg">
 
-  <!-- Fonts (from Figma): Big Shoulders Display, Big Shoulders, Roboto, Montserrat -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Montserrat:wght@400;500;600;700&display=swap">
@@ -19,14 +18,10 @@
 </head>
 <body>
 
-  <!-- Shared header injected here -->
   <div id="inject-header"></div>
 
   <main>
 
-    <!-- ====================================================
-         HERO
-         ==================================================== -->
     <section class="hero" aria-labelledby="heroTitle" data-bg="dark">
       <div class="hero__bg" aria-hidden="true"></div>
       <div class="hero__overlay" aria-hidden="true"></div>
@@ -52,10 +47,8 @@
           <span>(510) 502-7843</span>
         </a>
 
-        <!-- Trust bar -->
         <div class="trust-bar">
 
-          <!-- 1. 24/7 Live Answer -->
           <div class="trust-bar__item">
             <div class="trust-bar__icon">
               <img src="assets/img/icon/24-7.svg" alt="">
@@ -64,7 +57,6 @@
             <p class="trust-bar__text">no phone trees</p>
           </div>
 
-          <!-- 2. Upfront Pricing -->
           <div class="trust-bar__item">
             <div class="trust-bar__icon">
               <img src="assets/img/icon/no-hidden-fees.svg" alt="">
@@ -73,7 +65,6 @@
             <p class="trust-bar__text">always</p>
           </div>
 
-          <!-- 3. 5-Star Reviews -->
           <div class="trust-bar__item">
             <div class="trust-bar__icon trust-bar__icon--stars" aria-hidden="true">
               <img src="assets/img/icon/star.svg" alt="">
@@ -96,10 +87,8 @@
          ==================================================== -->
     <section class="services-block" data-bg="yellow">
 
-      <!-- Bear mascot — working (with wrench) — 直接放在 section 下，靠 viewport 右邊 -->
       <img class="services-block__mascot" src="assets/img/mascot/working.svg" alt="" aria-hidden="true">
 
-      <!-- Tagline area -->
       <div class="services-block__tagline">
         <div class="services-block__portrait">
           <img src="assets/img/services-lin.jpg" alt="Lin — LemonTree Plumbing technician">
@@ -115,13 +104,11 @@
         </div>
       </div>
 
-      <!-- Section title -->
       <header class="services-block__header">
         <h2 class="section-title services-block__title" id="servicesTitle">Our Services</h2>
         <p class="services-block__intro">Whether you're dealing with a stubborn clog, planning a fixture upgrade, or protecting your home from costly water damage.</p>
       </header>
 
-      <!-- Service cards grid -->
       <div class="services-block__grid">
 
         <a class="service-card" href="plumbing-service/drain-cleaning-repairs/">
@@ -210,7 +197,6 @@
 
       </div>
 
-      <!-- Section footer CTA -->
       <div class="services-block__footer">
         <p class="services-block__footer-text">Need help with your plumbing issues?</p>
         <a class="btn btn--navy btn--lg" href="tel:+15105027843" aria-label="Call (510) 502-7843">
@@ -221,18 +207,13 @@
 
     </section>
 
-    <!-- ====================================================
-         SERVICE AREAS (white background, map + city list)
-         ==================================================== -->
     <section class="service-areas" aria-labelledby="areasTitle" data-bg="light">
 
-      <!-- Map (circular) — 底圖 + 中央 location mark -->
       <div class="service-areas__map" aria-hidden="true">
         <img class="service-areas__map-bg" src="assets/img/map.jpg" alt="">
         <img class="service-areas__map-pin" src="assets/img/icon/location-border.svg" alt="">
       </div>
 
-      <!-- Content -->
       <div class="service-areas__content">
         <span class="eyebrow-tag service-areas__label">SERVICE AREAS</span>
         <h2 class="section-title service-areas__title" id="areasTitle">Proudly Serving<br>the East Bay</h2>
@@ -279,9 +260,6 @@
 
     </section>
 
-    <!-- ====================================================
-         WHY East Bay Homeowners Choose Lemon Tree (navy bg)
-         ==================================================== -->
     <section class="why" aria-labelledby="whyTitle" data-bg="dark">
       <div class="why__inner">
 
@@ -324,15 +302,11 @@
 
       </ul>
 
-      <!-- Bear mascot — thumbs up -->
       <img class="why__mascot" src="assets/img/mascot/thumbsup.svg" alt="" aria-hidden="true">
 
-      </div><!-- /.why__inner -->
+      </div>
     </section>
 
-    <!-- ====================================================
-         TESTIMONIALS (light grey background)
-         ==================================================== -->
     <section class="testimonials" aria-labelledby="testimonialsTitle" data-bg="light">
       <div class="testimonials__inner">
 
@@ -346,7 +320,6 @@
         <p class="testimonials__desc">Here's what East Bay homeowners have shared about their experience with LemonTree Plumbing:</p>
       </div>
 
-      <!-- Testimonial cards (horizontal scroll on mobile, multi-visible on desktop) -->
       <div class="testimonials__slider">
         <ul class="slider__track">
 
@@ -406,7 +379,6 @@
             <img class="testimonial-card__quote-mark testimonial-card__quote-mark--close" src="assets/img/icon/quote-mark-close.svg" alt="" aria-hidden="true">
           </li>
 
-          <!-- 補滿到 12 則（剩 8 張待挑選） -->
           <li class="testimonial-card">
             <img class="testimonial-card__quote-mark testimonial-card__quote-mark--open" src="assets/img/icon/quote-mark-open.svg" alt="" aria-hidden="true">
             <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
@@ -521,11 +493,9 @@
 
         </ul>
 
-        <!-- Pagination dots -->
         <ol class="slider__dots" role="tablist" aria-label="Testimonial pagination"></ol>
       </div>
 
-      <!-- Trust badges (external review pages) -->
       <ul class="testimonials__badges">
         <li>
           <a class="testimonials__badge-link" href="https://www.google.com/maps/place/LemonTree+Plumbing/@37.829444,-122.2781361,11z/data=!4m6!3m5!1s0x655022a3086334b7:0x690fb8fb0ccb1c53!8m2!3d37.829444!4d-122.2781361!16s%2Fg%2F11v_29n6h7?entry=ttu" target="_blank" rel="noopener noreferrer" aria-label="Read our reviews on Google">
@@ -547,19 +517,12 @@
         </li>
       </ul>
 
-      </div><!-- /.testimonials__inner -->
+      </div>
     </section>
 
-    <!-- ====================================================
-         GALLERY (white background)
-         Mobile : 內容 → slider → 按鈕（垂直）
-         Desktop: 左 slider, 右 內容 + 按鈕 (grid)
-         ==================================================== -->
     <section class="gallery" aria-labelledby="galleryTitle" data-bg="light">
       <div class="gallery__inner">
 
-        <!-- 1. Content (label + title + desc) -->
-        <!-- 1. Content (label + title + desc + desktop CTA) -->
         <div class="gallery__content">
           <span class="eyebrow-tag gallery__label">GALLERY TEASER</span>
           <h2 class="section-title gallery__title" id="galleryTitle">See Our Work<br>in East Bay Homes</h2>
@@ -567,7 +530,6 @@
           <a class="gallery__cta gallery__cta--desktop" href="gallery/">View Gallery</a>
         </div>
 
-        <!-- 2. 6 images (desktop grid / mobile slider) -->
         <div class="gallery__slider">
           <ul class="gallery__grid">
             <li class="gallery__item gallery__item--lg"><img src="assets/img/gallery/gallery-thumb-1.jpg" alt="Plumbing project 1"></li>
@@ -579,15 +541,11 @@
           </ul>
         </div>
 
-        <!-- 3. Mobile CTA (after slider) -->
         <a class="gallery__cta gallery__cta--mobile" href="gallery/">View Gallery</a>
 
       </div>
     </section>
 
-    <!-- ====================================================
-         FAQ (white background, accordion)
-         ==================================================== -->
     <section class="faq" aria-labelledby="faqTitle" data-bg="light">
       <div class="faq__inner">
         <h2 class="section-title faq__title" id="faqTitle">Frequently Asked Questions</h2>
@@ -675,19 +633,15 @@
 
   </main>
 
-  <!-- Shared footer injected here -->
   <div id="inject-footer"></div>
 
-  <!-- Floating CTA (mobile only) -->
   <a class="floating-cta" href="tel:+15105027843" aria-label="Call (510) 502-7843">
     <img src="assets/img/icon/phone-solid.svg" alt="" aria-hidden="true">
   </a>
 
-  <!-- GSAP — scroll & interaction animations -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
-  <!-- Scripts (global → page) -->
   <script src="assets/js/global.js"></script>
   <script src="assets/js/components.js"></script>
   <script src="assets/js/home.js"></script>

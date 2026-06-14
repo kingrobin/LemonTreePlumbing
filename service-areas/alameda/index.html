@@ -8,25 +8,19 @@
 
   <link rel="icon" type="image/svg+xml" href="../../assets/img/icon/favicon.svg">
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Montserrat:wght@400;500;600;700&display=swap">
 
-  <!-- Styles -->
   <link rel="stylesheet" href="../../assets/css/global.css">
   <link rel="stylesheet" href="../../assets/css/area.css">
 </head>
 <body data-base="../../">
 
-  <!-- Shared header injected here -->
   <div id="inject-header"></div>
 
   <main>
 
-    <!-- ====================================================
-         AREA HERO — 地圖背景 + 城市名
-         ==================================================== -->
     <section class="area-hero" aria-labelledby="areaTitle">
       <div class="area-hero__map" aria-hidden="true" style="--hero-bg: url('../../assets/img/bg/bg-alameda.jpg'); --hero-bg-m: url('../../assets/img/bg/m-bg-alameda.jpg');"></div>
 
@@ -43,7 +37,6 @@
       <span class="area-hero__label">Service Areas</span>
       <h1 class="area-hero__title" id="areaTitle">Alameda</h1>
 
-      <!-- White card 疊在地圖左下：lead -->
       <div class="hero-card hero-card--light area-hero__card">
         <div class="hero-card__inner text-regular">
           <h2 class="hero-card__lead">Your Trusted Local Plumber in Alameda, CA</h2>
@@ -53,14 +46,9 @@
       </div>
     </section>
 
-
-    <!-- ====================================================
-         AREA INTRO — intro + features + trust
-         ==================================================== -->
     <section class="area-intro">
       <div class="area-intro__inner">
 
-        <!-- LEFT: 3 features -->
         <div class="area-features">
           <div class="area-feature">
             <img class="area-feature__icon" src="../../assets/img/service-areas/icon/single-family.svg" alt="">
@@ -76,7 +64,6 @@
           </div>
         </div>
 
-        <!-- RIGHT: intro + trust -->
         <div class="area-intro__aside">
           <p class="area-intro__aside-intro">Whether you own a single-family home on Solano Avenue, manage a multi-unit rental near campus, or run a small business on Telegraph, LemonTree Plumbing understands the unique plumbing needs of Alameda properties.</p>
 
@@ -108,10 +95,6 @@
       </div>
     </section>
 
-
-    <!-- ====================================================
-         CTA BAND — navy（slogan + 24/7 + phone）
-         ==================================================== -->
     <section class="cta-band" data-bg="dark">
       <div class="cta-band__inner">
         <img class="cta-band__logo" src="../../assets/img/lemontree-plumbing-logo.svg" alt="LemonTree Plumbing">
@@ -124,19 +107,11 @@
       </div>
     </section>
 
-
-    <!-- ====================================================
-         FLEET BAND — 工程車照片 + 疊字
-         ==================================================== -->
     <section class="fleet-band" data-bg="dark">
       <div class="fleet-band__bg" aria-hidden="true" style="background-image: url('../../assets/img/service-areas/fleet-bg.jpg');"></div>
       <h2 class="fleet-band__title">Driving Alameda<br>fast response across the East Bay.</h2>
     </section>
 
-
-    <!-- ====================================================
-         FAQ — Alameda 在地版（手風琴）
-         ==================================================== -->
     <section class="faq" aria-labelledby="faqTitle" data-bg="light">
       <div class="faq__inner">
         <h2 class="section-title faq__title" id="faqTitle">Frequently Asked Questions</h2>
@@ -191,10 +166,6 @@
       </div>
     </section>
 
-
-    <!-- ====================================================
-         TESTIMONIALS — 參考首頁（slider + badges）
-         ==================================================== -->
     <section class="testimonials testimonials--center" aria-labelledby="reviewsTitle" data-bg="light">
       <div class="testimonials__inner">
 
@@ -265,10 +236,6 @@
       </div>
     </section>
 
-
-    <!-- ====================================================
-         AREAS MINI — 其他服務區域（橫向連結）
-         ==================================================== -->
     <section class="areas-mini" aria-labelledby="areasMiniTitle" data-bg="light">
       <div class="areas-mini__inner">
         <h2 class="areas-mini__title" id="areasMiniTitle">Proudly Serving the East Bay</h2>
@@ -286,10 +253,6 @@
       </div>
     </section>
 
-
-    <!-- ====================================================
-         FINAL CTA
-         ==================================================== -->
     <section class="final-cta" data-bg="yellow" aria-labelledby="finalCtaTitle">
       <div class="final-cta__inner">
         <h2 class="section-title final-cta__title" id="finalCtaTitle">Ready to fix the problem?</h2>
@@ -303,26 +266,17 @@
 
   </main>
 
-  <!-- Shared footer injected here -->
   <div id="inject-footer"></div>
 
-  <!-- Floating CTA (mobile only) -->
   <a class="floating-cta" href="tel:+15105027843" aria-label="Call (510) 502-7843">
     <img src="../../assets/img/icon/phone-solid.svg" alt="" aria-hidden="true">
   </a>
 
-  <!-- GSAP (for FAQ + future scroll anim) -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
-  <!-- Scripts -->
   <script src="../../assets/js/global.js"></script>
   <script src="../../assets/js/components.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      if (window.initFAQ) initFAQ();
-      if (window.initSlider) initSlider('.testimonials__inner', { auto: true });
-    });
-  </script>
+  <script src="../../assets/js/inner.js"></script>
 </body>
 </html>

@@ -1,13 +1,5 @@
-/* ============================================================
-   contact.css — Contact Us 頁專屬樣式
-   依賴：core.css / components.css（.page-hero / .breadcrumb / .hero-card）
-   只放 contact 專屬：page-hero--contact（換圖/高度）/ contact-cta
-   ============================================================ */
 
 
-/* ============================================================
-   Page Hero — Contact 變體（背景圖 + 高度）
-   ============================================================ */
 .page-hero__bg--contact {
   background-image: url('../img/bg/bg-contact.jpg');
 }
@@ -30,7 +22,6 @@
     min-height: calc(75vw - 5rem);
     position: relative;
   }
-  /* h1 釘在正方形照片底部（桌機不套）*/
   .page-hero--contact .page-hero__h1 {
     position: absolute;
     left: 0;
@@ -63,7 +54,6 @@
   .page-hero--contact .hero-card__inner {
     padding-left: var(--edge-pad);
   }
-  /* CTA：收在 1366 欄右半 */
   .page-hero--contact .contact-cta {
     left: 50%;
     right: var(--edge-pad);
@@ -74,7 +64,6 @@
 @media (min-width: 1600px) {
   .page-hero--contact .hero-card__inner { padding-bottom: 5rem; }
 }
-
 
 /* ============================================================
    Contact CTA — Call Now btn + email link
@@ -87,12 +76,11 @@
   gap: 1rem;
   margin-top: 1.5rem;
 }
-/* 手機/平板：CTA 排到白卡（trust）下方，白底接續白卡 */
 @media (max-width: 1023.98px) {
   .contact-cta {
-    order: 1;                        /* 移到 hero-card 之後 */
+    order: 1;
     background: var(--color-white, #fff);
-    margin: 0 -1.5rem;               /* full-bleed 接續白卡 */
+    margin: 0 -1.5rem;
     padding: 0 1.5rem 3rem;
     gap: 1rem;
   }
@@ -104,12 +92,12 @@
   display: inline-flex;
   align-items: center;
   gap: 1rem;
-  color: var(--color-navy, #262A71);                   /* mobile：白卡上用 navy */
+  color: var(--color-navy, #262A71);
   font-family: var(--font-body, sans-serif);
   font-weight: 500;
-  font-size: 1.125rem;                                 /* text-regular mobile (18px) */
+  font-size: 1.125rem;
   text-decoration: underline;
-  text-decoration-color: currentColor;                 /* 底線跟文字同色 */
+  text-decoration-color: currentColor;
   text-underline-offset: 0.25rem;
   transition: color .2s ease;
 }
@@ -124,18 +112,17 @@
 }
 
 @media (min-width: 1024px) {
-  /* 桌機浮在深照片上 → 改 yellow */
   .contact-cta__email { font-size: 1.4375rem; color: var(--color-yellow, #F0BC29); }
   .contact-cta__email:hover { color: var(--color-yellow-dark, #D4A017); }
 }
 @media (min-width: 1024px) {
   .contact-cta {
     position: absolute;
-    left: 50%;       /* 右半部 */
+    left: 50%;
     right: 0;
     bottom: 3rem;
     margin: 0;
     gap: 0.875rem;
-    z-index: 3;      /* 蓋過 hero-card */
+    z-index: 3;
   }
 }

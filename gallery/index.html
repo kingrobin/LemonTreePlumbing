@@ -8,28 +8,21 @@
 
   <link rel="icon" type="image/svg+xml" href="../assets/img/icon/favicon.svg">
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Montserrat:wght@400;500;600;700&display=swap">
 
-  <!-- Styles -->
   <link rel="stylesheet" href="../assets/css/global.css">
   <link rel="stylesheet" href="../assets/css/gallery.css">
 </head>
 <body data-base="../">
 
-  <!-- Shared header injected here -->
   <div id="inject-header"></div>
 
   <main>
 
-    <!-- ====================================================
-         WORK HERO — navy 照片帶 + Our Work + 篩選列
-         ==================================================== -->
     <section class="work-hero" aria-labelledby="workTitle" data-bg="dark">
 
-      <!-- Breadcrumb -->
       <nav class="breadcrumb" aria-label="Breadcrumb">
         <ol class="breadcrumb__list">
           <li><a href="../">Home</a></li>
@@ -47,7 +40,6 @@
       </div>
     </section>
 
-
     <!-- Sticky Filter bar（捲動時固定在 header 下方）-->
     <div class="work-filterbar" data-bg="dark">
       <div class="work-filterbar__inner">
@@ -63,9 +55,6 @@
       </div>
     </div>
 
-    <!-- ====================================================
-         WORK GRID — masonry 照片牆（lightbox 點圖放大）
-         ==================================================== -->
     <section class="work-grid" aria-label="Project photos" data-bg="dark">
       <div class="work-grid__inner">
         <ul class="masonry">
@@ -131,10 +120,6 @@
       </div>
     </section>
 
-
-    <!-- ====================================================
-         FINAL CTA
-         ==================================================== -->
     <section class="final-cta" data-bg="yellow" aria-labelledby="finalCtaTitle">
       <div class="final-cta__inner">
         <h2 class="section-title final-cta__title" id="finalCtaTitle">Ready to fix the problem?</h2>
@@ -148,21 +133,21 @@
 
   </main>
 
-  <!-- Shared footer injected here -->
   <div id="inject-footer"></div>
 
-  <!-- Floating CTA (mobile only) -->
   <a class="floating-cta" href="tel:+15105027843" aria-label="Call (510) 502-7843">
     <img src="../assets/img/icon/phone-solid.svg" alt="" aria-hidden="true">
   </a>
 
-  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
   <script src="../assets/js/global.js"></script>
   <script src="../assets/js/components.js"></script>
+  <script src="../assets/js/inner.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      /* Lightbox — 點圖放大（prev/next 自動跳過被篩掉的圖）*/
-      if (window.initLightbox) initLightbox('.masonry');
+      /* Lightbox 由 inner.js 初始化（.masonry）；以下為 gallery 專屬：篩選 + sticky filter */
 
       /* Filter — 切換分類顯示 */
       const btns  = document.querySelectorAll('.work-filter__btn');

@@ -8,30 +8,23 @@
 
   <link rel="icon" type="image/svg+xml" href="../assets/img/icon/favicon.svg">
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Montserrat:wght@400;500;600;700&display=swap">
 
-  <!-- Styles -->
   <link rel="stylesheet" href="../assets/css/global.css">
   <link rel="stylesheet" href="../assets/css/contact.css">
 </head>
 <body data-base="../">
 
-  <!-- Shared header injected here -->
   <div id="inject-header"></div>
 
   <main>
 
-    <!-- ====================================================
-         HERO — 全幅 bg 照片 + breadcrumb + "Get in Touch"
-         ==================================================== -->
     <section class="page-hero page-hero--contact" aria-labelledby="heroTitle" data-bg="dark">
       <div class="page-hero__bg page-hero__bg--contact" aria-hidden="true"></div>
       <div class="page-hero__overlay" aria-hidden="true"></div>
 
-      <!-- Breadcrumb -->
       <nav class="breadcrumb" aria-label="Breadcrumb">
         <ol class="breadcrumb__list">
           <li><a href="../">Home</a></li>
@@ -45,7 +38,6 @@
           <h1 class="page-hero__h1" id="heroTitle">Get in Touch</h1>
         </div>
 
-        <!-- Call CTA + email — 浮在 hero bg 上（右下） -->
         <div class="contact-cta">
           <a class="btn btn--primary btn--lg contact-cta__btn" href="tel:+15105027843" aria-label="Call (510) 502-7843">
             <span>Call Now</span>
@@ -59,7 +51,6 @@
           </a>
         </div>
 
-        <!-- 白卡 — 釘在 hero 左下（mobile 直接 follow flow） -->
         <div class="hero-card hero-card--light" aria-labelledby="contactInfoTitle">
           <div class="hero-card__inner">
             <h2 class="hero-card__lead" id="contactInfoTitle">
@@ -99,10 +90,6 @@
       </div>
     </section>
 
-
-    <!-- ====================================================
-         AREAS MINI — 左標題 + 右 10 城市 pill grid
-         ==================================================== -->
     <section class="areas-mini" aria-labelledby="areasMiniTitle" data-bg="light">
       <div class="areas-mini__inner">
         <h2 class="areas-mini__title" id="areasMiniTitle">Proudly Serving the East Bay</h2>
@@ -121,9 +108,6 @@
       </div>
     </section>
 
-    <!-- ====================================================
-         FINAL CTA — conversion strip
-         ==================================================== -->
     <section class="final-cta" data-bg="yellow" aria-labelledby="finalCtaTitle">
       <div class="final-cta__inner">
         <h2 class="section-title final-cta__title" id="finalCtaTitle">Ready to fix the problem?</h2>
@@ -137,20 +121,17 @@
 
   </main>
 
-  <!-- Shared footer injected here -->
   <div id="inject-footer"></div>
 
-  <!-- Floating CTA (mobile only) -->
   <a class="floating-cta" href="tel:+15105027843" aria-label="Call (510) 502-7843">
     <img src="../assets/img/icon/phone-solid.svg" alt="" aria-hidden="true">
   </a>
 
-  <!-- GSAP -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
-  <!-- Scripts -->
   <script src="../assets/js/global.js"></script>
   <script src="../assets/js/components.js"></script>
+  <script src="../assets/js/inner.js"></script>
 </body>
 </html>

@@ -1,9 +1,3 @@
-/* ============================================================
-   global.js — 全站共用
-   - Component injector (components/*.inc → #inject-XXX)
-   - Header scroll effect
-   - Mobile menu
-   ============================================================ */
 
 (function () {
   'use strict';
@@ -32,7 +26,6 @@
     });
   }
 
-  /* ---------- Component injector ---------- */
   async function injectComponent(targetId, url) {
     const host = document.getElementById(targetId);
     if (!host) return;
@@ -47,10 +40,6 @@
     }
   }
 
-  /* ---------- Header scroll effect ----------
-     首頁：依 scrollY 切換 is-scrolled（透明 → 白底）
-     內頁（body[data-base]）：永遠 is-scrolled，不切換
-  ============================================================ */
   function initHeaderScroll() {
     const header = document.getElementById('siteHeader');
     if (!header) return;
@@ -66,7 +55,6 @@
     onScroll();
   }
 
-  /* ---------- Mobile menu ---------- */
   function initMobileMenu() {
     const openBtn  = document.getElementById('menuOpenBtn');
     const closeBtn = document.getElementById('menuCloseBtn');
@@ -89,7 +77,6 @@
     menu.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
     document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
 
-    // Accordion groups
     menu.querySelectorAll('.mobile-menu__toggle').forEach(toggle => {
       toggle.addEventListener('click', () => {
         const group = toggle.closest('.mobile-menu__group');
@@ -100,9 +87,7 @@
     });
   }
 
-  /* ---------- Active nav (依當前路徑標記 nav link) ---------- */
   function initActiveNav() {
-    // 取當前頁的 "key"：路徑 segment（services/ areas/）或檔名（index.html / about.html）
     let path = window.location.pathname.replace(/\/+$/, '/');  /* 確保 / 結尾保留 */
     let key;
     const segments = path.split('/').filter(Boolean);
@@ -110,16 +95,16 @@
     if (path === '/' || last === '' || last === 'index.html') {
       key = 'index.html';
     } else if (last.endsWith('.html')) {
-      key = last;                                              /* about.html / gallery.html ... */
+      key = last;
     } else {
-      key = last + '/';                                        /* services / areas → services/ */
+      key = last + '/';
     }
 
     document.querySelectorAll('.site-nav__link, .mobile-menu__link').forEach(a => {
       const href = a.getAttribute('href') || '';
       let hrefKey;
       if (href === './' || href === '' || href === 'index.html') {
-        hrefKey = 'index.html';                              /* 視為 home */
+        hrefKey = 'index.html';
       } else if (href.endsWith('/')) {
         hrefKey = href.split('/').filter(Boolean).pop() + '/';
       } else {
@@ -129,14 +114,12 @@
     });
   }
 
-  /* ---------- Dynamic copyright year ---------- */
   function initCopyrightYear() {
     document.querySelectorAll('[data-year]').forEach(el => {
       el.textContent = String(new Date().getFullYear());
     });
   }
 
-  /* ---------- Bootstrap ---------- */
   document.addEventListener('DOMContentLoaded', async () => {
     await Promise.all([
       injectComponent('inject-header', 'components/header.inc'),
@@ -148,7 +131,6 @@
     initActiveNav();
     initCopyrightYear();
 
-    // Notify page scripts that shared components are ready
     document.dispatchEvent(new CustomEvent('components:ready'));
   });
 })();

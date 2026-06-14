@@ -1,10 +1,5 @@
-/* ============================================================
-   home.js — 首頁專屬互動
-   GSAP entrance + 呼叫共用 component init
-   ============================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Hero entrance animation (GSAP)
   if (window.gsap) {
     const tl = gsap.timeline({ defaults: { ease: 'power2.out', duration: 0.5 } });
     tl.from('.hero__eyebrow', { y: 16, opacity: 0 })
@@ -13,22 +8,15 @@ document.addEventListener('DOMContentLoaded', () => {
       .from('.trust-bar__item', { y: 16, opacity: 0, stagger: 0.07 }, '-=0.25');
   }
 
-  // Scroll-triggered entrance animations for other sections
   initScrollAnimations();
 
-  // Testimonials slider — dots 隨可見卡數自動計算
   initSlider('.testimonials__inner', { auto: true });
 
-  // Gallery lightbox — 點圖開大圖
   initLightbox('.gallery__grid');
 
-  // FAQ accordion
   initFAQ();
 });
 
-/* ---------- Scroll-triggered entrance animations ----------
-   每個 section 進入 viewport 時 fade + 輕微 translateY 進場
-   ============================================================ */
 function initScrollAnimations() {
   if (!window.gsap || !window.ScrollTrigger) return;
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -37,7 +25,6 @@ function initScrollAnimations() {
 
   const ENTER = { opacity: 0, y: 16, duration: 0.5, ease: 'power2.out' };
 
-  /* 個別元素 fade-up */
   [
     '.services-block__tagline',
     '.services-block__header',
@@ -57,7 +44,6 @@ function initScrollAnimations() {
     });
   });
 
-  /* 群組 stagger fade-up */
   [
     ['.services-block__grid', '.service-card'],
     ['.why__features',        '.why-feature'],
@@ -76,14 +62,13 @@ function initScrollAnimations() {
     });
   });
 
-  /* Services headline em — underline 隨 scroll 進度左右展開（往上捲會倒退） */
   const ems = document.querySelectorAll('.services-block__headline-em');
   if (ems.length) {
     gsap.fromTo(ems,
       { backgroundSize: '0% 0.375rem' },
       {
         backgroundSize: '100% 0.375rem',
-        ease: 'none',                    /* scrub 需要 linear */
+        ease: 'none',
         stagger: 0.2,
         scrollTrigger: {
           trigger: '.services-block__headline',
@@ -95,7 +80,6 @@ function initScrollAnimations() {
     );
   }
 
-  /* Service-areas map — 額外加輕微 scale */
   const map = document.querySelector('.service-areas__map');
   if (map) {
     gsap.from(map, {
@@ -107,7 +91,6 @@ function initScrollAnimations() {
     });
   }
 
-  /* FAQ title — 個別 fade-up */
   const faqTitle = document.querySelector('.faq__title');
   if (faqTitle) {
     gsap.from(faqTitle, {
@@ -117,7 +100,6 @@ function initScrollAnimations() {
   }
 }
 
-/* Floating CTA 配色：footer (injected) data-bg 載入後才能完整偵測 */
 document.addEventListener('components:ready', () => {
   initFloatingCtaBg();
 });

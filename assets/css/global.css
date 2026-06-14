@@ -4,43 +4,32 @@
    載入順序即合併順序（勿更動）。頁面專屬樣式（home/contact/area）仍獨立載入。
    ============================================================ */
 
-/* ============================================================
-   core.css — 全站共用
-   Reset / CSS variables / 共用元件（buttons, container）
-   ============================================================ */
-
 :root {
-  /* Brand colors (Figma) */
   --color-navy:        #262A71;
   --color-navy-dark:   #1B1F55;
   --color-yellow:      #F0BC29;
   --color-yellow-dark: #D4A017;
 
-  /* Neutrals */
   --color-bg-light:    #F5F5F5;
   --color-text-body:   #333333;
   --color-text-muted:  #666666;
   --color-white:       #FFFFFF;
 
-  /* Typography (Figma) */
   --font-display: 'Big Shoulders Display', sans-serif;
   --font-cta:     'Big Shoulders Display', sans-serif;
   --font-body:    'Montserrat', system-ui, sans-serif;
 
-  /* Sizing */
-  --container-max: 85.3125rem;    /* 1366 — 全站統一上限 */
+  --container-max: 85.3125rem;
   --content-max:   85.3125rem;    /* 1366 固定（= container-max，內容用） */
-  --gutter-mobile: 1.5rem;        /* 24px */
-  --gutter-desktop: 3rem;         /* 48px */
+  --gutter-mobile: 1.5rem;
+  --gutter-desktop: 3rem;
   /* 內容對齊置中 1366 欄的左右留白：≥1280 時內容貼齊 1366 欄、否則 4rem floor。
      用於 page-hero / breadcrumb / hero-card / contact-cta / area-hero 等滿版 hero 內對齊 */
   --edge-pad: max(4rem, calc((100vw - var(--content-max)) / 2));
 
-  /* Radii */
-  --radius-card: 0.75rem;         /* 12px */
-  --radius-btn:  0.625rem;        /* 10px */
+  --radius-card: 0.75rem;
+  --radius-btn:  0.625rem;
 
-  /* Section spacing */
   --section-py-mobile: 3rem;
   --section-py-desktop: 5rem;
 }
@@ -50,10 +39,9 @@
    --content-max 維持 1366 不動 → 內頁閱讀寬度 / hero 對齊不受影響。
    受影響（自動變寬）：services 卡片格 / gallery / why / testimonials / footer */
 @media (min-width: 1920px) {
-  :root { --container-max: min(112.5rem, calc(100vw - 23rem)); }   /* 1800 上限 */
+  :root { --container-max: min(112.5rem, calc(100vw - 23rem)); }
 }
 
-/* ---------- Reset ---------- */
 *, *::before, *::after { box-sizing: border-box; }
 
 html {
@@ -71,7 +59,7 @@ body {
   color: var(--color-text-body, #333);
   background: var(--color-white, #fff);
   -webkit-font-smoothing: antialiased;
-  overflow-x: clip;                    /* 雙保險 */
+  overflow-x: clip;
   /* Sticky footer：內容短時 footer 推到視窗底，內容長時自然在文件底 */
   min-height: 100vh;
   display: flex;
@@ -104,7 +92,6 @@ ul, ol {
 
 body.is-menu-open { overflow: hidden; }
 
-/* ---------- Container ---------- */
 .container {
   width: 100%;
   max-width: var(--container-max, 85.3125rem);
@@ -119,26 +106,19 @@ body.is-menu-open { overflow: hidden; }
   }
 }
 
-/* ============================================================
-   Typography presets (Figma design system tokens)
-   ============================================================ */
-
-/* Section title — shared h2 base */
 .section-title {
   margin: 0;
   font-family: var(--font-display, sans-serif);
   font-weight: 800;
-  font-size: clamp(2rem, 5vw, 3.75rem);               /* 32 → 60px */
+  font-size: clamp(2rem, 5vw, 3.75rem);
   line-height: 1.1;
   letter-spacing: -0.01em;
   color: var(--color-navy, #262A71);
 }
 @media (min-width: 1920px) {
-  .section-title { font-size: 5rem; }                 /* 80px — 2K 上拉大 */
+  .section-title { font-size: 5rem; }
 }
 
-/* Body text — Figma "text-regular" (18px Montserrat) */
-/* 三種用法：掛單一元素 / 掛容器（內層 <p> 自動吃）/ 集中清單（block class 直接吃 token，HTML 免掛）*/
 .text-regular,
 .text-regular > p,
 .faq-item__answer,
@@ -156,9 +136,9 @@ body.is-menu-open { overflow: hidden; }
   margin: 0;
   font-family: var(--font-body, sans-serif);
   font-weight: 500;
-  font-size: 1.125rem;                                /* 18px */
+  font-size: 1.125rem;
   line-height: 1.4;
-  letter-spacing: 0.05625rem;                         /* 0.9px */
+  letter-spacing: 0.05625rem;
 }
 @media (max-width: 767.98px) {
   .text-regular,
@@ -174,32 +154,30 @@ body.is-menu-open { overflow: hidden; }
   .about-story__text,
   .area-intro__aside-intro,
   .work-hero__desc,
-  .sd-precision__text { font-size: 1rem; }                               /* 16px mobile（同 text-large 降級邏輯）*/
+  .sd-precision__text { font-size: 1rem; }
 }
 
-/* Larger body — text-large (23px Montserrat)；集中清單同 text-regular 邏輯 */
 .text-large,
 .faq-item__question,
 .services-block__footer-text {
   margin: 0;
   font-family: var(--font-body, sans-serif);
   font-weight: 500;
-  font-size: 1.4375rem;                               /* 23px */
+  font-size: 1.4375rem;
   line-height: 1.3;
   letter-spacing: 0;
 }
 @media (max-width: 767.98px) {
   .text-large,
   .faq-item__question,
-  .services-block__footer-text { font-size: 1.25rem; }   /* 20px mobile */
+  .services-block__footer-text { font-size: 1.25rem; }
 }
 
-/* H3 — Figma h3 token (Big Shoulders ExtraBold 35px) */
 .h3 {
   margin: 0;
   font-family: var(--font-cta, sans-serif);
   font-weight: 800;
-  font-size: clamp(1.5rem, 3vw, 2.1875rem);           /* 24 → 35px */
+  font-size: clamp(1.5rem, 3vw, 2.1875rem);
   line-height: 1.2;
   letter-spacing: 0;
 }
@@ -225,7 +203,6 @@ body.is-menu-open { overflow: hidden; }
 }
 .btn:active { transform: translateY(1px); }
 
-/* Primary — yellow chip with navy text */
 .btn--primary {
   background: var(--color-yellow, #F0BC29);
   color: var(--color-navy, #262A71);
@@ -235,7 +212,6 @@ body.is-menu-open { overflow: hidden; }
   color: var(--color-navy, #262A71);
 }
 
-/* Navy — navy bg with white text（給黃底用） */
 .btn--navy {
   background: var(--color-navy, #262A71);
   color: var(--color-white, #fff);
@@ -244,9 +220,8 @@ body.is-menu-open { overflow: hidden; }
   background: var(--color-navy-dark, #1B1F55);
   color: var(--color-white, #fff);
 }
-.btn--navy img { filter: brightness(0) invert(1); }     /* phone icon 轉白 */
+.btn--navy img { filter: brightness(0) invert(1); }
 
-/* White — 白底 navy 字（給黃/深底用，視覺輕量） */
 .btn--white {
   background: var(--color-white, #fff);
   color: var(--color-navy, #262A71);
@@ -256,7 +231,6 @@ body.is-menu-open { overflow: hidden; }
   color: var(--color-navy, #262A71);
 }
 
-/* Sizes */
 .btn--sm  { padding: 0.5rem 1.25rem; font-size: 1.25rem; height: 2.5rem; }
 .btn--md  { padding: 0.625rem 1.5rem; font-size: 1.25rem; height: 3rem; }
 .btn--lg  { padding: 1.125rem 1.875rem; font-size: 1.6875rem; height: 4.0625rem; }
@@ -266,7 +240,6 @@ body.is-menu-open { overflow: hidden; }
 .btn--md img, .btn--md svg { width: 1.25rem;   height: auto; flex-shrink: 0; }
 .btn--sm img, .btn--sm svg { width: 1rem;      height: auto; flex-shrink: 0; }
 
-/* Phone link variant (un-styled <a> with hover) */
 .link-phone {
   display: inline-flex;
   text-decoration: none;
@@ -279,25 +252,11 @@ body.is-menu-open { overflow: hidden; }
 }
 .link-phone:hover { color: var(--color-yellow-dark, #D4A017); }
 
-
-/* ============================================================
-   components.css — 全站共用元件
-   Blocks: .page-hero / .breadcrumb / .hero-card / .trust-bar / .faq
-           / .slider / .floating-cta / .areas-mini / .final-cta
-   依賴 core.css 的變數與 typography 預設
-   ============================================================ */
-
-
-/* ============================================================
-   Page Hero — 內頁專用 hero（base，與首頁 .hero 完全分開）
-   壓縮高度、背景照片、左上 title、breadcrumb 浮層
-   各頁用 .page-hero--<page> modifier 換背景圖 / 高度
-   ============================================================ */
 .page-hero {
   position: relative;
   display: flex;
   width: 100%;
-  margin-top: 4.625rem;                                 /* push below fixed mobile header (74px) */
+  margin-top: 4.625rem;
   min-height: 55svh;
   color: var(--color-white, #fff);
   overflow: hidden;
@@ -345,7 +304,7 @@ body.is-menu-open { overflow: hidden; }
   text-align: left;
   color: var(--color-white, #fff);
   text-shadow: 0 0.125rem 0.625rem rgba(0, 0, 0, .55);
-  position: relative;                                   /* 桌機正常流；手機由 contact.css 改 absolute */
+  position: relative;
 }
 
 @media (min-width: 768px) {
@@ -354,20 +313,16 @@ body.is-menu-open { overflow: hidden; }
 }
 @media (min-width: 1024px) {
   .page-hero { min-height: 36rem; }
-  .page-hero__inner { padding: 6rem 3rem 3.5rem; }     /* 桌機 hero-card absolute，底 padding 只影響 title */
+  .page-hero__inner { padding: 6rem 3rem 3.5rem; }
 }
 @media (min-width: 1280px) {
-  .page-hero { margin-top: 6.25rem; }                  /* desktop header 100px */
+  .page-hero { margin-top: 6.25rem; }
   .page-hero__inner { padding-left: 4rem; padding-right: 4rem; }
 }
 @media (min-width: 1600px) {
   .page-hero__inner { padding-left: 11.3125rem; padding-right: 11.75rem; }
 }
 
-
-/* ============================================================
-   Breadcrumb — 浮在 page-hero 內上方
-   ============================================================ */
 .breadcrumb {
   position: absolute;
   top: 1.5rem;
@@ -402,18 +357,16 @@ body.is-menu-open { overflow: hidden; }
 .breadcrumb a:hover { color: var(--color-yellow, #F0BC29); }
 .breadcrumb__current {  font-weight: 600; }
 
-/* Dark variant — 無 hero 的頁面（白底）：正常流、深色字、空出 fixed header */
 .breadcrumb--dark {
   position: static;
-  margin-top: 4.625rem;                                /* clear fixed mobile header (74px) */
+  margin-top: 4.625rem;
   padding-top: 1.5rem;
   padding-bottom: 0;
   color: var(--color-navy, #262A71);
 }
 .breadcrumb--dark a:hover { color: var(--color-yellow-dark, #D4A017); }
-/* .breadcrumb--dark .breadcrumb__current { color: var(--color-yellow-dark, #D4A017); } */
 @media (min-width: 1280px) {
-  .breadcrumb--dark { margin-top: 8.25rem; padding-top: 2rem; }   /* desktop header 100px */
+  .breadcrumb--dark { margin-top: 8.25rem; padding-top: 2rem; }
 }
 
 @media (min-width: 768px) {
@@ -429,12 +382,6 @@ body.is-menu-open { overflow: hidden; }
   .breadcrumb { padding-left: 11.3125rem; padding-right: 11.75rem; }
 }
 
-
-/* ============================================================
-   Hero Card — 疊在 page-hero 左下的卡片（contact / service / about 共用）
-   layout-only：手機 full-bleed 落底，桌機 absolute 左下 50% 寬
-   底色用 --light / --navy modifier；內容由各頁自行放
-   ============================================================ */
 .hero-card {
   z-index: 2;
   /* 手機：滿版蓋掉 page-hero__inner 左右 + 底 padding，貼齊 hero 底邊 */
@@ -454,7 +401,7 @@ body.is-menu-open { overflow: hidden; }
   border-left: 0.375rem solid var(--color-yellow, #F0BC29);
   font-family: var(--font-display, sans-serif);
   font-weight: 800;
-  font-size: clamp(2rem, 5vw, 3.75rem);                /* 32 → 60px */
+  font-size: clamp(2rem, 5vw, 3.75rem);
   line-height: 1.1;
   letter-spacing: -0.01em;
   color: var(--color-navy, #262A71);
@@ -482,10 +429,6 @@ body.is-menu-open { overflow: hidden; }
   .hero-card__inner { padding: 5rem 4rem 0rem 4rem;}   /* 左對齊 site-header padding */
 }
 
-
-/* ============================================================
-   Final CTA — 黃底 conversion strip（跨頁共用）
-   ============================================================ */
 .final-cta {
   background: var(--color-yellow, #F0BC29);
   padding: 3rem 1.5rem;
@@ -516,11 +459,6 @@ body.is-menu-open { overflow: hidden; }
   .final-cta { padding: 5.5rem 3rem; }
 }
 
-
-/* ============================================================
-   Areas Mini — 壓縮版服務區域帶（Contact / About / Areas 等）
-   左標題 + 右 10 個城市 pill grid（2 行 5 欄）
-   ============================================================ */
 .areas-mini {
   background: var(--color-bg-light, #F5F5F5);
   padding: 2.5rem 1.5rem;
@@ -539,11 +477,11 @@ body.is-menu-open { overflow: hidden; }
   margin: 0;
   font-family: var(--font-display, sans-serif);
   font-weight: 800;
-  font-size: 2rem;                                      /* 32px mobile */
+  font-size: 2rem;
   line-height: 1.15;
   letter-spacing: -0.01em;
   text-align: center;
-  align-self: start;                                    /* 垂直置上 */
+  align-self: start;
   color: var(--color-navy, #262A71);
 }
 .areas-mini__list {
@@ -564,7 +502,7 @@ body.is-menu-open { overflow: hidden; }
   color: var(--color-navy, #262A71);
   font-family: var(--font-body, sans-serif);
   font-weight:400;
-  font-size: 1.125rem;                                  /* text-regular mobile (18px) */
+  font-size: 1.125rem;
   text-decoration: none;
   transition: background-color .2s ease, color .2s ease, transform .15s ease;
 }
@@ -577,11 +515,10 @@ body.is-menu-open { overflow: hidden; }
 @media (min-width: 768px) {
   .areas-mini { padding: 3rem 2.5rem; }
   .areas-mini__inner { gap: 2rem; }
-  .areas-mini__link  { padding: 0.75rem 1.5rem; font-size: 1.4375rem; }  /* text-large desktop (23px) */
+  .areas-mini__link  { padding: 0.75rem 1.5rem; font-size: 1.4375rem; }
 }
 @media (min-width: 1024px) {
   .areas-mini { padding: 3.5rem 3rem; }
-  /* 兩欄：標題左 / pill grid 右 */
   .areas-mini__inner {
     grid-template-columns: minmax(0, auto) 1fr;
     gap: 3rem;
@@ -593,33 +530,22 @@ body.is-menu-open { overflow: hidden; }
   .areas-mini__inner { gap: 4rem; }
 }
 
-
-/* ============================================================
-   Eyebrow tag — 灰底 uppercase 小標籤
-   共用於 service-areas / gallery 等區塊的 section label
-   ============================================================ */
 .eyebrow-tag {
   align-self: flex-start;
-  padding: 0.3125rem 0.625rem;                        /* 5/10 (Figma) */
+  padding: 0.3125rem 0.625rem;
   background: #eee;
   font-family: var(--font-body, sans-serif);
   font-weight: 700;
-  font-size: 0.875rem;                                /* 14px */
+  font-size: 0.875rem;
   line-height: 1;
-  letter-spacing: 0.11375rem;                         /* 1.82px */
+  letter-spacing: 0.11375rem;
   color: var(--color-navy, #262A71);
   text-transform: uppercase;
 }
-/* Mobile：置中（用於內容置中的區塊：service-areas / gallery）*/
 @media (max-width: 767.98px) {
   .eyebrow-tag { align-self: center; margin-bottom: -0.5rem; }
 }
 
-
-/* ============================================================
-   Service Areas — 完整版（圓形地圖 + 城市清單 + CTA）
-   用於 首頁 + Service Areas hub
-   ============================================================ */
 .service-areas {
   position: relative;
   width: 100%;
@@ -631,7 +557,6 @@ body.is-menu-open { overflow: hidden; }
   gap: 2rem;
 }
 
-/* ----- Map (circular) — 底圖 + 中央 pin ----- */
 .service-areas__map {
   position: relative;
   flex-shrink: 0;
@@ -654,45 +579,39 @@ body.is-menu-open { overflow: hidden; }
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 3rem;                                        /* 48px mobile */
+  width: 3rem;
   height: auto;
   z-index: 2;
   filter: drop-shadow(0 0.25rem 0.5rem rgba(0, 0, 0, .25));
 }
 
-/* ----- Content ----- */
 .service-areas__content {
   width: 100%;
-  max-width: 33.125rem;                               /* 530px (Figma) */
+  max-width: 33.125rem;
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
 }
 
-/* Title — uses .section-title shared base */
 .service-areas__title {
   margin: 0;
-  /* font-size / weight / family inherited from .section-title */
 }
 
-/* Mobile：label / title 置中 + title 加大；desc / list 靠左 */
 @media (max-width: 767.98px) {
   .service-areas__content { align-items: center; text-align: center; }
-  .service-areas__title   { font-size: 2.5rem; }       /* 40px (vs 32) */
+  .service-areas__title   { font-size: 2.5rem; }
   .service-areas__desc,
   .service-areas__list    { align-self: stretch; text-align: left; }
 }
 
-/* Description — typography from .text-regular */
 .service-areas__desc {
   color: var(--color-text-muted);
 }
 
-/* ----- City list (2-col grid) ----- */
 .service-areas__list {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0 0.625rem;                                    /* 10px horizontal */
+  gap: 0 0.625rem;
   margin: 0.5rem 0;
   padding: 0;
   list-style: none;
@@ -701,12 +620,12 @@ body.is-menu-open { overflow: hidden; }
 .area-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;                                       /* 12px */
-  height: 3.125rem;                                   /* 50px */
+  gap: 0.75rem;
+  height: 3.125rem;
   padding: 0 0.1875rem;
   font-family: var(--font-cta, sans-serif);
-  font-weight: 800;                                   /* Big Shoulders ExtraBold */
-  font-size: 1.5rem;                                  /* 24px */
+  font-weight: 800;
+  font-size: 1.5rem;
   line-height: 1;
   color: var(--color-navy, #262A71);
   text-decoration: none;
@@ -715,7 +634,7 @@ body.is-menu-open { overflow: hidden; }
 }
 .area-link:hover { color: var(--color-yellow-dark, #D4A017); }
 .area-link__arrow {
-  width: 1.5rem;                                      /* 24px display */
+  width: 1.5rem;
   height: 1.25rem;
   flex-shrink: 0;
   color: currentColor;
@@ -723,7 +642,6 @@ body.is-menu-open { overflow: hidden; }
 }
 .area-link:hover .area-link__arrow { transform: translateX(0.25rem); }
 
-/* ----- CTA button — 視覺由 .btn.btn--primary.btn--lg 提供；只放 layout ----- */
 .service-areas__cta {
   margin-top: 0.5rem;
   align-self: stretch;
@@ -741,16 +659,16 @@ body.is-menu-open { overflow: hidden; }
     align-items: center;
     justify-content: center;
     gap: 5rem;
-    padding: 6.75rem 3rem;                            /* 108px / 48px */
+    padding: 6.75rem 3rem;
   }
   .service-areas__map {
     flex: 0 0 auto;
-    width: clamp(28rem, 38vw, 41.75rem);              /* up to 668px */
+    width: clamp(28rem, 38vw, 41.75rem);
     max-width: none;
   }
-  .service-areas__map-pin { width: 5rem; }            /* 80px desktop */
+  .service-areas__map-pin { width: 5rem; }
   .service-areas__content {
-    flex: 0 1 33.125rem;                              /* 530px */
+    flex: 0 1 33.125rem;
     gap: 0.5rem;
   }
 }
@@ -764,14 +682,9 @@ body.is-menu-open { overflow: hidden; }
   }
   /* 地圖隨螢幕漸進放大：1920→720px，2560→880px（封頂 55rem）*/
   .service-areas__map     { width: clamp(45rem, calc(25vw + 15rem), 55rem); }
-  .service-areas__map-pin { width: 6.5rem; }            /* 104px */
+  .service-areas__map-pin { width: 6.5rem; }
 }
 
-
-/* ============================================================
-   Floating CTA — 手機右下角浮動電話按鈕
-   桌機（≥1024px）隱藏 — header 已有電話
-   ============================================================ */
 .floating-cta {
   --ring: 240, 188, 41;                                 /* 預設 ring 色 = 黃 (RGB) */
   position: fixed;
@@ -781,7 +694,7 @@ body.is-menu-open { overflow: hidden; }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 4rem;                                          /* 64px */
+  width: 4rem;
   aspect-ratio: 1;
   border-radius: 50%;
   background: var(--color-yellow, #F0BC29);
@@ -813,34 +726,25 @@ body.is-menu-open { overflow: hidden; }
   .floating-cta { animation: none; }
 }
 
-/* 動態底色 — JS 偵測背後 section 的 data-bg 自動套用 */
-/* on-yellow：navy 底 + 白 icon（對黃底高對比） */
 .floating-cta--on-yellow {
-  --ring: 38, 42, 113;                                  /* navy ring */
+  --ring: 38, 42, 113;
   background: var(--color-navy, #262A71);
 }
 .floating-cta--on-yellow:hover { background: var(--color-navy-dark, #1B1F55); }
 .floating-cta--on-yellow img   { filter: brightness(0) invert(1); }
 
-/* on-dark：白底 + navy icon（對 navy 底高對比） */
 .floating-cta--on-dark {
-  --ring: 255, 255, 255;                                /* white ring */
+  --ring: 255, 255, 255;
   background: var(--color-white, #fff);
 }
 .floating-cta--on-dark:hover { background: #eee; }
 
 /* on-light：保留預設黃底 navy icon（白/淺底已夠對比） */
 
-/* Desktop 隱藏 — header 已內建 phone CTA */
 @media (min-width: 1024px) {
   .floating-cta { display: none; }
 }
 
-
-/* ============================================================
-   Lightbox — 點縮圖 → 全螢幕 overlay 看大圖
-   由 initLightbox() 動態建立 DOM 並插入 body
-   ============================================================ */
 .lightbox {
   position: fixed;
   inset: 0;
@@ -926,11 +830,6 @@ body.is-menu-open { overflow: hidden; }
   .lightbox__nav--next { right: 1.5rem; }
 }
 
-
-/* ============================================================
-   Slider — 橫向 scroll-snap + drag + dots
-   配合 initSlider() 使用（components.js）
-   ============================================================ */
 .slider__track {
   display: flex;
   gap: 1.25rem;
@@ -947,13 +846,12 @@ body.is-menu-open { overflow: hidden; }
 .slider__track::-webkit-scrollbar { display: none; }
 .slider__track.is-dragging {
   cursor: grabbing;
-  scroll-snap-type: none;                               /* 拖曳時暫停 snap 卡頓 */
+  scroll-snap-type: none;
   scroll-behavior: auto;
 }
 .slider__track.is-dragging > * { pointer-events: none; }
 .slider__track img { -webkit-user-drag: none; user-select: none; }
 
-/* Pagination dots */
 .slider__dots {
   display: flex;
   align-items: center;
@@ -978,11 +876,6 @@ body.is-menu-open { overflow: hidden; }
   transform: scale(1.2);
 }
 
-
-/* ============================================================
-   Trust bar — icon + title + text 三欄
-   原為 .hero__trust，抽出為跨頁元件
-   ============================================================ */
 .trust-bar {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1009,7 +902,6 @@ body.is-menu-open { overflow: hidden; }
   object-fit: contain;
 }
 
-/* Stars variant：5 顆星橫排，在 slot 內垂直置中 */
 .trust-bar__icon--stars { gap: 0.125rem; }
 .trust-bar__icon--stars > img {
   height: auto;
@@ -1028,11 +920,9 @@ body.is-menu-open { overflow: hidden; }
 .trust-bar__title { color: var(--color-white, #fff); }
 .trust-bar__text  { color: var(--color-yellow, #F0BC29); }
 
-/* Light variant — 白底/淺底使用（icon 需另外用 *-navy.svg） */
 .trust-bar--light .trust-bar__title,
 .trust-bar--light .trust-bar__text { color: var(--color-navy, #262A71); }
 
-/* Mobile only — 放在所有 base 規則後面以正確覆寫 */
 @media (max-width: 767.98px) {
   .trust-bar__item { gap: 0.1rem; }
   .trust-bar__icon { height: 2.8rem; }
@@ -1042,22 +932,16 @@ body.is-menu-open { overflow: hidden; }
   .trust-bar { gap: 1.75rem; }
   .trust-bar__icon--stars > img { width: 1.4rem; }
   .trust-bar__title,
-  .trust-bar__text { font-size: 1.125rem; font-weight: 600; }   /* 18px / SemiBold */
+  .trust-bar__text { font-size: 1.125rem; font-weight: 600; }
 }
 
 @media (min-width: 1024px) {
   .trust-bar { grid-template-columns: repeat(3, max-content); }
   .trust-bar__icon--stars > img { width: 1.75rem; }
   .trust-bar__title,
-  .trust-bar__text { font-size: 1.125rem; }   /* 18px normal */
+  .trust-bar__text { font-size: 1.125rem; }
 }
 
-
-/* ============================================================
-   FAQ — accordion
-   Title centered top, items 左邊有 11px 黃色 border
-   Open: icon 黃→navy / 旋轉成減號 / body 展開
-   ============================================================ */
 .faq {
   position: relative;
   width: 100%;
@@ -1077,7 +961,7 @@ body.is-menu-open { overflow: hidden; }
   text-align: center;
 }
 @media (max-width: 767.98px) {
-  .faq__title { font-size: 2.5rem; }                    /* 40px (vs 32) */
+  .faq__title { font-size: 2.5rem; }
 }
 
 .faq__list {
@@ -1096,7 +980,7 @@ body.is-menu-open { overflow: hidden; }
   background: var(--color-white, #fff);
 }
 @media (max-width: 767.98px) {
-  .faq-item { border-left-width: 0.4rem; }              /* 6.4px (vs 11) */
+  .faq-item { border-left-width: 0.4rem; }
 }
 
 .faq-item__header {
@@ -1114,7 +998,6 @@ body.is-menu-open { overflow: hidden; }
 }
 .faq-item__question {
   flex: 1;
-  /* 字級 / 字體 由 .text-large class 提供（桌機 23px / mobile 20px） */
   color: var(--color-text-body);
 }
 
@@ -1169,7 +1052,6 @@ body.is-menu-open { overflow: hidden; }
   .faq__inner { gap: 3rem; }
 }
 
-/* ≥1280px — 兩欄：左標題、右 list（list 仍保持窄閱讀寬度） */
 @media (min-width: 1280px) {
   .faq__inner {
     max-width: var(--content-max, 85.3125rem);          /* 1366 固定：Q&A 文字不隨大螢幕過寬 */
@@ -1188,14 +1070,6 @@ body.is-menu-open { overflow: hidden; }
   .faq__list { grid-column: 2; }
 }
 
-
-
-/* ============================================================
-   GALLERY (.gallery — white background)
-   依 Figma node 455:3782 (1728×666)
-   Desktop: 左 6-image 非對稱 grid, 右 text + button
-   Mobile:  上 text, 下 horizontal slider, 底 button
-   ============================================================ */
 .gallery {
   position: relative;
   width: 100%;
@@ -1213,38 +1087,33 @@ body.is-menu-open { overflow: hidden; }
   gap: 2rem;
 }
 
-/* ----- Content (label + title + desc) ----- */
 .gallery__content {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   align-items: flex-start;
 }
-/* 灰底 uppercase 標籤視覺由共用 .eyebrow-tag 提供（global.css）*/
 .gallery__title { margin: 0; }
 .gallery__desc { color: var(--color-text-muted); }
 
-/* Mobile：label / title 置中 + title 加大；desc 靠左 */
 @media (max-width: 767.98px) {
   .gallery__content { align-items: center; text-align: center; }
-  .gallery__title   { font-size: 2.5rem; }              /* 40px (vs 32) */
+  .gallery__title   { font-size: 2.5rem; }
   .gallery__desc    { align-self: stretch; text-align: left; }
 }
 
-/* View Gallery button — outline navy (text-regular 18px)
-   兩個變體：--desktop / --mobile，靠 media query toggle 顯示 */
 .gallery__cta {
   align-items: center;
   justify-content: center;
   margin-top: 0.5rem;
   padding: 0.75rem 2rem;
   border: 1px solid var(--color-navy, #262A71);
-  border-radius: 6.25rem;                             /* 100px pill */
+  border-radius: 6.25rem;
   background: transparent;
   color: var(--color-navy, #262A71);
   font-family: var(--font-body, sans-serif);
   font-weight: 500;
-  font-size: 1.125rem;                                /* 18px (text-regular) */
+  font-size: 1.125rem;
   line-height: 1.4;
   letter-spacing: 0.05625rem;
   text-decoration: none;
@@ -1256,11 +1125,9 @@ body.is-menu-open { overflow: hidden; }
   background: var(--color-navy, #262A71);
   color: var(--color-white, #fff);
 }
-/* Mobile: 顯示 mobile 版、隱藏 desktop 版 */
 .gallery__cta--mobile  { display: inline-flex; align-self: center; }
 .gallery__cta--desktop { display: none; }
 
-/* ----- Mobile slider — 左右滿版（突破 section padding 到 viewport 邊） ----- */
 .gallery__slider {
   width: auto;
   margin-left: calc(50% - 50vw);
@@ -1270,7 +1137,7 @@ body.is-menu-open { overflow: hidden; }
   display: flex;
   gap: 0.625rem;
   margin: 0;
-  padding: 0.25rem 0 0.25rem 2rem;                    /* 左邊 32px 留白，右邊延伸到視窗 */
+  padding: 0.25rem 0 0.25rem 2rem;
   scroll-padding-left: 2rem;                          /* snap point 跟著 padding 走 */
   list-style: none;
   overflow-x: auto;
@@ -1281,15 +1148,15 @@ body.is-menu-open { overflow: hidden; }
 .gallery__grid::-webkit-scrollbar { display: none; }
 .gallery__item {
   flex: 0 0 auto;
-  height: 14rem;                                      /* 224px mobile */
-  border-radius: 1.25rem;                             /* 20px (Figma) */
+  height: 14rem;
+  border-radius: 1.25rem;
   overflow: hidden;
   scroll-snap-align: start;
 }
 /* 每張依 Figma 桌面版比例 */
-.gallery__item--lg { aspect-ratio: 398 / 272; }       /* ≈ 1.46:1 */
-.gallery__item--md { aspect-ratio: 293 / 272; }       /* ≈ 1.08:1 */
-.gallery__item--sm { aspect-ratio: 188 / 272; }       /* ≈ 0.69:1 (直幅) */
+.gallery__item--lg { aspect-ratio: 398 / 272; }
+.gallery__item--md { aspect-ratio: 293 / 272; }
+.gallery__item--sm { aspect-ratio: 188 / 272; }
 
 .gallery__item img {
   width: 100%;
@@ -1299,33 +1166,22 @@ body.is-menu-open { overflow: hidden; }
 }
 .gallery__item:hover img { transform: scale(1.08); }
 
-/* ============================================================
-   Gallery — Tablet (≥768px)
-   ============================================================ */
 @media (min-width: 768px) {
   .gallery { padding: 5rem 2.5rem; }
 }
 
-/* ============================================================
-   Gallery — Desktop (≥1024px)
-   左: 6-image 非對稱 grid (900w × 554h Figma)
-   右: text + CTA
-   ============================================================ */
 @media (min-width: 1024px) {
   .gallery { padding: 4rem 3rem; }
 
-  /* Desktop: 兩欄 flex — 左 slider / 右 content
-     HTML 順序: content → slider → cta，用 order 反轉視覺順序（DOM 順序維持） */
   .gallery__inner {
     display: flex;
-    flex-direction: row;                              /* 覆寫 mobile 的 column */
+    flex-direction: row;
     align-items: center;
     column-gap: 4rem;
   }
-  .gallery__slider  { flex: 0 1 56.25rem; order: 1; }   /* 左 */
-  .gallery__content { flex: 0 1 22rem;   order: 2; }   /* 右 */
+  .gallery__slider  { flex: 0 1 56.25rem; order: 1; }
+  .gallery__content { flex: 0 1 22rem;   order: 2; }
 
-  /* Desktop 切換 CTA 顯示 */
   .gallery__cta--mobile  { display: none; }
   .gallery__cta--desktop { display: inline-flex; align-self: flex-start; }
 
@@ -1341,9 +1197,9 @@ body.is-menu-open { overflow: hidden; }
     position: static;
     display: flex;
     flex-wrap: wrap;
-    width: 56.25rem;                                  /* 900px (Figma 容器) */
+    width: 56.25rem;
     height: auto;
-    gap: 0.625rem;                                    /* 10px (Figma) */
+    gap: 0.625rem;
     padding: 0;
     overflow: visible;
     scroll-snap-type: none;
@@ -1351,22 +1207,21 @@ body.is-menu-open { overflow: hidden; }
   .gallery__item {
     position: static;
     flex: 0 0 auto;
-    height: 17rem;                                    /* 272px (Figma) */
+    height: 17rem;
     aspect-ratio: auto;
     scroll-snap-align: none;
     top: auto;
     left: auto;
   }
-  .gallery__item--lg { width: 24.875rem; }            /* 398px */
-  .gallery__item--md { width: 18.3125rem; }           /* 293px */
-  .gallery__item--sm { width: 11.75rem;  }            /* 188px */
+  .gallery__item--lg { width: 24.875rem; }
+  .gallery__item--md { width: 18.3125rem; }
+  .gallery__item--sm { width: 11.75rem;  }
 
   .gallery__content {
-    flex: 0 1 22rem;                                  /* 332px-ish for text col */
+    flex: 0 1 22rem;
     align-items: flex-start;
     gap: 1rem;
   }
-  /* gallery__cta 字級保持 18px text-regular */
 }
 
 /* Wide breakpoint — keep proportions */
@@ -1378,31 +1233,21 @@ body.is-menu-open { overflow: hidden; }
    slider 吃掉文字欄以外的所有空間，圖片改用 % 寬 + 原始 aspect-ratio →
    不論欄寬多少都填滿，且兩列等高（同比例放大）。取代舊的固定 1364px 寫法。 */
 @media (min-width: 1920px) {
-  .gallery__slider  { flex: 1 1 auto; }                 /* 填滿文字欄以外的寬度 */
+  .gallery__slider  { flex: 1 1 auto; }
   .gallery__content { flex: 0 0 22rem; }                /* 文字欄固定，不擠壓 */
   .gallery__grid    { width: 100%; }
-  .gallery__item    { height: auto; }                   /* 高度交給 aspect-ratio */
+  .gallery__item    { height: auto; }
   /* 每列 3 張：扣掉 2 個 0.625rem gap 後，依 Figma 比例 398:293:188（/879）分配 */
   .gallery__item--lg { width: calc((100% - 1.25rem) * 0.452); aspect-ratio: 398 / 272; }
   .gallery__item--md { width: calc((100% - 1.25rem) * 0.333); aspect-ratio: 293 / 272; }
   .gallery__item--sm { width: calc((100% - 1.25rem) * 0.213); aspect-ratio: 188 / 272; }
 }
 
-/* Flip variant — 字左圖右（About 等內頁用；首頁為圖左字右）*/
 @media (min-width: 1024px) {
   .gallery--flip .gallery__slider  { order: 2; }
   .gallery--flip .gallery__content { order: 1; }
 }
 
-
-/* ============================================================
-   Service Card — 服務卡（首頁 Our Services / Plumbing Service hub 共用）
-   ============================================================ */
-/* ============================================================
-   Service Card — 單一 h3 結構
-   Mobile: caption 流在 media 下方 (h3 navy + 箭頭圓鈕)
-   Desktop: caption 絕對定位疊在 media 底部 (h3 white + Learn More)
-   ============================================================ */
 .service-card {
   position: relative;
   display: flex;
@@ -1415,11 +1260,10 @@ body.is-menu-open { overflow: hidden; }
 }
 .service-card:hover { transform: translateY(-0.25rem); }
 
-/* ----- Image area ----- */
 .service-card__media {
   position: relative;
   aspect-ratio: 4 / 3;
-  border-radius: 1.5625rem;                           /* 25px — Figma */
+  border-radius: 1.5625rem;
   overflow: hidden;
 }
 .service-card__bg {
@@ -1429,7 +1273,6 @@ body.is-menu-open { overflow: hidden; }
   background-size: cover;
   background-position: center;
 }
-/* Service photos */
 .service-card__bg[data-bg="drain"]   { background-image: url('../img/services/drain-sewer.jpg'); }
 .service-card__bg[data-bg="fixture"] { background-image: url('../img/services/water-fixture-repair.jpg'); }
 .service-card__bg[data-bg="gas"]     { background-image: url('../img/services/gas-line.jpg'); }
@@ -1437,7 +1280,6 @@ body.is-menu-open { overflow: hidden; }
 .service-card__bg[data-bg="radiant"] { background-image: url('../img/services/hydronic-radiant-heating.jpg'); }
 .service-card__bg[data-bg="heater"]  { background-image: url('../img/services/water-heater.jpg'); }
 
-/* ----- Mobile caption (below image) ----- */
 .service-card__caption {
   display: flex;
   align-items: center;
@@ -1454,12 +1296,10 @@ body.is-menu-open { overflow: hidden; }
   color: var(--color-navy, #262A71);
   letter-spacing: -0.01em;
 }
-/* Mobile: hide desc + Learn More */
 .service-card__desc,
 .service-card__more {
   display: none;
 }
-/* Mobile: arrow visible (circle button beside title) */
 .service-card__arrow {
   display: inline-flex;
   align-items: center;
@@ -1481,7 +1321,6 @@ body.is-menu-open { overflow: hidden; }
   transform: translateX(0.125rem);
 }
 
-/* 通用服務卡格線（hub 等共用；首頁用 .services-block__grid）*/
 .service-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1491,14 +1330,11 @@ body.is-menu-open { overflow: hidden; }
   margin: 0 auto;
 }
 
-/* ----- Service Card — Tablet (≥768px)：caption overlay + hover ----- */
 @media (min-width: 768px) {
   .service-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; }
-  /* ----- Tablet+ : caption 絕對定位疊在 media 底部 ----- */
   .service-card { gap: 0; }
   .service-card__media { aspect-ratio: 3 / 2; }
 
-  /* Caption 變成 overlay over media */
   .service-card__caption {
     position: absolute;
     inset: 0;
@@ -1512,7 +1348,7 @@ body.is-menu-open { overflow: hidden; }
                 rgba(0, 0, 0, 0)   40%,
                 rgba(0, 0, 0, .80) 100%);
     border-radius: 1.5625rem;                         /* match media radius (25px) */
-    overflow: hidden;                                 /* clip 漸層 + hover overlay 到圓角內 */
+    overflow: hidden;
   }
   /* Hover 加深層 — 用 ::after 疊一層 opacity 漸變（避開 gradient 無法平滑插值） */
   .service-card__caption::after {
@@ -1525,18 +1361,15 @@ body.is-menu-open { overflow: hidden; }
     transition: opacity .6s cubic-bezier(.22,1,.36,1);
   }
   .service-card:hover .service-card__caption::after { opacity: 1; }
-  /* 內容需提升到 ::after 之上 */
   .service-card__title,
   .service-card__desc,
   .service-card__more { position: relative; z-index: 1; }
-  /* Title 變白色 + 字型大小 (Figma 27px) */
   .service-card__title {
     font-family: var(--font-cta, sans-serif);
     font-size: 1.5rem;
     line-height: 1.1;
     color: var(--color-white, #fff);
   }
-  /* desc 預設收合，hover 展開 */
   .service-card__desc {
     display: block;
     margin: 0;
@@ -1550,7 +1383,6 @@ body.is-menu-open { overflow: hidden; }
     transition: max-height .6s cubic-bezier(.22,1,.36,1) .1s,
                 opacity    .5s cubic-bezier(.22,1,.36,1) .1s;
   }
-  /* Learn More 可見 */
   .service-card__more {
     display: inline-flex;
     align-items: center;
@@ -1562,10 +1394,8 @@ body.is-menu-open { overflow: hidden; }
     color: var(--color-yellow, #F0BC29);
     transition: gap .35s cubic-bezier(.22,1,.36,1) .05s;
   }
-  /* 桌機隱藏圓形箭頭按鈕（mobile-only） */
   .service-card__arrow { display: none; }
 
-  /* Hover：展開 desc（overlay 加深由 ::after 處理） */
   .service-card:hover .service-card__desc {
     max-height: 8rem;
     opacity: 1;
@@ -1574,18 +1404,12 @@ body.is-menu-open { overflow: hidden; }
 
 }
 
-/* ----- Service Card — Desktop (≥1024px) ----- */
 @media (min-width: 1024px) {
   .service-grid { gap: 1.5rem; }
   .service-card__caption { padding: 1.875rem; }
-  .service-card__title { font-size: 1.6875rem; }     /* 27px (Figma) */
+  .service-card__title { font-size: 1.6875rem; }
 }
 
-
-/* ============================================================
-   TESTIMONIALS (.testimonials — light grey bg)
-   依 Figma node 455:3761
-   ============================================================ */
 .testimonials {
   position: relative;
   width: 100%;
@@ -1594,21 +1418,19 @@ body.is-menu-open { overflow: hidden; }
   color: var(--color-navy, #262A71);
   overflow: hidden;
 }
-/* 底部漸層：底白透頂（Figma Rectangle 12，width 1728 / height 575px） */
 .testimonials::after {
   content: "";
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
-  height: 35.9375rem;                                 /* 575px */
+  height: 35.9375rem;
   background: linear-gradient(0deg,
               #FFFFFF 4.58%,
               rgba(255, 255, 255, 0) 100%);
   pointer-events: none;
   z-index: 0;
 }
-/* Inner — max-width 內容置中 (Figma container 1365px) + 確保在漸層之上 */
 .testimonials__inner {
   position: relative;
   z-index: 1;
@@ -1617,21 +1439,19 @@ body.is-menu-open { overflow: hidden; }
   margin: 0 auto;
 }
 
-/* Section title — XXL navy */
 .testimonials__title {
   margin: 0 0 2rem;
   font-family: var(--font-display, sans-serif);
   font-weight: 800;
-  font-size: clamp(2.5rem, 12vw, 9rem);           /* 40 → 150px (Figma) */
+  font-size: clamp(2.5rem, 12vw, 9rem);
   line-height: 1.05;
   letter-spacing: -0.015em;
   color: var(--color-navy, #262A71);
 }
 /* 2K+（≥1920）：container 變 1800，標題隨之放大維持比例（1552→1800 欄皆可容納）*/
 @media (min-width: 1920px) {
-  .testimonials__title { font-size: clamp(10rem, 9vw, 12.5rem); }   /* 160 → 200px */
+  .testimonials__title { font-size: clamp(10rem, 9vw, 12.5rem); }
 }
-/* Mobile：強制斷行；桌機隱藏 <br> */
 .testimonials__title-br { display: none; }
 @media (max-width: 767.98px) {
   .testimonials__title-br { display: inline; }
@@ -1644,9 +1464,8 @@ body.is-menu-open { overflow: hidden; }
   }
 }
 
-/* Rating + description */
 .testimonials__intro {
-  max-width: 41.625rem;                               /* 666px (Figma 626+anchor) */
+  max-width: 41.625rem;
   margin: 0 0 2rem;
   display: flex;
   flex-direction: column;
@@ -1666,7 +1485,7 @@ body.is-menu-open { overflow: hidden; }
 .testimonials__rating-text {
   font-family: var(--font-body, sans-serif);
   font-weight: 700;
-  font-size: 1.4375rem;                               /* 23px (text-large) */
+  font-size: 1.4375rem;
   line-height: 1.3;
   color: var(--color-navy, #262A71);
 }
@@ -1675,7 +1494,6 @@ body.is-menu-open { overflow: hidden; }
   padding-left: 2.5rem;                               /* 對齊「5/5...」(star 30px + gap 10px) */
 }
 
-/* ----- Slider — 左右滿版（突破 section padding 到 viewport 邊） ----- */
 .testimonials__slider {
   position: relative;
   width: auto;
@@ -1693,7 +1511,7 @@ body.is-menu-open { overflow: hidden; }
     width: auto;
     position: static;
     margin-left: 0;
-    margin-right: calc(50% - 50vw);                   /* 只延伸右側 */
+    margin-right: calc(50% - 50vw);
     padding: 0;
     overflow: hidden;                                 /* 裁掉左邊溢出，cards 從 container 左起 */
   }
@@ -1708,29 +1526,25 @@ body.is-menu-open { overflow: hidden; }
     justify-content: center;
   }
 }
-/* Testimonials track — 共用樣式由 .slider__track 提供（components.css），這裡只覆寫 padding */
 .testimonials__slider .slider__track {
   padding: 1.5rem 0 1rem 2rem;                        /* 上 24 / 右 0 / 下 48 / 左 32（讓裝飾引號不被裁切） */
 }
-/* Mobile：第一則證言再推開一點 */
 @media (max-width: 767.98px) {
   .testimonials__slider .slider__track { padding-left: 2rem; scroll-padding-left: 2rem; }
 }
 
-/* ----- Testimonial card (435×279) ----- */
 .testimonial-card {
   position: relative;
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
   flex: 0 0 85%;
-  max-width: 27.1875rem;                              /* 435px (Figma) */
-  min-height: 17.4375rem;                             /* 279px */
+  max-width: 27.1875rem;
+  min-height: 17.4375rem;
   padding: 1.875rem 2.125rem 2.125rem;
   background: var(--color-white, #fff);
-  border-radius: 1.25rem;                             /* 20px (Figma) */
+  border-radius: 1.25rem;
   scroll-snap-align: start;                           /* 第一張靠 container 左緣對齊 */
-  /* overflow: hidden 移除 → 讓裝飾引號可延伸到卡片外 */
 }
 
 .testimonial-card__stars {
@@ -1742,7 +1556,7 @@ body.is-menu-open { overflow: hidden; }
   align-self: center;
 }
 .testimonial-card__star {
-  width: 1.875rem;                                    /* 30px */
+  width: 1.875rem;
   height: auto;
 }
 .testimonial-card__text {
@@ -1751,12 +1565,11 @@ body.is-menu-open { overflow: hidden; }
   margin: 0;
   font-family: var(--font-body, sans-serif);
   font-weight: 400;
-  font-size: 1.125rem;                                /* 18px */
+  font-size: 1.125rem;
   line-height: 1.4;
   letter-spacing: 0.05625rem;
   color: var(--color-text-body);
 }
-/* 手機：降為 text-small 規格（15px）*/
 @media (max-width: 767.98px) {
   .testimonial-card__text { font-size: 0.9375rem; }
 }
@@ -1769,25 +1582,23 @@ body.is-menu-open { overflow: hidden; }
   gap: 0.375rem;
   font-family: var(--font-body, sans-serif);
   font-weight: 400;
-  font-size: 0.9375rem;                               /* 15px */
+  font-size: 0.9375rem;
   color: var(--color-text-body);
 }
 .testimonial-card__author-line {
   display: inline-block;
-  width: 1.875rem;                                    /* 30px */
+  width: 1.875rem;
   height: 1px;
   background: var(--color-text-body);
   flex-shrink: 0;
 }
 
-/* Decorative quote marks (#eee, 146px) — 裝飾用，部分延伸出卡片邊 */
 .testimonial-card__quote-mark {
   position: absolute;
   z-index: 0;
   pointer-events: none;
   user-select: none;
 }
-/* 依 Figma 尺寸與位置 */
 .testimonial-card__quote-mark--open  {
   width: 42.49px;
   height: 29.2px;
@@ -1801,20 +1612,16 @@ body.is-menu-open { overflow: hidden; }
   top:   216.8px;
 }
 
-/* Pagination dots — 共用 .slider__dots / .slider__dot (components.css) */
-
-/* ----- Badges (4 logos, 320×110 each, gap 26) ----- */
 .testimonials__badges {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem 1.625rem;                                 /* 26px gap */
+  gap: 1rem 1.625rem;
   margin: 0;
   padding: 0;
   list-style: none;
   align-items: center;
   justify-items: center;
 }
-/* Mobile：縮小 gap、放大 badge */
 @media (max-width: 767.98px) {
   .testimonials__badges { gap: 0.5rem 0.25rem; }
   .testimonials__badge  { max-width: 100%; }
@@ -1825,7 +1632,6 @@ body.is-menu-open { overflow: hidden; }
   align-items: center;
   justify-content: center;
 }
-/* Badge link wrapper */
 .testimonials__badge-link {
   display: inline-flex;
   align-items: center;
@@ -1841,16 +1647,12 @@ body.is-menu-open { overflow: hidden; }
 }
 .testimonials__badge-link:active { transform: translateY(0); }
 
-/* Badge img (320×110 Figma) */
 .testimonials__badge {
   width: 100%;
-  max-width: 20rem;                                   /* 320px (Figma) */
+  max-width: 20rem;
   height: auto;
 }
 
-/* ============================================================
-   Testimonials — Tablet (≥768px)
-   ============================================================ */
 @media (min-width: 768px) {
   .testimonials { padding: 5rem 2.5rem; }
   .testimonial-card { flex: 0 0 27.1875rem; }
@@ -1860,28 +1662,50 @@ body.is-menu-open { overflow: hidden; }
   }
 }
 
-/* ============================================================
-   Testimonials — Desktop (≥1024px)
-   ============================================================ */
 @media (min-width: 1024px) {
-  .testimonials { padding: 3rem; }               /* gutter 改 48px，內容靠 __inner 置中 */
+  .testimonials { padding: 3rem; }
   .testimonials__title { margin-bottom: 3rem; }
   .testimonials__intro { margin-bottom: 2.5rem; }
   .testimonials__slider { margin-left: 0; margin-right: 0; padding: 0; }
 }
 
-
+.page-reviews { background: var(--color-bg-light, #F5F5F5); }
 
 /* ============================================================
-   header.css — 全站共用 Header + Mobile menu
-   BEM blocks: .site-header / .site-nav / .mobile-menu / .btn-call
+   Testimonials — Grid variant（reviews 專頁：多欄全展，不滑動）
+   手機 1 欄 / 平板 2 欄 / 寬螢幕 4 欄（8 則 = 4×2）
    ============================================================ */
+.testimonials--grid .testimonials__slider {
+  width: auto;
+  position: static;
+  margin: 0 0 2.5rem;
+  padding: 0;
+  overflow: visible;
+}
+.testimonials--grid .slider__track {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  padding: 0.5rem 0;                              /* 給裝飾引號上下喘息，左右不溢出 */
+  overflow: visible;
+}
+.testimonials--grid .testimonial-card {
+  flex: initial;
+  width: auto;
+  max-width: none;
+}
+@media (min-width: 768px) {
+  .testimonials--grid .slider__track { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 1280px) {
+  .testimonials--grid .slider__track { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
 
 .site-header {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 100;
-  height: 4.625rem;                                   /* 74px mobile */
+  height: 4.625rem;
   background: var(--color-white, #fff);
   box-shadow: 0 0.25rem 1.25rem rgba(0, 0, 0, .12);
   transition: background-color .25s ease, box-shadow .25s ease, height .25s ease;
@@ -1891,7 +1715,7 @@ body.is-menu-open { overflow: hidden; }
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;                            /* mobile: logo 置中 */
+  justify-content: center;
   height: 100%;
   padding: 0 0.6875rem;
 }
@@ -1912,7 +1736,6 @@ body.is-menu-open { overflow: hidden; }
 }
 .site-header__menu-btn svg { width: 1.75rem; height: 1.5rem; }
 
-/* logo */
 .site-header__logo {
   display: flex;
   flex-direction: column;
@@ -1924,14 +1747,13 @@ body.is-menu-open { overflow: hidden; }
   text-decoration: none;
 }
 .site-header__logo-img {
-  height: 2.5625rem;                                  /* 41px mobile */
+  height: 2.5625rem;
   width: auto;
 }
-/* Mobile: 顯示橫式 logo（跟桌機 scrolled 同款） */
 .site-header__logo-img--default  { display: none; }
 .site-header__logo-img--scrolled { display: block; height: 2.8rem; width: auto; }
 .site-header__lic {
-  display: none;                                      /* hidden on mobile */
+  display: none;
   margin: 0;
   font-family: var(--font-body, sans-serif);
   font-size: 0.8125rem;
@@ -1941,28 +1763,22 @@ body.is-menu-open { overflow: hidden; }
   text-align: center;
 }
 
-/* Right cluster: nav + CTA — mobile 隱藏（call 改用右下 floating-cta） */
 .site-header__right {
   display: none;
   align-items: center;
   gap: 1.5rem;
 }
 
-/* CTA cluster */
 .site-header__cta {
   display: inline-flex;
   align-items: center;
   gap: 0.875rem;
 }
-/* 視覺由 .link-phone 提供；這裡只放位置 + 尺寸覆寫 */
 .site-header__phone {
-  display: none;                                      /* desktop only */
+  display: none;
   font-size: 1.25rem;
 }
 
-/* ============================================================
-   Site Nav (desktop)
-   ============================================================ */
 .site-nav { display: none; }
 
 .site-nav__list {
@@ -1976,9 +1792,9 @@ body.is-menu-open { overflow: hidden; }
   gap: 0.375rem;
   position: relative;
   padding-bottom: 0.375rem;
-  font-family: var(--font-body, sans-serif);          /* Montserrat */
-  font-weight: 500;                                    /* Medium */
-  font-size: 1rem;                                     /* 16px */
+  font-family: var(--font-body, sans-serif);
+  font-weight: 500;
+  font-size: 1rem;
   color: var(--color-white, #fff);
   text-decoration: none;
   cursor: pointer;
@@ -2001,18 +1817,15 @@ body.is-menu-open { overflow: hidden; }
   transform: rotate(180deg);
 }
 
-/* ============================================================
-   Site dropdown (desktop hover panel)
-   ============================================================ */
 .site-nav__item { position: relative; }
-.site-nav__item--has-dropdown { /* anchor for absolute dropdown */ }
+.site-nav__item--has-dropdown {  }
 
 .site-dropdown {
   position: absolute;
   top: 100%;
   left: 50%;
   transform: translate(-50%, 0.5rem);
-  min-width: 22rem;                                   /* 352px */
+  min-width: 22rem;
   padding: 1.25rem 1.5rem;
   background: var(--color-white, #fff);
   border-radius: var(--radius-card, 0.75rem);
@@ -2083,9 +1896,6 @@ body.is-menu-open { overflow: hidden; }
   transform: translateX(0.25rem);
 }
 
-/* ============================================================
-   Btn-call (header CTA chip)
-   ============================================================ */
 .btn-call {
   display: inline-flex;
   align-items: center;
@@ -2133,9 +1943,6 @@ body.is-menu-open { overflow: hidden; }
   height: 100%;
 }
 
-/* ============================================================
-   Mobile menu overlay
-   ============================================================ */
 .mobile-menu {
   position: fixed;
   inset: 0;
@@ -2147,7 +1954,7 @@ body.is-menu-open { overflow: hidden; }
   background: var(--color-navy, #262A71);
   transform: translateY(-100%);
   transition: transform .3s ease;
-  overflow-y: auto;                                   /* 內容超過視窗時可垂直捲動 */
+  overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
 .mobile-menu.is-open { transform: translateY(0); }
@@ -2179,7 +1986,6 @@ body.is-menu-open { overflow: hidden; }
   border-bottom: 1px solid rgba(255, 255, 255, .1);
 }
 
-/* ----- Mobile accordion group ----- */
 .mobile-menu__group {
   border-bottom: 1px solid rgba(255, 255, 255, .1);
 }
@@ -2219,7 +2025,7 @@ body.is-menu-open { overflow: hidden; }
   transition: max-height .3s ease, padding .3s ease;
 }
 .mobile-menu__group.is-open .mobile-menu__sublist {
-  max-height: 31.25rem;                               /* enough for 10 items */
+  max-height: 31.25rem;
   padding-bottom: 0.5rem;
 }
 .mobile-menu__sublink {
@@ -2234,22 +2040,17 @@ body.is-menu-open { overflow: hidden; }
 }
 .mobile-menu__sublink:hover { color: var(--color-yellow, #F0BC29); }
 
-/* ============================================================
-   Desktop overrides
-   ============================================================ */
 @media (min-width: 1280px) {
   .site-header {
-    height: 12.3125rem;                               /* 197px */
-    background: transparent;                          /* over hero */
+    height: 12.3125rem;
+    background: transparent;
   }
   .site-header.is-scrolled {
-    height: 6.25rem;                                  /* 100px */
-    background: var(--color-white, #fff);             /* 白底 */
+    height: 6.25rem;
+    background: var(--color-white, #fff);
     box-shadow: 0 0.25rem 1.25rem rgba(0, 0, 0, .12);
   }
-  /* Scroll 後：nav link 變深灰 #333；phone / caret 維持 navy */
   .site-header.is-scrolled .site-nav__link  { color: var(--color-text-body); font-weight: 500; }
-  /* active（白底 header）：維持 navy + 加粗，不用黃底線 */
   .site-header.is-scrolled .site-nav__link.is-active { color: var(--color-navy, #262A71); font-weight: 700; border-bottom-color: transparent; }
   .site-header.is-scrolled .site-nav__caret { fill: var(--color-text-body); }
   .site-header.is-scrolled .site-nav__link:hover { color: var(--color-yellow-dark, #D4A017); }
@@ -2259,10 +2060,10 @@ body.is-menu-open { overflow: hidden; }
     max-width: 100%;
     padding: 0 2rem;
     align-items: center;
-    justify-content: space-between;                   /* 還原桌機水平佈局 */
+    justify-content: space-between;
   }
   .site-header__menu-btn { display: none; }
-  .site-header__right    { display: flex; }           /* 還原右側 cluster */
+  .site-header__right    { display: flex; }
 
   /* Logo 對齊頂部（Figma 設計） */
   .site-header__logo {
@@ -2272,18 +2073,17 @@ body.is-menu-open { overflow: hidden; }
     align-self: center;
   }
   .site-header__logo-img {
-    width: 9.5rem;                                    /* 152px */
+    width: 9.5rem;
     height: auto;
     object-fit: contain;
   }
 
-  /* Logo 切換：default 顯示直式，scroll 後顯示橫式 */
   .site-header__logo-img--default  { display: block; }
   .site-header__logo-img--scrolled { display: none; }
   .site-header.is-scrolled .site-header__logo-img--default  { display: none; }
   .site-header.is-scrolled .site-header__logo-img--scrolled {
     display: block;
-    width: 16rem;                                     /* 256px (橫式 logo 較大) */
+    width: 16rem;
   }
   .site-header__lic {
     display: block;
@@ -2296,7 +2096,6 @@ body.is-menu-open { overflow: hidden; }
   .site-header__phone { display: inline; }
 }
 
-/* ≥1440px — looser breathing room */
 @media (min-width: 1440px) {
   .site-header__inner { padding: 0 4rem; }
   .site-header__right { gap: 2rem; }
@@ -2305,27 +2104,16 @@ body.is-menu-open { overflow: hidden; }
 
 /* ≥1600px — match Figma 1728 proportions */
 @media (min-width: 1600px) {
-  .site-header__inner { padding: 0 11.75rem 0 11.3125rem; } /* 188 / 181 */
+  .site-header__inner { padding: 0 11.75rem 0 11.3125rem; }
   .site-header__right { gap: 2.5rem; }
   .site-nav__list      { gap: 2rem; }
 }
 
-/* ≥1920px — 大解析度 nav / phone 字級放大 */
 @media (min-width: 1920px) {
-  .site-nav__link     { font-size: 1.125rem; }          /* 18px */
+  .site-nav__link     { font-size: 1.125rem; }
   .site-nav__list     { gap: 2.5rem; }
-  .site-header__phone { font-size: 1.5rem; }            /* 24px */
+  .site-header__phone { font-size: 1.5rem; }
 }
-
-
-/* ============================================================
-   footer.css — 全站共用 Footer
-   嚴格依 Figma node 173:20042：
-   - 容器：1365 × 314 (top:41px)
-   - Logo 198×198 / Phone Big Shoulders 40px / Call Now 18px
-   - 3 欄 nav 在 footer 右側 (right:204 top:86)
-   - Copyright 在容器左下 (top:279)
-   ============================================================ */
 
 .site-footer {
   position: relative;
@@ -2335,15 +2123,12 @@ body.is-menu-open { overflow: hidden; }
   color: var(--color-white, #fff);
 }
 
-/* ============================================================
-   MOBILE first：垂直堆疊置中（隱藏 3-col nav）
-   ============================================================ */
 .site-footer__container {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1.5rem;
-  max-width: var(--container-max, 85.3125rem);                              /* 1365px (Figma container) */
+  max-width: var(--container-max, 85.3125rem);
   margin: 0 auto;
 }
 
@@ -2371,7 +2156,6 @@ body.is-menu-open { overflow: hidden; }
   align-items: center;
   gap: 0.875rem;
 }
-/* 視覺由 .link-phone 提供；這裡只放尺寸 + 字重 */
 .site-footer__phone {
   font-weight: 700;
   font-size: 2rem;
@@ -2383,14 +2167,14 @@ body.is-menu-open { overflow: hidden; }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.3125rem;                                     /* 5px gap (Figma) */
-  padding: 0.625rem 1.5625rem 0.625rem 0.9375rem;     /* 10/25/10/15 (Figma) */
+  gap: 0.3125rem;
+  padding: 0.625rem 1.5625rem 0.625rem 0.9375rem;
   background: var(--color-yellow, #F0BC29);
   color: var(--color-navy, #262A71);
   border-radius: var(--radius-btn, 0.625rem);
   font-family: var(--font-cta, sans-serif);           /* Big Shoulders — match header .btn-call */
   font-weight: 800;
-  font-size: 1.25rem;                                 /* 20px */
+  font-size: 1.25rem;
   text-decoration: none;
   cursor: pointer;
   white-space: nowrap;
@@ -2400,7 +2184,7 @@ body.is-menu-open { overflow: hidden; }
 .site-footer__cta:active { transform: translateY(1px); }
 .site-footer__cta-icon {
   display: inline-flex;
-  width: 1.25rem;                                     /* 20px */
+  width: 1.25rem;
   height: 1.25rem;
   flex-shrink: 0;
 }
@@ -2409,43 +2193,39 @@ body.is-menu-open { overflow: hidden; }
   height: 100%;
 }
 
-/* CA LIC — Montserrat Regular 18px tracking 0.9px white */
 .site-footer__lic {
   margin: 0;
   font-family: var(--font-body, sans-serif);
   font-weight: 400;
-  font-size: 1.125rem;                                /* 18px */
+  font-size: 1.125rem;
   line-height: 1.4;
-  letter-spacing: 0.05625rem;                         /* 0.9px */
+  letter-spacing: 0.05625rem;
   color: var(--color-white, #fff);
 }
 
-/* Link columns — hidden on mobile (nav already has them) */
 .site-footer__nav { display: none; }
 .site-footer__col {
   display: flex;
   flex-direction: column;
 }
 
-/* Column title — Montserrat Bold (text-large size, 23px) */
 .site-footer__col-title {
   margin: 0 0 0.625rem;
   font-family: var(--font-body, sans-serif);
   font-weight: 700;
-  font-size: 1.4375rem;                               /* 23px (text-large) */
+  font-size: 1.4375rem;
   line-height: 1.3;
   color: var(--color-white, #fff);
 }
 
-/* List items — Montserrat Regular 18px rgba 50% tracking 0.9px */
 .site-footer__list {
   margin: 0;
-  padding: 0 0 0 1.6875rem;                           /* 27px ms (Figma) */
+  padding: 0 0 0 1.6875rem;
   list-style: disc;
 }
 .site-footer__list li {
   margin: 0;
-  padding: 0.15625rem 0;                              /* gap 5px between items */
+  padding: 0.15625rem 0;
   font-size: 1.125rem;
   color: rgba(255, 255, 255, 0.5);
 }
@@ -2466,16 +2246,15 @@ body.is-menu-open { overflow: hidden; }
 }
 .site-footer__link:hover { color: var(--color-yellow, #F0BC29); }
 
-/* Copyright — Montserrat Regular 13px opacity 50% tracking 0.65px */
 .site-footer__copyright {
   margin: 1.5rem auto 0;
   max-width: var(--container-max, 85.3125rem);
   text-align: center;
   font-family: var(--font-body, sans-serif);
   font-weight: 400;
-  font-size: 0.8125rem;                               /* 13px */
+  font-size: 0.8125rem;
   line-height: 1.4;
-  letter-spacing: 0.040625rem;                        /* 0.65px */
+  letter-spacing: 0.040625rem;
   color: rgba(255, 255, 255, 0.5);
 }
 
@@ -2486,19 +2265,12 @@ body.is-menu-open { overflow: hidden; }
   .site-footer__lic  { font-size: 1rem; }
 }
 
-/* ============================================================
-   Tablet (≥768px)  — keep stacking, just bigger spacing
-   ============================================================ */
 @media (min-width: 768px) {
   .site-footer { padding: 3rem 2.5rem; }
   .site-footer__logo { width: 11rem; }
   .site-footer__phone { font-size: 2.25rem; }
 }
 
-/* ============================================================
-   Desktop (≥1024px)  — Figma absolute layout
-   Container 1365 × 314, top:41px
-   ============================================================ */
 @media (min-width: 1024px) {
 
   .site-footer {
@@ -2515,7 +2287,7 @@ body.is-menu-open { overflow: hidden; }
     width: 100%;
     max-width: var(--container-max, 85.3125rem);
     margin: 0 auto;
-    padding-bottom: 4rem;                             /* copyright 留位 */
+    padding-bottom: 4rem;
     min-height: 19.625rem;
   }
 
@@ -2538,7 +2310,7 @@ body.is-menu-open { overflow: hidden; }
   }
   .site-footer__logo-link { grid-area: logo; }
   .site-footer__logo {
-    width: 12.375rem;                                 /* 198px */
+    width: 12.375rem;
     height: auto;
   }
   .site-footer__contact {
@@ -2548,28 +2320,26 @@ body.is-menu-open { overflow: hidden; }
     padding-top: 4.5rem;                              /* phone 對齊 logo 中下 */
   }
   .site-footer__phone {
-    font-size: 2.5rem;                                /* 40px (Figma) */
+    font-size: 2.5rem;
     line-height: 1.1;
   }
   .site-footer__lic {
     grid-area: lic;
-    padding-left: 1.5rem;                             /* Figma 左偏移 24px */
+    padding-left: 1.5rem;
   }
 
-  /* Nav 右欄 — 3 cols */
   .site-footer__nav {
     grid-column: 2;
     display: flex;
     align-items: flex-start;
-    gap: 4.375rem;                                    /* 70px (Figma) */
-    margin-top: 2.8125rem;                            /* 45px (Figma 86-41) */
+    gap: 4.375rem;
+    margin-top: 2.8125rem;
     justify-self: end;
   }
-  .site-footer__col:nth-child(1) { width: 16rem; }      /* 256px (Plumbing Service) */
-  .site-footer__col:nth-child(2) { width: 11.0625rem; } /* 177px */
+  .site-footer__col:nth-child(1) { width: 16rem; }
+  .site-footer__col:nth-child(2) { width: 11.0625rem; }
   .site-footer__col:nth-child(3) { width: 10rem;  }     /* 160px（Company，避免 Contact Us 折行）*/
 
-  /* Copyright 黏底 */
   .site-footer__copyright {
     grid-column: 1 / -1;
     position: absolute;

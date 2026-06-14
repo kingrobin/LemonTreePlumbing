@@ -1,19 +1,10 @@
-/* ============================================================
-   home.css — 首頁專屬樣式
-   Sections: .hero / .services / .areas / .why / .testimonials
-             .gallery
-   （.faq、.trust-bar 已移至 components.css）
-   ============================================================ */
 
-/* ============================================================
-   HERO
-   ============================================================ */
 .hero {
   position: relative;
-  display: flex;                                      /* 讓 inner 能 flex:1 撐滿到 min-height */
+  display: flex;
   width: 100%;
-  min-height: 90svh;                              /* small viewport height（排除手機網址列伸縮）*/
-  padding-top: 4.625rem;                              /* offset fixed mobile header (74px) */
+  min-height: 90svh;
+  padding-top: 4.625rem;
   color: var(--color-white, #fff);
   overflow: hidden;
   isolation: isolate;
@@ -25,7 +16,6 @@
   z-index: -2;
   background: url('../img/bg/bg-home.jpg') center / cover no-repeat #000;
 }
-/* Mobile：用另一張背景 */
 @media (max-width: 767.98px) {
   .hero__bg { background-image: url('../img/bg/m-bg-home.jpg'); }
 }
@@ -43,20 +33,19 @@
 .hero__inner {
   position: relative;
   display: flex;
-  flex: 1;                                            /* 撐滿 hero 全高 */
+  flex: 1;
   flex-direction: column;
   width: 100%;
   padding: 2.0625rem 1.5rem 2rem;
   gap: 2.5rem;
 }
 
-/* ----- Title block ----- */
 .hero__title {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 0.5rem;
-  max-width: 43.625rem;                               /* 698px */
+  max-width: 43.625rem;
 }
 
 .hero__eyebrow {
@@ -70,7 +59,6 @@
 .hero__eyebrow-word--key    { font-weight: 700; }
 .hero__eyebrow-word--tail   { font-weight: 400; font-size: .9em; }
 
-/* Mobile：East Bay Plumbers 另起一行 + 整段置中 */
 @media (max-width: 767.98px) {
   .hero__eyebrow { align-self: center; text-align: center; }
   .hero__eyebrow-word--tail { display: block; }
@@ -80,25 +68,22 @@
   margin: 0;
   font-family: var(--font-display, sans-serif);
   font-weight: 800;
-  font-size: clamp(2.5rem, 11.5vw, 5.3125rem);           /* 40 → 85px */
+  font-size: clamp(2.5rem, 11.5vw, 5.3125rem);
   line-height: 1.05;
   letter-spacing: -0.01em;
   color: var(--color-white, #fff);
   text-shadow: 0 0.125rem 0.625rem rgba(0, 0, 0, .55);
 }
-/* Mobile：title 置中 */
 @media (max-width: 767.98px) {
   .hero__h1 { text-align: center; }
 }
 
-/* Hero CTA — 視覺由 .btn.btn--primary.btn--lg 提供；這裡只放 layout */
 .hero__cta {
-  align-self: stretch;                                /* full width on mobile */
+  align-self: stretch;
 }
 
-/* Mobile：重排成 title 上 / trust-bar 中下 / CTA 最底 + CTA 離底 48px */
 @media (max-width: 767.98px) {
-  .hero__title { margin-bottom: auto; }               /* 自動撐開，trust + CTA 沉到底 */
+  .hero__title { margin-bottom: auto; }
   .trust-bar   { order: 1; }
   .hero__cta   { order: 2; }
   .hero__inner { gap: 0; padding-bottom: 3rem; }
@@ -107,23 +92,18 @@
 /* Trust bar 視覺由 components.css 的 .trust-bar 提供
    桌機改用 absolute 固定在 hero 底部（避免被高標題擠壓） */
 
-/* ---------- Hero — Tablet (≥768px) ---------- */
 @media (min-width: 768px) {
-  .hero { min-height: 47.5rem; }                      /* 760px */
+  .hero { min-height: 47.5rem; }
   .hero__inner { padding: 6.25rem 3rem 3rem; gap: 3.5rem; }
   .hero__cta { align-self: flex-start; }
-  /* 首頁 hero 信任條維持大字 + 原本的細體（全站標準已改 18px/600）*/
   .hero .trust-bar__title,
-  .hero .trust-bar__text { font-size: 1.625rem; font-weight: 400; }   /* 26px */
+  .hero .trust-bar__text { font-size: 1.625rem; font-weight: 400; }
 }
 @media (min-width: 1024px) {
   .hero .trust-bar__title,
-  .hero .trust-bar__text { font-size: 1.5rem; }     /* 24px */
+  .hero .trust-bar__text { font-size: 1.5rem; }
 }
 
-/* ============================================================
-   TAGLINE + SERVICES  (.services-block — yellow background)
-   ============================================================ */
 .services-block {
   position: relative;
   width: 100%;
@@ -133,7 +113,6 @@
   overflow: hidden;
 }
 
-/* ----- Tagline (top half) ----- */
 .services-block__tagline {
   position: relative;
   display: flex;
@@ -143,7 +122,6 @@
   max-width: 75rem;
   margin: 0 auto 3rem;
 }
-/* Mobile：文字在上、portrait 在下 */
 @media (max-width: 767.98px) {
   .services-block__tagline { flex-direction: column-reverse; }
 }
@@ -167,7 +145,6 @@
   text-align: left;
   width: 100%;
 }
-/* 字級由 .section-title 提供；這裡只覆寫 line-height（tagline 較緊） */
 .services-block__headline {
   line-height: 1.05;
 }
@@ -187,24 +164,23 @@
   display: inline-block;
   position: relative;
   white-space: nowrap;
-  font-weight: 900;                                   /* Black — 比基底 800 更重 */
+  font-weight: 900;
   background-image: linear-gradient(var(--color-white, #fff),
                                     var(--color-white, #fff));
   background-repeat: no-repeat;
   background-position: 0 100%;                        /* 推到底部，貼齊字底 */
-  background-size: 100% 0.375rem;                     /* underline thickness */
+  background-size: 100% 0.375rem;
 }
 .services-block__sub {
   margin: 0;
   font-family: var(--font-display, sans-serif);
   font-weight: 800;
-  font-size: clamp(1.5rem, 3.5vw, 2.25rem);           /* 24 → 36px */
+  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
   line-height: 1.15;
   letter-spacing: -0.005em;
   color: var(--color-navy, #262A71);
 }
 .services-block__cities {
-  /* typography from .text-regular */
   color: var(--color-text-body);
 }
 
@@ -217,12 +193,10 @@
   height: 7rem;
   pointer-events: none;
 }
-/* Mobile：隱藏 mascot */
 @media (max-width: 767.98px) {
   .services-block__mascot { display: none; }
 }
 
-/* ----- Section title ----- */
 .services-block__header {
   text-align: center;
   margin: 0 auto 2rem;
@@ -230,15 +204,12 @@
 }
 .services-block__title {
   margin: 0 0 0.75rem;
-  /* font-size / weight / family inherited from .section-title */
   color: var(--color-navy, #262A71);
 }
 .services-block__intro {
-  /* typography from .text-regular */
   color: var(--color-text-body);
 }
 
-/* ----- Service card grid ----- */
 .services-block__grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -247,7 +218,6 @@
   margin: 0 auto;
 }
 
-/* ----- Section footer CTA ----- */
 .services-block__footer {
   display: flex;
   flex-direction: column;
@@ -258,17 +228,9 @@
   text-align: center;
 }
 .services-block__footer-text {
-  /* base size from .text-large (25px Montserrat) */
   color: var(--color-text-body);
 }
 
-/* btn-call--navy 已改用 core.css 的 .btn.btn--navy.btn--lg */
-
-/* ============================================================
-   Services block — Tablet (≥768px)
-   Switch to desktop card style: overlay caption on image,
-   hover reveals description.
-   ============================================================ */
 @media (min-width: 768px) {
   .services-block { padding: 5rem 2.5rem; }
 
@@ -285,7 +247,7 @@
     bottom: auto;
     top: 4rem;
     height: 11rem;
-    right: -4rem;                                     /* 裁掉右側一截 */
+    right: -4rem;
   }
 
   .services-block__grid {
@@ -300,9 +262,6 @@
   }
 }
 
-/* ============================================================
-   Services block — Desktop (≥1024px)
-   ============================================================ */
 @media (min-width: 1024px) {
   .services-block { padding: 6.25rem 3rem; }
 
@@ -316,7 +275,7 @@
   .services-block__mascot {
     top: 15rem;
     height: 15rem;
-    right: -5rem;                                     /* 裁掉右側一截 */
+    right: -5rem;
   }
   .services-block__headline-em {
     background-size: 100% 0.5rem;
@@ -334,12 +293,12 @@
 
 /* 2K+ — services sub 跟著放大（headline 已由 .section-title 統一） */
 @media (min-width: 1920px) {
-  .services-block__sub { font-size: 3rem; }            /* 48px (vs 36) */
+  .services-block__sub { font-size: 3rem; }
 }
 
 @media (min-width: 1280px) {
   .hero {
-    padding-top: 0;                                   /* header is transparent over hero */
+    padding-top: 0;
     min-height: 98vh;
   }
   .hero__inner {
@@ -347,12 +306,12 @@
     gap: 0;
   }
   .hero__title { gap: 1.25rem; }
-  .hero__eyebrow { font-size: 1.75rem; }              /* 28px */
-  .hero__eyebrow-word--tail { font-size: 1.4375rem; font-weight: 400; } /* 23px (text-large) */
-  .hero__h1 { font-size: 5.3125rem; text-align: left; } /* 85px，桌機靠左 */
+  .hero__eyebrow { font-size: 1.75rem; }
+  .hero__eyebrow-word--tail { font-size: 1.4375rem; font-weight: 400; }
+  .hero__h1 { font-size: 5.3125rem; text-align: left; }
   .hero__cta {
     align-self: flex-start;
-    min-width: 15.6875rem;                            /* 251px */
+    min-width: 15.6875rem;
   }
   /* Trust bar 固定貼齊 hero 底部（distance 2.5rem），水平跟著 inner padding 對齊 */
   .hero .trust-bar {
@@ -374,40 +333,30 @@
 
 /* ---------- Hero — ≥1600px（對齊 site-header padding） ---------- */
 @media (min-width: 1600px) {
-  .hero__inner    { padding-left: 11.3125rem; padding-right: 11.75rem; }   /* 181 / 188 — 同 header */
+  .hero__inner    { padding-left: 11.3125rem; padding-right: 11.75rem; }
   .hero .trust-bar { padding-left: 11.3125rem; padding-right: 11.75rem; }
 }
 
-/* ---------- Hero — FHD (≥1920px) ---------- */
 @media (min-width: 1920px) {
-  .hero__title { max-width: 50rem; }                    /* 800px — 控制 h1 在 3 行內 */
-  .hero__h1    { font-size: 5.3125rem; }                /* 85px */
-  .hero__inner { padding-bottom: 0; }                   /* trust bar 貼到 hero 底部 */
-  .hero .trust-bar { bottom: 4.5rem; }                  /* 與 1280+ 相同 */
+  .hero__title { max-width: 50rem; }
+  .hero__h1    { font-size: 5.3125rem; }
+  .hero__inner { padding-bottom: 0; }
+  .hero .trust-bar { bottom: 4.5rem; }
 }
 
-/* ---------- Hero — 2K (≥2560px) ---------- */
 @media (min-width: 2560px) {
-  .hero__title { max-width: 60rem; }                    /* 1200px */
-  .hero__h1    { font-size: 7.5rem; }                   /* 120px */
+  .hero__title { max-width: 60rem; }
+  .hero__h1    { font-size: 7.5rem; }
 }
 
-/* ---------- Hero — Short-height laptops（如 1712×804、1440×900）----------
-   寬度 ≥1024 但視窗高度 ≤850px：h1 與 absolute trust-bar 容易擠壓。
-   只縮 padding-top + h1，trust-bar 拉近底部；不動其他斷點。
-============================================================ */
 @media (min-width: 1024px) and (max-height: 850px) {
-  .hero__inner    { padding-top: 14rem; }               /* 242px → 176px */
+  .hero__inner    { padding-top: 14rem; }
   .hero__title    { gap: 0.875rem; }
-  .hero__eyebrow  { font-size: 1.5rem; }                /* 28→24px */
-  .hero__h1       { font-size: 4rem; }                  /* 85→64px */
-  .hero .trust-bar { bottom: 3rem; }                    /* 4.5rem → 3rem */
+  .hero__eyebrow  { font-size: 1.5rem; }
+  .hero__h1       { font-size: 4rem; }
+  .hero .trust-bar { bottom: 3rem; }
 }
 
-/* ============================================================
-   WHY East Bay (.why — navy background)
-   依 Figma node 455:3748 (1728×879)
-   ============================================================ */
 .why {
   position: relative;
   width: 100%;
@@ -417,21 +366,19 @@
   overflow: hidden;
 }
 
-/* Inner — max-width 內容置中 (Figma container 1274px) */
 .why__inner {
   width: 100%;
-  max-width: 79.625rem;                               /* 1274px (Figma) */
+  max-width: 79.625rem;
   margin: 0 auto;
 }
 
-/* Title (huge condensed white) */
 .why__title {
   margin: 0 0 2.5rem;
   display: flex;
   flex-direction: column;
   font-family: var(--font-display, sans-serif);
   font-weight: 800;
-  font-size: clamp(2.75rem, 11vw, 7.8125rem);         /* 44 → 125px */
+  font-size: clamp(2.75rem, 11vw, 7.8125rem);
   line-height: 1.1;
   letter-spacing: -0.01em;
   color: var(--color-white, #fff);
@@ -460,7 +407,6 @@
   flex-shrink: 0;
 }
 
-/* Feature list */
 .why__features {
   display: flex;
   flex-direction: column;
@@ -468,12 +414,12 @@
   margin: 0;
   padding: 0;
   list-style: none;
-  max-width: 33.75rem;                                /* 540px (Figma) */
+  max-width: 33.75rem;
 }
 
 .why-feature {
   display: grid;
-  grid-template-columns: 4.375rem 1fr;                /* 70px icon */
+  grid-template-columns: 4.375rem 1fr;
   column-gap: 1.5rem;
   row-gap: 0.25rem;
   align-items: start;
@@ -481,7 +427,7 @@
 .why-feature__icon {
   grid-column: 1;
   grid-row: 1 / span 2;
-  width: 4.375rem;                                    /* 70px (Figma) */
+  width: 4.375rem;
   height: auto;
   object-fit: contain;
   align-self: start;
@@ -495,25 +441,24 @@
 .why-feature__desc {
   grid-column: 2;
   grid-row: 2;
-  max-width: 21.25rem;                                /* 340px (Figma) */
+  max-width: 21.25rem;
   color: var(--color-white, #fff);
 }
 
-/* Bear mascot — thumbs up — Figma 230×147 right-bottom of section */
 .why__mascot {
   display: block;
   width: 9rem;                                        /* mobile fallback */
   height: auto;
-  margin-left: auto;                                  /* push to right on mobile */
+  margin-left: auto;
 }
 /* Mobile：mascot 絕對定位於 section 右下；加大 section 下方 padding 讓文字不被遮 */
 @media (max-width: 767.98px) {
-  .why { padding-bottom: 10rem; }                     /* mascot 12rem + 1rem 緩衝 */
+  .why { padding-bottom: 10rem; }
   .why__mascot {
     position: absolute;
     right: 0;
     bottom: 0;
-    width: 12rem;                                     /* 192px */
+    width: 12rem;
     margin: 0;
   }
 }
@@ -526,7 +471,7 @@
 
 @media (min-width: 1024px) {
   .why {
-    padding: 8.8125rem 3rem;                          /* 141 vertical, 48 horizontal gutter */
+    padding: 8.8125rem 3rem;
   }
   .why__inner {
     display: grid;
@@ -547,16 +492,15 @@
     max-width: none;
   }
   .why-feature {
-    grid-template-columns: 4.375rem 1fr;              /* 70px icon */
+    grid-template-columns: 4.375rem 1fr;
     column-gap: 1.5rem;
   }
-  .why-feature__title { font-size: 2.1875rem; }       /* 35px (Figma) */
-  /* Mascot 改為絕對定位於 section 右下角 (Figma left:1472 bottom:0 → right offset ~26px) */
+  .why-feature__title { font-size: 2.1875rem; }
   .why__mascot {
     position: absolute;
     right: 3rem;                                  /* 1728 - 1472 - 230 = 26px */
     bottom: 0;
-    width: 18rem;                                 /* 230px (Figma) */
+    width: 18rem;
     margin: 0;
   }
 }
@@ -566,16 +510,11 @@
   .why__mascot { width: 12rem; }
 }
 
-/* 2K+ — container 拓寬到 1800，整段內容放大一級（半欄約 744–868px，可容納）。 */
 @media (min-width: 1920px) {
   .why__inner { max-width: var(--container-max, 85.3125rem); }
-  .why__title { font-size: 10.625rem; }                 /* 170px */
-  .why-feature__title { font-size: 3rem; }              /* 48px (vs 35) */
-  .why-feature__icon { width: 6rem; height: auto; }     /* 96px (vs 70) */
-  .why-feature { grid-template-columns: 6rem 1fr; column-gap: 2rem; } /* 96px icon + 32px gap */
+  .why__title { font-size: 10.625rem; }
+  .why-feature__title { font-size: 3rem; }
+  .why-feature__icon { width: 6rem; height: auto; }
+  .why-feature { grid-template-columns: 6rem 1fr; column-gap: 2rem; }
 }
 
-
-/* .gallery 區塊已移至 global.css（首頁/About/Gallery 共用），含 --flip 變體 */
-
-/* FAQ 視覺由 components.css 的 .faq* 提供 */

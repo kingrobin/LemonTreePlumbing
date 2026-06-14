@@ -8,12 +8,10 @@
 
   <link rel="icon" type="image/svg+xml" href="../../assets/img/icon/favicon.svg">
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Montserrat:wght@400;500;600;700&display=swap">
 
-  <!-- Styles -->
   <link rel="stylesheet" href="../../assets/css/global.css">
   <link rel="stylesheet" href="../../assets/css/service.css">
 </head>
@@ -23,7 +21,6 @@
 
   <main>
 
-    <!-- SD HERO -->
     <section class="sd-hero" aria-labelledby="sdTitle" data-bg="dark" style="--hero-bg: url('../../assets/img/bg/bg-gas.jpg');">
       <nav class="breadcrumb" aria-label="Breadcrumb">
         <ol class="breadcrumb__list">
@@ -44,7 +41,6 @@
       </a>
     </section>
 
-    <!-- SD MAIN -->
     <section class="sd-main" aria-labelledby="sdLead" data-bg="dark">
       <div class="sd-main__inner">
         <div class="sd-panel">
@@ -79,7 +75,6 @@
       </div>
     </section>
 
-    <!-- SD STRIP -->
     <section class="sd-strip" aria-label="Recent projects" data-bg="light">
       <div class="sd-strip__inner">
         <div class="sd-strip__item sd-strip__item--landscape"><img src="../../assets/img/gallery/work/gas-1.jpg" alt="Seismic gas shut-off valve on a gas line" loading="lazy"></div>
@@ -88,7 +83,6 @@
       </div>
     </section>
 
-    <!-- SD FEATURES -->
     <section class="sd-features" aria-label="Why choose LemonTree" data-bg="light">
       <div class="sd-features__inner">
         <div class="sd-feature"><span class="sd-feature__badge" style="--fi: url('../../assets/img/icon/location.svg')" aria-hidden="true"></span><p class="sd-feature__text">Local &amp;<br>Service-Oriented</p></div>
@@ -98,7 +92,6 @@
       </div>
     </section>
 
-    <!-- FAQ -->
     <section class="faq" aria-labelledby="faqTitle" data-bg="light">
       <div class="faq__inner">
         <h2 class="section-title faq__title" id="faqTitle">Frequently Asked Questions</h2>
@@ -153,7 +146,6 @@
       </div>
     </section>
 
-    <!-- AREAS MINI -->
     <section class="areas-mini" aria-labelledby="areasMiniTitle" data-bg="light">
       <div class="areas-mini__inner">
         <h2 class="areas-mini__title" id="areasMiniTitle">Proudly Serving the East Bay</h2>
@@ -172,7 +164,6 @@
       </div>
     </section>
 
-    <!-- FINAL CTA -->
     <section class="final-cta" data-bg="yellow" aria-labelledby="finalCtaTitle">
       <div class="final-cta__inner">
         <h2 class="section-title final-cta__title" id="finalCtaTitle">Ready to fix the problem?</h2>
@@ -192,10 +183,11 @@
     <img src="../../assets/img/icon/phone-solid.svg" alt="" aria-hidden="true">
   </a>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
   <script src="../../assets/js/global.js"></script>
   <script src="../../assets/js/components.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => { if (window.initFAQ) initFAQ(); });
-  </script>
+  <script src="../../assets/js/inner.js"></script>
 </body>
 </html>

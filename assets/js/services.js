@@ -1,8 +1,3 @@
-/* ============================================================
-   services.js — Service 內頁專屬互動
-   - Scroll-triggered entrance animations（與首頁同節奏）
-   - FAQ 手風琴 + Trust bar / Service-areas / Related cards 進場
-   ============================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
   initScrollAnimations();
@@ -17,7 +12,6 @@ function initScrollAnimations() {
 
   const ENTER = { opacity: 0, y: 16, duration: 0.5, ease: 'power2.out' };
 
-  /* 個別元素 fade-up */
   [
     '.article__intro',
     '.article__services',
@@ -35,7 +29,6 @@ function initScrollAnimations() {
     });
   });
 
-  /* 群組 stagger */
   [
     ['.trust-bar', '.trust-bar__item'],
     ['.faq__list', '.faq-item'],
@@ -52,7 +45,6 @@ function initScrollAnimations() {
   });
 }
 
-/* Floating CTA 配色：等 footer 注入後才能完整偵測背景區塊 */
 document.addEventListener('components:ready', () => {
   if (window.initFloatingCtaBg) initFloatingCtaBg();
 });

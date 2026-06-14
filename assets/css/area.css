@@ -1,21 +1,13 @@
-/* ============================================================
-   area.css — Service Area Detail 頁（Berkeley 等 10 城市共用）
-   依賴：core.css / components.css（breadcrumb / hero-card / trust-bar / faq / final-cta）
-   區塊：.area-hero / .area-intro / .area-features / .cta-band / .fleet-band / .reviews
-   ============================================================ */
 
 
-/* ============================================================
-   Area Hero — 地圖背景 + 城市名（淺底，深字）
-   ============================================================ */
 .area-hero {
   position: relative;
-  margin-top: 4.625rem;                                /* clear fixed mobile header */
+  margin-top: 4.625rem;
   min-height: 16rem;
   padding: 5rem 1.5rem 0;                              /* 留 breadcrumb 空間；底 0 給卡片貼齊 */
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;                         /* 標題靠上 */
+  justify-content: flex-start;
   overflow: hidden;
   isolation: isolate;
   color: var(--color-navy, #262A71);
@@ -42,10 +34,8 @@
     background-size: cover;
   }
   .area-hero { min-height: 0; }
-  /* label+title 群組在照片內垂直置中（群組約 5.5rem 高）；
-     title min-height 補滿剩餘高度 → 白卡仍貼照片下緣 */
   .area-hero__label { margin-top: calc(39.6vw - 7.75rem); }
-  .area-hero__title { font-size: 3.5rem; min-height: calc(39.6vw + 1rem); }   /* 56px */
+  .area-hero__title { font-size: 3.5rem; min-height: calc(39.6vw + 1rem); }
 }
 .area-hero .breadcrumb {
   position: absolute;
@@ -65,9 +55,8 @@
   color: var(--color-navy, #262A71);
   margin-bottom: 0.25rem;
 }
-/* 手機：label 縮小（桌機維持 20px）*/
 @media (max-width: 767.98px) {
-  .area-hero__label { font-size: 0.9375rem; letter-spacing: 0.14em; }   /* 15px */
+  .area-hero__label { font-size: 0.9375rem; letter-spacing: 0.14em; }
 }
 .area-hero__title {
   margin: 0;
@@ -86,7 +75,6 @@
 @media (min-width: 1024px) {
   .area-hero { min-height: clamp(49.375rem, 70svh, 75rem); padding: 6rem 3rem 0; }   /* = contact hero 高度 */
   .area-hero .breadcrumb { top: 2.5rem; left: 3rem; right: 3rem; }
-  /* title 往下推（參考 contact get-in-touch 定位）*/
   .area-hero__label { margin-top: 5%; }
 }
 /* ≥1280：標題 / breadcrumb / 白卡 對齊到置中的 1366 內容欄（地圖 bg 仍滿版）*/
@@ -107,20 +95,14 @@
   }
 }
 
-/* hero 內白卡（沿用 .hero-card：手機 full-bleed 落底 / 桌機 absolute 左下）*/
-.area-hero__card { color: var(--color-text-body, #333); }   /* 內文灰黑；標題 .hero-card__lead 仍 navy */
-/* 手機：白卡接在照片下緣（contact 做法）*/
+.area-hero__card { color: var(--color-text-body, #333); }
 @media (max-width: 767.98px) {
   .area-hero__card { margin-top: 0; }
 }
 
-
-/* ============================================================
-   Area Intro — 兩欄：左 features / 右 intro + trust
-   ============================================================ */
 .area-intro {
   background: var(--color-white, #fff);
-  padding: 1.5rem 1.5rem;          /* 手機 top/bottom 1.5rem */
+  padding: 1.5rem 1.5rem;
 }
 .area-intro__inner {
   width: 100%;
@@ -141,8 +123,6 @@
   .area-intro { padding: 4rem; }
 }
 
-
-/* ----- Features（3 icon：single-family / multi-unit / small-office）----- */
 .area-features {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -157,33 +137,28 @@
   gap: 0.625rem;
 }
 .area-feature__icon {
-  width: clamp(4.5rem, 14vw, 6.875rem);                /* → 110px (Figma) */
+  width: clamp(4.5rem, 14vw, 6.875rem);
   height: auto;
 }
 .area-feature__text {
   margin: 0;
   font-family: var(--font-body, sans-serif);
-  font-weight: 600;                                    /* SemiBold（小字加重）*/
-  font-size: 1.125rem;                                 /* 18px */
+  font-weight: 600;
+  font-size: 1.125rem;
   line-height: 1.2;
   color: var(--color-navy, #262A71);
 }
 
-
-/* ============================================================
-   CTA Band — navy 橫幅（logo + slogan + 24/7 + phone）
-   ============================================================ */
 .cta-band {
   background: var(--color-white, #fff);
   padding: 0rem 0 5rem 0;
 }
-/* navy 圓角盒，置中於 container 內 */
 .cta-band__inner {
   width: 100%;
   max-width: var(--content-max, 85.3125rem);           /* 內頁固定 1366 */
   margin: 0 auto;
   background: var(--color-navy, #262A71);
-  border-radius: 2.5rem;                               /* 40px (Figma) */
+  border-radius: 2.5rem;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -207,7 +182,7 @@
   gap: 0.625rem;
 }
 .cta-band__badge { width: 3rem; height: auto; }
-.cta-band__badge--navy { display: none; }              /* 手機在深藍盒內 → 用淺色版 */
+.cta-band__badge--navy { display: none; }
 .cta-band__num {
   font-family: var(--font-display, sans-serif);
   font-weight: 800;
@@ -216,12 +191,11 @@
   text-decoration: none;
 }
 
-/* 手機 cta-band：精簡版 — 去 logo、兩側留白、24/7 與號碼同排 */
 @media (max-width: 1023.98px) {
-  .cta-band { padding: 0 1.5rem 5rem; }               /* 盒子不貼螢幕邊 */
-  .cta-band__logo { display: none; }                  /* header 已有 logo */
+  .cta-band { padding: 0 1.5rem 5rem; }
+  .cta-band__logo { display: none; }
   .cta-band__badge--light { width: 3.25rem; }         /* 52px，與 32px 號碼成比例 */
-  .cta-band__num { font-size: 2rem; }                 /* 32px */
+  .cta-band__num { font-size: 2rem; }
   .cta-band__phone { gap: 0.875rem; }
 }
 
@@ -234,15 +208,13 @@
     padding: 0;
   }
   .cta-band__logo { align-self: center; margin: 0 2rem; width: 16rem; }
-  /* slogan：左側黃 bar + 垂直置中 */
   .cta-band__slogan {
     align-self: center;
     flex: 1;
     padding: 2rem 2rem;
     border-left: 0.25rem solid var(--color-yellow, #F0BC29);
-    font-size: 2.1875rem;   /* 35px（大一級）*/
+    font-size: 2.1875rem;
   }
-  /* 右側黃色塊：navy icon 上、號碼下（直排）*/
   .cta-band__phone {
     flex-direction: column;
     justify-content: center;
@@ -251,19 +223,15 @@
     gap: 0.75rem;
   }
   .cta-band__badge--light { display: none; }
-  .cta-band__badge--navy  { display: block; width: 6.25rem; }   /* 100px */
+  .cta-band__badge--navy  { display: block; width: 6.25rem; }
   .cta-band__num { color: var(--color-navy, #262A71); }
 }
 
-
-/* ============================================================
-   Fleet Band — 工程車照片 + 疊字
-   ============================================================ */
 .fleet-band {
   position: relative;
-  min-height: 23rem;                                    /* 手機加高留文字空間 */
+  min-height: 23rem;
   display: flex;
-  align-items: flex-start;                             /* 文字偏上 */
+  align-items: flex-start;
   justify-content: center;
   padding: 2.5rem 1.5rem 3rem;
   overflow: hidden;
@@ -275,7 +243,7 @@
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: #dce6ec bottom center / cover no-repeat;   /* 置底：卡車貼底 */
+  background: #dce6ec bottom center / cover no-repeat;
 }
 .fleet-band__title {
   margin: 0;
@@ -289,10 +257,6 @@
 @media (min-width: 768px) { .fleet-band { min-height: 22rem; } }
 @media (min-width: 1024px) { .fleet-band { min-height: 850px; } }
 
-
-/* ============================================================
-   Testimonials — center variant（內頁只有 3 則，桌機置中）
-   ============================================================ */
 @media (min-width: 1024px) {
   .testimonials--center .testimonials__slider { margin-right: 0; }
   .testimonials--center .slider__track { justify-content: center; }

@@ -1,7 +1,3 @@
-/* ============================================================
-   components.js — 全站共用互動
-   Exports: window.initSlider, window.initFAQ, window.initFloatingCtaBg
-   ============================================================ */
 
 /* ---------- Slider (drag + scroll-snap + optional dots) ----------
    用法:
@@ -97,7 +93,6 @@ function initSlider(rootEl, opts = {}) {
 
   renderDots();
 
-  /* ---- 視窗 resize 時，auto 模式重新生成 dots ---- */
   if (isAuto) {
     let resizeTimer = null;
     window.addEventListener('resize', () => {
@@ -114,7 +109,6 @@ function initSlider(rootEl, opts = {}) {
     }
   }, { passive: false });
 
-  /* ---- Mouse drag-to-scroll ---- */
   let isDown = false;
   let startX = 0;
   let startScroll = 0;
@@ -153,8 +147,6 @@ function initSlider(rootEl, opts = {}) {
   }
 }
 
-
-/* ---------- FAQ accordion (一次只開一項) ---------- */
 function initFAQ(rootSel = document) {
   const root = typeof rootSel === 'string' ? document.querySelector(rootSel) : rootSel;
   if (!root) return;
@@ -173,7 +165,6 @@ function initFAQ(rootSel = document) {
   });
 }
 
-/* ---------- Floating CTA — 依背後 section 的 data-bg 切換配色 ---------- */
 function initFloatingCtaBg() {
   const cta = document.querySelector('.floating-cta');
   if (!cta) return;
@@ -204,12 +195,6 @@ function initFloatingCtaBg() {
   update();
 }
 
-/* ---------- Lightbox (click image → fullscreen overlay) ----------
-   用法: initLightbox('.gallery__grid')  — 掃描內部所有 <img> 當作 slides
-   - 點縮圖開大圖；同一張 src 直接放大顯示
-   - ESC / 點 backdrop / × 關閉
-   - 左右鍵 / ‹ › 切換；切換時預載相鄰圖
-============================================================ */
 function initLightbox(scopeSel) {
   const scope = document.querySelector(scopeSel);
   if (!scope) return;
@@ -286,7 +271,6 @@ function initLightbox(scopeSel) {
   });
 }
 
-// Expose for other scripts
 window.initSlider         = initSlider;
 window.initFAQ            = initFAQ;
 window.initFloatingCtaBg  = initFloatingCtaBg;
