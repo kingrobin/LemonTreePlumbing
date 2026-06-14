@@ -650,3 +650,97 @@
   .sd-strip,
   .sd-features { padding-left: var(--edge-pad); padding-right: var(--edge-pad); }
 }
+
+
+/* ============================================================
+   Plumbing Service Hub — Showcase：黃底 + 方形 tile（全列出）
+   ============================================================ */
+.svc-showcase {
+  position: relative;
+  margin-top: 4.625rem;                                /* clear fixed mobile header */
+  padding: 3rem 1.5rem 4rem;
+  color: var(--color-navy, #262A71);
+  background: var(--color-yellow, #F0BC29);            /* 黃色版 */
+  overflow: hidden;
+}
+.svc-showcase__inner {
+  width: 100%;
+  max-width: var(--content-max, 85.3125rem);
+  margin: 0 auto;
+}
+.svc-showcase__head { margin: 0 0 2rem; }
+/* breadcrumb 在黃底 → 深色 */
+.svc-showcase .breadcrumb {
+  position: static;
+  margin: 0 0 1rem;
+  padding: 0;
+  color: var(--color-navy, #262A71);
+}
+.svc-showcase .breadcrumb a:hover { color: var(--color-yellow-dark, #D4A017); }
+.svc-showcase .breadcrumb__current { color: var(--color-navy, #262A71); font-weight: 700; }
+.svc-showcase__accent {
+  display: block;
+  width: 3rem;
+  height: 0.1875rem;                                   /* 3px navy 短線 */
+  background: var(--color-navy, #262A71);
+  margin: 0 0 1.25rem;
+}
+.svc-showcase__title { margin: 0 0 0.75rem; color: var(--color-navy, #262A71); }
+.svc-showcase__intro { max-width: 48rem; color: var(--color-text-body, #333); }
+
+/* ----- 方形 tile（照片 + 深 overlay + 置中白標題）----- */
+.svc-tiles {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+.svc-tile {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: 1rem;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  text-decoration: none;
+  isolation: isolate;
+}
+.svc-tile .service-card__bg {                          /* 複用 global 的 data-bg 照片對應 */
+  z-index: 0;
+  transition: transform .5s cubic-bezier(.22,1,.36,1);
+}
+.svc-tile::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,.78) 100%);
+}
+.svc-tile:hover .service-card__bg { transform: scale(1.06); }
+.svc-tile__title {
+  position: relative;
+  z-index: 2;
+  padding: 1.25rem 1rem;
+  font-family: var(--font-display, sans-serif);
+  font-weight: 800;
+  font-size: 1.25rem;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--color-white, #fff);
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .svc-showcase { padding: 4rem 2.5rem 5rem; }
+  .svc-tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+  .svc-tile__title { font-size: 1.5rem; padding-bottom: 1.5rem; }
+}
+@media (min-width: 1024px) {
+  .svc-showcase { padding: 5rem 3rem 6rem; }
+  .svc-showcase__head { margin-bottom: 3rem; }
+  .svc-tiles { gap: 1.25rem; }
+  .svc-tile__title { font-size: 1.75rem; padding-bottom: 1.75rem; }
+}
+@media (min-width: 1280px) {
+  .svc-showcase { margin-top: 6.25rem; padding-left: var(--edge-pad); padding-right: var(--edge-pad); }
+}

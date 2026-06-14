@@ -47,12 +47,6 @@
   .area-hero__label { margin-top: calc(39.6vw - 7.75rem); }
   .area-hero__title { font-size: 3.5rem; min-height: calc(39.6vw + 1rem); }   /* 56px */
 }
-.area-hero__map::after {                                /* 讓地圖淡一點、字更清楚 */
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(255, 255, 255, .35);
-}
 .area-hero .breadcrumb {
   position: absolute;
   top: 1.5rem;

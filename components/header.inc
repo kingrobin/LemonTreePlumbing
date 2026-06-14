@@ -78,6 +78,7 @@
             </div>
           </li>
 
+          <li class="site-nav__item"><a class="site-nav__link" href="reviews/">Reviews</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="gallery/">Gallery</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="contact-us/">Contact Us</a></li>
         </ul>
@@ -147,6 +148,7 @@
     </ul>
   </div>
 
+  <a class="mobile-menu__link" href="reviews/">Reviews</a>
   <a class="mobile-menu__link" href="gallery/">Gallery</a>
   <a class="mobile-menu__link" href="contact-us/">Contact Us</a>
 </div>

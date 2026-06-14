@@ -1396,6 +1396,193 @@ body.is-menu-open { overflow: hidden; }
 
 
 /* ============================================================
+   Service Card — 服務卡（首頁 Our Services / Plumbing Service hub 共用）
+   ============================================================ */
+/* ============================================================
+   Service Card — 單一 h3 結構
+   Mobile: caption 流在 media 下方 (h3 navy + 箭頭圓鈕)
+   Desktop: caption 絕對定位疊在 media 底部 (h3 white + Learn More)
+   ============================================================ */
+.service-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  text-decoration: none;
+  cursor: pointer;
+  color: var(--color-navy, #262A71);
+  transition: transform .5s cubic-bezier(.22,1,.36,1);
+}
+.service-card:hover { transform: translateY(-0.25rem); }
+
+/* ----- Image area ----- */
+.service-card__media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: 1.5625rem;                           /* 25px — Figma */
+  overflow: hidden;
+}
+.service-card__bg {
+  position: absolute;
+  inset: 0;
+  background-color: #2a2a2a;
+  background-size: cover;
+  background-position: center;
+}
+/* Service photos */
+.service-card__bg[data-bg="drain"]   { background-image: url('../img/services/drain-sewer.jpg'); }
+.service-card__bg[data-bg="fixture"] { background-image: url('../img/services/water-fixture-repair.jpg'); }
+.service-card__bg[data-bg="gas"]     { background-image: url('../img/services/gas-line.jpg'); }
+.service-card__bg[data-bg="repipe"]  { background-image: url('../img/services/water-repipe.jpg'); }
+.service-card__bg[data-bg="radiant"] { background-image: url('../img/services/hydronic-radiant-heating.jpg'); }
+.service-card__bg[data-bg="heater"]  { background-image: url('../img/services/water-heater.jpg'); }
+
+/* ----- Mobile caption (below image) ----- */
+.service-card__caption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0 0.25rem;
+}
+.service-card__title {
+  margin: 0;
+  font-family: var(--font-display, sans-serif);
+  font-weight: 800;
+  font-size: 1.375rem;
+  line-height: 1.15;
+  color: var(--color-navy, #262A71);
+  letter-spacing: -0.01em;
+}
+/* Mobile: hide desc + Learn More */
+.service-card__desc,
+.service-card__more {
+  display: none;
+}
+/* Mobile: arrow visible (circle button beside title) */
+.service-card__arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2.5rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--color-navy, #262A71);
+  color: var(--color-white, #fff);
+  transition: background-color .2s ease, transform .2s ease;
+}
+.service-card__arrow svg {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+.service-card:hover .service-card__arrow {
+  background: var(--color-navy-dark, #1B1F55);
+  transform: translateX(0.125rem);
+}
+
+/* 通用服務卡格線（hub 等共用；首頁用 .services-block__grid）*/
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  width: 100%;
+  max-width: var(--content-max, 85.3125rem);
+  margin: 0 auto;
+}
+
+/* ----- Service Card — Tablet (≥768px)：caption overlay + hover ----- */
+@media (min-width: 768px) {
+  .service-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; }
+  /* ----- Tablet+ : caption 絕對定位疊在 media 底部 ----- */
+  .service-card { gap: 0; }
+  .service-card__media { aspect-ratio: 3 / 2; }
+
+  /* Caption 變成 overlay over media */
+  .service-card__caption {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 1.5rem;
+    background: linear-gradient(180deg,
+                rgba(0, 0, 0, 0)   40%,
+                rgba(0, 0, 0, .80) 100%);
+    border-radius: 1.5625rem;                         /* match media radius (25px) */
+    overflow: hidden;                                 /* clip 漸層 + hover overlay 到圓角內 */
+  }
+  /* Hover 加深層 — 用 ::after 疊一層 opacity 漸變（避開 gradient 無法平滑插值） */
+  .service-card__caption::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.85) 100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .6s cubic-bezier(.22,1,.36,1);
+  }
+  .service-card:hover .service-card__caption::after { opacity: 1; }
+  /* 內容需提升到 ::after 之上 */
+  .service-card__title,
+  .service-card__desc,
+  .service-card__more { position: relative; z-index: 1; }
+  /* Title 變白色 + 字型大小 (Figma 27px) */
+  .service-card__title {
+    font-family: var(--font-cta, sans-serif);
+    font-size: 1.5rem;
+    line-height: 1.1;
+    color: var(--color-white, #fff);
+  }
+  /* desc 預設收合，hover 展開 */
+  .service-card__desc {
+    display: block;
+    margin: 0;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    font-family: var(--font-body, sans-serif);
+    font-size: 0.9375rem;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, .9);
+    transition: max-height .6s cubic-bezier(.22,1,.36,1) .1s,
+                opacity    .5s cubic-bezier(.22,1,.36,1) .1s;
+  }
+  /* Learn More 可見 */
+  .service-card__more {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-body, sans-serif);
+    font-weight: 400;
+    font-size: 1.125rem;
+    letter-spacing: 0.05625rem;
+    color: var(--color-yellow, #F0BC29);
+    transition: gap .35s cubic-bezier(.22,1,.36,1) .05s;
+  }
+  /* 桌機隱藏圓形箭頭按鈕（mobile-only） */
+  .service-card__arrow { display: none; }
+
+  /* Hover：展開 desc（overlay 加深由 ::after 處理） */
+  .service-card:hover .service-card__desc {
+    max-height: 8rem;
+    opacity: 1;
+  }
+  .service-card:hover .service-card__more { gap: 0.75rem; }
+
+}
+
+/* ----- Service Card — Desktop (≥1024px) ----- */
+@media (min-width: 1024px) {
+  .service-grid { gap: 1.5rem; }
+  .service-card__caption { padding: 1.875rem; }
+  .service-card__title { font-size: 1.6875rem; }     /* 27px (Figma) */
+}
+
+
+/* ============================================================
    TESTIMONIALS (.testimonials — light grey bg)
    依 Figma node 455:3761
    ============================================================ */
@@ -2062,7 +2249,8 @@ body.is-menu-open { overflow: hidden; }
   }
   /* Scroll 後：nav link 變深灰 #333；phone / caret 維持 navy */
   .site-header.is-scrolled .site-nav__link  { color: var(--color-text-body); font-weight: 500; }
-  .site-header.is-scrolled .site-nav__link.is-active { font-weight: 700; }
+  /* active（白底 header）：維持 navy + 加粗，不用黃底線 */
+  .site-header.is-scrolled .site-nav__link.is-active { color: var(--color-navy, #262A71); font-weight: 700; border-bottom-color: transparent; }
   .site-header.is-scrolled .site-nav__caret { fill: var(--color-text-body); }
   .site-header.is-scrolled .site-nav__link:hover { color: var(--color-yellow-dark, #D4A017); }
   .site-header.is-scrolled .site-header__phone { color: var(--color-navy, #262A71); }
