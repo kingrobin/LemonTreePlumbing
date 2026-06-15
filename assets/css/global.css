@@ -633,14 +633,17 @@ body.is-menu-open { overflow: hidden; }
   transition: color .2s ease, transform .2s ease;
 }
 .area-link:hover { color: var(--color-yellow-dark, #D4A017); }
-.area-link__arrow {
+.area-link::after {
+  content: "";
   width: 1.5rem;
   height: 1.25rem;
   flex-shrink: 0;
-  color: currentColor;
+  background-color: currentColor;        /* 由 mask 上色，跟隨文字色（hover 變黃）*/
+  -webkit-mask: url('../img/icon/arrow-right.svg') no-repeat center / contain;
+          mask: url('../img/icon/arrow-right.svg') no-repeat center / contain;
   transition: transform .2s ease;
 }
-.area-link:hover .area-link__arrow { transform: translateX(0.25rem); }
+.area-link:hover::after { transform: translateX(0.25rem); }
 
 .service-areas__cta {
   margin-top: 0.5rem;
@@ -1312,9 +1315,13 @@ body.is-menu-open { overflow: hidden; }
   color: var(--color-white, #fff);
   transition: background-color .2s ease, transform .2s ease;
 }
-.service-card__arrow svg {
+.service-card__arrow::before {
+  content: "";
   width: 1.125rem;
   height: 1.125rem;
+  background-color: currentColor;        /* 白色，由 mask 上色 */
+  -webkit-mask: url('../img/icon/arrow-right-round.svg') no-repeat center / contain;
+          mask: url('../img/icon/arrow-right-round.svg') no-repeat center / contain;
 }
 .service-card:hover .service-card__arrow {
   background: var(--color-navy-dark, #1B1F55);
