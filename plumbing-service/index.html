@@ -152,7 +152,162 @@
 </head>
 <body data-base="../">
 
-  <div id="inject-header"></div>
+  <!-- HEADER:start (generated from components/) -->
+<!-- ==========================================================
+     header.inc — 共用 Header
+     Injected by global.js fetch → #inject-header
+     ========================================================== -->
+<header class="site-header" id="siteHeader">
+  <div class="site-header__inner">
+
+    <!-- Mobile hamburger -->
+    <button class="site-header__menu-btn" type="button" aria-label="Open menu" id="menuOpenBtn">
+      <svg viewBox="0 0 28 24" aria-hidden="true">
+        <rect y="2"  width="28" height="3" rx="1.5" fill="currentColor"/>
+        <rect y="10" width="28" height="3" rx="1.5" fill="currentColor"/>
+        <rect y="18" width="28" height="3" rx="1.5" fill="currentColor"/>
+      </svg>
+    </button>
+
+    <!-- Logo + CA LIC -->
+    <a class="site-header__logo" href=".././" aria-label="LemonTree Plumbing — Home">
+      <img class="site-header__logo-img site-header__logo-img--default" src="../assets/img/lemontree-plumbing-logo.svg" alt="LemonTree Plumbing" width="152" height="152">
+      <img class="site-header__logo-img site-header__logo-img--scrolled" src="../assets/img/lemontree-plumbing-logo-h.svg" alt="LemonTree Plumbing" width="273" height="62">
+      <p class="site-header__lic">CA LIC: 1116849</p>
+    </a>
+
+    <!-- Right cluster (desktop): Nav + CTA -->
+    <div class="site-header__right">
+
+      <!-- Desktop Navigation -->
+      <nav class="site-nav" aria-label="Primary">
+        <ul class="site-nav__list">
+          <li class="site-nav__item">
+            <a class="site-nav__link" href=".././">Home</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="../about-us/">About Us</a>
+          </li>
+
+          <!-- Plumbing Service ▾ -->
+          <li class="site-nav__item site-nav__item--has-dropdown">
+            <a class="site-nav__link" href="../plumbing-service/">
+              Plumbing Service
+              <svg class="site-nav__caret" viewBox="0 0 12 6" aria-hidden="true">
+                <path d="M0 0l6 6 6-6z" fill="currentColor"/>
+              </svg>
+            </a>
+            <div class="site-dropdown">
+              <ul class="site-dropdown__list site-dropdown__list--two-col">
+                <li><a class="site-dropdown__link" href="../plumbing-service/drain-cleaning-repairs/">Drain &amp; Sewer<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
+                <li><a class="site-dropdown__link" href="../plumbing-service/water-fixture-repair-installation/">Water Fixture Repair<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
+                <li><a class="site-dropdown__link" href="../plumbing-service/gas-line-services/">Gas Line Services<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
+                <li><a class="site-dropdown__link" href="../plumbing-service/water-pipe-repair-replacement/">Water Repipe<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
+                <li><a class="site-dropdown__link" href="../plumbing-service/hydronic-radiant-heating/">Hydronic Radiant Heating<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
+                <li><a class="site-dropdown__link" href="../water-heater-services/">Water Heater Services<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
+              </ul>
+            </div>
+          </li>
+
+          <!-- Service Areas ▾ -->
+          <li class="site-nav__item site-nav__item--has-dropdown">
+            <a class="site-nav__link" href="../service-areas/">
+              Service Areas
+              <svg class="site-nav__caret" viewBox="0 0 12 6" aria-hidden="true">
+                <path d="M0 0l6 6 6-6z" fill="currentColor"/>
+              </svg>
+            </a>
+            <div class="site-dropdown">
+              <ul class="site-dropdown__list site-dropdown__list--two-col">
+                <li><a class="site-dropdown__link" href="../service-areas/berkeley/">Berkeley<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
+                <li><a class="site-dropdown__link" href="../service-areas/albany/">Albany<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
+                <li><a class="site-dropdown__link" href="../service-areas/el-cerrito/">El Cerrito<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
+                <li><a class="site-dropdown__link" href="../service-areas/kensington/">Kensington<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
+                <li><a class="site-dropdown__link" href="../service-areas/north-oakland/">North Oakland<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
+                <li><a class="site-dropdown__link" href="../service-areas/alameda/">Alameda<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
+                <li><a class="site-dropdown__link" href="../service-areas/emeryville/">Emeryville<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
+                <li><a class="site-dropdown__link" href="../service-areas/el-sobrante/">El Sobrante<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
+                <li><a class="site-dropdown__link" href="../service-areas/pinole/">Pinole<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
+                <li><a class="site-dropdown__link" href="../service-areas/orinda/">Orinda<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="site-nav__item"><a class="site-nav__link" href="../reviews/">Reviews</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="../gallery/">Gallery</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="../contact-us/">Contact Us</a></li>
+        </ul>
+      </nav>
+
+      <!-- CTA cluster -->
+      <div class="site-header__cta">
+        <a class="btn-call" href="tel:+15105027843" aria-label="Call (510) 502-7843">
+          <span class="btn-call__icon">
+            <img src="../assets/img/icon/phone-solid.svg" alt="" aria-hidden="true" width="27" height="27">
+          </span>
+          <span class="btn-call__label">Call</span>
+        </a>
+        <a class="link-phone site-header__phone" href="tel:+15105027843">(510) 502-7843</a>
+      </div>
+
+    </div><!-- /.site-header__right -->
+  </div>
+</header>
+
+<!-- ============================================================
+     Mobile menu overlay (accordion-style)
+     ============================================================ -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <button class="mobile-menu__close" type="button" aria-label="Close menu" id="menuCloseBtn">&times;</button>
+
+  <a class="mobile-menu__link" href=".././">Home</a>
+  <a class="mobile-menu__link" href="../about-us/">About Us</a>
+
+  <!-- Plumbing Service (accordion) -->
+  <div class="mobile-menu__group">
+    <button class="mobile-menu__toggle" type="button" aria-expanded="false">
+      Plumbing Service
+      <svg class="mobile-menu__caret" viewBox="0 0 12 6" aria-hidden="true">
+        <path d="M0 0l6 6 6-6z" fill="currentColor"/>
+      </svg>
+    </button>
+    <ul class="mobile-menu__sublist">
+      <li><a class="mobile-menu__sublink" href="../plumbing-service/drain-cleaning-repairs/">Drain &amp; Sewer</a></li>
+      <li><a class="mobile-menu__sublink" href="../plumbing-service/water-fixture-repair-installation/">Water Fixture Repair</a></li>
+      <li><a class="mobile-menu__sublink" href="../plumbing-service/gas-line-services/">Gas Line Services</a></li>
+      <li><a class="mobile-menu__sublink" href="../plumbing-service/water-pipe-repair-replacement/">Water Repipe</a></li>
+      <li><a class="mobile-menu__sublink" href="../plumbing-service/hydronic-radiant-heating/">Hydronic Radiant Heating</a></li>
+      <li><a class="mobile-menu__sublink" href="../water-heater-services/">Water Heater Services</a></li>
+    </ul>
+  </div>
+
+  <!-- Service Areas (accordion) -->
+  <div class="mobile-menu__group">
+    <button class="mobile-menu__toggle" type="button" aria-expanded="false">
+      Service Areas
+      <svg class="mobile-menu__caret" viewBox="0 0 12 6" aria-hidden="true">
+        <path d="M0 0l6 6 6-6z" fill="currentColor"/>
+      </svg>
+    </button>
+    <ul class="mobile-menu__sublist">
+      <li><a class="mobile-menu__sublink" href="../service-areas/berkeley/">Berkeley</a></li>
+      <li><a class="mobile-menu__sublink" href="../service-areas/albany/">Albany</a></li>
+      <li><a class="mobile-menu__sublink" href="../service-areas/el-cerrito/">El Cerrito</a></li>
+      <li><a class="mobile-menu__sublink" href="../service-areas/kensington/">Kensington</a></li>
+      <li><a class="mobile-menu__sublink" href="../service-areas/north-oakland/">North Oakland</a></li>
+      <li><a class="mobile-menu__sublink" href="../service-areas/alameda/">Alameda</a></li>
+      <li><a class="mobile-menu__sublink" href="../service-areas/emeryville/">Emeryville</a></li>
+      <li><a class="mobile-menu__sublink" href="../service-areas/el-sobrante/">El Sobrante</a></li>
+      <li><a class="mobile-menu__sublink" href="../service-areas/pinole/">Pinole</a></li>
+      <li><a class="mobile-menu__sublink" href="../service-areas/orinda/">Orinda</a></li>
+    </ul>
+  </div>
+
+  <a class="mobile-menu__link" href="../reviews/">Reviews</a>
+  <a class="mobile-menu__link" href="../gallery/">Gallery</a>
+  <a class="mobile-menu__link" href="../contact-us/">Contact Us</a>
+</div>
+<!-- HEADER:end -->
 
   <main>
 
@@ -225,7 +380,7 @@
         <h2 class="section-title final-cta__title" id="finalCtaTitle">Ready to fix the problem?</h2>
         <p class="final-cta__sub">Talk to a real plumber now — no phone trees, no callbacks.</p>
         <a class="btn btn--white btn--lg final-cta__btn" href="tel:+15105027843" aria-label="Call (510) 502-7843">
-          <img src="../assets/img/icon/phone-solid.svg" alt="" aria-hidden="true">
+          <img src="../assets/img/icon/phone-solid.svg" alt="" aria-hidden="true" width="27" height="27" loading="lazy">
           <span>Call (510) 502-7843</span>
         </a>
       </div>
@@ -233,10 +388,86 @@
 
   </main>
 
-  <div id="inject-footer"></div>
+  <!-- FOOTER:start (generated from components/) -->
+<!-- ==========================================================
+     footer.inc — 共用 Footer
+     Injected by global.js fetch → #inject-footer
+     ========================================================== -->
+<footer class="site-footer" data-bg="dark">
+  <div class="site-footer__container">
+
+    <!-- LEFT: brand block (logo + phone + cta + lic) -->
+    <div class="site-footer__brand">
+
+      <a class="site-footer__logo-link" href=".././" aria-label="LemonTree Plumbing — Home">
+        <img class="site-footer__logo" src="../assets/img/lemontree-plumbing-logo.svg" alt="LemonTree Plumbing" width="152" height="152" loading="lazy">
+      </a>
+
+      <!-- Phone block (to the right of the logo on desktop) -->
+      <div class="site-footer__contact">
+        <a class="link-phone site-footer__phone" href="tel:+15105027843">(510) 502-7843</a>
+        <a class="site-footer__cta" href="tel:+15105027843" aria-label="Call (510) 502-7843">
+          <span class="site-footer__cta-icon" aria-hidden="true">
+            <img src="../assets/img/icon/phone-solid.svg" alt="" width="27" height="27" loading="lazy">
+          </span>
+          <span>Call Now</span>
+        </a>
+      </div>
+
+      <p class="site-footer__lic">CA LIC: 1116849</p>
+    </div>
+
+    <!-- RIGHT: link columns (desktop only) -->
+    <nav class="site-footer__nav" aria-label="Footer">
+
+      <div class="site-footer__col">
+        <h3 class="site-footer__col-title">Plumbing Service</h3>
+        <ul class="site-footer__list">
+          <li><a class="site-footer__link" href="../plumbing-service/drain-cleaning-repairs/">Drain &amp; Sewer</a></li>
+          <li><a class="site-footer__link" href="../plumbing-service/water-fixture-repair-installation/">Water Fixture Repair</a></li>
+          <li><a class="site-footer__link" href="../plumbing-service/gas-line-services/">Gas Line Services</a></li>
+          <li><a class="site-footer__link" href="../plumbing-service/water-pipe-repair-replacement/">Water Repipe</a></li>
+          <li><a class="site-footer__link" href="../plumbing-service/hydronic-radiant-heating/">Hydronic Radiant Heating</a></li>
+          <li><a class="site-footer__link" href="../water-heater-services/">Water Heater Services</a></li>
+        </ul>
+      </div>
+
+      <div class="site-footer__col">
+        <h3 class="site-footer__col-title">Service Areas</h3>
+        <ul class="site-footer__list">
+          <li><a class="site-footer__link" href="../service-areas/berkeley/">Berkeley</a></li>
+          <li><a class="site-footer__link" href="../service-areas/albany/">Albany</a></li>
+          <li><a class="site-footer__link" href="../service-areas/el-cerrito/">El Cerrito</a></li>
+          <li><a class="site-footer__link" href="../service-areas/kensington/">Kensington</a></li>
+          <li><a class="site-footer__link" href="../service-areas/north-oakland/">North Oakland</a></li>
+          <li><a class="site-footer__link" href="../service-areas/alameda/">Alameda</a></li>
+          <li><a class="site-footer__link" href="../service-areas/emeryville/">Emeryville</a></li>
+          <li><a class="site-footer__link" href="../service-areas/el-sobrante/">El Sobrante</a></li>
+          <li><a class="site-footer__link" href="../service-areas/pinole/">Pinole</a></li>
+          <li><a class="site-footer__link" href="../service-areas/orinda/">Orinda</a></li>
+        </ul>
+      </div>
+
+      <div class="site-footer__col">
+        <h3 class="site-footer__col-title">Company</h3>
+        <ul class="site-footer__list">
+          <li><a class="site-footer__link" href="../about-us/">About Us</a></li>
+          <li><a class="site-footer__link" href="../reviews/">Reviews</a></li>
+          <li><a class="site-footer__link" href="../gallery/">Gallery</a></li>
+          <li><a class="site-footer__link" href="../contact-us/">Contact Us</a></li>
+        </ul>
+      </div>
+
+    </nav>
+
+    <p class="site-footer__copyright">&copy; <span data-year>2026</span> LemonTree Plumbing. All rights reserved.</p>
+
+  </div>
+</footer>
+<!-- FOOTER:end -->
 
   <a class="floating-cta" href="tel:+15105027843" aria-label="Call (510) 502-7843">
-    <img src="../assets/img/icon/phone-solid.svg" alt="" aria-hidden="true">
+    <img src="../assets/img/icon/phone-solid.svg" alt="" aria-hidden="true" width="27" height="27" loading="lazy">
   </a>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>

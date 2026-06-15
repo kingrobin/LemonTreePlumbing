@@ -2,43 +2,9 @@
 (function () {
   'use strict';
 
-  /* ---------- Base path (for nested pages e.g. /services/foo.html) ----------
-     首頁 <body> 無 data-base → 維持原行為
-     內頁 <body data-base="../"> → 所有 fetch + 注入後相對連結前綴 ../
-  ============================================================ */
-  function basePath() {
-    return document.body.dataset.base || '';
-  }
-
-  /* 將注入內容中所有相對 href/src 加上 base 前綴
-     跳過：http(s)://、//、/、#、tel:、mailto:、data: */
-  function rewriteRelativeLinks(host) {
-    const base = basePath();
-    if (!base) return;
-    const isAbsolute = (v) => /^(https?:|\/\/|\/|#|tel:|mailto:|data:)/i.test(v);
-    host.querySelectorAll('[href]').forEach(el => {
-      const v = el.getAttribute('href');
-      if (v && !isAbsolute(v)) el.setAttribute('href', base + v);
-    });
-    host.querySelectorAll('[src]').forEach(el => {
-      const v = el.getAttribute('src');
-      if (v && !isAbsolute(v)) el.setAttribute('src', base + v);
-    });
-  }
-
-  async function injectComponent(targetId, url) {
-    const host = document.getElementById(targetId);
-    if (!host) return;
-    try {
-      const bust = '?v=' + Date.now();
-      const res = await fetch(basePath() + url + bust, { cache: 'no-store' });
-      if (!res.ok) throw new Error('Failed to load ' + url + ': ' + res.status);
-      host.innerHTML = await res.text();
-      rewriteRelativeLinks(host);
-    } catch (err) {
-      console.error(err);
-    }
-  }
+  /* header/footer 已由 tools/build-includes.py 靜態內嵌進每頁（SEO：爬蟲可直接讀到
+     導覽/footer 連結，不需 JS）。本檔只負責互動行為。
+     內頁 <body data-base="../"> 仍保留：initHeaderScroll 用它判斷是否固定 scrolled 樣式。 */
 
   function initHeaderScroll() {
     const header = document.getElementById('siteHeader');
@@ -120,12 +86,7 @@
     });
   }
 
-  document.addEventListener('DOMContentLoaded', async () => {
-    await Promise.all([
-      injectComponent('inject-header', 'components/header.inc'),
-      injectComponent('inject-footer', 'components/footer.inc'),
-    ]);
-    // Component-dependent handlers must run AFTER injection
+  document.addEventListener('DOMContentLoaded', () => {
     initHeaderScroll();
     initMobileMenu();
     initActiveNav();

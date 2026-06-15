@@ -182,7 +182,162 @@
 </head>
 <body>
 
-  <div id="inject-header"></div>
+  <!-- HEADER:start (generated from components/) -->
+<!-- ==========================================================
+     header.inc — 共用 Header
+     Injected by global.js fetch → #inject-header
+     ========================================================== -->
+<header class="site-header" id="siteHeader">
+  <div class="site-header__inner">
+
+    <!-- Mobile hamburger -->
+    <button class="site-header__menu-btn" type="button" aria-label="Open menu" id="menuOpenBtn">
+      <svg viewBox="0 0 28 24" aria-hidden="true">
+        <rect y="2"  width="28" height="3" rx="1.5" fill="currentColor"/>
+        <rect y="10" width="28" height="3" rx="1.5" fill="currentColor"/>
+        <rect y="18" width="28" height="3" rx="1.5" fill="currentColor"/>
+      </svg>
+    </button>
+
+    <!-- Logo + CA LIC -->
+    <a class="site-header__logo" href="./" aria-label="LemonTree Plumbing — Home">
+      <img class="site-header__logo-img site-header__logo-img--default" src="assets/img/lemontree-plumbing-logo.svg" alt="LemonTree Plumbing" width="152" height="152">
+      <img class="site-header__logo-img site-header__logo-img--scrolled" src="assets/img/lemontree-plumbing-logo-h.svg" alt="LemonTree Plumbing" width="273" height="62">
+      <p class="site-header__lic">CA LIC: 1116849</p>
+    </a>
+
+    <!-- Right cluster (desktop): Nav + CTA -->
+    <div class="site-header__right">
+
+      <!-- Desktop Navigation -->
+      <nav class="site-nav" aria-label="Primary">
+        <ul class="site-nav__list">
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="./">Home</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="about-us/">About Us</a>
+          </li>
+
+          <!-- Plumbing Service ▾ -->
+          <li class="site-nav__item site-nav__item--has-dropdown">
+            <a class="site-nav__link" href="plumbing-service/">
+              Plumbing Service
+              <svg class="site-nav__caret" viewBox="0 0 12 6" aria-hidden="true">
+                <path d="M0 0l6 6 6-6z" fill="currentColor"/>
+              </svg>
+            </a>
+            <div class="site-dropdown">
+              <ul class="site-dropdown__list site-dropdown__list--two-col">
+                <li><a class="site-dropdown__link" href="plumbing-service/drain-cleaning-repairs/">Drain &amp; Sewer<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
+                <li><a class="site-dropdown__link" href="plumbing-service/water-fixture-repair-installation/">Water Fixture Repair<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
+                <li><a class="site-dropdown__link" href="plumbing-service/gas-line-services/">Gas Line Services<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
+                <li><a class="site-dropdown__link" href="plumbing-service/water-pipe-repair-replacement/">Water Repipe<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
+                <li><a class="site-dropdown__link" href="plumbing-service/hydronic-radiant-heating/">Hydronic Radiant Heating<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
+                <li><a class="site-dropdown__link" href="water-heater-services/">Water Heater Services<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
+              </ul>
+            </div>
+          </li>
+
+          <!-- Service Areas ▾ -->
+          <li class="site-nav__item site-nav__item--has-dropdown">
+            <a class="site-nav__link" href="service-areas/">
+              Service Areas
+              <svg class="site-nav__caret" viewBox="0 0 12 6" aria-hidden="true">
+                <path d="M0 0l6 6 6-6z" fill="currentColor"/>
+              </svg>
+            </a>
+            <div class="site-dropdown">
+              <ul class="site-dropdown__list site-dropdown__list--two-col">
+                <li><a class="site-dropdown__link" href="service-areas/berkeley/">Berkeley<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
+                <li><a class="site-dropdown__link" href="service-areas/albany/">Albany<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
+                <li><a class="site-dropdown__link" href="service-areas/el-cerrito/">El Cerrito<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
+                <li><a class="site-dropdown__link" href="service-areas/kensington/">Kensington<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
+                <li><a class="site-dropdown__link" href="service-areas/north-oakland/">North Oakland<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
+                <li><a class="site-dropdown__link" href="service-areas/alameda/">Alameda<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
+                <li><a class="site-dropdown__link" href="service-areas/emeryville/">Emeryville<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
+                <li><a class="site-dropdown__link" href="service-areas/el-sobrante/">El Sobrante<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
+                <li><a class="site-dropdown__link" href="service-areas/pinole/">Pinole<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
+                <li><a class="site-dropdown__link" href="service-areas/orinda/">Orinda<span class="site-dropdown__arrow" aria-hidden="true">→</span></a></li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="site-nav__item"><a class="site-nav__link" href="reviews/">Reviews</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="gallery/">Gallery</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="contact-us/">Contact Us</a></li>
+        </ul>
+      </nav>
+
+      <!-- CTA cluster -->
+      <div class="site-header__cta">
+        <a class="btn-call" href="tel:+15105027843" aria-label="Call (510) 502-7843">
+          <span class="btn-call__icon">
+            <img src="assets/img/icon/phone-solid.svg" alt="" aria-hidden="true" width="27" height="27">
+          </span>
+          <span class="btn-call__label">Call</span>
+        </a>
+        <a class="link-phone site-header__phone" href="tel:+15105027843">(510) 502-7843</a>
+      </div>
+
+    </div><!-- /.site-header__right -->
+  </div>
+</header>
+
+<!-- ============================================================
+     Mobile menu overlay (accordion-style)
+     ============================================================ -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <button class="mobile-menu__close" type="button" aria-label="Close menu" id="menuCloseBtn">&times;</button>
+
+  <a class="mobile-menu__link" href="./">Home</a>
+  <a class="mobile-menu__link" href="about-us/">About Us</a>
+
+  <!-- Plumbing Service (accordion) -->
+  <div class="mobile-menu__group">
+    <button class="mobile-menu__toggle" type="button" aria-expanded="false">
+      Plumbing Service
+      <svg class="mobile-menu__caret" viewBox="0 0 12 6" aria-hidden="true">
+        <path d="M0 0l6 6 6-6z" fill="currentColor"/>
+      </svg>
+    </button>
+    <ul class="mobile-menu__sublist">
+      <li><a class="mobile-menu__sublink" href="plumbing-service/drain-cleaning-repairs/">Drain &amp; Sewer</a></li>
+      <li><a class="mobile-menu__sublink" href="plumbing-service/water-fixture-repair-installation/">Water Fixture Repair</a></li>
+      <li><a class="mobile-menu__sublink" href="plumbing-service/gas-line-services/">Gas Line Services</a></li>
+      <li><a class="mobile-menu__sublink" href="plumbing-service/water-pipe-repair-replacement/">Water Repipe</a></li>
+      <li><a class="mobile-menu__sublink" href="plumbing-service/hydronic-radiant-heating/">Hydronic Radiant Heating</a></li>
+      <li><a class="mobile-menu__sublink" href="water-heater-services/">Water Heater Services</a></li>
+    </ul>
+  </div>
+
+  <!-- Service Areas (accordion) -->
+  <div class="mobile-menu__group">
+    <button class="mobile-menu__toggle" type="button" aria-expanded="false">
+      Service Areas
+      <svg class="mobile-menu__caret" viewBox="0 0 12 6" aria-hidden="true">
+        <path d="M0 0l6 6 6-6z" fill="currentColor"/>
+      </svg>
+    </button>
+    <ul class="mobile-menu__sublist">
+      <li><a class="mobile-menu__sublink" href="service-areas/berkeley/">Berkeley</a></li>
+      <li><a class="mobile-menu__sublink" href="service-areas/albany/">Albany</a></li>
+      <li><a class="mobile-menu__sublink" href="service-areas/el-cerrito/">El Cerrito</a></li>
+      <li><a class="mobile-menu__sublink" href="service-areas/kensington/">Kensington</a></li>
+      <li><a class="mobile-menu__sublink" href="service-areas/north-oakland/">North Oakland</a></li>
+      <li><a class="mobile-menu__sublink" href="service-areas/alameda/">Alameda</a></li>
+      <li><a class="mobile-menu__sublink" href="service-areas/emeryville/">Emeryville</a></li>
+      <li><a class="mobile-menu__sublink" href="service-areas/el-sobrante/">El Sobrante</a></li>
+      <li><a class="mobile-menu__sublink" href="service-areas/pinole/">Pinole</a></li>
+      <li><a class="mobile-menu__sublink" href="service-areas/orinda/">Orinda</a></li>
+    </ul>
+  </div>
+
+  <a class="mobile-menu__link" href="reviews/">Reviews</a>
+  <a class="mobile-menu__link" href="gallery/">Gallery</a>
+  <a class="mobile-menu__link" href="contact-us/">Contact Us</a>
+</div>
+<!-- HEADER:end -->
 
   <main>
 
@@ -207,7 +362,7 @@
 
         <a class="btn btn--primary btn--lg hero__cta" href="tel:+15105027843" aria-label="Call (510) 502-7843">
           <span>Call Now</span>
-          <img src="assets/img/icon/phone-solid.svg" alt="" aria-hidden="true">
+          <img src="assets/img/icon/phone-solid.svg" alt="" aria-hidden="true" width="27" height="27" loading="lazy">
           <span>(510) 502-7843</span>
         </a>
 
@@ -215,7 +370,7 @@
 
           <div class="trust-bar__item">
             <div class="trust-bar__icon">
-              <img src="assets/img/icon/24-7.svg" alt="">
+              <img src="assets/img/icon/24-7.svg" alt="" width="70" height="70" loading="lazy">
             </div>
             <p class="trust-bar__title">Live answer</p>
             <p class="trust-bar__text">no phone trees</p>
@@ -223,7 +378,7 @@
 
           <div class="trust-bar__item">
             <div class="trust-bar__icon">
-              <img src="assets/img/icon/no-hidden-fees.svg" alt="">
+              <img src="assets/img/icon/no-hidden-fees.svg" alt="" width="108" height="60" loading="lazy">
             </div>
             <p class="trust-bar__title">Upfront pricing,</p>
             <p class="trust-bar__text">always</p>
@@ -231,11 +386,11 @@
 
           <div class="trust-bar__item">
             <div class="trust-bar__icon trust-bar__icon--stars" aria-hidden="true">
-              <img src="assets/img/icon/star.svg" alt="">
-              <img src="assets/img/icon/star.svg" alt="">
-              <img src="assets/img/icon/star.svg" alt="">
-              <img src="assets/img/icon/star.svg" alt="">
-              <img src="assets/img/icon/star.svg" alt="">
+              <img src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
+              <img src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
+              <img src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
+              <img src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
+              <img src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
             </div>
             <p class="trust-bar__title">Google &amp; Yelp</p>
             <p class="trust-bar__text">100+ reviews</p>
@@ -251,11 +406,11 @@
          ==================================================== -->
     <section class="services-block" data-bg="yellow">
 
-      <img class="services-block__mascot" src="assets/img/mascot/working.svg" alt="" aria-hidden="true">
+      <img class="services-block__mascot" src="assets/img/mascot/working.svg" alt="" aria-hidden="true" width="271" height="272" loading="lazy">
 
       <div class="services-block__tagline">
         <div class="services-block__portrait">
-          <img src="assets/img/services-lin.jpg" alt="Lin — LemonTree Plumbing technician">
+          <img src="assets/img/services-lin.jpg" alt="Lin — LemonTree Plumbing technician" width="800" height="800" loading="lazy">
         </div>
 
         <div class="services-block__tagline-body">
@@ -364,7 +519,7 @@
       <div class="services-block__footer">
         <p class="services-block__footer-text">Need help with your plumbing issues?</p>
         <a class="btn btn--navy btn--lg" href="tel:+15105027843" aria-label="Call (510) 502-7843">
-          <img src="assets/img/icon/phone-solid.svg" alt="" aria-hidden="true">
+          <img src="assets/img/icon/phone-solid.svg" alt="" aria-hidden="true" width="27" height="27" loading="lazy">
           <span>Call (510) 502-7843</span>
         </a>
       </div>
@@ -374,8 +529,8 @@
     <section class="service-areas" aria-labelledby="areasTitle" data-bg="light">
 
       <div class="service-areas__map" aria-hidden="true">
-        <img class="service-areas__map-bg" src="assets/img/map.jpg" alt="">
-        <img class="service-areas__map-pin" src="assets/img/icon/location-border.svg" alt="">
+        <img class="service-areas__map-bg" src="assets/img/map.jpg" alt="" width="1500" height="1500" loading="lazy">
+        <img class="service-areas__map-pin" src="assets/img/icon/location-border.svg" alt="" width="82" height="82" loading="lazy">
       </div>
 
       <div class="service-areas__content">
@@ -417,7 +572,7 @@
         </ul>
 
         <a class="btn btn--primary btn--lg service-areas__cta" href="tel:+15105027843" aria-label="Call (510) 502-7843">
-          <img src="assets/img/icon/phone-solid.svg" alt="" aria-hidden="true">
+          <img src="assets/img/icon/phone-solid.svg" alt="" aria-hidden="true" width="27" height="27" loading="lazy">
           <span>Call (510) 502-7843</span>
         </a>
       </div>
@@ -433,7 +588,7 @@
         <span class="why__title-line">Choose</span>
         <span class="why__title-line">
           Lemon
-          <img class="why__title-lemon" src="assets/img/icon/lemon.svg" alt="" aria-hidden="true">
+          <img class="why__title-lemon" src="assets/img/icon/lemon.svg" alt="" aria-hidden="true" width="100" height="118" loading="lazy">
           Tree
         </span>
       </h2>
@@ -441,32 +596,32 @@
       <ul class="why__features">
 
         <li class="why-feature">
-          <img class="why-feature__icon" src="assets/img/icon/location.svg" alt="">
+          <img class="why-feature__icon" src="assets/img/icon/location.svg" alt="" width="70" height="70" loading="lazy">
           <h3 class="h3 why-feature__title">Local &amp; Service-Oriented</h3>
           <p class="why-feature__desc">We live and work in your neighborhood — every job is personal.</p>
         </li>
 
         <li class="why-feature">
-          <img class="why-feature__icon" src="assets/img/icon/price.svg" alt="">
+          <img class="why-feature__icon" src="assets/img/icon/price.svg" alt="" width="70" height="70" loading="lazy">
           <h3 class="h3 why-feature__title">Honest, Upfront Pricing</h3>
           <p class="why-feature__desc">No surprises. We explain all costs before work begins.</p>
         </li>
 
         <li class="why-feature">
-          <img class="why-feature__icon" src="assets/img/icon/communication.svg" alt="">
+          <img class="why-feature__icon" src="assets/img/icon/communication.svg" alt="" width="70" height="70" loading="lazy">
           <h3 class="h3 why-feature__title">Clear Communication</h3>
           <p class="why-feature__desc">We explain what's happening and why — no technical jargon.</p>
         </li>
 
         <li class="why-feature">
-          <img class="why-feature__icon" src="assets/img/icon/24-7.svg" alt="">
+          <img class="why-feature__icon" src="assets/img/icon/24-7.svg" alt="" width="70" height="70" loading="lazy">
           <h3 class="h3 why-feature__title">24/7 Availability</h3>
           <p class="why-feature__desc">Plumbing won't wait, and neither do we.</p>
         </li>
 
       </ul>
 
-      <img class="why__mascot" src="assets/img/mascot/thumbsup.svg" alt="" aria-hidden="true">
+      <img class="why__mascot" src="assets/img/mascot/thumbsup.svg" alt="" aria-hidden="true" width="230" height="147" loading="lazy">
 
       </div>
     </section>
@@ -478,7 +633,7 @@
 
       <div class="testimonials__intro">
         <p class="testimonials__rating">
-          <img class="testimonials__rating-star" src="assets/img/icon/star.svg" alt="5 stars">
+          <img class="testimonials__rating-star" src="assets/img/icon/star.svg" alt="5 stars" width="26" height="25" loading="lazy">
           <span class="testimonials__rating-text">5/5 based on 100+ reviews</span>
         </p>
         <p class="testimonials__desc">Here's what East Bay homeowners have shared about their experience with LemonTree Plumbing:</p>
@@ -488,171 +643,171 @@
         <ul class="slider__track">
 
           <li class="testimonial-card">
-            <img class="testimonial-card__quote-mark testimonial-card__quote-mark--open" src="assets/img/icon/quote-mark-open.svg" alt="" aria-hidden="true">
+            <img class="testimonial-card__quote-mark testimonial-card__quote-mark--open" src="assets/img/icon/quote-mark-open.svg" alt="" aria-hidden="true" width="43" height="30" loading="lazy">
             <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
             </div>
             <p class="testimonial-card__text">Responsive, punctual, reasonably priced. He documented everything with photos and sent all paperwork promptly. Wholeheartedly recommend.</p>
             <p class="testimonial-card__author"><span class="testimonial-card__author-line" aria-hidden="true"></span>Antonina S. from Google</p>
-            <img class="testimonial-card__quote-mark testimonial-card__quote-mark--close" src="assets/img/icon/quote-mark-close.svg" alt="" aria-hidden="true">
+            <img class="testimonial-card__quote-mark testimonial-card__quote-mark--close" src="assets/img/icon/quote-mark-close.svg" alt="" aria-hidden="true" width="43" height="30" loading="lazy">
           </li>
 
           <li class="testimonial-card">
-            <img class="testimonial-card__quote-mark testimonial-card__quote-mark--open" src="assets/img/icon/quote-mark-open.svg" alt="" aria-hidden="true">
+            <img class="testimonial-card__quote-mark testimonial-card__quote-mark--open" src="assets/img/icon/quote-mark-open.svg" alt="" aria-hidden="true" width="43" height="30" loading="lazy">
             <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
             </div>
             <p class="testimonial-card__text">Extremely knowledgeable, not pushy at all. Helped us make the right decision and did great work under a tight timeline.</p>
             <p class="testimonial-card__author"><span class="testimonial-card__author-line" aria-hidden="true"></span>Ash B. from Yelp</p>
-            <img class="testimonial-card__quote-mark testimonial-card__quote-mark--close" src="assets/img/icon/quote-mark-close.svg" alt="" aria-hidden="true">
+            <img class="testimonial-card__quote-mark testimonial-card__quote-mark--close" src="assets/img/icon/quote-mark-close.svg" alt="" aria-hidden="true" width="43" height="30" loading="lazy">
           </li>
 
           <li class="testimonial-card">
-            <img class="testimonial-card__quote-mark testimonial-card__quote-mark--open" src="assets/img/icon/quote-mark-open.svg" alt="" aria-hidden="true">
+            <img class="testimonial-card__quote-mark testimonial-card__quote-mark--open" src="assets/img/icon/quote-mark-open.svg" alt="" aria-hidden="true" width="43" height="30" loading="lazy">
             <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
             </div>
             <p class="testimonial-card__text">Ramon came out same day, fixed our shower and found another issue we didn't even know about. Fair pricing, truly awesome service.</p>
             <p class="testimonial-card__author"><span class="testimonial-card__author-line" aria-hidden="true"></span>Krissie B. from Yelp</p>
-            <img class="testimonial-card__quote-mark testimonial-card__quote-mark--close" src="assets/img/icon/quote-mark-close.svg" alt="" aria-hidden="true">
+            <img class="testimonial-card__quote-mark testimonial-card__quote-mark--close" src="assets/img/icon/quote-mark-close.svg" alt="" aria-hidden="true" width="43" height="30" loading="lazy">
           </li>
 
           <li class="testimonial-card">
-            <img class="testimonial-card__quote-mark testimonial-card__quote-mark--open" src="assets/img/icon/quote-mark-open.svg" alt="" aria-hidden="true">
+            <img class="testimonial-card__quote-mark testimonial-card__quote-mark--open" src="assets/img/icon/quote-mark-open.svg" alt="" aria-hidden="true" width="43" height="30" loading="lazy">
             <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
             </div>
             <p class="testimonial-card__text">Never pushed the most expensive option. New water heater installed same day — couldn't be happier.</p>
             <p class="testimonial-card__author"><span class="testimonial-card__author-line" aria-hidden="true"></span>Antonina S. from Google</p>
-            <img class="testimonial-card__quote-mark testimonial-card__quote-mark--close" src="assets/img/icon/quote-mark-close.svg" alt="" aria-hidden="true">
+            <img class="testimonial-card__quote-mark testimonial-card__quote-mark--close" src="assets/img/icon/quote-mark-close.svg" alt="" aria-hidden="true" width="43" height="30" loading="lazy">
           </li>
 
           <li class="testimonial-card">
-            <img class="testimonial-card__quote-mark testimonial-card__quote-mark--open" src="assets/img/icon/quote-mark-open.svg" alt="" aria-hidden="true">
+            <img class="testimonial-card__quote-mark testimonial-card__quote-mark--open" src="assets/img/icon/quote-mark-open.svg" alt="" aria-hidden="true" width="43" height="30" loading="lazy">
             <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
             </div>
             <p class="testimonial-card__text">(TBD)</p>
             <p class="testimonial-card__author"><span class="testimonial-card__author-line" aria-hidden="true"></span>(TBD)</p>
-            <img class="testimonial-card__quote-mark testimonial-card__quote-mark--close" src="assets/img/icon/quote-mark-close.svg" alt="" aria-hidden="true">
+            <img class="testimonial-card__quote-mark testimonial-card__quote-mark--close" src="assets/img/icon/quote-mark-close.svg" alt="" aria-hidden="true" width="43" height="30" loading="lazy">
           </li>
 
           <li class="testimonial-card">
-            <img class="testimonial-card__quote-mark testimonial-card__quote-mark--open" src="assets/img/icon/quote-mark-open.svg" alt="" aria-hidden="true">
+            <img class="testimonial-card__quote-mark testimonial-card__quote-mark--open" src="assets/img/icon/quote-mark-open.svg" alt="" aria-hidden="true" width="43" height="30" loading="lazy">
             <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
             </div>
             <p class="testimonial-card__text">(TBD)</p>
             <p class="testimonial-card__author"><span class="testimonial-card__author-line" aria-hidden="true"></span>(TBD)</p>
-            <img class="testimonial-card__quote-mark testimonial-card__quote-mark--close" src="assets/img/icon/quote-mark-close.svg" alt="" aria-hidden="true">
+            <img class="testimonial-card__quote-mark testimonial-card__quote-mark--close" src="assets/img/icon/quote-mark-close.svg" alt="" aria-hidden="true" width="43" height="30" loading="lazy">
           </li>
 
           <li class="testimonial-card">
-            <img class="testimonial-card__quote-mark testimonial-card__quote-mark--open" src="assets/img/icon/quote-mark-open.svg" alt="" aria-hidden="true">
+            <img class="testimonial-card__quote-mark testimonial-card__quote-mark--open" src="assets/img/icon/quote-mark-open.svg" alt="" aria-hidden="true" width="43" height="30" loading="lazy">
             <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
             </div>
             <p class="testimonial-card__text">(TBD)</p>
             <p class="testimonial-card__author"><span class="testimonial-card__author-line" aria-hidden="true"></span>(TBD)</p>
-            <img class="testimonial-card__quote-mark testimonial-card__quote-mark--close" src="assets/img/icon/quote-mark-close.svg" alt="" aria-hidden="true">
+            <img class="testimonial-card__quote-mark testimonial-card__quote-mark--close" src="assets/img/icon/quote-mark-close.svg" alt="" aria-hidden="true" width="43" height="30" loading="lazy">
           </li>
 
           <li class="testimonial-card">
-            <img class="testimonial-card__quote-mark testimonial-card__quote-mark--open" src="assets/img/icon/quote-mark-open.svg" alt="" aria-hidden="true">
+            <img class="testimonial-card__quote-mark testimonial-card__quote-mark--open" src="assets/img/icon/quote-mark-open.svg" alt="" aria-hidden="true" width="43" height="30" loading="lazy">
             <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
             </div>
             <p class="testimonial-card__text">(TBD)</p>
             <p class="testimonial-card__author"><span class="testimonial-card__author-line" aria-hidden="true"></span>(TBD)</p>
-            <img class="testimonial-card__quote-mark testimonial-card__quote-mark--close" src="assets/img/icon/quote-mark-close.svg" alt="" aria-hidden="true">
+            <img class="testimonial-card__quote-mark testimonial-card__quote-mark--close" src="assets/img/icon/quote-mark-close.svg" alt="" aria-hidden="true" width="43" height="30" loading="lazy">
           </li>
 
           <li class="testimonial-card">
-            <img class="testimonial-card__quote-mark testimonial-card__quote-mark--open" src="assets/img/icon/quote-mark-open.svg" alt="" aria-hidden="true">
+            <img class="testimonial-card__quote-mark testimonial-card__quote-mark--open" src="assets/img/icon/quote-mark-open.svg" alt="" aria-hidden="true" width="43" height="30" loading="lazy">
             <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
             </div>
             <p class="testimonial-card__text">(TBD)</p>
             <p class="testimonial-card__author"><span class="testimonial-card__author-line" aria-hidden="true"></span>(TBD)</p>
-            <img class="testimonial-card__quote-mark testimonial-card__quote-mark--close" src="assets/img/icon/quote-mark-close.svg" alt="" aria-hidden="true">
+            <img class="testimonial-card__quote-mark testimonial-card__quote-mark--close" src="assets/img/icon/quote-mark-close.svg" alt="" aria-hidden="true" width="43" height="30" loading="lazy">
           </li>
 
           <li class="testimonial-card">
-            <img class="testimonial-card__quote-mark testimonial-card__quote-mark--open" src="assets/img/icon/quote-mark-open.svg" alt="" aria-hidden="true">
+            <img class="testimonial-card__quote-mark testimonial-card__quote-mark--open" src="assets/img/icon/quote-mark-open.svg" alt="" aria-hidden="true" width="43" height="30" loading="lazy">
             <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
             </div>
             <p class="testimonial-card__text">(TBD)</p>
             <p class="testimonial-card__author"><span class="testimonial-card__author-line" aria-hidden="true"></span>(TBD)</p>
-            <img class="testimonial-card__quote-mark testimonial-card__quote-mark--close" src="assets/img/icon/quote-mark-close.svg" alt="" aria-hidden="true">
+            <img class="testimonial-card__quote-mark testimonial-card__quote-mark--close" src="assets/img/icon/quote-mark-close.svg" alt="" aria-hidden="true" width="43" height="30" loading="lazy">
           </li>
 
           <li class="testimonial-card">
-            <img class="testimonial-card__quote-mark testimonial-card__quote-mark--open" src="assets/img/icon/quote-mark-open.svg" alt="" aria-hidden="true">
+            <img class="testimonial-card__quote-mark testimonial-card__quote-mark--open" src="assets/img/icon/quote-mark-open.svg" alt="" aria-hidden="true" width="43" height="30" loading="lazy">
             <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
             </div>
             <p class="testimonial-card__text">(TBD)</p>
             <p class="testimonial-card__author"><span class="testimonial-card__author-line" aria-hidden="true"></span>(TBD)</p>
-            <img class="testimonial-card__quote-mark testimonial-card__quote-mark--close" src="assets/img/icon/quote-mark-close.svg" alt="" aria-hidden="true">
+            <img class="testimonial-card__quote-mark testimonial-card__quote-mark--close" src="assets/img/icon/quote-mark-close.svg" alt="" aria-hidden="true" width="43" height="30" loading="lazy">
           </li>
 
           <li class="testimonial-card">
-            <img class="testimonial-card__quote-mark testimonial-card__quote-mark--open" src="assets/img/icon/quote-mark-open.svg" alt="" aria-hidden="true">
+            <img class="testimonial-card__quote-mark testimonial-card__quote-mark--open" src="assets/img/icon/quote-mark-open.svg" alt="" aria-hidden="true" width="43" height="30" loading="lazy">
             <div class="testimonial-card__stars" aria-label="5 out of 5 stars">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
-              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
+              <img class="testimonial-card__star" src="assets/img/icon/star.svg" alt="" width="26" height="25" loading="lazy">
             </div>
             <p class="testimonial-card__text">(TBD)</p>
             <p class="testimonial-card__author"><span class="testimonial-card__author-line" aria-hidden="true"></span>(TBD)</p>
-            <img class="testimonial-card__quote-mark testimonial-card__quote-mark--close" src="assets/img/icon/quote-mark-close.svg" alt="" aria-hidden="true">
+            <img class="testimonial-card__quote-mark testimonial-card__quote-mark--close" src="assets/img/icon/quote-mark-close.svg" alt="" aria-hidden="true" width="43" height="30" loading="lazy">
           </li>
 
         </ul>
@@ -663,21 +818,21 @@
       <ul class="testimonials__badges">
         <li>
           <a class="testimonials__badge-link" href="https://www.google.com/maps/place/LemonTree+Plumbing/@37.829444,-122.2781361,11z/data=!4m6!3m5!1s0x655022a3086334b7:0x690fb8fb0ccb1c53!8m2!3d37.829444!4d-122.2781361!16s%2Fg%2F11v_29n6h7?entry=ttu" target="_blank" rel="noopener noreferrer" aria-label="Read our reviews on Google">
-            <img class="testimonials__badge" src="assets/img/badges/google-review.png" alt="Google Reviews 5 stars">
+            <img class="testimonials__badge" src="assets/img/badges/google-review.png" alt="Google Reviews 5 stars" width="640" height="220" loading="lazy">
           </a>
         </li>
         <li>
           <a class="testimonials__badge-link" href="https://nextdoor.com/pages/lemontree-plumbing-berkeley-ca/" target="_blank" rel="noopener noreferrer" aria-label="Read our reviews on Nextdoor">
-            <img class="testimonials__badge" src="assets/img/badges/nextdoor.png" alt="Nextdoor">
+            <img class="testimonials__badge" src="assets/img/badges/nextdoor.png" alt="Nextdoor" width="640" height="248" loading="lazy">
           </a>
         </li>
         <li>
           <a class="testimonials__badge-link" href="https://www.yelp.com/biz/lemontree-plumbing-berkeley-2" target="_blank" rel="noopener noreferrer" aria-label="Read our reviews on Yelp">
-            <img class="testimonials__badge" src="assets/img/badges/yelp.png" alt="Yelp">
+            <img class="testimonials__badge" src="assets/img/badges/yelp.png" alt="Yelp" width="640" height="220" loading="lazy">
           </a>
         </li>
         <li>
-          <img class="testimonials__badge" src="assets/img/badges/bbb-rating.png" alt="Better Business Bureau A+ rating">
+          <img class="testimonials__badge" src="assets/img/badges/bbb-rating.png" alt="Better Business Bureau A+ rating" width="640" height="220" loading="lazy">
         </li>
       </ul>
 
@@ -696,12 +851,12 @@
 
         <div class="gallery__slider">
           <ul class="gallery__grid">
-            <li class="gallery__item gallery__item--lg"><img src="assets/img/gallery/gallery-thumb-1.jpg" alt="Plumbing project 1"></li>
-            <li class="gallery__item gallery__item--sm"><img src="assets/img/gallery/gallery-thumb-2.jpg" alt="Plumbing project 2"></li>
-            <li class="gallery__item gallery__item--md"><img src="assets/img/gallery/gallery-thumb-3.jpg" alt="Plumbing project 3"></li>
-            <li class="gallery__item gallery__item--md"><img src="assets/img/gallery/gallery-thumb-4.jpg" alt="Plumbing project 4"></li>
-            <li class="gallery__item gallery__item--sm"><img src="assets/img/gallery/gallery-thumb-5.jpg" alt="Plumbing project 5"></li>
-            <li class="gallery__item gallery__item--lg"><img src="assets/img/gallery/gallery-thumb-6.jpg" alt="Plumbing project 6"></li>
+            <li class="gallery__item gallery__item--lg"><img src="assets/img/gallery/gallery-thumb-1.jpg" alt="Plumbing project 1" width="1194" height="816" loading="lazy"></li>
+            <li class="gallery__item gallery__item--sm"><img src="assets/img/gallery/gallery-thumb-2.jpg" alt="Plumbing project 2" width="564" height="816" loading="lazy"></li>
+            <li class="gallery__item gallery__item--md"><img src="assets/img/gallery/gallery-thumb-3.jpg" alt="Plumbing project 3" width="879" height="816" loading="lazy"></li>
+            <li class="gallery__item gallery__item--md"><img src="assets/img/gallery/gallery-thumb-4.jpg" alt="Plumbing project 4" width="879" height="816" loading="lazy"></li>
+            <li class="gallery__item gallery__item--sm"><img src="assets/img/gallery/gallery-thumb-5.jpg" alt="Plumbing project 5" width="564" height="816" loading="lazy"></li>
+            <li class="gallery__item gallery__item--lg"><img src="assets/img/gallery/gallery-thumb-6.jpg" alt="Plumbing project 6" width="1194" height="816" loading="lazy"></li>
           </ul>
         </div>
 
@@ -797,10 +952,86 @@
 
   </main>
 
-  <div id="inject-footer"></div>
+  <!-- FOOTER:start (generated from components/) -->
+<!-- ==========================================================
+     footer.inc — 共用 Footer
+     Injected by global.js fetch → #inject-footer
+     ========================================================== -->
+<footer class="site-footer" data-bg="dark">
+  <div class="site-footer__container">
+
+    <!-- LEFT: brand block (logo + phone + cta + lic) -->
+    <div class="site-footer__brand">
+
+      <a class="site-footer__logo-link" href="./" aria-label="LemonTree Plumbing — Home">
+        <img class="site-footer__logo" src="assets/img/lemontree-plumbing-logo.svg" alt="LemonTree Plumbing" width="152" height="152" loading="lazy">
+      </a>
+
+      <!-- Phone block (to the right of the logo on desktop) -->
+      <div class="site-footer__contact">
+        <a class="link-phone site-footer__phone" href="tel:+15105027843">(510) 502-7843</a>
+        <a class="site-footer__cta" href="tel:+15105027843" aria-label="Call (510) 502-7843">
+          <span class="site-footer__cta-icon" aria-hidden="true">
+            <img src="assets/img/icon/phone-solid.svg" alt="" width="27" height="27" loading="lazy">
+          </span>
+          <span>Call Now</span>
+        </a>
+      </div>
+
+      <p class="site-footer__lic">CA LIC: 1116849</p>
+    </div>
+
+    <!-- RIGHT: link columns (desktop only) -->
+    <nav class="site-footer__nav" aria-label="Footer">
+
+      <div class="site-footer__col">
+        <h3 class="site-footer__col-title">Plumbing Service</h3>
+        <ul class="site-footer__list">
+          <li><a class="site-footer__link" href="plumbing-service/drain-cleaning-repairs/">Drain &amp; Sewer</a></li>
+          <li><a class="site-footer__link" href="plumbing-service/water-fixture-repair-installation/">Water Fixture Repair</a></li>
+          <li><a class="site-footer__link" href="plumbing-service/gas-line-services/">Gas Line Services</a></li>
+          <li><a class="site-footer__link" href="plumbing-service/water-pipe-repair-replacement/">Water Repipe</a></li>
+          <li><a class="site-footer__link" href="plumbing-service/hydronic-radiant-heating/">Hydronic Radiant Heating</a></li>
+          <li><a class="site-footer__link" href="water-heater-services/">Water Heater Services</a></li>
+        </ul>
+      </div>
+
+      <div class="site-footer__col">
+        <h3 class="site-footer__col-title">Service Areas</h3>
+        <ul class="site-footer__list">
+          <li><a class="site-footer__link" href="service-areas/berkeley/">Berkeley</a></li>
+          <li><a class="site-footer__link" href="service-areas/albany/">Albany</a></li>
+          <li><a class="site-footer__link" href="service-areas/el-cerrito/">El Cerrito</a></li>
+          <li><a class="site-footer__link" href="service-areas/kensington/">Kensington</a></li>
+          <li><a class="site-footer__link" href="service-areas/north-oakland/">North Oakland</a></li>
+          <li><a class="site-footer__link" href="service-areas/alameda/">Alameda</a></li>
+          <li><a class="site-footer__link" href="service-areas/emeryville/">Emeryville</a></li>
+          <li><a class="site-footer__link" href="service-areas/el-sobrante/">El Sobrante</a></li>
+          <li><a class="site-footer__link" href="service-areas/pinole/">Pinole</a></li>
+          <li><a class="site-footer__link" href="service-areas/orinda/">Orinda</a></li>
+        </ul>
+      </div>
+
+      <div class="site-footer__col">
+        <h3 class="site-footer__col-title">Company</h3>
+        <ul class="site-footer__list">
+          <li><a class="site-footer__link" href="about-us/">About Us</a></li>
+          <li><a class="site-footer__link" href="reviews/">Reviews</a></li>
+          <li><a class="site-footer__link" href="gallery/">Gallery</a></li>
+          <li><a class="site-footer__link" href="contact-us/">Contact Us</a></li>
+        </ul>
+      </div>
+
+    </nav>
+
+    <p class="site-footer__copyright">&copy; <span data-year>2026</span> LemonTree Plumbing. All rights reserved.</p>
+
+  </div>
+</footer>
+<!-- FOOTER:end -->
 
   <a class="floating-cta" href="tel:+15105027843" aria-label="Call (510) 502-7843">
-    <img src="assets/img/icon/phone-solid.svg" alt="" aria-hidden="true">
+    <img src="assets/img/icon/phone-solid.svg" alt="" aria-hidden="true" width="27" height="27" loading="lazy">
   </a>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>

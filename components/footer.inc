@@ -9,7 +9,7 @@
     <div class="site-footer__brand">
 
       <a class="site-footer__logo-link" href="./" aria-label="LemonTree Plumbing — Home">
-        <img class="site-footer__logo" src="assets/img/lemontree-plumbing-logo.svg" alt="LemonTree Plumbing">
+        <img class="site-footer__logo" src="assets/img/lemontree-plumbing-logo.svg" alt="LemonTree Plumbing" width="152" height="152" loading="lazy">
       </a>
 
       <!-- Phone block (to the right of the logo on desktop) -->
@@ -17,7 +17,7 @@
         <a class="link-phone site-footer__phone" href="tel:+15105027843">(510) 502-7843</a>
         <a class="site-footer__cta" href="tel:+15105027843" aria-label="Call (510) 502-7843">
           <span class="site-footer__cta-icon" aria-hidden="true">
-            <img src="assets/img/icon/phone-solid.svg" alt="">
+            <img src="assets/img/icon/phone-solid.svg" alt="" width="27" height="27" loading="lazy">
           </span>
           <span>Call Now</span>
         </a>
@@ -32,12 +32,12 @@
       <div class="site-footer__col">
         <h3 class="site-footer__col-title">Plumbing Service</h3>
         <ul class="site-footer__list">
-          <li><a class="site-footer__link" href="plumbing-service/drain-cleaning-repairs/">Drain Cleaning</a></li>
+          <li><a class="site-footer__link" href="plumbing-service/drain-cleaning-repairs/">Drain &amp; Sewer</a></li>
+          <li><a class="site-footer__link" href="plumbing-service/water-fixture-repair-installation/">Water Fixture Repair</a></li>
           <li><a class="site-footer__link" href="plumbing-service/gas-line-services/">Gas Line Services</a></li>
-          <li><a class="site-footer__link" href="plumbing-service/flo-by-moen-smart-water-shut-off-valve-installation/">Smart Shut-Off Valve</a></li>
-          <li><a class="site-footer__link" href="plumbing-service/water-fixture-repair-installation/">Water Fixtures</a></li>
-          <li><a class="site-footer__link" href="plumbing-service/hydronic-radiant-heating/">Radiant Heating</a></li>
-          <li><a class="site-footer__link" href="water-heater-services/">Water Heaters</a></li>
+          <li><a class="site-footer__link" href="plumbing-service/water-pipe-repair-replacement/">Water Repipe</a></li>
+          <li><a class="site-footer__link" href="plumbing-service/hydronic-radiant-heating/">Hydronic Radiant Heating</a></li>
+          <li><a class="site-footer__link" href="water-heater-services/">Water Heater Services</a></li>
         </ul>
       </div>
 

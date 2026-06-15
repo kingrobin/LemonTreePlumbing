@@ -16,8 +16,8 @@
 
     <!-- Logo + CA LIC -->
     <a class="site-header__logo" href="./" aria-label="LemonTree Plumbing — Home">
-      <img class="site-header__logo-img site-header__logo-img--default" src="assets/img/lemontree-plumbing-logo.svg" alt="LemonTree Plumbing">
-      <img class="site-header__logo-img site-header__logo-img--scrolled" src="assets/img/lemontree-plumbing-logo-h.svg" alt="LemonTree Plumbing">
+      <img class="site-header__logo-img site-header__logo-img--default" src="assets/img/lemontree-plumbing-logo.svg" alt="LemonTree Plumbing" width="152" height="152">
+      <img class="site-header__logo-img site-header__logo-img--scrolled" src="assets/img/lemontree-plumbing-logo-h.svg" alt="LemonTree Plumbing" width="273" height="62">
       <p class="site-header__lic">CA LIC: 1116849</p>
     </a>
 
@@ -88,7 +88,7 @@
       <div class="site-header__cta">
         <a class="btn-call" href="tel:+15105027843" aria-label="Call (510) 502-7843">
           <span class="btn-call__icon">
-            <img src="assets/img/icon/phone-solid.svg" alt="" aria-hidden="true">
+            <img src="assets/img/icon/phone-solid.svg" alt="" aria-hidden="true" width="27" height="27">
           </span>
           <span class="btn-call__label">Call</span>
         </a>
