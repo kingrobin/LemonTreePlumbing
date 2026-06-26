@@ -357,7 +357,7 @@
 .sd-panel__desc p:last-child { margin-bottom: 0; }
 
 .sd-panel__listtitle {
-  margin: 2rem 0 1rem;
+  margin: 3rem 0 1rem;
   font-family: var(--font-cta, sans-serif);
   font-weight: 800;
   font-size: clamp(1.5rem, 3vw, 2.1875rem);
@@ -382,6 +382,7 @@
   line-height: 1.4;
 }
 @media (max-width: 767.98px) {
+  .sd-panel__listtitle { margin-top: 3rem; }   /* 手機版縮短上距（桌機維持 9rem）*/
   .sd-list li { font-size: 1rem; }
 }
 .sd-list li::before {
@@ -460,6 +461,7 @@
   .sd-strip__inner {
     display: flex;
     gap: 0.625rem;
+    width: 100vw;                       /* 真正滿版：避免 border-box 下右側少 48px、左右不對稱 */
     margin: 0 calc(50% - 50vw);
     padding: 0 1.5rem;
     overflow-x: auto;
@@ -518,6 +520,9 @@
   position: relative;
   width: 4.5rem;
   aspect-ratio: 100 / 118;                             /* lemon.svg 比例 */
+}
+@media (max-width: 767.98px) {
+  .sd-feature__badge { width: 5.5rem; }                /* 手機版放大檸檬徽章（平板維持 4.5rem）*/
 }
 .sd-feature__badge::before {
   content: '';

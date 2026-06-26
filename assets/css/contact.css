@@ -62,7 +62,7 @@
 
 /* ≥1600：contact 白卡內距底部保留 5rem（覆蓋共用元件的 0）*/
 @media (min-width: 1600px) {
-  .page-hero--contact .hero-card__inner { padding-bottom: 5rem; }
+  .page-hero--contact .hero-card__inner {padding-top: 3rem; padding-bottom: 3rem; }
 }
 
 /* ============================================================

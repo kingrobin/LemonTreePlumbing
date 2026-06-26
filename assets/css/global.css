@@ -2065,7 +2065,9 @@ body.is-menu-open { overflow: hidden; }
   .site-header.is-scrolled .site-header__phone:hover { color: var(--color-yellow-dark, #D4A017); }
   .site-header__inner {
     max-width: 100%;
-    padding: 0 2rem;
+    /* 對齊內容 1366 欄（同 --edge-pad 公式），但下限放寬到 2rem：
+       窄桌機(1280–1366)nav 較擠，保留小邊距避免斷行；≥1440 起與內容同寬、無斷點跳動 */
+    padding: 0 max(2rem, calc((100vw - var(--content-max)) / 2));
     align-items: center;
     justify-content: space-between;
   }
@@ -2103,20 +2105,27 @@ body.is-menu-open { overflow: hidden; }
   .site-header__phone { display: inline; }
 }
 
+/* 窄桌機 1280–1439：nav 空間較擠 → 收 nav 間距 + 縮小 scrolled logo，避免斷行 */
+@media (min-width: 1280px) and (max-width: 1439.98px) {
+  .site-nav__list { gap: 0.75rem; }
+  .site-header.is-scrolled .site-header__logo-img--scrolled { width: 12.5rem; }
+}
+
 @media (min-width: 1440px) {
-  .site-header__inner { padding: 0 4rem; }
   .site-header__right { gap: 2rem; }
   .site-nav__list      { gap: 1.5rem; }
 }
 
-/* ≥1600px — match Figma 1728 proportions */
+/* ≥1600px — padding 由 --edge-pad 處理（對齊內容 1366 欄），這裡只放間距 */
 @media (min-width: 1600px) {
-  .site-header__inner { padding: 0 11.75rem 0 11.3125rem; }
   .site-header__right { gap: 2.5rem; }
   .site-nav__list      { gap: 2rem; }
 }
 
+/* ≥1920：大解析度恢復原本較大字級/間距，並把 header 欄放寬到 --container-max
+   (1552→1800，比 1366 寬)，讓大字放得下、不斷行 */
 @media (min-width: 1920px) {
+  .site-header__inner { padding: 0 max(2rem, calc((100vw - var(--container-max)) / 2)); }
   .site-nav__link     { font-size: 1.125rem; }
   .site-nav__list     { gap: 2.5rem; }
   .site-header__phone { font-size: 1.5rem; }

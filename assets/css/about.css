@@ -51,7 +51,7 @@
   }
 }
 @media (min-width: 1600px) {
-  .page-hero--about .hero-card__inner { padding-bottom: 5rem; }
+  .page-hero--about .hero-card__inner { padding-bottom: 3rem; }
 }
 
 /* ============================================================
