@@ -1276,12 +1276,12 @@ body.is-menu-open { overflow: hidden; }
   background-size: cover;
   background-position: center;
 }
-.service-card__bg[data-bg="drain"]   { background-image: url('../img/services/drain-sewer.jpg'); }
-.service-card__bg[data-bg="fixture"] { background-image: url('../img/services/water-fixture-repair.jpg'); }
-.service-card__bg[data-bg="gas"]     { background-image: url('../img/services/gas-line.jpg'); }
-.service-card__bg[data-bg="repipe"]  { background-image: url('../img/services/water-repipe.jpg'); }
-.service-card__bg[data-bg="radiant"] { background-image: url('../img/services/hydronic-radiant-heating.jpg'); }
-.service-card__bg[data-bg="heater"]  { background-image: url('../img/services/water-heater.jpg'); }
+.service-card__bg[data-bg="drain"]   { background-image: url('../img/service/drain-cleaning-repairs/cover.jpg'); }
+.service-card__bg[data-bg="fixture"] { background-image: url('../img/service/water-fixture-repair-installation/cover.jpg'); }
+.service-card__bg[data-bg="gas"]     { background-image: url('../img/service/gas-line-services/cover.jpg'); }
+.service-card__bg[data-bg="repipe"]  { background-image: url('../img/service/water-pipe-repair-replacement/cover.jpg'); }
+.service-card__bg[data-bg="radiant"] { background-image: url('../img/service/hydronic-radiant-heating/cover.jpg'); }
+.service-card__bg[data-bg="heater"]  { background-image: url('../img/service/water-heater-services/cover.jpg'); }
 
 .service-card__caption {
   display: flex;
