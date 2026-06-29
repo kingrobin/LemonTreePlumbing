@@ -526,7 +526,7 @@ body.is-menu-open { overflow: hidden; }
   .areas-mini__title { font-size: clamp(1.75rem, 2.5vw, 2.25rem); text-align: left; }
 }
 @media (min-width: 1280px) {
-  .areas-mini { padding: 3.5rem 4rem; }
+  .areas-mini { padding: 5.5rem 4rem; }
   .areas-mini__inner { gap: 4rem; }
 }
 
@@ -2374,4 +2374,3 @@ body.is-menu-open { overflow: hidden; }
     text-align: left;
   }
 }
-
