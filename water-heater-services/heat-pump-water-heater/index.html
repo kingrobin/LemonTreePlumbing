@@ -392,15 +392,20 @@
       </div>
     </section>
 
-    <section class="sd-strip" aria-label="Recent projects" data-bg="light">
-      <div class="sd-strip__inner">
-        <div class="sd-strip__item sd-strip__item--landscape"><img src="../../assets/img/service/heat-pump-water-heater/2.jpg" alt="CO2 heat-pump water heater system" loading="lazy" width="480" height="640"></div>
-        <div class="sd-strip__item sd-strip__item--portrait"><img src="../../assets/img/service/heat-pump-water-heater/3.jpg" alt="Tank water heater with expansion tank" loading="lazy" width="900" height="1200"></div>
-        <div class="sd-strip__item sd-strip__item--square"><img src="../../assets/img/service/heat-pump-water-heater/4.jpg" alt="Water heater with new copper piping" loading="lazy" width="900" height="1200"></div>
-      </div>
-    </section>
 
-    <section class="sd-features" aria-label="Why choose LemonTree" data-bg="light">
+    <!-- sd-strip 暫時隱藏:客戶尚無圖片。移除外層 <template> 標籤即可恢復 -->
+    <template id="sd-strip-pending">
+  <section class="sd-strip" aria-label="Recent projects" data-bg="light">
+        <div class="sd-strip__inner">
+          <div class="sd-strip__item sd-strip__item--landscape"><img src="../../assets/img/service/heat-pump-water-heater/2.jpg" alt="CO2 heat-pump water heater system" loading="lazy" width="480" height="640"></div>
+          <div class="sd-strip__item sd-strip__item--portrait"><img src="../../assets/img/service/heat-pump-water-heater/3.jpg" alt="Tank water heater with expansion tank" loading="lazy" width="900" height="1200"></div>
+          <div class="sd-strip__item sd-strip__item--square"><img src="../../assets/img/service/heat-pump-water-heater/4.jpg" alt="Water heater with new copper piping" loading="lazy" width="900" height="1200"></div>
+        </div>
+      </section>
+    </template>
+
+    <!-- 上距加大:因上方 sd-strip 暫時隱藏(恢復 strip 時可一併移除此 style)-->
+    <section class="sd-features" aria-label="Why choose LemonTree" data-bg="light" style="padding-top: 3.5rem;">
       <div class="sd-features__inner">
         <div class="sd-feature"><span class="sd-feature__badge" style="--fi: url('../../assets/img/icon/location.svg')" aria-hidden="true"></span><p class="sd-feature__text">Local &amp;<br>Service-Oriented</p></div>
         <div class="sd-feature"><span class="sd-feature__badge" style="--fi: url('../../assets/img/icon/price.svg')" aria-hidden="true"></span><p class="sd-feature__text">Honest,<br>Upfront Pricing</p></div>
@@ -463,23 +468,36 @@
       </div>
     </section>
 
-    <section class="areas-mini" aria-labelledby="areasMiniTitle" data-bg="light">
-      <div class="areas-mini__inner">
-        <h2 class="areas-mini__title" id="areasMiniTitle">Proudly Serving the East Bay</h2>
-        <ul class="areas-mini__list">
-          <li><a class="areas-mini__link" href="../../service-areas/berkeley/">Berkeley</a></li>
-          <li><a class="areas-mini__link" href="../../service-areas/albany/">Albany</a></li>
-          <li><a class="areas-mini__link" href="../../service-areas/el-cerrito/">El Cerrito</a></li>
-          <li><a class="areas-mini__link" href="../../service-areas/kensington/">Kensington</a></li>
-          <li><a class="areas-mini__link" href="../../service-areas/north-oakland/">North Oakland</a></li>
-          <li><a class="areas-mini__link" href="../../service-areas/alameda/">Alameda</a></li>
-          <li><a class="areas-mini__link" href="../../service-areas/emeryville/">Emeryville</a></li>
-          <li><a class="areas-mini__link" href="../../service-areas/el-sobrante/">El Sobrante</a></li>
-          <li><a class="areas-mini__link" href="../../service-areas/pinole/">Pinole</a></li>
-          <li><a class="areas-mini__link" href="../../service-areas/orinda/">Orinda</a></li>
-        </ul>
+    <!-- RELATED:start -->
+    <section class="related-services" data-bg="light" aria-labelledby="relatedTitle">
+      <div class="related-services__inner">
+        <h2 class="related-services__title" id="relatedTitle">Explore Our Other Services</h2>
+        <div class="related-grid">
+        <a class="related-card" href="../../plumbing-service/drain-cleaning-repairs/">
+          <span class="related-card__bg" style="background-image: url('../../assets/img/service/drain-cleaning-repairs/cover.jpg');" aria-hidden="true"></span>
+          <span class="related-card__title">Drain &amp; Sewer</span>
+        </a>
+        <a class="related-card" href="../../plumbing-service/water-fixture-repair-installation/">
+          <span class="related-card__bg" style="background-image: url('../../assets/img/service/water-fixture-repair-installation/cover.jpg');" aria-hidden="true"></span>
+          <span class="related-card__title">Water Fixture Repair</span>
+        </a>
+        <a class="related-card" href="../../plumbing-service/gas-line-services/">
+          <span class="related-card__bg" style="background-image: url('../../assets/img/service/gas-line-services/cover.jpg');" aria-hidden="true"></span>
+          <span class="related-card__title">Gas Line Services</span>
+        </a>
+        <a class="related-card" href="../../plumbing-service/water-pipe-repair-replacement/">
+          <span class="related-card__bg" style="background-image: url('../../assets/img/service/water-pipe-repair-replacement/cover.jpg');" aria-hidden="true"></span>
+          <span class="related-card__title">Water Repipe</span>
+        </a>
+        <a class="related-card" href="../../plumbing-service/hydronic-radiant-heating/">
+          <span class="related-card__bg" style="background-image: url('../../assets/img/service/hydronic-radiant-heating/cover.jpg');" aria-hidden="true"></span>
+          <span class="related-card__title">Hydronic Radiant Heating</span>
+        </a>
+        </div>
       </div>
     </section>
+
+    <!-- RELATED:end -->
 
     <section class="final-cta" data-bg="yellow" aria-labelledby="finalCtaTitle">
       <div class="final-cta__inner">

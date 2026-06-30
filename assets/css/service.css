@@ -442,7 +442,7 @@
   .sd-precision__mascot { margin-bottom: -3rem; }
 }
 @media (min-width: 1024px) {
-  .sd-precision__mascot { width: 14.375rem; margin-bottom: -4rem; }
+  .sd-precision__mascot { width: 14.375rem; margin-bottom: -6rem; }
 }
 
 .sd-strip {
@@ -564,7 +564,7 @@
     justify-content: flex-start;
   }
   .sd-hero__inner { margin-top: 5%; }
-  .sd-main { padding: 0 3rem 4rem; }
+  .sd-main { padding: 0 3rem 6rem; }
   .sd-panel {
     margin: -25rem -3.625rem 0 -3rem;
     padding: 5rem 3.625rem 1rem 3rem;
@@ -695,4 +695,55 @@
 }
 @media (min-width: 1280px) {
   .svc-showcase { margin-top: 6.25rem; padding-left: var(--edge-pad); padding-right: var(--edge-pad); }
+}
+
+/* ============================================================
+   Related Services — 底部「其他服務」橫向連結（compact:小圖 + 標題）
+   ============================================================ */
+.related-services { background: var(--color-bg-light, #F5F5F5); padding: 3rem 1.5rem; }
+.related-services__inner { width: 100%; max-width: var(--content-max, 85.3125rem); margin: 0 auto; }
+.related-services__title {
+  margin: 0 0 1.5rem;
+  font-family: var(--font-cta, sans-serif);
+  font-weight: 800;
+  font-size: clamp(1.5rem, 3vw, 2.1875rem);
+  line-height: 1.2;
+  color: var(--color-navy, #262A71);
+}
+.related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+.related-card {
+  position: relative; display: block;
+  aspect-ratio: 4 / 3;
+  border-radius: 0.875rem;
+  overflow: hidden;
+  text-decoration: none;
+  isolation: isolate;
+}
+.related-card__bg {
+  position: absolute; inset: 0; z-index: -1;
+  background: center / cover no-repeat #2a2a2a;
+  transition: transform .45s cubic-bezier(.22,1,.36,1);
+}
+.related-card:hover .related-card__bg { transform: scale(1.05); }
+.related-card::after {
+  content: ''; position: absolute; inset: 0; z-index: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 35%, rgba(0,0,0,.78) 100%);
+}
+.related-card__title {
+  position: absolute; left: 0.875rem; right: 0.875rem; bottom: 0.75rem; z-index: 1;
+  font-family: var(--font-cta, sans-serif);
+  font-weight: 800; font-size: 1.125rem; line-height: 1.15;
+  color: var(--color-white, #fff);
+}
+@media (min-width: 768px) {
+  .related-services { padding: 3.5rem 2.5rem; }
+  .related-grid { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  .related-card__title { font-size: 1.25rem; }
+}
+@media (min-width: 1024px) {
+  .related-services { padding: 4rem 3rem; }
+  .related-grid { grid-template-columns: repeat(5, 1fr); }
+}
+@media (min-width: 1280px) {
+  .related-services { padding-left: var(--edge-pad); padding-right: var(--edge-pad); }
 }
