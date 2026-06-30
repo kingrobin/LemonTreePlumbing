@@ -481,7 +481,7 @@ body.is-menu-open { overflow: hidden; }
   line-height: 1.15;
   letter-spacing: -0.01em;
   text-align: center;
-  align-self: start;
+  align-self: start;                                   /* title 垂直靠上,與 pills 第一排對齊 */
   color: var(--color-navy, #262A71);
 }
 .areas-mini__list {
