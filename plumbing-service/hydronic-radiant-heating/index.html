@@ -416,15 +416,19 @@
       </div>
     </section>
 
-    <section class="sd-strip" aria-label="Recent projects" data-bg="light">
-      <div class="sd-strip__inner">
-        <div class="sd-strip__item sd-strip__item--landscape"><img src="../../assets/img/service/hydronic-radiant-heating/2.jpg" alt="Boiler with storage tank and zone valves" loading="lazy" width="1200" height="1200"></div>
-        <div class="sd-strip__item sd-strip__item--portrait"><img src="../../assets/img/service/hydronic-radiant-heating/3.jpg" alt="Dual boilers with circulator pump" loading="lazy" width="900" height="1200"></div>
-        <div class="sd-strip__item sd-strip__item--square"><img src="../../assets/img/service/hydronic-radiant-heating/4.jpg" alt="Wall-mounted boiler with copper connections" loading="lazy" width="900" height="1200"></div>
-      </div>
-    </section>
+        <!-- sd-strip 暫時隱藏:客戶尚無圖片。移除外層 <template> 標籤即可恢復 -->
+    <template id="sd-strip-pending">
+  <section class="sd-strip" aria-label="Recent projects" data-bg="light">
+        <div class="sd-strip__inner">
+          <div class="sd-strip__item sd-strip__item--landscape"><img src="../../assets/img/service/hydronic-radiant-heating/2.jpg" alt="Boiler with storage tank and zone valves" loading="lazy" width="1200" height="1200"></div>
+          <div class="sd-strip__item sd-strip__item--portrait"><img src="../../assets/img/service/hydronic-radiant-heating/3.jpg" alt="Dual boilers with circulator pump" loading="lazy" width="900" height="1200"></div>
+          <div class="sd-strip__item sd-strip__item--square"><img src="../../assets/img/service/hydronic-radiant-heating/4.jpg" alt="Wall-mounted boiler with copper connections" loading="lazy" width="900" height="1200"></div>
+        </div>
+      </section>
+    </template>
 
-    <section class="sd-features" aria-label="Why choose LemonTree" data-bg="light">
+    <!-- 上距加大:因上方 sd-strip 暫時隱藏(恢復 strip 時可一併移除此 style)-->
+    <section class="sd-features" aria-label="Why choose LemonTree" data-bg="light" style="padding-top: 3.5rem;">
       <div class="sd-features__inner">
         <div class="sd-feature"><span class="sd-feature__badge" style="--fi: url('../../assets/img/icon/location.svg')" aria-hidden="true"></span><p class="sd-feature__text">Local &amp;<br>Service-Oriented</p></div>
         <div class="sd-feature"><span class="sd-feature__badge" style="--fi: url('../../assets/img/icon/price.svg')" aria-hidden="true"></span><p class="sd-feature__text">Honest,<br>Upfront Pricing</p></div>
@@ -521,7 +525,7 @@
     <section class="final-cta" data-bg="yellow" aria-labelledby="finalCtaTitle">
       <div class="final-cta__inner">
         <h2 class="section-title final-cta__title" id="finalCtaTitle">Ready to fix the problem?</h2>
-        <p class="final-cta__sub">Talk to a real plumber now — no phone trees, no callbacks.</p>
+        <p class="final-cta__sub">Talk to a real plumber now — no phone trees, fast response.</p>
         <a class="btn btn--white btn--lg final-cta__btn" href="tel:+15105027843" aria-label="Call (510) 502-7843">
           <img src="../../assets/img/icon/phone-solid.svg" alt="" aria-hidden="true" width="27" height="27" loading="lazy">
           <span>Call (510) 502-7843</span>

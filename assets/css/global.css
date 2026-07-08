@@ -447,7 +447,7 @@ body.is-menu-open { overflow: hidden; }
 .final-cta__sub {
   margin: 0 auto 1.75rem;
   color: var(--color-navy, #262A71);
-  max-width: 36rem;
+  max-width: 38rem;
 }
 .final-cta__btn { margin: 0 auto; }
 
