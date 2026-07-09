@@ -381,6 +381,14 @@ body.is-menu-open { overflow: hidden; }
 @media (min-width: 1600px) {
   .breadcrumb { padding-left: 11.3125rem; padding-right: 11.75rem; }
 }
+/* breadcrumb--dark(reviews / service-areas hub)：對齊下方內容欄(container-max 置中)，
+   取代基礎 breadcrumb 的固定邊距，寬螢幕才不會與內容錯位 */
+@media (min-width: 768px) {
+  .breadcrumb--dark {
+    padding-left:  max(2.5rem, calc((100vw - var(--container-max)) / 2));
+    padding-right: max(2.5rem, calc((100vw - var(--container-max)) / 2));
+  }
+}
 
 .hero-card {
   z-index: 2;
@@ -1695,6 +1703,8 @@ body.is-menu-open { overflow: hidden; }
   gap: 1.5rem;
   padding: 0.5rem 0;                              /* 給裝飾引號上下喘息，左右不溢出 */
   overflow: visible;
+  cursor: default;        /* 網格版非拖曳，取消 slider 的 grab 手勢 */
+  user-select: text;
 }
 .testimonials--grid .testimonial-card {
   flex: initial;
