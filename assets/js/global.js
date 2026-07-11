@@ -54,29 +54,55 @@
   }
 
   function initActiveNav() {
-    let path = window.location.pathname.replace(/\/+$/, '/');  /* 確保 / 結尾保留 */
-    let key;
-    const segments = path.split('/').filter(Boolean);
-    const last = segments[segments.length - 1] || '';
-    if (path === '/' || last === '' || last === 'index.html') {
-      key = 'index.html';
-    } else if (last.endsWith('.html')) {
-      key = last;
-    } else {
-      key = last + '/';
-    }
+    /* 以完整路徑比對(而非只比最後一段),否則細節頁如 /plumbing-service/drain.../
+       的 last 段(drain）永遠對不到父層連結（plumbing-service/）。
+       所有路徑先換算成「相對站台根」再比對——站台根 = 所有連結中最短的解析路徑(即 Home)。
+       如此無論站台掛在網域根、子路徑或 file:// 底下,Home 的相對路徑都會是 ''、只在首頁命中,
+       不會因為 startsWith('/…/') 把 Home 誤標成全站 active。 */
+    const norm = p => {
+      p = p.replace(/index\.html$/, '');
+      return p.endsWith('/') ? p : p + '/';
+    };
+    const abs = href => {
+      try { return norm(new URL(href, window.location.href).pathname); }
+      catch (e) { return null; }
+    };
 
-    document.querySelectorAll('.site-nav__link, .mobile-menu__link').forEach(a => {
-      const href = a.getAttribute('href') || '';
-      let hrefKey;
-      if (href === './' || href === '' || href === 'index.html') {
-        hrefKey = 'index.html';
-      } else if (href.endsWith('/')) {
-        hrefKey = href.split('/').filter(Boolean).pop() + '/';
-      } else {
-        hrefKey = href;
+    const links = Array.from(document.querySelectorAll(
+      '.site-nav__link, .site-dropdown__link, .mobile-menu__link, .mobile-menu__sublink'
+    ));
+
+    /* 站台根 = 最短的連結路徑(Home) */
+    let root = norm(window.location.pathname);
+    links.forEach(a => {
+      const p = a.getAttribute('href') && abs(a.getAttribute('href'));
+      if (p && p.length < root.length) root = p;
+    });
+    const rel = p => (p.startsWith(root) ? p.slice(root.length) : p);
+    const current = rel(norm(window.location.pathname));
+
+    links.forEach(a => {
+      const href = a.getAttribute('href');
+      if (!href) return;
+      const p = abs(href);
+      if (p == null) return;
+      const linkPath = rel(p);
+      /* 相對站台根:完全相同,或目前頁位於其下(''=Home,只在首頁命中) */
+      if (linkPath === current || (linkPath !== '' && current.startsWith(linkPath))) {
+        a.classList.add('is-active');
       }
-      if (hrefKey === key) a.classList.add('is-active');
+    });
+
+    /* 下拉子項命中時,父層(桌機 nav 連結 / 手機 toggle)也標記 active */
+    document.querySelectorAll('.site-nav__item--has-dropdown').forEach(item => {
+      if (item.querySelector('.site-dropdown__link.is-active')) {
+        item.querySelector('.site-nav__link')?.classList.add('is-active');
+      }
+    });
+    document.querySelectorAll('.mobile-menu__group').forEach(group => {
+      if (group.querySelector('.mobile-menu__sublink.is-active')) {
+        group.querySelector('.mobile-menu__toggle')?.classList.add('is-active');
+      }
     });
   }
 

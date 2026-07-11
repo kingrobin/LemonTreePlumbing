@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (window.initLightbox) {
     if (document.querySelector('.masonry')) initLightbox('.masonry');
     else if (document.querySelector('.gallery__grid')) initLightbox('.gallery__grid');
+    else if (document.querySelector('.sd-strip__inner')) initLightbox('.sd-strip__inner');  /* 服務細節頁的 3 張作品圖 */
   }
   if (document.querySelector('.faq') && window.initFAQ) {
     initFAQ();
