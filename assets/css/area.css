@@ -75,7 +75,7 @@
 @media (min-width: 1024px) {
   .area-hero { min-height: clamp(49.375rem, 70svh, 75rem); padding: 6rem 3rem 0; }   /* = contact hero 高度 */
   .area-hero .breadcrumb { top: 2.5rem; left: 3rem; right: 3rem; }
-  .area-hero__label { margin-top: 5%; }
+  .area-hero__label { margin-top: 3%; }
 }
 /* ≥1280：標題 / breadcrumb / 白卡 對齊到置中的 1366 內容欄（地圖 bg 仍滿版）*/
 @media (min-width: 1280px) {
@@ -113,11 +113,29 @@
   gap: 2.5rem;
   align-items: center;
 }
-.area-intro__aside-intro { margin: 0 0 2rem; color: var(--color-text-body); }
+.area-intro__aside-intro {
+  margin: 0 0 2rem;
+  font-size: 0.875rem;                 /* 縮小為在地補充說明,弱化為次要文字 */
+  line-height: 1.5;
+  color: var(--color-text-muted);      /* #666 灰,弱化為次要文字 */
+}
 
 @media (min-width: 1024px) {
   .area-intro { padding: 4rem 3rem; }
-  .area-intro__inner { grid-template-columns: 1fr 1fr; gap: 4rem; }
+  /* 左 icon | 右 trust-bar 同列頂端對齊,補充段落移到下方橫跨整列 */
+  .area-intro__inner {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 4rem;
+    row-gap: 2.25rem;
+    align-items: start;
+    grid-template-areas:
+      "features trust"
+      "note     note";
+  }
+  .area-intro__aside { display: contents; }   /* 拆開,讓段落與 trust-bar 成為同層 grid item */
+  .area-features { grid-area: features; }
+  .area-intro__aside .trust-bar { grid-area: trust; }
+  .area-intro__aside-intro { grid-area: note; margin: 0; }
 }
 @media (min-width: 1280px) {
   .area-intro { padding: 4rem; }
