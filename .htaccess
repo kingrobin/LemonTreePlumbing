@@ -1,0 +1,54 @@
+# ============================================================
+#  LemonTree Plumbing — static site .htaccess
+#  取代舊 WordPress 的 .htaccess(整份覆蓋)。
+#  伺服器:Hostinger / LiteSpeed(支援 .htaccess)。
+# ============================================================
+
+RewriteEngine On
+
+# ── 1. 強制 HTTPS + www(canonical 主機)──────────────────────
+#    非 https,或主機不是 www.lemontreeplumbing.com → 一次 301 導正
+RewriteCond %{HTTP_HOST} !^www\.lemontreeplumbing\.com$ [NC,OR]
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://www.lemontreeplumbing.com%{REQUEST_URI} [L,R=301]
+
+# ── 2. 舊 WordPress 網址 301 轉址 ────────────────────────────
+#    Smart Water Shut-Off 頁已併入 Water Repipe 頁
+RewriteRule ^plumbing-service/flo-by-moen-smart-water-shut-off-valve-installation/?$ https://www.lemontreeplumbing.com/plumbing-service/water-pipe-repair-replacement/ [R=301,L]
+
+#    WordPress feed → 首頁(靜態站無 feed)
+RewriteRule ^(feed|comments/feed)/?$ https://www.lemontreeplumbing.com/ [R=301,L]
+
+# ── 3. 自訂 404 ─────────────────────────────────────────────
+ErrorDocument 404 /404.html
+
+# ── 4. 關閉目錄列表 ─────────────────────────────────────────
+Options -Indexes
+
+# ── 5. 快取(靜態資源長快取;HTML 不快取以便改版即時生效)──────
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css               "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType text/javascript        "access plus 1 year"
+  ExpiresByType image/jpeg             "access plus 1 year"
+  ExpiresByType image/png              "access plus 1 year"
+  ExpiresByType image/webp             "access plus 1 year"
+  ExpiresByType image/svg+xml          "access plus 1 year"
+  ExpiresByType image/x-icon           "access plus 1 year"
+  ExpiresByType font/woff2             "access plus 1 year"
+  ExpiresByType text/html              "access plus 0 seconds"
+</IfModule>
+
+# ── 6. Gzip 壓縮 ────────────────────────────────────────────
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml \
+    application/javascript text/javascript application/json image/svg+xml
+</IfModule>
+
+# ── 7. 輕量安全標頭 ─────────────────────────────────────────
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
